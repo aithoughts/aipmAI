@@ -9,10 +9,10 @@ from crewai.utilities import I18N
 
 
 class BaseAgentTools(BaseModel, ABC):
-    """Default tools around agent delegation"""
+    """默认的代理工具"""
 
-    agents: List[BaseAgent] = Field(description="List of agents in this crew.")
-    i18n: I18N = Field(default=I18N(), description="Internationalization settings.")
+    agents: List[BaseAgent] = Field(description="此团队中的代理列表。")
+    i18n: I18N = Field(default=I18N(), description="国际化设置。")
 
     @abstractmethod
     def tools(self):
@@ -30,31 +30,31 @@ class BaseAgentTools(BaseModel, ABC):
     def delegate_work(
         self, task: str, context: str, coworker: Optional[str] = None, **kwargs
     ):
-        """Useful to delegate a specific task to a coworker passing all necessary context and names."""
+        """用于将特定任务委托给同事，并传递所有必要的上下文和名称。"""
         coworker = self._get_coworker(coworker, **kwargs)
         return self._execute(coworker, task, context)
 
     def ask_question(
         self, question: str, context: str, coworker: Optional[str] = None, **kwargs
     ):
-        """Useful to ask a question, opinion or take from a coworker passing all necessary context and names."""
+        """用于向同事询问问题、征求意见或获取信息，并传递所有必要的上下文和名称。"""
         coworker = self._get_coworker(coworker, **kwargs)
         return self._execute(coworker, question, context)
 
     def _execute(
         self, agent_name: Union[str, None], task: str, context: Union[str, None]
     ):
-        """Execute the command."""
+        """执行命令。"""
         try:
             if agent_name is None:
                 agent_name = ""
 
-            # It is important to remove the quotes from the agent name.
-            # The reason we have to do this is because less-powerful LLM's
-            # have difficulty producing valid JSON.
-            # As a result, we end up with invalid JSON that is truncated like this:
+            # 从代理名称中删除引号很重要。
+            # 我们必须这样做的原因是，功能较弱的 LLM
+            # 难以生成有效的 JSON。
+            # 结果，我们最终得到了像这样被截断的无效 JSON：
             # {"task": "....", "coworker": "....
-            # when it should look like this:
+            # 而它应该是这样的：
             # {"task": "....", "coworker": "...."}
             agent_name = agent_name.casefold().replace('"', "").replace("\n", "")
 
@@ -81,6 +81,6 @@ class BaseAgentTools(BaseModel, ABC):
         task_with_assigned_agent = Task(  # type: ignore # Incompatible types in assignment (expression has type "Task", variable has type "str")
             description=task,
             agent=agent,
-            expected_output="Your best answer to your coworker asking you this, accounting for the context shared.",
+            expected_output="考虑到共享的上下文，你对同事问你的这个问题的最佳答案是什么。",
         )
         return agent.execute_task(task_with_assigned_agent, context)

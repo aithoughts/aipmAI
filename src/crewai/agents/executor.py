@@ -46,25 +46,25 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
         inputs: Dict[str, str],
         run_manager: Optional[CallbackManagerForChainRun] = None,
     ) -> Dict[str, Any]:
-        """Run text through and get agent response."""
-        # Construct a mapping of tool name to tool for easy lookup
+        """运行文本并获取代理响应。"""
+        # 构造一个工具名称到工具的映射，以便于查找
         name_to_tool_map = {tool.name: tool for tool in self.tools}
-        # We construct a mapping from each tool to a color, used for logging.
+        # 我们构造了一个从每个工具到颜色的映射，用于日志记录。
         color_mapping = get_color_mapping(
             [tool.name.casefold() for tool in self.tools],
             excluded_colors=["green", "red"],
         )
         intermediate_steps: List[Tuple[AgentAction, str]] = []
-        # Allowing human input given task setting
+        # 允许根据任务设置进行人工输入
         if self.task.human_input:
             self.should_ask_for_human_input = True
 
-        # Let's start tracking the number of iterations and time elapsed
+        # 让我们开始跟踪迭代次数和经过的时间
         self.iterations = 0
         time_elapsed = 0.0
         start_time = time.time()
 
-        # We now enter the agent loop (until it returns something).
+        # 我们现在进入代理循环（直到它返回一些东西）。
         while self._should_continue(self.iterations, time_elapsed):
             if not self.request_within_rpm_limit or self.request_within_rpm_limit():
                 next_step_output = self._take_next_step(
@@ -79,7 +79,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
                     self.step_callback(next_step_output)
 
                 if isinstance(next_step_output, AgentFinish):
-                    # Creating long term memory
+                    # 创建长期记忆
                     create_long_term_memory = threading.Thread(
                         target=self._create_long_term_memory, args=(next_step_output,)
                     )
@@ -93,7 +93,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
 
                 if len(next_step_output) == 1:
                     next_step_action = next_step_output[0]
-                    # See if tool should return directly
+                    # 查看工具是否应该直接返回
                     tool_return = self._get_tool_return(next_step_action)
                     if tool_return is not None:
                         return self._return(
@@ -116,9 +116,9 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
         intermediate_steps: List[Tuple[AgentAction, str]],
         run_manager: Optional[CallbackManagerForChainRun] = None,
     ) -> Iterator[Union[AgentFinish, AgentAction, AgentStep]]:
-        """Take a single step in the thought-action-observation loop.
+        """在思考-行动-观察循环中迈出一步。
 
-        Override this to take control of how the agent makes and acts on choices.
+        覆盖此方法以控制代理如何做出选择并采取行动。
         """
         try:
             if self._should_force_answer():
@@ -130,7 +130,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
 
             intermediate_steps = self._prepare_intermediate_steps(intermediate_steps)
 
-            # Call the LLM to see what to do.
+            # 调用 LLM 以查看要做什么。
             output = self.agent.plan(  # type: ignore #  Incompatible types in assignment (expression has type "AgentAction | AgentFinish | list[AgentAction]", variable has type "AgentAction")
                 intermediate_steps,
                 callbacks=run_manager.get_child() if run_manager else None,
@@ -144,10 +144,10 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
                 raise_error = False
             if raise_error:
                 raise ValueError(
-                    "An output parsing error occurred. "
-                    "In order to pass this error back to the agent and have it try "
-                    "again, pass `handle_parsing_errors=True` to the AgentExecutor. "
-                    f"This is the error: {str(e)}"
+                    "发生输出解析错误。 "
+                    "为了将此错误传递回代理并让其重试，"
+                    "请将 `handle_parsing_errors=True` 传递给 AgentExecutor。 "
+                    f"错误如下：{str(e)}"
                 )
             str(e)
             if isinstance(self.handle_parsing_errors, bool):
@@ -161,7 +161,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
             elif callable(self.handle_parsing_errors):
                 observation = f"\n{self.handle_parsing_errors(e)}"
             else:
-                raise ValueError("Got unexpected type of `handle_parsing_errors`")
+                raise ValueError("获取到意外类型的 `handle_parsing_errors`")
             output = AgentAction("_Exception", observation, "")
 
             if run_manager:
@@ -185,7 +185,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
             yield AgentStep(action=output, observation=observation)
             return
 
-        # If the tool chosen is the finishing tool, then we end and return.
+        # 如果选择的工具是完成工具，则结束并返回。
         if isinstance(output, AgentFinish):
             if self.should_ask_for_human_input:
                 human_feedback = self._ask_human_input(output.return_values["output"])
@@ -193,7 +193,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
                 if self.crew and self.crew._train:
                     self._handle_crew_training_output(output, human_feedback)
 
-                # Making sure we only ask for it once, so disabling for the next thought loop
+                # 确保我们只询问一次，因此在下一次思考循环中禁用
                 self.should_ask_for_human_input = False
                 action = AgentAction(
                     tool="Human Input", tool_input=human_feedback, log=output.log
@@ -256,7 +256,7 @@ class CrewAgentExecutor(AgentExecutor, CrewAgentExecutorMixin):
     def _handle_crew_training_output(
         self, output: AgentFinish, human_feedback: str | None = None
     ) -> None:
-        """Function to handle the process of the training data."""
+        """处理训练数据的函数。"""
         agent_id = str(self.crew_agent.id)
 
         if (

@@ -6,13 +6,13 @@ from .cache.cache_handler import CacheHandler
 
 
 class ToolsHandler:
-    """Callback handler for tool usage."""
+    """工具使用情况的回调处理程序。"""
 
     last_used_tool: ToolCalling = {}  # type: ignore # BUG?: Incompatible types in assignment (expression has type "Dict[...]", variable has type "ToolCalling")
     cache: Optional[CacheHandler]
 
     def __init__(self, cache: Optional[CacheHandler] = None):
-        """Initialize the callback handler."""
+        """初始化回调处理程序。"""
         self.cache = cache
         self.last_used_tool = {}  # type: ignore # BUG?: same as above
 
@@ -22,7 +22,7 @@ class ToolsHandler:
         output: str,
         should_cache: bool = True,
     ) -> Any:
-        """Run when tool ends running."""
+        """在工具运行结束时运行。"""
         self.last_used_tool = calling  # type: ignore # BUG?: Incompatible types in assignment (expression has type "Union[ToolCalling, InstructorToolCalling]", variable has type "ToolCalling")
         if self.cache and should_cache and calling.tool_name != CacheTools().name:
             self.cache.add(

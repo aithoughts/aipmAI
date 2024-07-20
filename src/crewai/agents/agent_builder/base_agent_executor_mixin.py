@@ -25,13 +25,13 @@ class CrewAgentExecutorMixin:
     _i18n: I18N
 
     def _should_force_answer(self) -> bool:
-        """Determine if a forced answer is required based on iteration count."""
+        """根据迭代次数确定是否需要强制回答。"""
         return (
             self.iterations == self.force_answer_max_iterations
         ) and not self.have_forced_answer
 
     def _create_short_term_memory(self, output) -> None:
-        """Create and save a short-term memory item if conditions are met."""
+        """如果满足条件，则创建并保存短期记忆项。"""
         if (
             self.crew
             and self.crew_agent
@@ -52,11 +52,11 @@ class CrewAgentExecutorMixin:
                 ):
                     self.crew._short_term_memory.save(memory)
             except Exception as e:
-                print(f"Failed to add to short term memory: {e}")
+                print(f"添加到短期记忆失败：{e}")
                 pass
 
     def _create_long_term_memory(self, output) -> None:
-        """Create and save long-term and entity memory items based on evaluation."""
+        """根据评估创建并保存长期记忆和实体记忆项。"""
         if (
             self.crew
             and self.crew.memory
@@ -96,14 +96,14 @@ class CrewAgentExecutorMixin:
                     )
                     self.crew._entity_memory.save(entity_memory)
             except AttributeError as e:
-                print(f"Missing attributes for long term memory: {e}")
+                print(f"长期记忆缺少属性：{e}")
                 pass
             except Exception as e:
-                print(f"Failed to add to long term memory: {e}")
+                print(f"添加到长期记忆失败：{e}")
                 pass
 
     def _ask_human_input(self, final_answer: dict) -> str:
-        """Prompt human input for final decision making."""
+        """提示用户输入以进行最终决策。"""
         return input(
             self._i18n.slice("getting_input").format(final_answer=final_answer)
         )

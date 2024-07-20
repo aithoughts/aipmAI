@@ -2,7 +2,7 @@ from typing import Optional
 
 
 class CacheHandler:
-    """Callback handler for tool usage."""
+    """工具使用情况的回调处理程序。"""
 
     _cache: dict = {}
 

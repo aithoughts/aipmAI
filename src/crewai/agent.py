@@ -34,75 +34,75 @@ except ImportError:
 
 @track_agent()
 class Agent(BaseAgent):
-    """Represents an agent in a system.
+    """表示系统中的代理。
 
-    Each agent has a role, a goal, a backstory, and an optional language model (llm).
-    The agent can also have memory, can operate in verbose mode, and can delegate tasks to other agents.
+    每个代理都有一个角色、一个目标、一个背景故事和一个可选的语言模型 (llm)。
+    代理还可以拥有记忆，可以在详细模式下运行，并且可以将任务委派给其他代理。
 
-    Attributes:
-            agent_executor: An instance of the CrewAgentExecutor class.
-            role: The role of the agent.
-            goal: The objective of the agent.
-            backstory: The backstory of the agent.
-            config: Dict representation of agent configuration.
-            llm: The language model that will run the agent.
-            function_calling_llm: The language model that will handle the tool calling for this agent, it overrides the crew function_calling_llm.
-            max_iter: Maximum number of iterations for an agent to execute a task.
-            memory: Whether the agent should have memory or not.
-            max_rpm: Maximum number of requests per minute for the agent execution to be respected.
-            verbose: Whether the agent execution should be in verbose mode.
-            allow_delegation: Whether the agent is allowed to delegate tasks to other agents.
-            tools: Tools at agents disposal
-            step_callback: Callback to be executed after each step of the agent execution.
-            callbacks: A list of callback functions from the langchain library that are triggered during the agent's execution process
-            allow_code_execution: Enable code execution for the agent.
-            max_retry_limit: Maximum number of retries for an agent to execute a task when an error occurs.
+    属性：
+            agent_executor: CrewAgentExecutor 类的一个实例。
+            role: 代理的角色。
+            goal: 代理的目标。
+            backstory: 代理的背景故事。
+            config: 代理配置的字典表示形式。
+            llm: 将运行代理的语言模型。
+            function_calling_llm: 将为此代理处理工具调用的语言模型，它会覆盖 crew function_calling_llm。
+            max_iter: 代理执行任务的最大迭代次数。
+            memory: 代理是否应该有记忆。
+            max_rpm: 要遵守的代理执行每分钟最大请求数。
+            verbose: 代理执行是否应处于详细模式。
+            allow_delegation: 是否允许代理将任务委派给其他代理。
+            tools: 代理可用的工具
+            step_callback: 在代理执行的每个步骤之后执行的回调。
+            callbacks: langchain 库中的一系列回调函数，在代理的执行过程中触发
+            allow_code_execution: 为代理启用代码执行。
+            max_retry_limit: 当发生错误时，代理执行任务的最大重试次数。
     """
 
     _times_executed: int = PrivateAttr(default=0)
     max_execution_time: Optional[int] = Field(
         default=None,
-        description="Maximum execution time for an agent to execute a task",
+        description="代理执行任务的最长执行时间",
     )
     agent_ops_agent_name: str = None  # type: ignore # Incompatible types in assignment (expression has type "None", variable has type "str")
     agent_ops_agent_id: str = None  # type: ignore # Incompatible types in assignment (expression has type "None", variable has type "str")
     cache_handler: InstanceOf[CacheHandler] = Field(
-        default=None, description="An instance of the CacheHandler class."
+        default=None, description="CacheHandler 类的一个实例。"
     )
     step_callback: Optional[Any] = Field(
         default=None,
-        description="Callback to be executed after each step of the agent execution.",
+        description="在代理执行的每个步骤之后执行的回调。",
     )
     llm: Any = Field(
         default_factory=lambda: ChatOpenAI(
             model=os.environ.get("OPENAI_MODEL_NAME", "gpt-4o")
         ),
-        description="Language model that will run the agent.",
+        description="将运行代理的语言模型。",
     )
     function_calling_llm: Optional[Any] = Field(
-        description="Language model that will run the agent.", default=None
+        description="将运行代理的语言模型。", default=None
     )
     callbacks: Optional[List[InstanceOf[BaseCallbackHandler]]] = Field(
-        default=None, description="Callback to be executed"
+        default=None, description="要执行的回调"
     )
     system_template: Optional[str] = Field(
-        default=None, description="System format for the agent."
+        default=None, description="代理的系统格式。"
     )
     prompt_template: Optional[str] = Field(
-        default=None, description="Prompt format for the agent."
+        default=None, description="代理的提示格式。"
     )
     response_template: Optional[str] = Field(
-        default=None, description="Response format for the agent."
+        default=None, description="代理的响应格式。"
     )
     tools_results: Optional[List[Any]] = Field(
-        default=[], description="Results of the tools used by the agent."
+        default=[], description="代理使用的工具的结果。"
     )
     allow_code_execution: Optional[bool] = Field(
-        default=False, description="Enable code execution for the agent."
+        default=False, description="为代理启用代码执行。"
     )
     max_retry_limit: int = Field(
         default=2,
-        description="Maximum number of retries for an agent to execute a task when an error occurs.",
+        description="当发生错误时，代理执行任务的最大重试次数。",
     )
 
     def __init__(__pydantic_self__, **data):
@@ -112,15 +112,15 @@ class Agent(BaseAgent):
 
     @model_validator(mode="after")
     def set_agent_executor(self) -> "Agent":
-        """Ensure agent executor and token process are set."""
+        """确保设置了代理执行器和标记进程。"""
         if hasattr(self.llm, "model_name"):
             token_handler = TokenCalcHandler(self.llm.model_name, self._token_process)
 
-            # Ensure self.llm.callbacks is a list
+            # 确保 self.llm.callbacks 是一个列表
             if not isinstance(self.llm.callbacks, list):
                 self.llm.callbacks = []
 
-            # Check if an instance of TokenCalcHandler already exists in the list
+            # 检查列表中是否已存在 TokenCalcHandler 的实例
             if not any(
                 isinstance(handler, TokenCalcHandler) for handler in self.llm.callbacks
             ):
@@ -145,15 +145,15 @@ class Agent(BaseAgent):
         context: Optional[str] = None,
         tools: Optional[List[Any]] = None,
     ) -> str:
-        """Execute a task with the agent.
+        """使用代理执行任务。
 
-        Args:
-            task: Task to execute.
-            context: Context to execute the task in.
-            tools: Tools to use for the task.
+        参数：
+            task: 要执行的任务。
+            context: 在其中执行任务的上下文。
+            tools: 用于任务的工具。
 
-        Returns:
-            Output of the agent
+        返回值：
+            代理的输出
         """
         if self.tools_handler:
             self.tools_handler.last_used_tool = {}  # type: ignore # Incompatible types in assignment (expression has type "dict[Never, Never]", variable has type "ToolCalling")
@@ -181,8 +181,8 @@ class Agent(BaseAgent):
         self.agent_executor.tools = parsed_tools
         self.agent_executor.task = task
 
-        self.agent_executor.tools_description = self._render_text_description_and_args(
-            parsed_tools
+        self.agent_executor.tools_description = (
+            self._render_text_description_and_args(parsed_tools)
         )
         self.agent_executor.tools_names = self.__tools_names(parsed_tools)
 
@@ -208,9 +208,9 @@ class Agent(BaseAgent):
         if self.max_rpm:
             self._rpm_controller.stop_rpm_counter()
 
-        # If there was any tool in self.tools_results that had result_as_answer
-        # set to True, return the results of the last tool that had
-        # result_as_answer set to True
+        # 如果 self.tools_results 中有任何工具的 result_as_answer
+        # 设置为 True，则返回最后一个 result_as_answer
+        # 设置为 True 的工具的结果
         for tool_result in self.tools_results:  # type: ignore # Item "None" of "list[Any] | None" has no attribute "__iter__" (not iterable)
             if tool_result.get("result_as_answer", False):
                 result = tool_result["result"]
@@ -223,7 +223,7 @@ class Agent(BaseAgent):
         observation_prefix: str = "Observation: ",
         llm_prefix: str = "",
     ) -> str:
-        """Construct the scratchpad that lets the agent continue its thought process."""
+        """构造允许代理继续其思考过程的草稿板。"""
         thoughts = ""
         for action, observation in intermediate_steps:
             thoughts += action.log
@@ -231,10 +231,10 @@ class Agent(BaseAgent):
         return thoughts
 
     def create_agent_executor(self, tools=None) -> None:
-        """Create an agent executor for the agent.
+        """为代理创建代理执行器。
 
-        Returns:
-            An instance of the CrewAgentExecutor class.
+        返回值：
+            CrewAgentExecutor 类的一个实例。
         """
         tools = tools or self.tools or []
 
@@ -309,17 +309,17 @@ class Agent(BaseAgent):
             return [CodeInterpreterTool()]
         except ModuleNotFoundError:
             self._logger.log(
-                "info", "Coding tools not available. Install crewai_tools. "
+                "info", "编码工具不可用。安装 crewai_tools。 "
             )
 
     def get_output_converter(self, llm, text, model, instructions):
         return Converter(llm=llm, text=text, model=model, instructions=instructions)
 
     def _parse_tools(self, tools: List[Any]) -> List[LangChainTool]:  # type: ignore # Function "langchain_core.tools.tool" is not valid as a type
-        """Parse tools to be used for the task."""
+        """解析要用于任务的工具。"""
         tools_list = []
         try:
-            # tentatively try to import from crewai_tools import BaseTool as CrewAITool
+            # 尝试从 crewai_tools import BaseTool as CrewAITool
             from crewai_tools import BaseTool as CrewAITool
 
             for tool in tools:
@@ -335,7 +335,7 @@ class Agent(BaseAgent):
         return tools_list
 
     def _training_handler(self, task_prompt: str) -> str:
-        """Handle training data for the agent task prompt to improve output on Training."""
+        """处理代理任务提示的训练数据，以改进训练时的输出。"""
         if data := CrewTrainingHandler(TRAINING_DATA_FILE).load():
             agent_id = str(self.id)
 
@@ -343,34 +343,34 @@ class Agent(BaseAgent):
                 human_feedbacks = [
                     i["human_feedback"] for i in data.get(agent_id, {}).values()
                 ]
-                task_prompt += "You MUST follow these feedbacks: \n " + "\n - ".join(
+                task_prompt += "您必须遵循以下反馈：\n " + "\n - ".join(
                     human_feedbacks
                 )
 
         return task_prompt
 
     def _use_trained_data(self, task_prompt: str) -> str:
-        """Use trained data for the agent task prompt to improve output."""
+        """使用代理任务提示的训练数据来改进输出。"""
         if data := CrewTrainingHandler(TRAINED_AGENTS_DATA_FILE).load():
             if trained_data_output := data.get(self.role):
-                task_prompt += "You MUST follow these feedbacks: \n " + "\n - ".join(
+                task_prompt += "您必须遵循以下反馈：\n " + "\n - ".join(
                     trained_data_output["suggestions"]
                 )
         return task_prompt
 
     def _render_text_description(self, tools: List[BaseTool]) -> str:
-        """Render the tool name and description in plain text.
+        """以纯文本形式呈现工具名称和描述。
 
-        Output will be in the format of:
+        输出格式如下：
 
         .. code-block:: markdown
 
-            search: This tool is used for search
-            calculator: This tool is used for math
+            search: 此工具用于搜索
+            calculator: 此工具用于数学运算
         """
         description = "\n".join(
             [
-                f"Tool name: {tool.name}\nTool description:\n{tool.description}"
+                f"工具名称：{tool.name}\n工具描述：\n{tool.description}"
                 for tool in tools
             ]
         )
@@ -378,15 +378,15 @@ class Agent(BaseAgent):
         return description
 
     def _render_text_description_and_args(self, tools: List[BaseTool]) -> str:
-        """Render the tool name, description, and args in plain text.
+        """以纯文本形式呈现工具名称、描述和参数。
 
-        Output will be in the format of:
+        输出格式如下：
 
         .. code-block:: markdown
 
-            search: This tool is used for search, args: {"query": {"type": "string"}}
-            calculator: This tool is used for math, \
-    args: {"expression": {"type": "string"}}
+            search: 此工具用于搜索，参数：{"query": {"type": "string"}}
+            calculator: 此工具用于数学运算，\
+    参数：{"expression": {"type": "string"}}
         """
         tool_strings = []
         for tool in tools:
@@ -394,13 +394,13 @@ class Agent(BaseAgent):
             if hasattr(tool, "func") and tool.func:
                 sig = signature(tool.func)
                 description = (
-                    f"Tool Name: {tool.name}{sig}\nTool Description: {tool.description}"
+                    f"工具名称：{tool.name}{sig}\n工具描述：{tool.description}"
                 )
             else:
                 description = (
-                    f"Tool Name: {tool.name}\nTool Description: {tool.description}"
+                    f"工具名称：{tool.name}\n工具描述：{tool.description}"
                 )
-            tool_strings.append(f"{description}\nTool Arguments: {args_schema}")
+            tool_strings.append(f"{description}\n工具参数：{args_schema}")
 
         return "\n".join(tool_strings)
 

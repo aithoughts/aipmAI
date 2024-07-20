@@ -1,60 +1,60 @@
+## CrewAI
+
 <div align="center">
 
-![Logo of crewAI, two people rowing on a boat](./docs/crewai_logo.png)
+![CrewAI 的 Logo，两个人在一艘船上划船](./docs/crewai_logo.png)
 
-# **crewAI**
-
-🤖 **crewAI**: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.
+🤖 **crewAI**: 用于编排角色扮演、自主 AI 代理的尖端框架。通过促进协作智能，CrewAI 使代理能够无缝地协同工作，处理复杂的任务。
 
 <h3>
 
-[Homepage](https://www.crewai.io/) | [Documentation](https://docs.crewai.com/) | [Chat with Docs](https://chatg.pt/DWjSBZn) | [Examples](https://github.com/joaomdmoura/crewai-examples) | [Discord](https://discord.com/invite/X4JWnZnxPb)
+[主页](https://www.crewai.io/) | [文档](https://docs.crewai.com/) | [与文档聊天](https://chatg.pt/DWjSBZn) | [示例](https://github.com/ai thoughts/crewai-examples) | [Discord](https://discord.com/invite/X4JWnZnxPb)
 
 </h3>
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/joaomdmoura/crewAI)](https://github.com/joaomdmoura/crewAI)
+[![GitHub Repo stars](https://img.shields.io/github/stars/aithoughts/aipmAI)](https://github.com/aithoughts/aipmAI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 </div>
 
-## Table of contents
+## 目录
 
-- [Why CrewAI?](#why-crewai)
-- [Getting Started](#getting-started)
-- [Key Features](#key-features)
-- [Examples](#examples)
-  - [Quick Tutorial](#quick-tutorial)
-  - [Write Job Descriptions](#write-job-descriptions)
-  - [Trip Planner](#trip-planner)
-  - [Stock Analysis](#stock-analysis)
-- [Connecting Your Crew to a Model](#connecting-your-crew-to-a-model)
-- [How CrewAI Compares](#how-crewai-compares)
-- [Contribution](#contribution)
-- [Telemetry](#telemetry)
-- [License](#license)
+- [为什么选择 CrewAI？](#为什么选择-crewai)
+- [入门](#入门)
+- [主要功能](#主要功能)
+- [示例](#示例)
+  - [快速教程](#快速教程)
+  - [编写职位描述](#编写职位描述)
+  - [旅行计划](#旅行计划)
+  - [股票分析](#股票分析)
+- [将您的团队连接到模型](#将您的团队连接到模型)
+- [CrewAI 的比较](#crewai-的比较)
+- [贡献](#贡献)
+- [遥测](#遥测)
+- [许可证](#许可证)
 
-## Why CrewAI?
+## 为什么选择 CrewAI？
 
-The power of AI collaboration has too much to offer.
-CrewAI is designed to enable AI agents to assume roles, share goals, and operate in a cohesive unit - much like a well-oiled crew. Whether you're building a smart assistant platform, an automated customer service ensemble, or a multi-agent research team, CrewAI provides the backbone for sophisticated multi-agent interactions.
+AI 协作的力量不容忽视。
+CrewAI 旨在使 AI 代理能够承担角色、共享目标并以一个有凝聚力的单元运作——就像一支配合默契的团队一样。无论您是在构建智能助手平台、自动化客户服务团队还是多代理研究团队，CrewAI 都能为复杂的多代理交互提供支柱。
 
-## Getting Started
+## 入门
 
-To get started with CrewAI, follow these simple steps:
+要开始使用 CrewAI，请按照以下简单步骤操作：
 
-### 1. Installation
+### 1. 安装
 
 ```shell
 pip install crewai
 ```
 
-If you want to install the 'crewai' package along with its optional features that include additional tools for agents, you can do so by using the following command: pip install 'crewai[tools]'. This command installs the basic package and also adds extra components which require more dependencies to function."
+如果您想安装“crewai”包及其可选功能（包括用于代理的其他工具），可以使用以下命令：pip install 'crewai[tools]'。此命令将安装基本软件包，并添加需要更多依赖项才能运行的额外组件。
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-### 2. Setting Up Your Crew
+### 2. 设置您的团队
 
 ```python
 import os
@@ -62,225 +62,225 @@ from crewai import Agent, Task, Crew, Process
 from crewai_tools import SerperDevTool
 
 os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
-os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API key
+os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API 密钥
 
-# You can choose to use a local model through Ollama for example. See https://docs.crewai.com/how-to/LLM-Connections/ for more information.
+# 您可以选择通过 Ollama 使用本地模型。有关更多信息，请参阅 https://docs.crewai.com/how-to/LLM-Connections/。
 
 # os.environ["OPENAI_API_BASE"] = 'http://localhost:11434/v1'
-# os.environ["OPENAI_MODEL_NAME"] ='openhermes'  # Adjust based on available model
+# os.environ["OPENAI_MODEL_NAME"] ='openhermes'  # 根据可用模型进行调整
 # os.environ["OPENAI_API_KEY"] ='sk-111111111111111111111111111111111111111111111111'
 
-# You can pass an optional llm attribute specifying what model you wanna use.
-# It can be a local model through Ollama / LM Studio or a remote
-# model like OpenAI, Mistral, Antrophic or others (https://docs.crewai.com/how-to/LLM-Connections/)
+# 您可以传递一个可选的 llm 属性，指定您想使用的模型。
+# 它可以是通过 Ollama / LM Studio 的本地模型，也可以是远程模型
+# 模型，如 OpenAI、Mistral、Antrophic 或其他（https://docs.crewai.com/how-to/LLM-Connections/）
 #
 # import os
 # os.environ['OPENAI_MODEL_NAME'] = 'gpt-3.5-turbo'
 #
-# OR
+# 或
 #
 # from langchain_openai import ChatOpenAI
 
 search_tool = SerperDevTool()
 
-# Define your agents with roles and goals
+# 定义您的代理，包括角色和目标
 researcher = Agent(
-  role='Senior Research Analyst',
-  goal='Uncover cutting-edge developments in AI and data science',
-  backstory="""You work at a leading tech think tank.
-  Your expertise lies in identifying emerging trends.
-  You have a knack for dissecting complex data and presenting actionable insights.""",
+  role='高级研究分析师',
+  goal='发现人工智能和数据科学领域的尖端发展',
+  backstory="""您在一家领先的科技智库工作。
+  您的专长是识别新兴趋势。
+  您有剖析复杂数据并提出可操作见解的诀窍。""",
   verbose=True,
   allow_delegation=False,
-  # You can pass an optional llm attribute specifying what model you wanna use.
+  # 您可以传递一个可选的 llm 属性，指定您想使用的模型。
   # llm=ChatOpenAI(model_name="gpt-3.5", temperature=0.7),
   tools=[search_tool]
 )
 writer = Agent(
-  role='Tech Content Strategist',
-  goal='Craft compelling content on tech advancements',
-  backstory="""You are a renowned Content Strategist, known for your insightful and engaging articles.
-  You transform complex concepts into compelling narratives.""",
+  role='科技内容策略师',
+  goal='撰写关于科技进步的引人入胜的内容',
+  backstory="""您是一位著名的内容策略师，以您富有洞察力和吸引力的文章而闻名。
+  您将复杂的 koncepty 转化为引人入胜的叙述。""",
   verbose=True,
   allow_delegation=True
 )
 
-# Create tasks for your agents
+# 为您的代理创建任务
 task1 = Task(
-  description="""Conduct a comprehensive analysis of the latest advancements in AI in 2024.
-  Identify key trends, breakthrough technologies, and potential industry impacts.""",
-  expected_output="Full analysis report in bullet points",
+  description="""对 2024 年人工智能的最新进展进行全面分析。
+  确定关键趋势、突破性技术和潜在的行业影响。""",
+  expected_output="以要点形式完整分析报告",
   agent=researcher
 )
 
 task2 = Task(
-  description="""Using the insights provided, develop an engaging blog
-  post that highlights the most significant AI advancements.
-  Your post should be informative yet accessible, catering to a tech-savvy audience.
-  Make it sound cool, avoid complex words so it doesn't sound like AI.""",
-  expected_output="Full blog post of at least 4 paragraphs",
+  description="""利用所提供的见解，撰写一篇引人入胜的博客文章，
+  重点介绍最重要的人工智能进步。
+  您的文章应该信息丰富且通俗易懂，面向精通技术的受众。
+  让它听起来很酷，避免使用复杂的词语，这样听起来就不会像人工智能。""",
+  expected_output="至少包含 4 段的完整博客文章",
   agent=writer
 )
 
-# Instantiate your crew with a sequential process
+# 使用顺序流程实例化您的团队
 crew = Crew(
   agents=[researcher, writer],
   tasks=[task1, task2],
-  verbose=2, # You can set it to 1 or 2 to different logging levels
+  verbose=2, # 您可以将其设置为 1 或 2 以获得不同的日志记录级别
   process = Process.sequential
 )
 
-# Get your crew to work!
+# 让您的团队开始工作！
 result = crew.kickoff()
 
 print("######################")
 print(result)
 ```
 
-In addition to the sequential process, you can use the hierarchical process, which automatically assigns a manager to the defined crew to properly coordinate the planning and execution of tasks through delegation and validation of results. [See more about the processes here](https://docs.crewai.com/core-concepts/Processes/).
+除了顺序流程之外，您还可以使用分层流程，该流程会自动为定义的团队分配一名经理，以通过委派和验证结果来正确协调任务的计划和执行。[在此处了解更多关于流程的信息](https://docs.crewai.com/core-concepts/Processes/)。
 
-## Key Features
+## 主要功能
 
-- **Role-Based Agent Design**: Customize agents with specific roles, goals, and tools.
-- **Autonomous Inter-Agent Delegation**: Agents can autonomously delegate tasks and inquire amongst themselves, enhancing problem-solving efficiency.
-- **Flexible Task Management**: Define tasks with customizable tools and assign them to agents dynamically.
-- **Processes Driven**: Currently only supports `sequential` task execution and `hierarchical` processes, but more complex processes like consensual and autonomous are being worked on.
-- **Save output as file**: Save the output of individual tasks as a file, so you can use it later.
-- **Parse output as Pydantic or Json**: Parse the output of individual tasks as a Pydantic model or as a Json if you want to.
-- **Works with Open Source Models**: Run your crew using Open AI or open source models refer to the [Connect crewAI to LLMs](https://docs.crewai.com/how-to/LLM-Connections/) page for details on configuring your agents' connections to models, even ones running locally!
+- **基于角色的代理设计**: 使用特定的角色、目标和工具自定义代理。
+- **自主的代理间委派**: 代理可以自主地委派任务并在彼此之间进行询问，从而提高解决问题的效率。
+- **灵活的任务管理**: 使用可自定义的工具定义任务，并动态地将它们分配给代理。
+- **流程驱动**: 目前仅支持“顺序”任务执行和“分层”流程，但正在开发更复杂的流程，如协商一致和自主流程。
+- **将输出保存为文件**: 将单个任务的输出保存为文件，以便您以后使用。
+- **将输出解析为 Pydantic 或 Json**: 如果您希望将单个任务的输出解析为 Pydantic 模型或 Json，可以这样做。
+- **与开源模型配合使用**: 使用 Open AI 或开源模型运行您的团队，请参阅 [将 crewAI 连接到 LLM](https://docs.crewai.com/how-to/LLM-Connections/) 页面，了解有关配置您的代理与模型（甚至是本地运行的模型）连接的详细信息！
 
-![CrewAI Mind Map](./docs/crewAI-mindmap.png "CrewAI Mind Map")
+![CrewAI 思维导图](./docs/crewAI-mindmap.png "CrewAI 思维导图")
 
-## Examples
+## 示例
 
-You can test different real life examples of AI crews in the [crewAI-examples repo](https://github.com/joaomdmoura/crewAI-examples?tab=readme-ov-file):
+您可以在 [crewAI-examples 仓库](https://github.com/aithoughts/aipmai-examples?tab=readme-ov-file) 中测试 AI 团队在现实生活中的不同示例：
 
-- [Landing Page Generator](https://github.com/joaomdmoura/crewAI-examples/tree/main/landing_page_generator)
-- [Having Human input on the execution](https://docs.crewai.com/how-to/Human-Input-on-Execution)
-- [Trip Planner](https://github.com/joaomdmoura/crewAI-examples/tree/main/trip_planner)
-- [Stock Analysis](https://github.com/joaomdmoura/crewAI-examples/tree/main/stock_analysis)
+- [登录页面生成器](https://github.com/aithoughts/aipmai-examples/tree/main/landing_page_generator)
+- [在执行过程中获得人工输入](https://docs.crewai.com/how-to/Human-Input-on-Execution)
+- [旅行计划](https://github.com/aithoughts/aipmai-examples/tree/main/trip_planner)
+- [股票分析](https://github.com/aithoughts/aipmai-examples/tree/main/stock_analysis)
 
-### Quick Tutorial
+### 快速教程
 
-[![CrewAI Tutorial](https://img.youtube.com/vi/tnejrr-0a94/maxresdefault.jpg)](https://www.youtube.com/watch?v=tnejrr-0a94 "CrewAI Tutorial")
+[![CrewAI 教程](https://img.youtube.com/vi/tnejrr-0a94/maxresdefault.jpg)](https://www.youtube.com/watch?v=tnejrr-0a94 "CrewAI 教程")
 
-### Write Job Descriptions
+### 编写职位描述
 
-[Check out code for this example](https://github.com/joaomdmoura/crewAI-examples/tree/main/job-posting) or watch a video below:
+[查看此示例的代码](https://github.com/aithoughts/aipmai-examples/tree/main/job-posting) 或观看以下视频：
 
-[![Jobs postings](https://img.youtube.com/vi/u98wEMz-9to/maxresdefault.jpg)](https://www.youtube.com/watch?v=u98wEMz-9to "Jobs postings")
+[![职位发布](https://img.youtube.com/vi/u98wEMz-9to/maxresdefault.jpg)](https://www.youtube.com/watch?v=u98wEMz-9to "职位发布")
 
-### Trip Planner
+### 旅行计划
 
-[Check out code for this example](https://github.com/joaomdmoura/crewAI-examples/tree/main/trip_planner) or watch a video below:
+[查看此示例的代码](https://github.com/aithoughts/aipmai-examples/tree/main/trip_planner) 或观看以下视频：
 
-[![Trip Planner](https://img.youtube.com/vi/xis7rWp-hjs/maxresdefault.jpg)](https://www.youtube.com/watch?v=xis7rWp-hjs "Trip Planner")
+[![旅行计划](https://img.youtube.com/vi/xis7rWp-hjs/maxresdefault.jpg)](https://www.youtube.com/watch?v=xis7rWp-hjs "旅行计划")
 
-### Stock Analysis
+### 股票分析
 
-[Check out code for this example](https://github.com/joaomdmoura/crewAI-examples/tree/main/stock_analysis) or watch a video below:
+[查看此示例的代码](https://github.com/aithoughts/aipmai-examples/tree/main/stock_analysis) 或观看以下视频：
 
-[![Stock Analysis](https://img.youtube.com/vi/e0Uj4yWdaAg/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0Uj4yWdaAg "Stock Analysis")
+[![股票分析](https://img.youtube.com/vi/e0Uj4yWdaAg/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0Uj4yWdaAg "股票分析")
 
-## Connecting Your Crew to a Model
+## 将您的团队连接到模型
 
-crewAI supports using various LLMs through a variety of connection options. By default your agents will use the OpenAI API when querying the model. However, there are several other ways to allow your agents to connect to models. For example, you can configure your agents to use a local model via the Ollama tool.
+crewAI 支持通过各种连接选项使用各种 LLM。默认情况下，您的代理在查询模型时将使用 OpenAI API。但是，还有其他几种方法可以让您的代理连接到模型。例如，您可以将代理配置为通过 Ollama 工具使用本地模型。
 
-Please refer to the [Connect crewAI to LLMs](https://docs.crewai.com/how-to/LLM-Connections/) page for details on configuring you agents' connections to models.
+有关配置代理与模型连接的详细信息，请参阅 [将 crewAI 连接到 LLM](https://docs.crewai.com/how-to/LLM-Connections/) 页面。
 
-## How CrewAI Compares
+## CrewAI 的比较
 
-- **Autogen**: While Autogen does good in creating conversational agents capable of working together, it lacks an inherent concept of process. In Autogen, orchestrating agents' interactions requires additional programming, which can become complex and cumbersome as the scale of tasks grows.
+- **Autogen**: 虽然 Autogen 在创建能够协同工作的对话代理方面做得很好，但它缺乏对流程的内生概念。在 Autogen 中，协调代理的交互需要额外的编程，随着任务规模的增长，这可能会变得复杂而繁琐。
 
-- **ChatDev**: ChatDev introduced the idea of processes into the realm of AI agents, but its implementation is quite rigid. Customizations in ChatDev are limited and not geared towards production environments, which can hinder scalability and flexibility in real-world applications.
+- **ChatDev**: ChatDev 将流程的概念引入了 AI 代理领域，但其实现相当僵化。ChatDev 中的自定义选项有限，并且不适合生产环境，这可能会阻碍现实世界应用程序的可扩展性和灵活性。
 
-**CrewAI's Advantage**: CrewAI is built with production in mind. It offers the flexibility of Autogen's conversational agents and the structured process approach of ChatDev, but without the rigidity. CrewAI's processes are designed to be dynamic and adaptable, fitting seamlessly into both development and production workflows.
+**CrewAI 的优势**: CrewAI 在构建时就考虑到了生产环境。它提供了 Autogen 对话代理的灵活性和 ChatDev 的结构化流程方法，但没有僵化性。CrewAI 的流程设计灵活且可适应，可以无缝地融入开发和生产工作流程。
 
 
-## Contribution
+## 贡献
 
-CrewAI is open-source and we welcome contributions. If you're looking to contribute, please:
+CrewAI 是开源的，我们欢迎大家做出贡献。如果您希望做出贡献，请：
 
-- Fork the repository.
-- Create a new branch for your feature.
-- Add your feature or improvement.
-- Send a pull request.
-- We appreciate your input!
+- 分叉存储库。
+- 为您的功能创建一个新的分支。
+- 添加您的功能或改进。
+- 发送拉取请求。
+- 我们感谢您的投入！
 
-### Installing Dependencies
+### 安装依赖项
 
 ```bash
 poetry lock
 poetry install
 ```
 
-### Virtual Env
+### 虚拟环境
 
 ```bash
 poetry shell
 ```
 
-### Pre-commit hooks
+### 预提交钩子
 
 ```bash
 pre-commit install
 ```
 
-### Running Tests
+### 运行测试
 
 ```bash
 poetry run pytest
 ```
 
-### Running static type checks
+### 运行静态类型检查
 
 ```bash
 poetry run mypy
 ```
 
-### Packaging
+### 打包
 
 ```bash
 poetry build
 ```
 
-### Installing Locally
+### 本地安装
 
 ```bash
 pip install dist/*.tar.gz
 ```
 
-## Telemetry
+## 遥测
 
-CrewAI uses anonymous telemetry to collect usage data with the main purpose of helping us improve the library by focusing our efforts on the most used features, integrations and tools.
+CrewAI 使用匿名遥测来收集使用数据，其主要目的是通过将我们的工作重点放在最常用的功能、集成和工具上来帮助我们改进库。
 
-There is NO data being collected on the prompts, tasks descriptions agents backstories or goals nor tools usage, no API calls, nor responses nor any data that is being processed by the agents, nor any secrets and env vars.
+我们不会收集有关提示、任务描述、代理背景故事或目标、工具使用、API 调用、响应或代理正在处理的任何数据、任何密钥和环境变量的数据。
 
-Data collected includes:
+收集的数据包括：
 
-- Version of crewAI
-  - So we can understand how many users are using the latest version
-- Version of Python
-  - So we can decide on what versions to better support
-- General OS (e.g. number of CPUs, macOS/Windows/Linux)
-  - So we know what OS we should focus on and if we could build specific OS related features
-- Number of agents and tasks in a crew
-  - So we make sure we are testing internally with similar use cases and educate people on the best practices
-- Crew Process being used
-  - Understand where we should focus our efforts
-- If Agents are using memory or allowing delegation
-  - Understand if we improved the features or maybe even drop them
-- If Tasks are being executed in parallel or sequentially
-  - Understand if we should focus more on parallel execution
-- Language model being used
-  - Improved support on most used languages
-- Roles of agents in a crew
-  - Understand high level use cases so we can build better tools, integrations and examples about it
-- Tools names available
-  - Understand out of the publically available tools, which ones are being used the most so we can improve them
+- CrewAI 的版本
+  - 因此我们可以了解有多少用户在使用最新版本
+- Python 的版本
+  - 因此我们可以决定更好地支持哪些版本
+- 常规操作系统（例如 CPU 数量、macOS/Windows/Linux）
+  - 因此我们知道应该重点关注哪些操作系统，以及我们是否可以构建特定于操作系统的功能
+- 团队中的代理和任务数量
+  - 因此我们可以确保我们在内部使用类似的用例进行测试，并向人们传授最佳实践
+- 正在使用的团队流程
+  - 了解我们应该在哪里集中精力
+- 代理是否正在使用内存或允许委派
+  - 了解我们是否改进了这些功能，或者甚至可以删除它们
+- 任务是并行执行还是顺序执行
+  - 了解我们是否应该更多地关注并行执行
+- 正在使用的语言模型
+  - 改进对最常用语言的支持
+- 团队中代理的角色
+  - 了解高级用例，以便我们可以构建更好的工具、集成和相关示例
+- 可用工具的名称
+  - 了解在公开可用的工具中，哪些工具使用最多，以便我们改进它们
 
-Users can opt-in sharing the complete telemetry data by setting the `share_crew` attribute to `True` on their Crews.
+用户可以通过在其团队上将 `share_crew` 属性设置为 `True` 来选择共享完整的遥测数据。
 
-## License
+## 许可证
 
-CrewAI is released under the MIT License.
+CrewAI 根据 MIT 许可证发布。
