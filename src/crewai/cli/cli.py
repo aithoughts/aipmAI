@@ -14,31 +14,31 @@ from .reset_memories_command import reset_memories_command
 
 @click.group()
 def crewai():
-    """Top-level command group for crewai."""
+    """crewai 的顶级命令组。"""
 
 
 @crewai.command()
 @click.argument("project_name")
 def create(project_name):
-    """Create a new crew."""
+    """创建一个新的 crew。"""
     create_crew(project_name)
 
 
 @crewai.command()
 @click.option(
-    "--tools", is_flag=True, help="Show the installed version of crewai tools"
+    "--tools", is_flag=True, help="显示已安装的 crewai 工具版本"
 )
 def version(tools):
-    """Show the installed version of crewai."""
+    """显示已安装的 crewai 版本。"""
     crewai_version = pkg_resources.get_distribution("crewai").version
-    click.echo(f"crewai version: {crewai_version}")
+    click.echo(f"crewai 版本: {crewai_version}")
 
     if tools:
         try:
             tools_version = pkg_resources.get_distribution("crewai-tools").version
-            click.echo(f"crewai tools version: {tools_version}")
+            click.echo(f"crewai 工具版本: {tools_version}")
         except pkg_resources.DistributionNotFound:
-            click.echo("crewai tools not installed")
+            click.echo("crewai 工具未安装")
 
 
 @crewai.command()
@@ -47,11 +47,11 @@ def version(tools):
     "--n_iterations",
     type=int,
     default=5,
-    help="Number of iterations to train the crew",
+    help="训练 crew 的迭代次数",
 )
 def train(n_iterations: int):
-    """Train the crew."""
-    click.echo(f"Training the crew for {n_iterations} iterations")
+    """训练 crew。"""
+    click.echo(f"正在训练 crew {n_iterations} 次迭代")
     train_crew(n_iterations)
 
 
@@ -60,26 +60,26 @@ def train(n_iterations: int):
     "-t",
     "--task_id",
     type=str,
-    help="Replay the crew from this task ID, including all subsequent tasks.",
+    help="从此任务 ID（包括所有后续任务）重放 crew。",
 )
 def replay(task_id: str) -> None:
     """
-    Replay the crew execution from a specific task.
+    从特定任务重放 crew 执行。
 
-    Args:
-        task_id (str): The ID of the task to replay from.
+    参数：
+        task_id (str)：要重放的任务的 ID。
     """
     try:
-        click.echo(f"Replaying the crew from task {task_id}")
+        click.echo(f"正在从任务 {task_id} 重放 crew")
         replay_task_command(task_id)
     except Exception as e:
-        click.echo(f"An error occurred while replaying: {e}", err=True)
+        click.echo(f"重放时出错: {e}", err=True)
 
 
 @crewai.command()
 def log_tasks_outputs() -> None:
     """
-    Retrieve your latest crew.kickoff() task outputs.
+    检索您最新的 crew.kickoff() 任务输出。
     """
     try:
         storage = KickoffTaskOutputsSQLiteStorage()
@@ -87,43 +87,43 @@ def log_tasks_outputs() -> None:
 
         if not tasks:
             click.echo(
-                "No task outputs found. Only crew kickoff task outputs are logged."
+                "未找到任务输出。仅记录 crew kickoff 任务输出。"
             )
             return
 
         for index, task in enumerate(tasks, 1):
-            click.echo(f"Task {index}: {task['task_id']}")
-            click.echo(f"Description: {task['expected_output']}")
+            click.echo(f"任务 {index}: {task['task_id']}")
+            click.echo(f"描述: {task['expected_output']}")
             click.echo("------")
 
     except Exception as e:
-        click.echo(f"An error occurred while logging task outputs: {e}", err=True)
+        click.echo(f"记录任务输出时出错: {e}", err=True)
 
 
 @crewai.command()
-@click.option("-l", "--long", is_flag=True, help="Reset LONG TERM memory")
-@click.option("-s", "--short", is_flag=True, help="Reset SHORT TERM memory")
-@click.option("-e", "--entities", is_flag=True, help="Reset ENTITIES memory")
+@click.option("-l", "--long", is_flag=True, help="重置长期记忆")
+@click.option("-s", "--short", is_flag=True, help="重置短期记忆")
+@click.option("-e", "--entities", is_flag=True, help="重置实体记忆")
 @click.option(
     "-k",
     "--kickoff-outputs",
     is_flag=True,
-    help="Reset LATEST KICKOFF TASK OUTPUTS",
+    help="重置最新的 KICKOFF 任务输出",
 )
-@click.option("-a", "--all", is_flag=True, help="Reset ALL memories")
+@click.option("-a", "--all", is_flag=True, help="重置所有记忆")
 def reset_memories(long, short, entities, kickoff_outputs, all):
     """
-    Reset the crew memories (long, short, entity, latest_crew_kickoff_ouputs). This will delete all the data saved.
+    重置 crew 记忆（长期、短期、实体、最新的 crew_kickoff_ouputs）。这将删除所有已保存的数据。
     """
     try:
         if not all and not (long or short or entities or kickoff_outputs):
             click.echo(
-                "Please specify at least one memory type to reset using the appropriate flags."
+                "请使用适当的标志指定至少一种要重置的记忆类型。"
             )
             return
         reset_memories_command(long, short, entities, kickoff_outputs, all)
     except Exception as e:
-        click.echo(f"An error occurred while resetting memories: {e}", err=True)
+        click.echo(f"重置记忆时出错: {e}", err=True)
 
 
 if __name__ == "__main__":
