@@ -272,7 +272,7 @@ interactions:
       User-Agent:
       - OTel-OTLP-Exporter-Python/1.23.0
     method: POST
-    uri: http://telemetry.crewai.com:4318/v1/traces
+    uri: http://0.0.0.0:4318/v1/traces
   response:
     body:
       string: "\n\0"

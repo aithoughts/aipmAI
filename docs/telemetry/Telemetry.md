@@ -1,28 +1,28 @@
 ---
-title: Telemetry
-description: Understanding the telemetry data collected by CrewAI and how it contributes to the enhancement of the library.
+标题：遥测
+描述：了解 CrewAI 收集的遥测数据及其如何促进库的增强。
 ---
 
-## Telemetry
+## 遥测
 
-CrewAI utilizes anonymous telemetry to gather usage statistics with the primary goal of enhancing the library. Our focus is on improving and developing the features, integrations, and tools most utilized by our users.
+CrewAI 利用匿名遥测来收集使用统计数据，主要目标是增强库。我们专注于改进和开发用户最常使用的功能、集成和工具。
 
-It's pivotal to understand that **NO data is collected** concerning prompts, task descriptions, agents' backstories or goals, usage of tools, API calls, responses, any data processed by the agents, or secrets and environment variables, with the exception of the conditions mentioned. When the `share_crew` feature is enabled, detailed data including task descriptions, agents' backstories or goals, and other specific attributes are collected to provide deeper insights while respecting user privacy.
+重要的是要了解，**不会收集**有关提示、任务描述、代理背景故事或目标、工具使用、API 调用、响应、代理处理的任何数据或秘密和环境变量的任何数据，但所述情况除外。启用 `share_crew` 功能后，我们会收集包括任务描述、代理背景故事或目标以及其他特定属性在内的详细数据，以便在尊重用户隐私的同时提供更深入的见解。
 
-### Data Collected Includes:
-- **Version of CrewAI**: Assessing the adoption rate of our latest version helps us understand user needs and guide our updates.
-- **Python Version**: Identifying the Python versions our users operate with assists in prioritizing our support efforts for these versions.
-- **General OS Information**: Details like the number of CPUs and the operating system type (macOS, Windows, Linux) enable us to focus our development on the most used operating systems and explore the potential for OS-specific features.
-- **Number of Agents and Tasks in a Crew**: Ensures our internal testing mirrors real-world scenarios, helping us guide users towards best practices.
-- **Crew Process Utilization**: Understanding how crews are utilized aids in directing our development focus.
-- **Memory and Delegation Use by Agents**: Insights into how these features are used help evaluate their effectiveness and future.
-- **Task Execution Mode**: Knowing whether tasks are executed in parallel or sequentially influences our emphasis on enhancing parallel execution capabilities.
-- **Language Model Utilization**: Supports our goal to improve support for the most popular languages among our users.
-- **Roles of Agents within a Crew**: Understanding the various roles agents play aids in crafting better tools, integrations, and examples.
-- **Tool Usage**: Identifying which tools are most frequently used allows us to prioritize improvements in those areas.
+### 收集的数据包括：
+- **CrewAI 的版本**：评估我们最新版本的采用率有助于我们了解用户需求并指导我们的更新。
+- **Python 版本**：识别用户使用的 Python 版本有助于我们优先为这些版本提供支持。
+- **常规操作系统信息**：CPU 数量和操作系统类型（macOS、Windows、Linux）等详细信息使我们能够将开发重点放在最常用的操作系统上，并探索特定于操作系统的功能的潜力。
+- **团队中的代理和任务数量**：确保我们的内部测试反映现实世界的场景，帮助我们指导用户采用最佳实践。
+- **团队流程利用率**：了解团队的使用方式有助于指导我们的开发重点。
+- **代理的内存和委派使用**：深入了解这些功能的使用方式有助于评估其有效性和未来发展方向。
+- **任务执行模式**：了解任务是并行执行还是顺序执行会影响我们对增强并行执行功能的重视程度。
+- **语言模型利用率**：支持我们改进对用户中最流行语言的支持的目标。
+- **团队中代理的角色**：了解代理扮演的各种角色有助于打造更好的工具、集成和示例。
+- **工具使用**：识别哪些工具最常使用可以让我们优先改进这些领域。
 
-### Opt-In Further Telemetry Sharing
-Users can choose to share their complete telemetry data by enabling the `share_crew` attribute to `True` in their crew configurations. This opt-in approach respects user privacy and aligns with data protection standards by ensuring users have control over their data sharing preferences. Enabling `share_crew` results in the collection of detailed crew and task execution data, including `goal`, `backstory`, `context`, and `output` of tasks. This enables a deeper insight into usage patterns while respecting the user's choice to share.
+### 选择加入进一步的遥测共享
+用户可以通过在其团队配置中将 `share_crew` 属性设置为 `True` 来选择共享其完整的遥测数据。这种选择加入方法尊重用户隐私，并通过确保用户能够控制其数据共享偏好来符合数据保护标准。启用 `share_crew` 会导致收集详细的团队和任务执行数据，包括任务的 `goal`、`backstory`、`context` 和 `output`。这使我们能够在尊重用户共享选择的同时，更深入地了解使用模式。
 
-### Updates and Revisions
-We are committed to maintaining the accuracy and transparency of our documentation. Regular reviews and updates are performed to ensure our documentation accurately reflects the latest developments of our codebase and telemetry practices. Users are encouraged to review this section for the most current information on our data collection practices and how they contribute to the improvement of CrewAI.
+### 更新和修订
+我们致力于维护文档的准确性和透明度。我们会定期进行审查和更新，以确保我们的文档准确反映代码库和遥测实践的最新发展。鼓励用户查阅本节，以获取有关我们数据收集实践及其如何促进 CrewAI 改进的最新信息。

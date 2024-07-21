@@ -20,28 +20,25 @@ if TYPE_CHECKING:
 
 
 class Telemetry:
-    """A class to handle anonymous telemetry for the crewai package.
+    """用于处理 crewai 包的匿名遥测的类。
 
-    The data being collected is for development purpose, all data is anonymous.
+    收集的数据用于开发目的，所有数据都是匿名的。
 
-    There is NO data being collected on the prompts, tasks descriptions
-    agents backstories or goals nor responses or any data that is being
-    processed by the agents, nor any secrets and env vars.
+    不会收集以下数据：提示、任务描述、代理背景故事或目标，也不会收集代理正在处理的响应或任何数据，也不会收集任何秘密和环境变量。
 
-    Data collected includes:
-    - Version of crewAI
-    - Version of Python
-    - General OS (e.g. number of CPUs, macOS/Windows/Linux)
-    - Number of agents and tasks in a crew
-    - Crew Process being used
-    - If Agents are using memory or allowing delegation
-    - If Tasks are being executed in parallel or sequentially
-    - Language model being used
-    - Roles of agents in a crew
-    - Tools names available
+    收集的数据包括：
+    - crewAI 的版本
+    - Python 的版本
+    - 常规操作系统信息（例如 CPU 数量、macOS/Windows/Linux）
+    - 团队中的代理和任务数量
+    - 正在使用的团队流程
+    - 代理是否正在使用内存或允许委派
+    - 任务是并行执行还是顺序执行
+    - 正在使用的语言模型
+    - 团队中代理的角色
+    - 可用的工具名称
 
-    Users can opt-in to sharing more complete data suing the `share_crew`
-    attribute in the Crew class.
+    用户可以使用 Crew 类中的 `share_crew` 属性选择共享更完整的数据。
     """
 
     def __init__(self):
@@ -68,7 +65,7 @@ class Telemetry:
                 e,
                 (SystemExit, KeyboardInterrupt, GeneratorExit, asyncio.CancelledError),
             ):
-                raise  # Re-raise the exception to not interfere with system signals
+                raise  # 重新抛出异常，以免干扰系统信号
             self.ready = False
 
     def set_tracer(self):
@@ -81,11 +78,11 @@ class Telemetry:
                 self.trace_set = False
 
     def crew_creation(self, crew: Crew, inputs: dict[str, Any] | None):
-        """Records the creation of a crew."""
+        """记录团队的创建。"""
         if self.ready:
             try:
                 tracer = trace.get_tracer("crewai.telemetry")
-                span = tracer.start_span("Crew Created")
+                span = tracer.start_span("团队已创建")
                 self._add_attribute(
                     span,
                     "crewai_version",
@@ -167,12 +164,12 @@ class Telemetry:
                 pass
 
     def task_started(self, crew: Crew, task: Task) -> Span | None:
-        """Records task started in a crew."""
+        """记录团队中开始的任务。"""
         if self.ready:
             try:
                 tracer = trace.get_tracer("crewai.telemetry")
 
-                created_span = tracer.start_span("Task Created")
+                created_span = tracer.start_span("任务已创建")
 
                 self._add_attribute(created_span, "crew_key", crew.key)
                 self._add_attribute(created_span, "crew_id", str(crew.id))
@@ -190,7 +187,7 @@ class Telemetry:
                 created_span.set_status(Status(StatusCode.OK))
                 created_span.end()
 
-                span = tracer.start_span("Task Execution")
+                span = tracer.start_span("任务执行")
 
                 self._add_attribute(span, "crew_key", crew.key)
                 self._add_attribute(span, "crew_id", str(crew.id))
@@ -210,7 +207,7 @@ class Telemetry:
         return None
 
     def task_ended(self, span: Span, task: Task, crew: Crew):
-        """Records task execution in a crew."""
+        """记录团队中的任务执行。"""
         if self.ready:
             try:
                 if crew.share_crew:
@@ -226,11 +223,11 @@ class Telemetry:
                 pass
 
     def tool_repeated_usage(self, llm: Any, tool_name: str, attempts: int):
-        """Records the repeated usage 'error' of a tool by an agent."""
+        """记录代理重复使用工具的“错误”。"""
         if self.ready:
             try:
                 tracer = trace.get_tracer("crewai.telemetry")
-                span = tracer.start_span("Tool Repeated Usage")
+                span = tracer.start_span("工具重复使用")
                 self._add_attribute(
                     span,
                     "crewai_version",
@@ -248,11 +245,11 @@ class Telemetry:
                 pass
 
     def tool_usage(self, llm: Any, tool_name: str, attempts: int):
-        """Records the usage of a tool by an agent."""
+        """记录代理对工具的使用。"""
         if self.ready:
             try:
                 tracer = trace.get_tracer("crewai.telemetry")
-                span = tracer.start_span("Tool Usage")
+                span = tracer.start_span("工具使用")
                 self._add_attribute(
                     span,
                     "crewai_version",
@@ -270,11 +267,11 @@ class Telemetry:
                 pass
 
     def tool_usage_error(self, llm: Any):
-        """Records the usage of a tool by an agent."""
+        """记录代理对工具的使用（错误）。"""
         if self.ready:
             try:
                 tracer = trace.get_tracer("crewai.telemetry")
-                span = tracer.start_span("Tool Usage Error")
+                span = tracer.start_span("工具使用错误")
                 self._add_attribute(
                     span,
                     "crewai_version",
@@ -290,15 +287,15 @@ class Telemetry:
                 pass
 
     def crew_execution_span(self, crew: Crew, inputs: dict[str, Any] | None):
-        """Records the complete execution of a crew.
-        This is only collected if the user has opted-in to share the crew.
+        """记录团队的完整执行过程。
+        仅当用户选择共享团队信息时才会收集此信息。
         """
         self.crew_creation(crew, inputs)
 
         if (self.ready) and (crew.share_crew):
             try:
                 tracer = trace.get_tracer("crewai.telemetry")
-                span = tracer.start_span("Crew Execution")
+                span = tracer.start_span("团队执行")
                 self._add_attribute(
                     span,
                     "crewai_version",
@@ -395,7 +392,7 @@ class Telemetry:
                 pass
 
     def _add_attribute(self, span, key, value):
-        """Add an attribute to a span."""
+        """向 span 添加属性。"""
         try:
             return span.set_attribute(key, value)
         except Exception:
