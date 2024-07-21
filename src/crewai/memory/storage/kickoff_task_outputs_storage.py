@@ -10,7 +10,7 @@ from crewai.utilities.paths import db_storage_path
 
 class KickoffTaskOutputsSQLiteStorage:
     """
-    An updated SQLite storage class for kickoff task outputs storage.
+    用于存储启动任务输出的更新版 SQLite 存储类。
     """
 
     def __init__(
@@ -22,7 +22,7 @@ class KickoffTaskOutputsSQLiteStorage:
 
     def _initialize_db(self):
         """
-        Initializes the SQLite database and creates LTM table
+        初始化 SQLite 数据库并创建 LTM 表
         """
         try:
             with sqlite3.connect(self.db_path) as conn:
@@ -44,7 +44,7 @@ class KickoffTaskOutputsSQLiteStorage:
                 conn.commit()
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"SAVING KICKOFF TASK OUTPUTS ERROR: An error occurred during database initialization: {e}",
+                content=f"保存启动任务输出错误：数据库初始化期间发生错误：{e}",
                 color="red",
             )
 
@@ -77,7 +77,7 @@ class KickoffTaskOutputsSQLiteStorage:
                 conn.commit()
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"SAVING KICKOFF TASK OUTPUTS ERROR: An error occurred during database initialization: {e}",
+                content=f"保存启动任务输出错误：数据库初始化期间发生错误：{e}",
                 color="red",
             )
 
@@ -87,7 +87,7 @@ class KickoffTaskOutputsSQLiteStorage:
         **kwargs,
     ):
         """
-        Updates an existing row in the latest_kickoff_task_outputs table based on task_index.
+        根据 task_index 更新 latest_kickoff_task_outputs 表中的现有行。
         """
         try:
             with sqlite3.connect(self.db_path) as conn:
@@ -111,11 +111,11 @@ class KickoffTaskOutputsSQLiteStorage:
 
                 if cursor.rowcount == 0:
                     self._printer.print(
-                        f"No row found with task_index {task_index}. No update performed.",
+                        f"找不到 task_index 为 {task_index} 的行。未执行更新。",
                         color="red",
                     )
         except sqlite3.Error as e:
-            self._printer.print(f"UPDATE KICKOFF TASK OUTPUTS ERROR: {e}", color="red")
+            self._printer.print(f"更新启动任务输出错误：{e}", color="red")
 
     def load(self) -> Optional[List[Dict[str, Any]]]:
         try:
@@ -145,14 +145,14 @@ class KickoffTaskOutputsSQLiteStorage:
 
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"LOADING KICKOFF TASK OUTPUTS ERROR: An error occurred while querying kickoff task outputs: {e}",
+                content=f"加载启动任务输出错误：查询启动任务输出时出错：{e}",
                 color="red",
             )
             return None
 
     def delete_all(self):
         """
-        Deletes all rows from the latest_kickoff_task_outputs table.
+        删除 latest_kickoff_task_outputs 表中的所有行。
         """
         try:
             with sqlite3.connect(self.db_path) as conn:
@@ -161,6 +161,6 @@ class KickoffTaskOutputsSQLiteStorage:
                 conn.commit()
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"ERROR: Failed to delete all kickoff task outputs: {e}",
+                content=f"错误：删除所有启动任务输出失败：{e}",
                 color="red",
             )

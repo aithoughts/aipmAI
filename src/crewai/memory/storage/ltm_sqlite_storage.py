@@ -8,7 +8,7 @@ from crewai.utilities.paths import db_storage_path
 
 class LTMSQLiteStorage:
     """
-    An updated SQLite storage class for LTM data storage.
+    用于 LTM 数据存储的更新版 SQLite 存储类。
     """
 
     def __init__(
@@ -20,7 +20,7 @@ class LTMSQLiteStorage:
 
     def _initialize_db(self):
         """
-        Initializes the SQLite database and creates LTM table
+        初始化 SQLite 数据库并创建 LTM 表
         """
         try:
             with sqlite3.connect(self.db_path) as conn:
@@ -40,7 +40,7 @@ class LTMSQLiteStorage:
                 conn.commit()
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"MEMORY ERROR: An error occurred during database initialization: {e}",
+                content=f"内存错误：数据库初始化期间发生错误：{e}",
                 color="red",
             )
 
@@ -51,7 +51,7 @@ class LTMSQLiteStorage:
         datetime: str,
         score: Union[int, float],
     ) -> None:
-        """Saves data to the LTM table with error handling."""
+        """将数据保存到 LTM 表，并进行错误处理。"""
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -65,14 +65,14 @@ class LTMSQLiteStorage:
                 conn.commit()
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"MEMORY ERROR: An error occurred while saving to LTM: {e}",
+                content=f"内存错误：保存到 LTM 时出错：{e}",
                 color="red",
             )
 
     def load(
         self, task_description: str, latest_n: int
     ) -> Optional[List[Dict[str, Any]]]:
-        """Queries the LTM table by task description with error handling."""
+        """按任务描述查询 LTM 表，并进行错误处理。"""
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -99,7 +99,7 @@ class LTMSQLiteStorage:
 
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"MEMORY ERROR: An error occurred while querying LTM: {e}",
+                content=f"内存错误：查询 LTM 时出错：{e}",
                 color="red",
             )
         return None
@@ -107,7 +107,7 @@ class LTMSQLiteStorage:
     def reset(
         self,
     ) -> None:
-        """Resets the LTM table with error handling."""
+        """重置 LTM 表，并进行错误处理。"""
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -116,7 +116,7 @@ class LTMSQLiteStorage:
 
         except sqlite3.Error as e:
             self._printer.print(
-                content=f"MEMORY ERROR: An error occurred while deleting all rows in LTM: {e}",
+                content=f"内存错误：删除 LTM 中的所有行时出错：{e}",
                 color="red",
             )
         return None

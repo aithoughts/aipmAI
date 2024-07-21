@@ -5,9 +5,8 @@ from crewai.memory.storage.rag_storage import RAGStorage
 
 class EntityMemory(Memory):
     """
-    EntityMemory class for managing structured information about entities
-    and their relationships using SQLite storage.
-    Inherits from the Memory class.
+    EntityMemory 类，用于使用 SQLite 存储管理有关实体及其关系的结构化信息。
+    继承自 Memory 类。
     """
 
     def __init__(self, crew=None, embedder_config=None):
@@ -19,8 +18,8 @@ class EntityMemory(Memory):
         )
         super().__init__(storage)
 
-    def save(self, item: EntityMemoryItem) -> None:  # type: ignore # BUG?: Signature of "save" incompatible with supertype "Memory"
-        """Saves an entity item into the SQLite storage."""
+    def save(self, item: EntityMemoryItem) -> None:  # type: ignore # BUG?: “save” 的签名与超类型 “Memory” 不兼容
+        """将实体项保存到 SQLite 存储中。"""
         data = f"{item.name}({item.type}): {item.description}"
         super().save(data, item.metadata)
 
@@ -28,4 +27,4 @@ class EntityMemory(Memory):
         try:
             self.storage.reset()
         except Exception as e:
-            raise Exception(f"An error occurred while resetting the entity memory: {e}")
+            raise Exception(f"重置实体memory时出错：{e}")

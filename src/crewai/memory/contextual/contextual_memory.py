@@ -11,8 +11,7 @@ class ContextualMemory:
 
     def build_context_for_task(self, task, context) -> str:
         """
-        Automatically builds a minimal, highly relevant set of contextual information
-        for a given task.
+        自动为给定任务构建一组最小但高度相关的上下文信息。
         """
         query = f"{task.description} {context}".strip()
 
@@ -27,17 +26,17 @@ class ContextualMemory:
 
     def _fetch_stm_context(self, query) -> str:
         """
-        Fetches recent relevant insights from STM related to the task's description and expected_output,
-        formatted as bullet points.
+        从 STM 中获取与任务描述和预期输出相关的最新见解，
+        格式化为项目符号列表。
         """
         stm_results = self.stm.search(query)
         formatted_results = "\n".join([f"- {result}" for result in stm_results])
-        return f"Recent Insights:\n{formatted_results}" if stm_results else ""
+        return f"近期见解：\n{formatted_results}" if stm_results else ""
 
     def _fetch_ltm_context(self, task) -> Optional[str]:
         """
-        Fetches historical data or insights from LTM that are relevant to the task's description and expected_output,
-        formatted as bullet points.
+        从 LTM 中获取与任务描述和预期输出相关的历史数据或见解，
+        格式化为项目符号列表。
         """
         ltm_results = self.ltm.search(task, latest_n=2)
         if not ltm_results:
@@ -46,20 +45,20 @@ class ContextualMemory:
         formatted_results = [
             suggestion
             for result in ltm_results
-            for suggestion in result["metadata"]["suggestions"]  # type: ignore # Invalid index type "str" for "str"; expected type "SupportsIndex | slice"
+            for suggestion in result["metadata"]["suggestions"]  # type: ignore # 无效的索引类型 "str"，应该是 "SupportsIndex | slice"
         ]
         formatted_results = list(dict.fromkeys(formatted_results))
-        formatted_results = "\n".join([f"- {result}" for result in formatted_results])  # type: ignore # Incompatible types in assignment (expression has type "str", variable has type "list[str]")
+        formatted_results = "\n".join([f"- {result}" for result in formatted_results])  # type: ignore #  赋值类型不兼容（表达式类型为 "str"，变量类型为 "list[str]"）
 
-        return f"Historical Data:\n{formatted_results}" if ltm_results else ""
+        return f"历史数据：\n{formatted_results}" if ltm_results else ""
 
     def _fetch_entity_context(self, query) -> str:
         """
-        Fetches relevant entity information from Entity Memory related to the task's description and expected_output,
-        formatted as bullet points.
+        从实体内存中获取与任务描述和预期输出相关的实体信息，
+        格式化为项目符号列表。
         """
         em_results = self.em.search(query)
         formatted_results = "\n".join(
-            [f"- {result['context']}" for result in em_results]  # type: ignore #  Invalid index type "str" for "str"; expected type "SupportsIndex | slice"
+            [f"- {result['context']}" for result in em_results]  # type: ignore # 无效的索引类型 "str"，应该是 "SupportsIndex | slice"
         )
-        return f"Entities:\n{formatted_results}" if em_results else ""
+        return f"实体：\n{formatted_results}" if em_results else ""

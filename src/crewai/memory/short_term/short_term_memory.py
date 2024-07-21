@@ -5,11 +5,8 @@ from crewai.memory.storage.rag_storage import RAGStorage
 
 class ShortTermMemory(Memory):
     """
-    ShortTermMemory class for managing transient data related to immediate tasks
-    and interactions.
-    Inherits from the Memory class and utilizes an instance of a class that
-    adheres to the Storage for data storage, specifically working with
-    MemoryItem instances.
+    短期记忆类，用于管理与当前任务和交互相关的瞬态数据。
+    继承自 Memory 类，并利用遵循 Storage 的类的实例进行数据存储，特别是处理 MemoryItem 实例。
     """
 
     def __init__(self, crew=None, embedder_config=None):
@@ -22,12 +19,10 @@ class ShortTermMemory(Memory):
         super().save(item.data, item.metadata, item.agent)
 
     def search(self, query: str, score_threshold: float = 0.35):
-        return self.storage.search(query=query, score_threshold=score_threshold)  # type: ignore # BUG? The reference is to the parent class, but the parent class does not have this parameters
+        return self.storage.search(query=query, score_threshold=score_threshold)  # type: ignore # BUG？引用的是父类，但父类没有这些参数
 
     def reset(self) -> None:
         try:
             self.storage.reset()
         except Exception as e:
-            raise Exception(
-                f"An error occurred while resetting the short-term memory: {e}"
-            )
+            raise Exception(f"重置短期记忆时出错：{e}")

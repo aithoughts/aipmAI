@@ -34,8 +34,7 @@ class FakeLLM(BaseLlm):
 
 class RAGStorage(Storage):
     """
-    Extends Storage to handle embeddings for memory entries, improving
-    search efficiency.
+    扩展 Storage 以处理memory条目的嵌入，提高搜索效率。
     """
 
     def __init__(self, type, allow_reset=True, embedder_config=None, crew=None):
@@ -81,7 +80,7 @@ class RAGStorage(Storage):
     def save(self, value: Any, metadata: Dict[str, Any]) -> None:
         self._generate_embedding(value, metadata)
 
-    def search(  # type: ignore # BUG?: Signature of "search" incompatible with supertype "Storage"
+    def search(  # type: ignore # BUG?: “search” 的签名与超类型 “Storage” 不兼容
         self,
         query: str,
         limit: int = 3,
@@ -109,5 +108,5 @@ class RAGStorage(Storage):
             shutil.rmtree(f"{db_storage_path()}/{self.type}")
         except Exception as e:
             raise Exception(
-                f"An error occurred while resetting the {self.type} memory: {e}"
+                f"重置 {self.type} memory时出错：{e}"
             )
