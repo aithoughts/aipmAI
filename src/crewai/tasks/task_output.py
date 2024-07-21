@@ -7,25 +7,25 @@ from crewai.tasks.output_format import OutputFormat
 
 
 class TaskOutput(BaseModel):
-    """Class that represents the result of a task."""
+    """表示任务结果的类。"""
 
-    description: str = Field(description="Description of the task")
-    summary: Optional[str] = Field(description="Summary of the task", default=None)
-    raw: str = Field(description="Raw output of the task", default="")
+    description: str = Field(description="任务描述")
+    summary: Optional[str] = Field(description="任务摘要", default=None)
+    raw: str = Field(description="任务的原始输出", default="")
     pydantic: Optional[BaseModel] = Field(
-        description="Pydantic output of task", default=None
+        description="任务的 Pydantic 输出", default=None
     )
     json_dict: Optional[Dict[str, Any]] = Field(
-        description="JSON dictionary of task", default=None
+        description="任务的 JSON 字典", default=None
     )
-    agent: str = Field(description="Agent that executed the task")
+    agent: str = Field(description="执行任务的代理")
     output_format: OutputFormat = Field(
-        description="Output format of the task", default=OutputFormat.RAW
+        description="任务的输出格式", default=OutputFormat.RAW
     )
 
     @model_validator(mode="after")
     def set_summary(self):
-        """Set the summary field based on the description."""
+        """根据描述设置摘要字段。"""
         excerpt = " ".join(self.description.split(" ")[:10])
         self.summary = f"{excerpt}..."
         return self
@@ -35,16 +35,16 @@ class TaskOutput(BaseModel):
         if self.output_format != OutputFormat.JSON:
             raise ValueError(
                 """
-                Invalid output format requested.
-                If you would like to access the JSON output,
-                please make sure to set the output_json property for the task
+                请求的输出格式无效。
+                如果要访问 JSON 输出，
+                请确保为任务设置 output_json 属性
                 """
             )
 
         return json.dumps(self.json_dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        """Convert json_output and pydantic_output to a dictionary."""
+        """将 json_output 和 pydantic_output 转换为字典。"""
         output_dict = {}
         if self.json_dict:
             output_dict.update(self.json_dict)

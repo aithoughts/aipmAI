@@ -24,22 +24,22 @@ from crewai.utilities.pydantic_schema_parser import PydanticSchemaParser
 
 
 class Task(BaseModel):
-    """Class that represents a task to be executed.
+    """表示要执行的任务的类。
 
-    Each task must have a description, an expected output and an agent responsible for execution.
+    每个任务都必须有一个描述、一个预期的输出和一个负责执行的代理。
 
-    Attributes:
-        agent: Agent responsible for task execution. Represents entity performing task.
-        async_execution: Boolean flag indicating asynchronous task execution.
-        callback: Function/object executed post task completion for additional actions.
-        config: Dictionary containing task-specific configuration parameters.
-        context: List of Task instances providing task context or input data.
-        description: Descriptive text detailing task's purpose and execution.
-        expected_output: Clear definition of expected task outcome.
-        output_file: File path for storing task output.
-        output_json: Pydantic model for structuring JSON output.
-        output_pydantic: Pydantic model for task output.
-        tools: List of tools/resources limited for task execution.
+    属性：
+        agent: 负责任务执行的代理。表示执行任务的实体。
+        async_execution: 布尔标志，指示是否异步执行任务。
+        callback: 任务完成后执行的函数/对象，用于执行其他操作。
+        config: 包含特定于任务的配置参数的字典。
+        context: 提供任务上下文或输入数据的任务实例列表。
+        description: 详细说明任务目的和执行的描述性文本。
+        expected_output: 对预期任务结果的清晰定义。
+        output_file: 用于存储任务输出的文件路径。
+        output_json: 用于构建 JSON 输出的 Pydantic 模型。
+        output_pydantic: 用于任务输出的 Pydantic 模型。
+        tools: 限制用于任务执行的工具/资源列表。
     """
 
     class Config:
@@ -51,58 +51,58 @@ class Task(BaseModel):
     delegations: int = 0
     i18n: I18N = I18N()
     prompt_context: Optional[str] = None
-    description: str = Field(description="Description of the actual task.")
+    description: str = Field(description="实际任务的描述。")
     expected_output: str = Field(
-        description="Clear definition of expected output for the task."
+        description="对任务预期输出的清晰定义。"
     )
     config: Optional[Dict[str, Any]] = Field(
-        description="Configuration for the agent",
+        description="代理的配置",
         default=None,
     )
     callback: Optional[Any] = Field(
-        description="Callback to be executed after the task is completed.", default=None
+        description="任务完成后要执行的回调。", default=None
     )
     agent: Optional[BaseAgent] = Field(
-        description="Agent responsible for execution the task.", default=None
+        description="负责执行任务的代理。", default=None
     )
     context: Optional[List["Task"]] = Field(
-        description="Other tasks that will have their output used as context for this task.",
+        description="其他任务，其输出将用作此任务的上下文。",
         default=None,
     )
     async_execution: Optional[bool] = Field(
-        description="Whether the task should be executed asynchronously or not.",
+        description="任务是否应该异步执行。",
         default=False,
     )
     output_json: Optional[Type[BaseModel]] = Field(
-        description="A Pydantic model to be used to create a JSON output.",
+        description="用于创建 JSON 输出的 Pydantic 模型。",
         default=None,
     )
     output_pydantic: Optional[Type[BaseModel]] = Field(
-        description="A Pydantic model to be used to create a Pydantic output.",
+        description="用于创建 Pydantic 输出的 Pydantic 模型。",
         default=None,
     )
     output_file: Optional[str] = Field(
-        description="A file path to be used to create a file output.",
+        description="用于创建文件输出的文件路径。",
         default=None,
     )
     output: Optional[TaskOutput] = Field(
-        description="Task output, it's final result after being executed", default=None
+        description="任务输出，执行后的最终结果", default=None
     )
     tools: Optional[List[Any]] = Field(
         default_factory=list,
-        description="Tools the agent is limited to use for this task.",
+        description="代理被限制用于此任务的工具。",
     )
     id: UUID4 = Field(
         default_factory=uuid.uuid4,
         frozen=True,
-        description="Unique identifier for the object, not set by user.",
+        description="对象的唯一标识符，不由用户设置。",
     )
     human_input: Optional[bool] = Field(
-        description="Whether the task should have a human review the final answer of the agent",
+        description="任务是否应该由人工审核代理的最终答案",
         default=False,
     )
     converter_cls: Optional[Type[Converter]] = Field(
-        description="A converter class used to export structured output",
+        description="用于导出结构化输出的转换器类",
         default=None,
     )
 
@@ -121,26 +121,26 @@ class Task(BaseModel):
     def _deny_user_set_id(cls, v: Optional[UUID4]) -> None:
         if v:
             raise PydanticCustomError(
-                "may_not_set_field", "This field is not to be set by the user.", {}
+                "may_not_set_field", "此字段不能由用户设置。", {}
             )
 
     @field_validator("output_file")
     @classmethod
     def output_file_validattion(cls, value: str) -> str:
-        """Validate the output file path by removing the / from the beginning of the path."""
+        """通过删除路径开头的 / 来验证输出文件路径。"""
         if value.startswith("/"):
             return value[1:]
         return value
 
     @model_validator(mode="after")
     def set_private_attrs(self) -> "Task":
-        """Set private attributes."""
+        """设置私有属性。"""
         self._telemetry = Telemetry()
         return self
 
     @model_validator(mode="after")
     def set_attributes_based_on_config(self) -> "Task":
-        """Set attributes based on the agent configuration."""
+        """根据代理配置设置属性。"""
         if self.config:
             for key, value in self.config.items():
                 setattr(self, key, value)
@@ -148,19 +148,19 @@ class Task(BaseModel):
 
     @model_validator(mode="after")
     def check_tools(self):
-        """Check if the tools are set."""
+        """检查是否设置了工具。"""
         if not self.tools and self.agent and self.agent.tools:
             self.tools.extend(self.agent.tools)
         return self
 
     @model_validator(mode="after")
     def check_output(self):
-        """Check if an output type is set."""
+        """检查是否设置了输出类型。"""
         output_types = [self.output_json, self.output_pydantic]
         if len([type for type in output_types if type]) > 1:
             raise PydanticCustomError(
                 "output_type",
-                "Only one output type can be set, either output_pydantic or output_json.",
+                "只能设置一种输出类型，output_pydantic 或 output_json。",
                 {},
             )
         return self
@@ -171,7 +171,7 @@ class Task(BaseModel):
         context: Optional[str] = None,
         tools: Optional[List[Any]] = None,
     ) -> TaskOutput:
-        """Execute the task synchronously."""
+        """同步执行任务。"""
         return self._execute_core(agent, context, tools)
 
     @property
@@ -188,7 +188,7 @@ class Task(BaseModel):
         context: Optional[str] = None,
         tools: Optional[List[Any]] = None,
     ) -> Future[TaskOutput]:
-        """Execute the task asynchronously."""
+        """异步执行任务。"""
         future: Future[TaskOutput] = Future()
         threading.Thread(
             target=self._execute_task_async, args=(agent, context, tools, future)
@@ -202,7 +202,7 @@ class Task(BaseModel):
         tools: Optional[List[Any]],
         future: Future[TaskOutput],
     ) -> None:
-        """Execute the task asynchronously with context handling."""
+        """在处理上下文的情况下异步执行任务。"""
         result = self._execute_core(agent, context, tools)
         future.set_result(result)
 
@@ -212,12 +212,12 @@ class Task(BaseModel):
         context: Optional[str],
         tools: Optional[List[Any]],
     ) -> TaskOutput:
-        """Run the core execution logic of the task."""
+        """运行任务的核心执行逻辑。"""
         agent = agent or self.agent
         self.agent = agent
         if not agent:
             raise Exception(
-                f"The task '{self.description}' has no agent assigned, therefore it can't be executed directly and should be executed in a Crew using a specific process that support that, like hierarchical."
+                f"任务 '{self.description}' 没有分配代理，因此它不能直接执行，应该在 Crew 中使用支持该任务的特定流程执行，例如分层流程。"
             )
 
         self._execution_span = self._telemetry.task_started(crew=agent.crew, task=self)
@@ -263,10 +263,10 @@ class Task(BaseModel):
         return task_output
 
     def prompt(self) -> str:
-        """Prompt the task.
+        """提示任务。
 
-        Returns:
-            Prompt of the task.
+        返回：
+            任务提示。
         """
         tasks_slices = [self.description]
 
@@ -277,7 +277,7 @@ class Task(BaseModel):
         return "\n".join(tasks_slices)
 
     def interpolate_inputs(self, inputs: Dict[str, Any]) -> None:
-        """Interpolate inputs into the task description and expected output."""
+        """将输入插入到任务描述和预期输出中。"""
         if self._original_description is None:
             self._original_description = self.description
         if self._original_expected_output is None:
@@ -288,15 +288,15 @@ class Task(BaseModel):
             self.expected_output = self._original_expected_output.format(**inputs)
 
     def increment_tools_errors(self) -> None:
-        """Increment the tools errors counter."""
+        """增加工具错误计数器。"""
         self.tools_errors += 1
 
     def increment_delegations(self) -> None:
-        """Increment the delegations counter."""
+        """增加委托计数器。"""
         self.delegations += 1
 
     def copy(self, agents: List["BaseAgent"]) -> "Task":
-        """Create a deep copy of the Task."""
+        """创建任务的深层副本。"""
         exclude = {
             "id",
             "agent",
@@ -327,14 +327,14 @@ class Task(BaseModel):
         return copied_task
 
     def _create_converter(self, *args, **kwargs) -> Converter:
-        """Create a converter instance."""
+        """创建一个转换器实例。"""
         if self.agent and not self.converter_cls:
             converter = self.agent.get_output_converter(*args, **kwargs)
         elif self.converter_cls:
             converter = self.converter_cls(*args, **kwargs)
 
         if not converter:
-            raise Exception("No output converter found or set.")
+            raise Exception("未找到或设置输出转换器。")
 
         return converter
 
@@ -395,7 +395,7 @@ class Task(BaseModel):
     def _convert_with_instructions(
         self, result: str, model: Type[BaseModel]
     ) -> Union[dict, BaseModel, str]:
-        llm = self.agent.function_calling_llm or self.agent.llm  # type: ignore # Item "None" of "BaseAgent | None" has no attribute "function_calling_llm"
+        llm = self.agent.function_calling_llm or self.agent.llm  # type: ignore # “BaseAgent | None”的项目“None”没有属性“function_calling_llm”
         instructions = self._get_conversion_instructions(model, llm)
 
         converter = self._create_converter(
@@ -407,7 +407,7 @@ class Task(BaseModel):
 
         if isinstance(exported_result, ConverterError):
             Printer().print(
-                content=f"{exported_result.message} Using raw output instead.",
+                content=f"{exported_result.message} 使用原始输出。",
                 color="red",
             )
             return result
@@ -422,15 +422,15 @@ class Task(BaseModel):
         return OutputFormat.RAW
 
     def _get_conversion_instructions(self, model: Type[BaseModel], llm: Any) -> str:
-        instructions = "I'm gonna convert this raw text into valid JSON."
+        instructions = "我要将此原始文本转换为有效的 JSON。"
         if not self._is_gpt(llm):
             model_schema = PydanticSchemaParser(model=model).get_schema()
-            instructions = f"{instructions}\n\nThe json should have the following structure, with the following keys:\n{model_schema}"
+            instructions = f"{instructions}\n\nJSON 应具有以下结构，并具有以下键：\n{model_schema}"
         return instructions
 
     def _save_output(self, content: str) -> None:
         if not self.output_file:
-            raise Exception("Output file path is not set.")
+            raise Exception("未设置输出文件路径。")
 
         directory = os.path.dirname(self.output_file)
         if directory and not os.path.exists(directory):
@@ -442,12 +442,12 @@ class Task(BaseModel):
         return isinstance(llm, ChatOpenAI) and llm.openai_api_base is None
 
     def _save_file(self, result: Any) -> None:
-        directory = os.path.dirname(self.output_file)  # type: ignore # Value of type variable "AnyOrLiteralStr" of "dirname" cannot be "str | None"
+        directory = os.path.dirname(self.output_file)  # type: ignore # “dirname”的类型变量“AnyOrLiteralStr”的值不能为“str | None”
 
         if directory and not os.path.exists(directory):
             os.makedirs(directory)
 
-        with open(self.output_file, "w", encoding="utf-8") as file:  # type: ignore # Argument 1 to "open" has incompatible type "str | None"; expected "int | str | bytes | PathLike[str] | PathLike[bytes]"
+        with open(self.output_file, "w", encoding="utf-8") as file:  # type: ignore # 传递给“open”的参数 1 的类型“str | None”与“int | str | bytes | PathLike[str] | PathLike[bytes]”不兼容
             file.write(result)
         return None
 

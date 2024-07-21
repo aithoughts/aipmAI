@@ -1,92 +1,92 @@
 ---
-title: crewAI Tasks
-description: Detailed guide on managing and creating tasks within the crewAI framework, reflecting the latest codebase updates.
+标题：crewAI 任务
+描述：详细介绍如何在 crewAI 框架内管理和创建任务，反映最新的代码库更新。
 ---
 
-## Overview of a Task
+## 任务概述
 
-!!! note "What is a Task?"
-In the crewAI framework, tasks are specific assignments completed by agents. They provide all necessary details for execution, such as a description, the agent responsible, required tools, and more, facilitating a wide range of action complexities.
+!!! note "什么是任务？"
+在 crewAI 框架中，任务是由代理完成的特定分配。它们提供了执行所需的所有必要细节，例如描述、负责的代理、所需的工具等，从而简化了各种操作的复杂性。
 
-Tasks within crewAI can be collaborative, requiring multiple agents to work together. This is managed through the task properties and orchestrated by the Crew's process, enhancing teamwork and efficiency.
+crewAI 中的任务可以是协作式的，需要多个代理协同工作。这是通过任务属性进行管理，并由 Crew 的流程进行协调，从而提高了团队合作和效率。
 
-## Task Attributes
+## 任务属性
 
-| Attribute                        | Parameters        | Description                                                                                                          |
+| 属性                        | 参数        | 描述                                                                                                          |
 | :------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------------------- |
-| **Description**                  | `description`     | A clear, concise statement of what the task entails.                                                                 |
-| **Agent**                        | `agent`           | The agent responsible for the task, assigned either directly or by the crew's process.                               |
-| **Expected Output**              | `expected_output` | A detailed description of what the task's completion looks like.                                                     |
-| **Tools** _(optional)_           | `tools`           | The functions or capabilities the agent can utilize to perform the task.                                             |
-| **Async Execution** _(optional)_ | `async_execution` | If set, the task executes asynchronously, allowing progression without waiting for completion.                       |
-| **Context** _(optional)_         | `context`         | Specifies tasks whose outputs are used as context for this task.                                                     |
-| **Config** _(optional)_          | `config`          | Additional configuration details for the agent executing the task, allowing further customization.                   |
-| **Output JSON** _(optional)_     | `output_json`     | Outputs a JSON object, requiring an OpenAI client. Only one output format can be set.                                |
-| **Output Pydantic** _(optional)_ | `output_pydantic` | Outputs a Pydantic model object, requiring an OpenAI client. Only one output format can be set.                      |
-| **Output File** _(optional)_     | `output_file`     | Saves the task output to a file. If used with `Output JSON` or `Output Pydantic`, specifies how the output is saved. |
-| **Output** _(optional)_          | `output`          | The output of the task, containing the raw, JSON, and Pydantic output plus additional details.                       |
-| **Callback** _(optional)_        | `callback`        | A Python callable that is executed with the task's output upon completion.                                           |
-| **Human Input** _(optional)_     | `human_input`     | Indicates if the task requires human feedback at the end, useful for tasks needing human oversight.                  |
+| **描述**                  | `description`     | 对任务内容的清晰简洁的陈述。                                                                                                |
+| **代理**                        | `agent`           | 负责任务的代理，可以直接分配，也可以由团队流程决定。                                                              |
+| **预期输出**              | `expected_output` | 对任务完成情况的详细描述。                                                                                    |
+| **工具** _(可选)_           | `tools`           | 代理可以用来执行任务的功能或能力。                                                                            |
+| **异步执行** _(可选)_ | `async_execution` | 如果设置了，则任务异步执行，允许在不等待完成的情况下继续进行。                                                      |
+| **上下文** _(可选)_         | `context`         | 指定其输出用作此任务上下文的任务。                                                                                    |
+| **配置** _(可选)_          | `config`          | 用于执行任务的代理的其他配置详细信息，允许进一步自定义。                                                  |
+| **输出 JSON** _(可选)_     | `output_json`     | 输出一个 JSON 对象，需要一个 OpenAI 客户端。只能设置一种输出格式。                                |
+| **输出 Pydantic** _(可选)_ | `output_pydantic` | 输出一个 Pydantic 模型对象，需要一个 OpenAI 客户端。只能设置一种输出格式。                      |
+| **输出文件** _(可选)_     | `output_file`     | 将任务输出保存到文件。如果与 `Output JSON` 或 `Output Pydantic` 一起使用，则指定如何保存输出。 |
+| **输出** _(可选)_          | `output`          | 任务的输出，包含原始、JSON 和 Pydantic 输出以及其他详细信息。                                                      |
+| **回调** _(可选)_        | `callback`        | 一个 Python 可调用对象，在任务完成后使用任务的输出执行。                                           |
+| **人工输入** _(可选)_     | `human_input`     | 指示任务是否需要在结束时进行人工反馈，这对于需要人工监督的任务很有用。                  |
 
-## Creating a Task
+## 创建任务
 
-Creating a task involves defining its scope, responsible agent, and any additional attributes for flexibility:
+创建任务涉及定义其范围、负责的代理以及任何额外的属性以提高灵活性：
 
 ```python
 from crewai import Task
 
 task = Task(
-    description='Find and summarize the latest and most relevant news on AI',
+    description='查找并总结有关 AI 的最新和最相关的新闻',
     agent=sales_agent,
-    expected_output='A bullet list summary of the top 5 most important AI news',
+    expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要',
 )
 ```
 
-!!! note "Task Assignment"
-Directly specify an `agent` for assignment or let the `hierarchical` CrewAI's process decide based on roles, availability, etc.
+!!! note "任务分配"
+直接指定要分配的 `agent`，或者让 `hierarchical` crewAI 的流程根据角色、可用性等来决定。
 
-## Task Output
+## 任务输出
 
-!!! note "Understanding Task Outputs"
-The output of a task in the crewAI framework is encapsulated within the `TaskOutput` class. This class provides a structured way to access results of a task, including various formats such as raw strings, JSON, and Pydantic models.
-By default, the `TaskOutput` will only include the `raw` output. A `TaskOutput` will only include the `pydantic` or `json_dict` output if the original `Task` object was configured with `output_pydantic` or `output_json`, respectively.
+!!! note "了解任务输出"
+crewAI 框架中任务的输出封装在 `TaskOutput` 类中。此类提供了一种结构化方式来访问任务的结果，包括各种格式，例如原始字符串、JSON 和 Pydantic 模型。
+默认情况下，`TaskOutput` 将仅包含 `raw` 输出。仅当原始 `Task` 对象配置了 `output_pydantic` 或 `output_json` 时，`TaskOutput` 才会分别包含 `pydantic` 或 `json_dict` 输出。
 
-### Task Output Attributes
+### 任务输出属性
 
-| Attribute         | Parameters      | Type                       | Description                                                                                        |
+| 属性         | 参数      | 类型                       | 描述                                                                                        |
 | :---------------- | :-------------- | :------------------------- | :------------------------------------------------------------------------------------------------- |
-| **Description**   | `description`   | `str`                      | A brief description of the task.                                                                   |
-| **Summary**       | `summary`       | `Optional[str]`            | A short summary of the task, auto-generated from the description.                                  |
-| **Raw**           | `raw`           | `str`                      | The raw output of the task. This is the default format for the output.                             |
-| **Pydantic**      | `pydantic`      | `Optional[BaseModel]`      | A Pydantic model object representing the structured output of the task.                            |
-| **JSON Dict**     | `json_dict`     | `Optional[Dict[str, Any]]` | A dictionary representing the JSON output of the task.                                             |
-| **Agent**         | `agent`         | `str`                      | The agent that executed the task.                                                                  |
-| **Output Format** | `output_format` | `OutputFormat`             | The format of the task output, with options including RAW, JSON, and Pydantic. The default is RAW. |
+| **描述**   | `description`   | `str`                      | 任务的简要描述。                                                                   |
+| **摘要**       | `summary`       | `Optional[str]`            | 任务的简短摘要，从描述中自动生成。                                  |
+| **原始**           | `raw`           | `str`                      | 任务的原始输出。这是输出的默认格式。                             |
+| **Pydantic**      | `pydantic`      | `Optional[BaseModel]`      | 表示任务结构化输出的 Pydantic 模型对象。                            |
+| **JSON 字典**     | `json_dict`     | `Optional[Dict[str, Any]]` | 表示任务 JSON 输出的字典。                                             |
+| **代理**         | `agent`         | `str`                      | 执行任务的代理。                                                                  |
+| **输出格式** | `output_format` | `OutputFormat`             | 任务输出的格式，选项包括 RAW、JSON 和 Pydantic。默认为 RAW。 |
 
-### Task Output Methods and Properties
+### 任务输出方法和属性
 
-| Method/Property | Description                                                                                       |
+| 方法/属性 | 描述                                                                                       |
 | :-------------- | :------------------------------------------------------------------------------------------------ |
-| **json**        | Returns the JSON string representation of the task output if the output format is JSON.           |
-| **to_dict**     | Converts the JSON and Pydantic outputs to a dictionary.                                           |
-| \***\*str\*\*** | Returns the string representation of the task output, prioritizing Pydantic, then JSON, then raw. |
+| **json**        | 如果输出格式为 JSON，则返回任务输出的 JSON 字符串表示形式。           |
+| **to_dict**     | 将 JSON 和 Pydantic 输出转换为字典。                                           |
+| \***\*str\*\*** | 返回任务输出的字符串表示形式，优先级为 Pydantic，然后是 JSON，然后是原始。 |
 
-### Accessing Task Outputs
+### 访问任务输出
 
-Once a task has been executed, its output can be accessed through the `output` attribute of the `Task` object. The `TaskOutput` class provides various ways to interact with and present this output.
+任务执行完成后，可以通过 `Task` 对象的 `output` 属性访问其输出。`TaskOutput` 类提供了多种与输出交互和呈现输出的方式。
 
-#### Example
+#### 示例
 
 ```python
-# Example task
+# 示例任务
 task = Task(
-    description='Find and summarize the latest AI news',
-    expected_output='A bullet list summary of the top 5 most important AI news',
+    description='查找并总结最新的 AI 新闻',
+    expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要',
     agent=research_agent,
     tools=[search_tool]
 )
 
-# Execute the crew
+# 执行团队
 crew = Crew(
     agents=[research_agent],
     tasks=[task],
@@ -95,46 +95,45 @@ crew = Crew(
 
 result = crew.kickoff()
 
-# Accessing the task output
+# 访问任务输出
 task_output = task.output
 
-print(f"Task Description: {task_output.description}")
-print(f"Task Summary: {task_output.summary}")
-print(f"Raw Output: {task_output.raw}")
+print(f"任务描述: {task_output.description}")
+print(f"任务摘要: {task_output.summary}")
+print(f"原始输出: {task_output.raw}")
 if task_output.json_dict:
-    print(f"JSON Output: {json.dumps(task_output.json_dict, indent=2)}")
+    print(f"JSON 输出: {json.dumps(task_output.json_dict, indent=2)}")
 if task_output.pydantic:
-    print(f"Pydantic Output: {task_output.pydantic}")
+    print(f"Pydantic 输出: {task_output.pydantic}")
 ```
 
-## Integrating Tools with Tasks
+## 将工具与任务集成
 
-Leverage tools from the [crewAI Toolkit](https://github.com/joaomdmoura/crewai-tools) and [LangChain Tools](https://python.langchain.com/docs/integrations/tools) for enhanced task performance and agent interaction.
+利用 [crewAI 工具包](https://github.com/joaomdmoura/crewai-tools) 和 [LangChain 工具](https://python.langchain.com/docs/integrations/tools) 中的工具来增强任务性能和代理交互。
 
-## Creating a Task with Tools
+## 使用工具创建任务
 
 ```python
 import os
-os.environ["OPENAI_API_KEY"] = "Your Key"
-os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API key
+os.environ["OPENAI_API_KEY"] = "您的密钥"
+os.environ["SERPER_API_KEY"] = "您的密钥" # serper.dev API 密钥
 
 from crewai import Agent, Task, Crew
 from crewai_tools import SerperDevTool
 
 research_agent = Agent(
-  role='Researcher',
-  goal='Find and summarize the latest AI news',
-  backstory="""You're a researcher at a large company.
-  You're responsible for analyzing data and providing insights
-  to the business.""",
+  role='研究员',
+  goal='查找并总结最新的 AI 新闻',
+  backstory="""您是一家大公司的研究员。
+  您负责分析数据并为企业提供见解。""",
   verbose=True
 )
 
 search_tool = SerperDevTool()
 
 task = Task(
-  description='Find and summarize the latest AI news',
-  expected_output='A bullet list summary of the top 5 most important AI news',
+  description='查找并总结最新的 AI 新闻',
+  expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要',
   agent=research_agent,
   tools=[search_tool]
 )
@@ -149,36 +148,36 @@ result = crew.kickoff()
 print(result)
 ```
 
-This demonstrates how tasks with specific tools can override an agent's default set for tailored task execution.
+这演示了如何使用特定工具的任务可以覆盖代理的默认设置，以进行定制的任务执行。
 
-## Referring to Other Tasks
+## 引用其他任务
 
-In crewAI, the output of one task is automatically relayed into the next one, but you can specifically define what tasks' output, including multiple, should be used as context for another task.
+在 crewAI 中，一个任务的输出会自动传递到下一个任务中，但您可以专门定义哪些任务的输出（包括多个任务）应该用作另一个任务的上下文。
 
-This is useful when you have a task that depends on the output of another task that is not performed immediately after it. This is done through the `context` attribute of the task:
+当您有一个任务依赖于另一个不是紧随其后执行的任务的输出时，这很有用。这是通过任务的 `context` 属性完成的：
 
 ```python
 # ...
 
 research_ai_task = Task(
-    description='Find and summarize the latest AI news',
-    expected_output='A bullet list summary of the top 5 most important AI news',
+    description='查找并总结最新的 AI 新闻',
+    expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要',
     async_execution=True,
     agent=research_agent,
     tools=[search_tool]
 )
 
 research_ops_task = Task(
-    description='Find and summarize the latest AI Ops news',
-    expected_output='A bullet list summary of the top 5 most important AI Ops news',
+    description='查找并总结最新的 AI Ops 新闻',
+    expected_output='前 5 名最重要的 AI Ops 新闻的项目符号列表摘要',
     async_execution=True,
     agent=research_agent,
     tools=[search_tool]
 )
 
 write_blog_task = Task(
-    description="Write a full blog post about the importance of AI and its latest news",
-    expected_output='Full blog post that is 4 paragraphs long',
+    description="撰写一篇关于 AI 的重要性及其最新新闻的完整博客文章",
+    expected_output='4 段长的完整博客文章',
     agent=writer_agent,
     context=[research_ai_task, research_ops_task]
 )
@@ -186,58 +185,58 @@ write_blog_task = Task(
 #...
 ```
 
-## Asynchronous Execution
+## 异步执行
 
-You can define a task to be executed asynchronously. This means that the crew will not wait for it to be completed to continue with the next task. This is useful for tasks that take a long time to be completed, or that are not crucial for the next tasks to be performed.
+您可以将任务定义为异步执行。这意味着团队不会等待它完成就继续执行下一个任务。这对于需要很长时间才能完成的任务或对下一个要执行的任务不重要的任务很有用。
 
-You can then use the `context` attribute to define in a future task that it should wait for the output of the asynchronous task to be completed.
+然后，您可以使用 `context` 属性在未来的任务中定义它应该等待异步任务的输出完成。
 
 ```python
 #...
 
 list_ideas = Task(
-    description="List of 5 interesting ideas to explore for an article about AI.",
-    expected_output="Bullet point list of 5 ideas for an article.",
+    description="列出 5 个关于 AI 文章的有趣想法。",
+    expected_output="5 个文章想法的项目符号列表。",
     agent=researcher,
-    async_execution=True # Will be executed asynchronously
+    async_execution=True # 将异步执行
 )
 
 list_important_history = Task(
-    description="Research the history of AI and give me the 5 most important events.",
-    expected_output="Bullet point list of 5 important events.",
+    description="研究 AI 的历史，并告诉我 5 个最重要的事件。",
+    expected_output="5 个重要事件的项目符号列表。",
     agent=researcher,
-    async_execution=True # Will be executed asynchronously
+    async_execution=True # 将异步执行
 )
 
 write_article = Task(
-    description="Write an article about AI, its history, and interesting ideas.",
-    expected_output="A 4 paragraph article about AI.",
+    description="撰写一篇关于 AI 及其历史和有趣想法的文章。",
+    expected_output="一篇关于 AI 的 4 段文章。",
     agent=writer,
-    context=[list_ideas, list_important_history] # Will wait for the output of the two tasks to be completed
+    context=[list_ideas, list_important_history] # 将等待两个任务的输出完成
 )
 
 #...
 ```
 
-## Callback Mechanism
+## 回调机制
 
-The callback function is executed after the task is completed, allowing for actions or notifications to be triggered based on the task's outcome.
+回调函数在任务完成后执行，允许根据任务的结果触发操作或通知。
 
 ```python
 # ...
 
 def callback_function(output: TaskOutput):
-    # Do something after the task is completed
-    # Example: Send an email to the manager
+    # 任务完成后执行某些操作
+    # 例如：向经理发送电子邮件
     print(f"""
-        Task completed!
-        Task: {output.description}
-        Output: {output.raw_output}
+        任务已完成！
+        任务: {output.description}
+        输出: {output.raw_output}
     """)
 
 research_task = Task(
-    description='Find and summarize the latest AI news',
-    expected_output='A bullet list summary of the top 5 most important AI news',
+    description='查找并总结最新的 AI 新闻',
+    expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要',
     agent=research_agent,
     tools=[search_tool],
     callback=callback_function
@@ -246,15 +245,15 @@ research_task = Task(
 #...
 ```
 
-## Accessing a Specific Task Output
+## 访问特定任务输出
 
-Once a crew finishes running, you can access the output of a specific task by using the `output` attribute of the task object:
+团队完成运行后，您可以使用任务对象的 `output` 属性访问特定任务的输出：
 
 ```python
 # ...
 task1 = Task(
-    description='Find and summarize the latest AI news',
-    expected_output='A bullet list summary of the top 5 most important AI news',
+    description='查找并总结最新的 AI 新闻',
+    expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要',
     agent=research_agent,
     tools=[search_tool]
 )
@@ -269,37 +268,37 @@ crew = Crew(
 
 result = crew.kickoff()
 
-# Returns a TaskOutput object with the description and results of the task
+# 返回一个 TaskOutput 对象，其中包含任务的描述和结果
 print(f"""
-    Task completed!
-    Task: {task1.output.description}
-    Output: {task1.output.raw_output}
+    任务已完成！
+    任务: {task1.output.description}
+    输出: {task1.output.raw_output}
 """)
 ```
 
-## Tool Override Mechanism
+## 工具覆盖机制
 
-Specifying tools in a task allows for dynamic adaptation of agent capabilities, emphasizing CrewAI's flexibility.
+在任务中指定工具允许动态调整代理功能，强调 CrewAI 的灵活性。
 
-## Error Handling and Validation Mechanisms
+## 错误处理和验证机制
 
-While creating and executing tasks, certain validation mechanisms are in place to ensure the robustness and reliability of task attributes. These include but are not limited to:
+在创建和执行任务时，会采用某些验证机制来确保任务属性的健壮性和可靠性。这些机制包括但不限于：
 
-- Ensuring only one output type is set per task to maintain clear output expectations.
-- Preventing the manual assignment of the `id` attribute to uphold the integrity of the unique identifier system.
+- 确保每个任务只设置一种输出类型，以保持清晰的输出预期。
+- 防止手动分配 `id` 属性，以维护唯一标识符系统的完整性。
 
-These validations help in maintaining the consistency and reliability of task executions within the crewAI framework.
+这些验证有助于维护 crewAI 框架内任务执行的一致性和可靠性。
 
-## Creating Directories when Saving Files
+## 保存文件时创建目录
 
-You can now specify if a task should create directories when saving its output to a file. This is particularly useful for organizing outputs and ensuring that file paths are correctly structured.
+您现在可以指定任务在将其输出保存到文件时是否应创建目录。这对于组织输出和确保文件路径结构正确特别有用。
 
 ```python
 # ...
 
 save_output_task = Task(
-    description='Save the summarized AI news to a file',
-    expected_output='File saved successfully',
+    description='将汇总的 AI 新闻保存到文件',
+    expected_output='文件保存成功',
     agent=research_agent,
     tools=[file_save_tool],
     output_file='outputs/ai_news_summary.txt',
@@ -309,6 +308,6 @@ save_output_task = Task(
 #...
 ```
 
-## Conclusion
+## 结论
 
-Tasks are the driving force behind the actions of agents in crewAI. By properly defining tasks and their outcomes, you set the stage for your AI agents to work effectively, either independently or as a collaborative unit. Equipping tasks with appropriate tools, understanding the execution process, and following robust validation practices are crucial for maximizing CrewAI's potential, ensuring agents are effectively prepared for their assignments and that tasks are executed as intended.
+任务是 crewAI 中代理行动的驱动力。通过正确定义任务及其结果，您为 AI 代理有效地独立工作或作为协作单元工作奠定了基础。为任务配备适当的工具、了解执行过程以及遵循可靠的验证实践对于最大限度地发挥 CrewAI 的潜力至关重要，确保代理为其分配的任务做好充分准备，并按预期执行任务。
