@@ -9,7 +9,7 @@ from langchain_core.pydantic_v1 import ValidationError
 
 
 class ToolOutputParser(PydanticOutputParser):
-    """Parses the function calling of a tool usage and it's arguments."""
+    """解析工具使用及其参数的函数调用。"""
 
     def parse_result(self, result: List[Generation], *, partial: bool = False) -> Any:
         result[0].text = self._transform_in_valid_json(result[0].text)
@@ -18,22 +18,23 @@ class ToolOutputParser(PydanticOutputParser):
             return self.pydantic_object.parse_obj(json_object)
         except ValidationError as e:
             name = self.pydantic_object.__name__
-            msg = f"Failed to parse {name} from completion {json_object}. Got: {e}"
+            msg = f"无法从 Completion {json_object} 中解析 {name}。得到：{e}"
             raise OutputParserException(msg, llm_output=json_object)
 
     def _transform_in_valid_json(self, text) -> str:
+        """将文本转换为有效的 JSON 格式。"""
         text = text.replace("```", "").replace("json", "")
         json_pattern = r"\{(?:[^{}]|(?R))*\}"
         matches = regex.finditer(json_pattern, text)
 
         for match in matches:
             try:
-                # Attempt to parse the matched string as JSON
+                # 尝试将匹配的字符串解析为 JSON
                 json_obj = json.loads(match.group())
-                # Return the first successfully parsed JSON object
+                # 返回第一个成功解析的 JSON 对象
                 json_obj = json.dumps(json_obj)
                 return str(json_obj)
             except json.JSONDecodeError:
-                # If parsing fails, skip to the next match
+                # 如果解析失败，则跳到下一个匹配项
                 continue
         return text

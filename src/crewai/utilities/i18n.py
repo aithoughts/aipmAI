@@ -21,7 +21,7 @@ class I18N(BaseModel):
                     self._prompts = json.load(f)
             else:
                 dir_path = os.path.dirname(os.path.realpath(__file__))
-                prompts_path = os.path.join(dir_path, "../translations/en.json")
+                prompts_path = os.path.join(dir_path, "../translations/zh.json")
 
                 with open(prompts_path, "r") as f:
                     self._prompts = json.load(f)

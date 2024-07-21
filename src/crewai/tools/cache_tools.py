@@ -5,12 +5,12 @@ from crewai.agents.cache import CacheHandler
 
 
 class CacheTools(BaseModel):
-    """Default tools to hit the cache."""
+    """用于访问缓存的默认工具。"""
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    name: str = "Hit Cache"
+    name: str = "访问缓存"
     cache_handler: CacheHandler = Field(
-        description="Cache Handler for the crew",
+        description="团队的缓存处理程序",
         default=CacheHandler(),
     )
 
@@ -18,7 +18,7 @@ class CacheTools(BaseModel):
         return StructuredTool.from_function(
             func=self.hit_cache,
             name=self.name,
-            description="Reads directly from the cache",
+            description="直接从缓存中读取",
         )
 
     def hit_cache(self, key):
