@@ -1753,7 +1753,7 @@ interactions:
       User-Agent:
       - OTel-OTLP-Exporter-Python/1.25.0
     method: POST
-    uri: https://telemetry.crewai.com:4319/v1/traces
+    uri: https://0.0.0.0:4319/v1/traces
   response:
     body:
       string: "\n\0"
