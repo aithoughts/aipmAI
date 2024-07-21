@@ -18,7 +18,7 @@ MISSING_ACTION_INPUT_AFTER_ACTION_ERROR_MESSAGE = (
     "我接下来会做对，并且不要使用我已经使用过的工具。\n"
 )
 FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE = (
-    "我做错了。试图同时执行操作和给出最终答案，我必须做一个或另一个"
+    "我做错了。试图同时执行操作和给出最终答案，我必须要么执行操作，要么给出最终答案。"
 )
 
 
