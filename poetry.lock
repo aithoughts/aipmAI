@@ -747,13 +747,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "cohere"
-version = "5.6.1"
+version = "5.6.2"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "cohere-5.6.1-py3-none-any.whl", hash = "sha256:1c8bcd39a54622d64b83cafb865f102cd2565ce091b0856fd5ce11bf7169109a"},
-    {file = "cohere-5.6.1.tar.gz", hash = "sha256:5d7efda64f0e512d4cc35aa04b17a6f74b3d8c175a99f2797991a7f31dfac349"},
+    {file = "cohere-5.6.2-py3-none-any.whl", hash = "sha256:cfecf1343bcaa4091266c5a231fbcb3ccbd80cad05ea093ef80024a117aa3a2f"},
+    {file = "cohere-5.6.2.tar.gz", hash = "sha256:6bb901afdfb02f62ad8ed2d82f12d8ea87a6869710f5f880cb89190c4e994805"},
 ]
 
 [package.dependencies]
@@ -797,14 +797,14 @@ humanfriendly = ">=9.1"
 cron = ["capturer (>=2.4)"]
 
 [[package]]
-name = "crewai-tools"
+name = "crewai-tools-cn"
 version = "0.4.26"
-description = "Set of tools for the crewAI framework"
+description = "Set of tools for the crewAI framework (Chinese Version)"
 optional = false
 python-versions = "<=3.13,>=3.10"
 files = [
-    {file = "crewai_tools-0.4.26-py3-none-any.whl", hash = "sha256:c5d062a613f65bda4af2621eba66b14a6227b0e1b12ef385828a28259f5d6ce5"},
-    {file = "crewai_tools-0.4.26.tar.gz", hash = "sha256:f73569b543a886f0ef52cc8ae5dc7a3a287be9f7614518e4c64886454aeb5c4b"},
+    {file = "crewai_tools_cn-0.4.26-py3-none-any.whl", hash = "sha256:6873527abf2fbf5d6f1d60450a2a6493686305c2013599335a601f5f0ec337de"},
+    {file = "crewai_tools_cn-0.4.26.tar.gz", hash = "sha256:9354b5c828602d02822e2c0e9c890e17edc4519751a97927cb7c499cf775e138"},
 ]
 
 [package.dependencies]
@@ -3337,13 +3337,13 @@ sympy = "*"
 
 [[package]]
 name = "openai"
-version = "1.36.1"
+version = "1.37.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.36.1-py3-none-any.whl", hash = "sha256:d399b9d476dbbc167aceaac6bc6ed0b2e2bb6c9e189c7f7047f822743ae62e64"},
-    {file = "openai-1.36.1.tar.gz", hash = "sha256:41be9e0302e95dba8a9374b885c5cb1cec2202816a70b98736fee25a2cadd1f2"},
+    {file = "openai-1.37.0-py3-none-any.whl", hash = "sha256:a903245c0ecf622f2830024acdaa78683c70abb8e9d37a497b851670864c9f73"},
+    {file = "openai-1.37.0.tar.gz", hash = "sha256:dc8197fc40ab9d431777b6620d962cc49f4544ffc3011f03ce0a805e6eb54adb"},
 ]
 
 [package.dependencies]
@@ -6138,9 +6138,9 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 
 [extras]
 agentops = ["agentops"]
-tools = ["crewai-tools"]
+tools = ["crewai-tools-cn"]
 
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<=3.13"
-content-hash = "f5ad9babb3c57c405e39232020e8cbfaaeb5c315c2e7c5bb8fdf66792f260343"
+content-hash = "d287aef40a5787e1105582ab1d1ebba4cfa34d35022bcf0a6789b306ac7eb71b"
