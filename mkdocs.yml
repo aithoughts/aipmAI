@@ -1,11 +1,11 @@
-site_name: crewAI
-site_author: crewAI, Inc
-site_description: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.
-repo_name: crewAI
-repo_url: https://github.com/joaomdmoura/crewai/
-site_url: https://crewai.com
-edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2024 crewAI, Inc
+site_name: aipmAI
+site_author: aipmAI, Inc
+site_description: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, aipmAI empowers agents to work together seamlessly, tackling complex tasks.
+repo_name: aipmAI
+repo_url: https://github.com/aithoughts/aipmai/
+site_url: https://theforage.com
+edit_uri: edit/zh/docs/
+copyright: Copyright &copy; 2024 aipmAI, Inc
 
 markdown_extensions:
   - abbr
@@ -34,8 +34,8 @@ markdown_extensions:
   - pymdownx.magiclink:
       normalize_issue_symbols: true
       repo_url_shorthand: true
-      user: joaomdmoura
-      repo: crewAI
+      user: aithoughts
+      repo: aipmAI
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets:
@@ -175,15 +175,15 @@ nav:
     - Youtube Video RAG Search: 'tools/YoutubeVideoSearchTool.md'
     - Youtube Channel RAG Search: 'tools/YoutubeChannelSearchTool.md'
   - Examples:
-    - Trip Planner Crew: https://github.com/joaomdmoura/crewAI-examples/tree/main/trip_planner"
-    - Create Instagram Post: https://github.com/joaomdmoura/crewAI-examples/tree/main/instagram_post"
-    - Stock Analysis: https://github.com/joaomdmoura/crewAI-examples/tree/main/stock_analysis"
-    - Game Generator: https://github.com/joaomdmoura/crewAI-examples/tree/main/game-builder-crew"
-    - Drafting emails with LangGraph: https://github.com/joaomdmoura/crewAI-examples/tree/main/CrewAI-LangGraph"
-    - Landing Page Generator: https://github.com/joaomdmoura/crewAI-examples/tree/main/landing_page_generator"
-    - Prepare for meetings: https://github.com/joaomdmoura/crewAI-examples/tree/main/prep-for-a-meeting"
+    - Trip Planner Crew: https://github.com/aithoughts/aipmAI-examples/tree/main/trip_planner"
+    - Create Instagram Post: https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post"
+    - Stock Analysis: https://github.com/aithoughts/aipmAI-examples/tree/main/stock_analysis"
+    - Game Generator: https://github.com/aithoughts/aipmAI-examples/tree/main/game-builder-crew"
+    - Drafting emails with LangGraph: https://github.com/aithoughts/aipmAI-examples/tree/main/CrewAI-LangGraph"
+    - Landing Page Generator: https://github.com/aithoughts/aipmAI-examples/tree/main/landing_page_generator"
+    - Prepare for meetings: https://github.com/aithoughts/aipmAI-examples/tree/main/prep-for-a-meeting"
   - Telemetry: 'telemetry/Telemetry.md'
-  - Change Log: 'https://github.com/crewAIInc/crewAI/releases'
+  - Change Log: 'https://github.com/aithoughts/aipmAI/releases'
 
 extra_css:
   - stylesheets/output.css
@@ -196,9 +196,9 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-N3Q505TMQ6
+    property: G-C7PBKQ3J9C
   social:
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/joaomdmoura
+      link: https://twitter.com/aipmhub
     - icon: fontawesome/brands/github
-      link: https://github.com/joaomdmoura/crewAI
+      link: https://github.com/aithoughts/aipmAI
