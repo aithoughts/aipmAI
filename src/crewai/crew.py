@@ -30,7 +30,7 @@ from crewai.process import Process
 from crewai.task import Task
 from crewai.tasks.conditional_task import ConditionalTask
 from crewai.tasks.task_output import TaskOutput
-from crewai.telemetry import Telemetry
+# from crewai.telemetry import Telemetry
 from crewai.tools.agent_tools import AgentTools
 from crewai.utilities import I18N, FileHandler, Logger, RPMController
 from crewai.utilities.constants import (
@@ -78,7 +78,7 @@ class Crew(BaseModel):
     """
 
     __hash__ = object.__hash__  # type: ignore
-    _execution_span: Any = PrivateAttr()
+    # _execution_span: Any = PrivateAttr()
     _rpm_controller: RPMController = PrivateAttr()
     _logger: Logger = PrivateAttr()
     _file_handler: FileHandler = PrivateAttr()
@@ -195,8 +195,8 @@ class Crew(BaseModel):
         if self.output_log_file:
             self._file_handler = FileHandler(self.output_log_file)
         self._rpm_controller = RPMController(max_rpm=self.max_rpm, logger=self._logger)
-        self._telemetry = Telemetry()
-        self._telemetry.set_tracer()
+        # self._telemetry = Telemetry()
+        # self._telemetry.set_tracer()
         return self
 
     @model_validator(mode="after")
@@ -432,7 +432,7 @@ class Crew(BaseModel):
         inputs: Optional[Dict[str, Any]] = None,
     ) -> CrewOutput:
         """启动 Crew 以完成其分配的任务。"""
-        self._execution_span = self._telemetry.crew_execution_span(self, inputs)
+        # self._execution_span = self._telemetry.crew_execution_span(self, inputs)
         self._task_output_handler.reset()
         self._logging_color = "bold_purple"
         # 如果提供了输入，则设置输入并进行插值

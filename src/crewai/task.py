@@ -106,8 +106,8 @@ class Task(BaseModel):
         default=None,
     )
 
-    _telemetry: Telemetry
-    _execution_span: Span | None = None
+    # _telemetry: Telemetry
+    # _execution_span: Span | None = None
     _original_description: str | None = None
     _original_expected_output: str | None = None
     _thread: threading.Thread | None = None
@@ -220,7 +220,7 @@ class Task(BaseModel):
                 f"任务 '{self.description}' 没有分配代理，因此它不能直接执行，应该在 Crew 中使用支持该任务的特定流程执行，例如分层流程。"
             )
 
-        self._execution_span = self._telemetry.task_started(crew=agent.crew, task=self)
+        # self._execution_span = self._telemetry.task_started(crew=agent.crew, task=self)
 
         self.prompt_context = context
         tools = tools or self.tools or []
@@ -246,9 +246,9 @@ class Task(BaseModel):
         if self.callback:
             self.callback(self.output)
 
-        if self._execution_span:
-            self._telemetry.task_ended(self._execution_span, self, agent.crew)
-            self._execution_span = None
+        # if self._execution_span:
+        #     self._telemetry.task_ended(self._execution_span, self, agent.crew)
+        #     self._execution_span = None
 
         if self.output_file:
             content = (

@@ -55,7 +55,7 @@ class ToolUsage:
     ) -> None:
         self._i18n: I18N = I18N()
         self._printer: Printer = Printer()
-        self._telemetry: Telemetry = Telemetry()
+        # self._telemetry: Telemetry = Telemetry()
         self._run_attempts: int = 1
         self._max_parsing_attempts: int = 3
         self._remember_format_after_usages: int = 3
@@ -113,11 +113,11 @@ class ToolUsage:
                     tool_names=self.tools_names
                 )
                 self._printer.print(content=f"\n\n{result}\n", color="purple")
-                self._telemetry.tool_repeated_usage(
-                    llm=self.function_calling_llm,
-                    tool_name=tool.name,
-                    attempts=self._run_attempts,
-                )
+                # self._telemetry.tool_repeated_usage(
+                #     llm=self.function_calling_llm,
+                #     tool_name=tool.name,
+                #     attempts=self._run_attempts,
+                # )
                 result = self._format_result(result=result)  # type: ignore # "ToolUsage" 的 "_format_result" 不返回值（它只返回 None）
                 return result  # type: ignore # 修复此函数的返回类型
 
@@ -160,7 +160,7 @@ class ToolUsage:
             except Exception as e:
                 self._run_attempts += 1
                 if self._run_attempts > self._max_parsing_attempts:
-                    self._telemetry.tool_usage_error(llm=self.function_calling_llm)
+                    # self._telemetry.tool_usage_error(llm=self.function_calling_llm)
                     error_message = self._i18n.errors("tool_usage_exception").format(
                         error=e, tool=tool.name, tool_inputs=tool.description
                     )
@@ -195,11 +195,11 @@ class ToolUsage:
         self._printer.print(content=f"\n\n{result}\n", color="purple")
         if agentops:
             agentops.record(tool_event)
-        self._telemetry.tool_usage(
-            llm=self.function_calling_llm,
-            tool_name=tool.name,
-            attempts=self._run_attempts,
-        )
+        # self._telemetry.tool_usage(
+        #     llm=self.function_calling_llm,
+        #     tool_name=tool.name,
+        #     attempts=self._run_attempts,
+        # )
         result = self._format_result(result=result)  # type: ignore # "ToolUsage" 的 "_format_result" 不返回值（它只返回 None）
         data = {
             "result": result,
@@ -344,7 +344,7 @@ class ToolUsage:
         except Exception as e:
             self._run_attempts += 1
             if self._run_attempts > self._max_parsing_attempts:
-                self._telemetry.tool_usage_error(llm=self.function_calling_llm)
+                # self._telemetry.tool_usage_error(llm=self.function_calling_llm)
                 self.task.increment_tools_errors()
                 self._printer.print(content=f"\n\n{e}\n", color="red")
                 return ToolUsageErrorException(  # type: ignore # 不兼容的返回值类型（获取“ToolUsageErrorException”，预期为“ToolCalling | InstructorToolCalling”）
