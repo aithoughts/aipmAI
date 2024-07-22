@@ -8,7 +8,7 @@
 
 <h3>
 
-[主页](https://www.crewai.io/) | [文档](https://docs.crewai.com/) | [与文档聊天](https://chatg.pt/DWjSBZn) | [示例](https://github.com/ai thoughts/crewai-examples) | [Discord](https://discord.com/invite/X4JWnZnxPb)
+[主页](https://www.crewai.io/) | [文档](https://docs.crewai.com/) | [与文档聊天](https://chatg.pt/DWjSBZn) | [示例](https://github.com/aithoughts/aipmAI-examples) | [Discord](https://discord.com/invite/X4JWnZnxPb)
 
 </h3>
 

@@ -65,9 +65,9 @@ Additionally, AgentOps provides session drilldowns for viewing Crew agent intera
    This will initiate an AgentOps session as well as automatically track Crew agents. For further info on how to outfit more complex agentic systems, check out the [AgentOps documentation](https://docs.agentops.ai) or join the [Discord](https://discord.gg/j4f3KbeH).
 
 ### Crew + AgentOps Examples
-- [Job Posting](https://github.com/joaomdmoura/crewAI-examples/tree/main/job-posting)
-- [Markdown Validator](https://github.com/joaomdmoura/crewAI-examples/tree/main/markdown_validator)
-- [Instagram Post](https://github.com/joaomdmoura/crewAI-examples/tree/main/instagram_post)
+- [Job Posting](https://github.com/aithoughts/aipmAI-examples/tree/main/job-posting)
+- [Markdown Validator](https://github.com/aithoughts/aipmAI-examples/tree/main/markdown_validator)
+- [Instagram Post](https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post)
 
 ### Further Information
 

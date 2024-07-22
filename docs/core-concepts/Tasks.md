@@ -109,7 +109,7 @@ if task_output.pydantic:
 
 ## 将工具与任务集成
 
-利用 [crewAI 工具包](https://github.com/joaomdmoura/crewai-tools) 和 [LangChain 工具](https://python.langchain.com/docs/integrations/tools) 中的工具来增强任务性能和代理交互。
+利用 [crewAI 工具包](https://github.com/aithoughts/aipmAI-tools) 和 [LangChain 工具](https://python.langchain.com/docs/integrations/tools) 中的工具来增强任务性能和代理交互。
 
 ## 使用工具创建任务
 

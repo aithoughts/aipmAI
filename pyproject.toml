@@ -8,8 +8,8 @@ packages = [{ include = "crewai", from = "src" }]
 
 [tool.poetry.urls]
 Homepage = "https://crewai.com"
-Documentation = "https://github.com/joaomdmoura/CrewAI/wiki/Index"
-Repository = "https://github.com/joaomdmoura/crewai"
+Documentation = "https://github.com/aithoughts/CrewAI/wiki/Index"
+Repository = "https://github.com/aithoughts/aipmAI"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
