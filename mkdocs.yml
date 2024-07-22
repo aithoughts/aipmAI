@@ -3,7 +3,7 @@ site_author: aipmAI, Inc
 site_description: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, aipmAI empowers agents to work together seamlessly, tackling complex tasks.
 repo_name: aipmAI
 repo_url: https://github.com/aithoughts/aipmai/
-site_url: https://catslinc.com
+site_url: https://aithoughts.github.io/docs
 edit_uri: edit/zh/docs/
 copyright: Copyright &copy; 2024 aipmAI, Inc
 
