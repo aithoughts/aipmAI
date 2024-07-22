@@ -32,7 +32,7 @@ By default, the memory system is disabled, and you can ensure it is active by se
 The 'embedder' only applies to **Short-Term Memory** which uses Chroma for RAG using EmbedChain package.  
 The **Long-Term Memory** uses SQLLite3 to store task results.  Currently, there is no way to override these storage implementations.
 The data storage files are saved into a platform specific location found using the appdirs package 
-and the name of the project which can be overridden using the **CREWAI_STORAGE_DIR** environment variable.
+and the name of the project which can be overridden using the **AIPMAI_STORAGE_DIR** environment variable.
 
 ### Example: Configuring Memory for a Crew
 

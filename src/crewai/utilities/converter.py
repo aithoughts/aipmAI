@@ -7,7 +7,7 @@ from crewai.agents.agent_builder.utilities.base_output_converter import OutputCo
 
 
 class ConverterError(Exception):
-    """Error raised when Converter fails to parse the input."""
+    """转换器在解析输入时发生的错误。"""
 
     def __init__(self, message: str, *args: object) -> None:
         super().__init__(message, *args)
@@ -15,10 +15,10 @@ class ConverterError(Exception):
 
 
 class Converter(OutputConverter):
-    """Class that converts text into either pydantic or json."""
+    """将文本转换为 pydantic 或 json 的类。"""
 
     def to_pydantic(self, current_attempt=1):
-        """Convert text to pydantic."""
+        """将文本转换为 pydantic。"""
         try:
             if self.is_gpt:
                 return self._create_instructor().to_pydantic()
@@ -28,11 +28,11 @@ class Converter(OutputConverter):
             if current_attempt < self.max_attempts:
                 return self.to_pydantic(current_attempt + 1)
             return ConverterError(
-                f"Failed to convert text into a pydantic model due to the following error: {e}"
+                f"由于以下错误，无法将文本转换为 pydantic 模型：{e}"
             )
 
     def to_json(self, current_attempt=1):
-        """Convert text to json."""
+        """将文本转换为 json。"""
         try:
             if self.is_gpt:
                 return self._create_instructor().to_json()
@@ -41,10 +41,10 @@ class Converter(OutputConverter):
         except Exception as e:
             if current_attempt < self.max_attempts:
                 return self.to_json(current_attempt + 1)
-            return ConverterError(f"Failed to convert text into JSON, error: {e}.")
+            return ConverterError(f"无法将文本转换为 JSON，错误：{e}。")
 
     def _create_instructor(self):
-        """Create an instructor."""
+        """创建指导者。"""
         from crewai.utilities import Instructor
 
         inst = Instructor(
@@ -57,7 +57,7 @@ class Converter(OutputConverter):
         return inst
 
     def _create_chain(self):
-        """Create a chain."""
+        """创建链。"""
         from crewai.utilities.crew_pydantic_output_parser import (
             CrewPydanticOutputParser,
         )
@@ -70,5 +70,5 @@ class Converter(OutputConverter):
 
     @property
     def is_gpt(self) -> bool:
-        """Return if llm provided is of gpt from openai."""
+        """返回提供的 llm 是否来自 openai 的 gpt。"""
         return isinstance(self.llm, ChatOpenAI) and self.llm.openai_api_base is None

@@ -3,9 +3,9 @@ from enum import Enum
 
 class Process(str, Enum):
     """
-    Class representing the different processes that can be used to tackle tasks
+    表示可用于处理任务的不同流程的类。
     """
 
-    sequential = "sequential"
-    hierarchical = "hierarchical"
-    # TODO: consensual = 'consensual'
+    sequential = "sequential"  # 顺序流程
+    hierarchical = "hierarchical"  # 层级流程
+    # TODO: consensual = 'consensual'  # 待办：共识流程

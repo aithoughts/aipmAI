@@ -19,58 +19,62 @@ except ImportError:
 
 
 class Entity(BaseModel):
-    name: str = Field(description="The name of the entity.")
-    type: str = Field(description="The type of the entity.")
-    description: str = Field(description="Description of the entity.")
-    relationships: List[str] = Field(description="Relationships of the entity.")
+    """实体"""
+    name: str = Field(description="实体名称")
+    type: str = Field(description="实体类型")
+    description: str = Field(description="实体描述")
+    relationships: List[str] = Field(description="实体关系")
 
 
 class TaskEvaluation(BaseModel):
+    """任务评估"""
     suggestions: List[str] = Field(
-        description="Suggestions to improve future similar tasks."
+        description="对未来类似任务改进的建议"
     )
     quality: float = Field(
-        description="A score from 0 to 10 evaluating on completion, quality, and overall performance, all taking into account the task description, expected output, and the result of the task."
+        description="从 0 到 10 的评分，根据任务描述、预期输出和任务结果，评估完成度、质量和整体性能"
     )
     entities: List[Entity] = Field(
-        description="Entities extracted from the task output."
+        description="从任务输出中提取的实体"
     )
 
 
 class TrainingTaskEvaluation(BaseModel):
+    """训练任务评估"""
     suggestions: List[str] = Field(
-        description="Based on the Human Feedbacks and the comparison between Initial Outputs and Improved outputs provide action items based on human_feedback for future tasks."
+        description="根据人工反馈以及初始输出和改进输出之间的比较，提供基于人工反馈的未来任务行动项"
     )
     quality: float = Field(
-        description="A score from 0 to 10 evaluating on completion, quality, and overall performance from the improved output to the initial output based on the human feedback."
+        description="从 0 到 10 的评分，根据人工反馈，从改进输出到初始输出，评估完成度、质量和整体性能"
     )
     final_summary: str = Field(
-        description="A step by step action items to improve the next Agent based on the human-feedback and improved output."
+        description="基于人工反馈和改进输出，逐步改进下一个代理的行动项"
     )
 
 
-@track_agent(name="Task Evaluator")
+@track_agent(name="任务评估器")
 class TaskEvaluator:
     def __init__(self, original_agent):
         self.llm = original_agent.llm
 
     def evaluate(self, task, ouput) -> TaskEvaluation:
+        """评估任务"""
         evaluation_query = (
-            f"Assess the quality of the task completed based on the description, expected output, and actual results.\n\n"
-            f"Task Description:\n{task.description}\n\n"
-            f"Expected Output:\n{task.expected_output}\n\n"
-            f"Actual Output:\n{ouput}\n\n"
-            "Please provide:\n"
-            "- Bullet points suggestions to improve future similar tasks\n"
-            "- A score from 0 to 10 evaluating on completion, quality, and overall performance"
-            "- Entities extracted from the task output, if any, their type, description, and relationships"
+            f"根据描述、预期输出和实际结果评估已完成任务的质量。\n\n"
+            f"任务描述：\n{task.description}\n\n"
+            f"预期输出：\n{task.expected_output}\n\n"
+            f"实际输出：\n{ouput}\n\n"
+            "请提供：\n"
+            "- 改进未来类似任务的建议要点\n"
+            "- 从 0 到 10 的评分，评估完成度、质量和整体性能\n"
+            "- 从任务输出中提取的实体（如果有），包括其类型、描述和关系"
         )
 
-        instructions = "I'm gonna convert this raw text into valid JSON."
+        instructions = "我将把这段原始文本转换为有效的 JSON。"
 
         if not self._is_gpt(self.llm):
             model_schema = PydanticSchemaParser(model=TaskEvaluation).get_schema()
-            instructions = f"{instructions}\n\nThe json should have the following structure, with the following keys:\n{model_schema}"
+            instructions = f"{instructions}\n\nJSON 应具有以下结构，并包含以下键：\n{model_schema}"
 
         converter = Converter(
             llm=self.llm,
@@ -88,11 +92,11 @@ class TaskEvaluator:
         self, training_data: dict, agent_id: str
     ) -> TrainingTaskEvaluation:
         """
-        Evaluate the training data based on the llm output, human feedback, and improved output.
+        根据 llm 输出、人工反馈和改进后的输出评估训练数据。
 
-        Parameters:
-            - training_data (dict): The training data to be evaluated.
-            - agent_id (str): The ID of the agent.
+        参数：
+            - training_data (dict): 要评估的训练数据。
+            - agent_id (str): 代理的 ID。
         """
 
         output_training_data = training_data[agent_id]
@@ -100,25 +104,25 @@ class TaskEvaluator:
         final_aggregated_data = ""
         for _, data in output_training_data.items():
             final_aggregated_data += (
-                f"Initial Output:\n{data['initial_output']}\n\n"
-                f"Human Feedback:\n{data['human_feedback']}\n\n"
-                f"Improved Output:\n{data['improved_output']}\n\n"
+                f"初始输出：\n{data['initial_output']}\n\n"
+                f"人工反馈：\n{data['human_feedback']}\n\n"
+                f"改进后的输出：\n{data['improved_output']}\n\n"
             )
 
         evaluation_query = (
-            "Assess the quality of the training data based on the llm output, human feedback , and llm output improved result.\n\n"
+            "根据 llm 输出、人工反馈和 llm 输出改进结果评估训练数据的质量。\n\n"
             f"{final_aggregated_data}"
-            "Please provide:\n"
-            "- Based on the Human Feedbacks and the comparison between Initial Outputs and Improved outputs provide action items based on human_feedback for future tasks\n"
-            "- A score from 0 to 10 evaluating on completion, quality, and overall performance from the improved output to the initial output based on the human feedback\n"
+            "请提供：\n"
+            "- 根据人工反馈以及初始输出和改进输出之间的比较，提供基于人工反馈的未来任务行动项\n"
+            "- 从 0 到 10 的评分，根据人工反馈，从改进输出到初始输出，评估完成度、质量和整体性能\n"
         )
-        instructions = "I'm gonna convert this raw text into valid JSON."
+        instructions = "我将把这段原始文本转换为有效的 JSON。"
 
         if not self._is_gpt(self.llm):
             model_schema = PydanticSchemaParser(
                 model=TrainingTaskEvaluation
             ).get_schema()
-            instructions = f"{instructions}\n\nThe json should have the following structure, with the following keys:\n{model_schema}"
+            instructions = f"{instructions}\n\nJSON 应具有以下结构，并包含以下键：\n{model_schema}"
 
         converter = Converter(
             llm=self.llm,
