@@ -21,7 +21,7 @@ from crewai.utilities.training_handler import CrewTrainingHandler
 
 agentops = None
 try:
-    import agentops  # type: ignore # Name "agentops" already defined on line 21
+    import agentops  # type: ignore # 名字 "agentops" 已在第 21 行定义
     from agentops import track_agent
 except ImportError:
 
@@ -64,8 +64,8 @@ class Agent(BaseAgent):
         default=None,
         description="代理执行任务的最长执行时间",
     )
-    agent_ops_agent_name: str = None  # type: ignore # Incompatible types in assignment (expression has type "None", variable has type "str")
-    agent_ops_agent_id: str = None  # type: ignore # Incompatible types in assignment (expression has type "None", variable has type "str")
+    agent_ops_agent_name: str = None  # type: ignore #  赋值时类型不兼容 (表达式的类型是 "None"，变量的类型是 "str")
+    agent_ops_agent_id: str = None  # type: ignore #  赋值时类型不兼容 (表达式的类型是 "None"，变量的类型是 "str")
     cache_handler: InstanceOf[CacheHandler] = Field(
         default=None, description="CacheHandler 类的一个实例。"
     )
@@ -156,7 +156,7 @@ class Agent(BaseAgent):
             代理的输出
         """
         if self.tools_handler:
-            self.tools_handler.last_used_tool = {}  # type: ignore # Incompatible types in assignment (expression has type "dict[Never, Never]", variable has type "ToolCalling")
+            self.tools_handler.last_used_tool = {}  # type: ignore # 赋值时类型不兼容 (表达式的类型是 "dict[Never, Never]", 变量的类型是 "ToolCalling")
 
         task_prompt = task.prompt()
 
@@ -211,7 +211,7 @@ class Agent(BaseAgent):
         # 如果 self.tools_results 中有任何工具的 result_as_answer
         # 设置为 True，则返回最后一个 result_as_answer
         # 设置为 True 的工具的结果
-        for tool_result in self.tools_results:  # type: ignore # Item "None" of "list[Any] | None" has no attribute "__iter__" (not iterable)
+        for tool_result in self.tools_results:  # type: ignore # "list[Any] | None" 中的 "None" 元素没有 "__iter__" 属性 (不可迭代)
             if tool_result.get("result_as_answer", False):
                 result = tool_result["result"]
 
@@ -219,16 +219,16 @@ class Agent(BaseAgent):
 
     def format_log_to_str(
         self,
-        intermediate_steps: List[Tuple[AgentAction, str]],
-        observation_prefix: str = "Observation: ",
-        llm_prefix: str = "",
+        intermediate_steps: List[Tuple[AgentAction, str]],  # 中间步骤列表，每个元素是一个元组，包含 AgentAction 和观察结果
+        observation_prefix: str = "Observation: ",  # 观察结果的前缀，默认为 "Observation: "
+        llm_prefix: str = "",  # LLM 输出的前缀，默认为空字符串
     ) -> str:
-        """构造允许代理继续其思考过程的草稿板。"""
-        thoughts = ""
-        for action, observation in intermediate_steps:
-            thoughts += action.log
-            thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
-        return thoughts
+        """构造允许代理继续其思考过程的草稿板"""
+        thoughts = ""  # 初始化一个空字符串，用于存储拼接后的日志信息
+        for action, observation in intermediate_steps:  # 遍历中间步骤列表
+            thoughts += action.log  # 将动作日志添加到 thoughts 字符串中
+            thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"  # 将观察结果和前缀添加到 thoughts 字符串中
+        return thoughts  # 返回拼接后的日志字符串
 
     def create_agent_executor(self, tools=None) -> None:
         """为代理创建代理执行器。

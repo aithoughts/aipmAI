@@ -1,42 +1,42 @@
 ---
-title: How Agents Collaborate in CrewAI
-description: Exploring the dynamics of agent collaboration within the CrewAI framework, focusing on the newly integrated features for enhanced functionality.
+title: CrewAI 中的 Agent 如何协同工作
+description: 探讨 CrewAI 框架内 agent 协作的动态，重点关注新集成的功能以增强功能。
 ---
 
-## Collaboration Fundamentals
-!!! note "Core of Agent Interaction"
-    Collaboration in CrewAI is fundamental, enabling agents to combine their skills, share information, and assist each other in task execution, embodying a truly cooperative ecosystem.
+## 协作基础
+!!! note "Agent 交互的核心"
+    在 CrewAI 中，协作至关重要，它使 agent 能够结合各自的技能，共享信息，并在任务执行中相互协助，体现出一个真正的合作生态系统。
 
-- **Information Sharing**: Ensures all agents are well-informed and can contribute effectively by sharing data and findings.
-- **Task Assistance**: Allows agents to seek help from peers with the required expertise for specific tasks.
-- **Resource Allocation**: Optimizes task execution through the efficient distribution and sharing of resources among agents.
+- **信息共享**: 通过共享数据和发现，确保所有 agent 都能充分了解情况并有效地做出贡献。
+- **任务协助**: 允许 agent 向具有特定任务所需专业知识的同伴寻求帮助。
+- **资源分配**: 通过在 agent 之间高效分配和共享资源来优化任务执行。
 
-## Enhanced Attributes for Improved Collaboration
-The `Crew` class has been enriched with several attributes to support advanced functionalities:
+## 用于改进协作的增强属性
+`Crew` 类已经通过添加若干属性来支持高级功能：
 
-- **Language Model Management (`manager_llm`, `function_calling_llm`)**: Manages language models for executing tasks and tools, facilitating sophisticated agent-tool interactions. Note that while `manager_llm` is mandatory for hierarchical processes to ensure proper execution flow, `function_calling_llm` is optional, with a default value provided for streamlined tool interaction.
-- **Custom Manager Agent (`manager_agent`)**: Allows specifying a custom agent as the manager instead of using the default manager provided by CrewAI.
-- **Process Flow (`process`)**: Defines the execution logic (e.g., sequential, hierarchical) to streamline task distribution and execution.
-- **Verbose Logging (`verbose`)**: Offers detailed logging capabilities for monitoring and debugging purposes. It supports both integer and boolean types to indicate the verbosity level. For example, setting `verbose` to 1 might enable basic logging, whereas setting it to True enables more detailed logs.
-- **Rate Limiting (`max_rpm`)**: Ensures efficient utilization of resources by limiting requests per minute. Guidelines for setting `max_rpm` should consider the complexity of tasks and the expected load on resources.
-- **Internationalization / Customization Support (`language`, `prompt_file`)**: Facilitates full customization of the inner prompts, enhancing global usability. Supported languages and the process for utilizing the `prompt_file` attribute for customization should be clearly documented. [Example of file](https://github.com/aithoughts/aipmAI/blob/main/src/crewai/translations/en.json)
-- **Execution and Output Handling (`full_output`)**: Distinguishes between full and final outputs for nuanced control over task results. Examples showcasing the difference in outputs can aid in understanding the practical implications of this attribute.
-- **Callback and Telemetry (`step_callback`, `task_callback`)**: Integrates callbacks for step-wise and task-level execution monitoring, alongside telemetry for performance analytics. The purpose and usage of `task_callback` alongside `step_callback` for granular monitoring should be clearly explained.
-- **Crew Sharing (`share_crew`)**: Enables sharing of crew information with CrewAI for continuous improvement and training models. The privacy implications and benefits of this feature, including how it contributes to model improvement, should be outlined.
-- **Usage Metrics (`usage_metrics`)**: Stores all metrics for the language model (LLM) usage during all tasks' execution, providing insights into operational efficiency and areas for improvement. Detailed information on accessing and interpreting these metrics for performance analysis should be provided.
-- **Memory Usage (`memory`)**: Indicates whether the crew should use memory to store memories of its execution, enhancing task execution and agent learning.
-- **Embedder Configuration (`embedder`)**: Specifies the configuration for the embedder to be used by the crew for understanding and generating language. This attribute supports customization of the language model provider.
-- **Cache Management (`cache`)**: Determines whether the crew should use a cache to store the results of tool executions, optimizing performance.
-- **Output Logging (`output_log_file`)**: Specifies the file path for logging the output of the crew execution.
+- **语言模型管理 (`manager_llm`, `function_calling_llm`)**: 管理用于执行任务和工具的语言模型，促进复杂的 agent-工具交互。请注意，虽然 `manager_llm` 对于分层流程是强制性的，以确保正确的执行流程，但 `function_calling_llm` 是可选的，并提供了一个默认值以简化工具交互。
+- **自定义管理 Agent (`manager_agent`)**: 允许指定一个自定义 agent 作为管理者，而不是使用 CrewAI 提供的默认管理者。
+- **流程 (`process`)**: 定义执行逻辑（例如，顺序、分层）以简化任务分配和执行。
+- **详细日志记录 (`verbose`)**: 提供详细的日志记录功能，用于监控和调试目的。它支持整数和布尔类型来指示详细程度。例如，将 `verbose` 设置为 1 可能会启用基本日志记录，而将其设置为 True 则会启用更详细的日志。
+- **速率限制 (`max_rpm`)**: 通过限制每分钟的请求数来确保资源的有效利用。设置 `max_rpm` 的准则应考虑任务的复杂性和资源的预期负载。
+- **国际化/自定义支持 (`language`, `prompt_file`)**:  方便对内部提示进行全面自定义，增强全局可用性。应清楚记录支持的语言以及使用 `prompt_file` 属性进行自定义的过程。 [文件示例](https://github.com/aithoughts/aipmAI/blob/main/src/crewai/translations/en.json)
+- **执行和输出处理 (`full_output`)**: 区分完整输出和最终输出，以便对任务结果进行细致入微的控制。展示输出差异的示例可以帮助理解此属性的实际含义。
+- **回调和遥测 (`step_callback`, `task_callback`)**: 集成用于逐步和任务级执行监控的回调，以及用于性能分析的遥测。应清楚解释 `task_callback` 与 `step_callback` 一起用于精细监控的目的和用法。
+- **Crew 共享 (`share_crew`)**:  允许与 CrewAI 共享 crew 信息，以便持续改进和训练模型。应概述此功能的隐私影响和好处，包括它如何促进模型改进。
+- **使用指标 (`usage_metrics`)**: 存储所有任务执行过程中语言模型 (LLM) 使用情况的所有指标，提供对运营效率和改进领域的洞察。应提供有关访问和解释这些指标以进行性能分析的详细信息。
+- **内存使用 (`memory`)**: 指示 crew 是否应使用内存来存储其执行的记忆，从而增强任务执行和 agent 学习。
+- **嵌入器配置 (`embedder`)**: 指定 crew 用于理解和生成语言的嵌入器的配置。此属性支持自定义语言模型提供程序。
+- **缓存管理 (`cache`)**:  确定 crew 是否应使用缓存来存储工具执行的结果，从而优化性能。
+- **输出日志记录 (`output_log_file`)**: 指定用于记录 crew 执行输出的文件路径。
 
-## Delegation: Dividing to Conquer
-Delegation enhances functionality by allowing agents to intelligently assign tasks or seek help, thereby amplifying the crew's overall capability.
+## 委派：分而治之
+委派通过允许 agent 智能地分配任务或寻求帮助来增强功能，从而增强 crew 的整体能力。
 
-## Implementing Collaboration and Delegation
-Setting up a crew involves defining the roles and capabilities of each agent. CrewAI seamlessly manages their interactions, ensuring efficient collaboration and delegation, with enhanced customization and monitoring features to adapt to various operational needs.
+##  实现协作和委派
+设置 crew 涉及定义每个 agent 的角色和能力。CrewAI 无缝地管理它们的交互，确保高效的协作和委派，并提供增强的自定义和监控功能以适应各种运营需求。
 
-## Example Scenario
-Consider a crew with a researcher agent tasked with data gathering and a writer agent responsible for compiling reports. The integration of advanced language model management and process flow attributes allows for more sophisticated interactions, such as the writer delegating complex research tasks to the researcher or querying specific information, thereby facilitating a seamless workflow.
+## 示例场景
+考虑一个 crew，其中有一个负责数据收集的研究员 agent 和一个负责编写报告的作者 agent。高级语言模型管理和流程属性的集成允许更复杂的交互，例如作者将复杂的研究任务委派给研究员或查询特定信息，从而促进无缝的工作流程。
 
-## Conclusion
-The integration of advanced attributes and functionalities into the CrewAI framework significantly enriches the agent collaboration ecosystem. These enhancements not only simplify interactions but also offer unprecedented flexibility and control, paving the way for sophisticated AI-driven solutions capable of tackling complex tasks through intelligent collaboration and delegation.
+## 结论
+在 CrewAI 框架中集成高级属性和功能显着丰富了 agent 协作生态系统。这些增强功能不仅简化了交互，还提供了前所未有的灵活性和控制力，为能够通过智能协作和委派来处理复杂任务的复杂 AI 驱动解决方案铺平了道路。

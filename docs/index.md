@@ -1,181 +1,181 @@
 <img src='./crew_only_logo.png' width='250' class='mb-10'/>
 
-# crewAI Documentation
+# aipmAI - crewAI 中文解决方案
 
-Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.
+用于编排角色扮演、自主 AI 代理的尖端框架。通过促进协作智能，CrewAI 使代理能够无缝地协同工作，处理复杂的任务。
 
 <div style="display:flex; margin:0 auto; justify-content: center;">
     <div style="width:25%">
-        <h2>Core Concepts</h2>
+        <h2>核心概念</h2>
         <ul>
             <li>
                 <a href="./core-concepts/Agents">
-                    Agents
+                    代理
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Tasks">
-                    Tasks
+                    任务
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Tools">
-                    Tools
+                    工具
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Processes">
-                    Processes
+                    流程
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Crews">
-                    Crews
+                    团队
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Training-Crew">
-                    Training
+                    训练
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Memory">
-                    Memory
+                    记忆
                 </a>
             </li>
             <li>
                 <a href="./core-concepts/Planning">
-                    Planning
+                    规划
                 </a>
             </li>
         </ul>
     </div>
     <div style="width:30%">
-        <h2>How-To Guides</h2>
+        <h2>操作指南</h2>
         <ul>
             <li>
                 <a href="./how-to/Start-a-New-CrewAI-Project">
-                    Starting Your crewAI Project
+                    开始您的 crewAI 项目
                 </a>
             </li>
             <li>
                 <a href="./how-to/Installing-CrewAI">
-                    Installing crewAI
+                    安装 crewAI
                 </a>
             </li>
             <li>
                 <a href="./how-to/Creating-a-Crew-and-kick-it-off">
-                    Getting Started
+                    快速入门
                 </a>
             </li>
             <li>
                 <a href="./how-to/Create-Custom-Tools">
-                    Create Custom Tools
+                    创建自定义工具
                 </a>
             </li>
             <li>
                 <a href="./how-to/Sequential">
-                    Using Sequential Process
+                    使用顺序流程
                 </a>
             </li>
             <li>
                 <a href="./how-to/Hierarchical">
-                    Using Hierarchical Process
+                    使用分层流程
                 </a>
             </li>
             <li>
                 <a href="./how-to/LLM-Connections">
-                    Connecting to LLMs
+                    连接到大型语言模型
                 </a>
             </li>
             <li>
                 <a href="./how-to/Customizing-Agents">
-                    Customizing Agents
+                    自定义代理
                 </a>
             </li>
             <li>
                 <a href="./how-to/Coding-Agents">
-                    Coding Agents
+                    编写代理代码
                 </a>
             </li>
             <li>
                 <a href="./how-to/Force-Tool-Ouput-as-Result">
-                    Forcing Tool Output as Result
+                    强制工具输出作为结果
                 </a>
             </li>
             <li>
                 <a href="./how-to/Human-Input-on-Execution">
-                    Human Input on Execution
+                    执行过程中的人工输入
                 </a>
             </li>
             <li>
                 <a href="./how-to/Kickoff-async">
-                    Kickoff a Crew Asynchronously
+                    异步启动团队
                 </a>
             </li>
             <li>
                 <a href="./how-to/Kickoff-for-each">
-                    Kickoff a Crew for a List
+                    为列表启动团队
                 </a>
             </li>
             <li>
                 <a href="./how-to/Replay-tasks-from-latest-Crew-Kickoff">
-                    Replay from a Task
+                    从任务重放
                 </a>
             </li>
             <li>
                 <a href="./how-to/Conditional-Tasks">
-                    Conditional Tasks
+                    条件任务
                 </a>
             </li>
             <li>
                 <a href="./how-to/AgentOps-Observability">
-                    Agent Monitoring with AgentOps
+                    使用 AgentOps 进行代理监控
                 </a>
             </li>
             <li>
                 <a href="./how-to/Langtrace-Observability">
-                    Agent Monitoring with LangTrace
+                    使用 LangTrace 进行代理监控
                 </a>
             </li>
         </ul>
     </div>
     <div style="width:30%">
-        <h2>Examples</h2>
+        <h2>示例</h2>
         <ul>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/prep-for-a-meeting">
-                    Prepare for meetings
+                    准备会议
                 </a>
             </li>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/trip_planner">
-                    Trip Planner Crew
+                    旅行规划团队
                 </a>
             </li>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post">
-                    Create Instagram Post
+                    创建 Instagram 帖子
                 </a>
             </li>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/stock_analysis">
-                    Stock Analysis
+                    股票分析
                 </a>
             </li>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/game-builder-crew">
-                    Game Generator
+                    游戏生成器
                 </a>
             </li>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/CrewAI-LangGraph">
-                    Drafting emails with LangGraph
+                    使用 LangGraph 起草电子邮件
                 </a>
             </li>
             <li>
                 <a target='_blank' href="https://github.com/aithoughts/aipmAI-examples/tree/main/landing_page_generator">
-                    Landing Page Generator
+                    登陆页面生成器
                 </a>
             </li>
         </ul>

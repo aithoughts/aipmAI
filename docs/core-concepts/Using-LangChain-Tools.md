@@ -1,38 +1,38 @@
 ---
-title: Using LangChain Tools
-description: Learn how to integrate LangChain tools with CrewAI agents to enhance search-based queries and more.
+title: 使用 LangChain 工具
+description: 了解如何将 LangChain 工具与 CrewAI 代理集成，以增强基于搜索的查询等功能。
 ---
 
-## Using LangChain Tools
-!!! info "LangChain Integration"
-    CrewAI seamlessly integrates with LangChain’s comprehensive toolkit for search-based queries and more, here are the available built-in tools that are offered by Langchain [LangChain Toolkit](https://python.langchain.com/docs/integrations/tools/)
+## 使用 LangChain 工具
+!!! info "LangChain 集成"
+    CrewAI 与 LangChain 用于基于搜索的查询等的综合工具包无缝集成，以下是 Langchain 提供的可用内置工具 [LangChain 工具包](https://python.langchain.com/docs/integrations/tools/)
 
 ```python
 from crewai import Agent
 from langchain.agents import Tool
 from langchain.utilities import GoogleSerperAPIWrapper
 
-# Setup API keys
-os.environ["SERPER_API_KEY"] = "Your Key"
+# 设置 API 密钥
+os.environ["SERPER_API_KEY"] = "您的密钥"
 
 search = GoogleSerperAPIWrapper()
 
-# Create and assign the search tool to an agent
+# 创建搜索工具并将其分配给代理
 serper_tool = Tool(
-  name="Intermediate Answer",
+  name="中间答案",
   func=search.run,
-  description="Useful for search-based queries",
+  description="对基于搜索的查询很有用",
 )
 
 agent = Agent(
-  role='Research Analyst',
-  goal='Provide up-to-date market analysis',
-  backstory='An expert analyst with a keen eye for market trends.',
+  role='研究分析师',
+  goal='提供最新的市场分析',
+  backstory='一位对市场趋势有敏锐眼光的专家分析师。',
   tools=[serper_tool]
 )
 
-# rest of the code ...
+# 代码的其余部分...
 ```
 
-## Conclusion
-Tools are pivotal in extending the capabilities of CrewAI agents, enabling them to undertake a broad spectrum of tasks and collaborate effectively. When building solutions with CrewAI, leverage both custom and existing tools to empower your agents and enhance the AI ecosystem. Consider utilizing error handling, caching mechanisms, and the flexibility of tool arguments to optimize your agents' performance and capabilities.
+## 结论
+工具对于扩展 CrewAI 代理的功能至关重要，使其能够执行广泛的任务并有效协作。在使用 CrewAI 构建解决方案时，请利用自定义工具和现有工具来增强您的代理并增强 AI 生态系统。考虑利用错误处理、缓存机制和工具参数的灵活性来优化您的代理的性能和功能。

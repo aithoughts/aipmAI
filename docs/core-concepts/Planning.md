@@ -1,18 +1,18 @@
 ---
-title: crewAI Planning
-description: Learn how to add planning to your crewAI Crew and improve their performance.
+title: crewAI 规划
+description: 了解如何将规划添加到您的 crewAI Crew 中并提高其性能。
 ---
 
-## Introduction
-The planning feature in CrewAI allows you to add planning capability to your crew. When enabled, before each Crew iteration, all Crew information is sent to an AgentPlanner that will plan the tasks step by step, and this plan will be added to each task description.
+## 简介
+CrewAI 中的规划功能允许您为您的 crew 添加规划能力。启用后，在每次 Crew 迭代之前，所有 Crew 信息都会发送到 AgentPlanner，它将逐步规划任务，并且该计划将添加到每个任务描述中。
 
-### Using the Planning Feature
-Getting started with the planning feature is very easy, the only step required is to add `planning=True` to your Crew:
+### 使用规划功能
+开始使用规划功能非常容易，唯一需要做的就是在您的 Crew 中添加 `planning=True`：
 
 ```python
 from crewai import Crew, Agent, Task, Process
 
-# Assemble your crew with planning capabilities
+# 组装您的 crew 并启用规划功能
 my_crew = Crew(
     agents=self.agents,
     tasks=self.tasks,
@@ -21,99 +21,99 @@ my_crew = Crew(
 )
 ```
 
-From this point on, your crew will have planning enabled, and the tasks will be planned before each iteration.
+从这一点开始，您的 crew 将启用规划，并且将在每次迭代之前规划任务。
 
-### Example
+### 示例
 
-When running the base case example, you will see something like the following output, which represents the output of the AgentPlanner responsible for creating the step-by-step logic to add to the Agents tasks.
+运行基本案例示例时，您将看到类似于以下内容的输出，它表示负责创建要添加到代理任务的逐步逻辑的 AgentPlanner 的输出。
 
 ```bash
 
-[2024-07-15 16:49:11][INFO]: Planning the crew execution
-**Step-by-Step Plan for Task Execution**
+[2024-07-15 16:49:11][INFO]: 正在规划 crew 执行
+**任务执行的分步计划**
 
-**Task Number 1: Conduct a thorough research about AI LLMs**
+**任务编号 1：对 AI LLMs 进行全面研究**
 
-**Agent:** AI LLMs Senior Data Researcher
+**代理：** AI LLMs 高级数据研究员
 
-**Agent Goal:** Uncover cutting-edge developments in AI LLMs
+**代理目标：** 发现 AI LLMs 的最新发展
 
-**Task Expected Output:** A list with 10 bullet points of the most relevant information about AI LLMs
+**任务预期输出：** 包含 10 个项目符号的列表，列出有关 AI LLMs 的最相关信息
 
-**Task Tools:** None specified
+**任务工具：** 未指定
 
-**Agent Tools:** None specified
+**代理工具：** 未指定
 
-**Step-by-Step Plan:**
+**分步计划：**
 
-1. **Define Research Scope:**
-   - Determine the specific areas of AI LLMs to focus on, such as advancements in architecture, use cases, ethical considerations, and performance metrics.
+1. **定义研究范围：**
+   - 确定 AI LLMs 要关注的具体领域，例如架构、用例、伦理考量和性能指标方面的进步。
 
-2. **Identify Reliable Sources:**
-   - List reputable sources for AI research, including academic journals, industry reports, conferences (e.g., NeurIPS, ACL), AI research labs (e.g., OpenAI, Google AI), and online databases (e.g., IEEE Xplore, arXiv).
+2. **确定可靠来源：**
+   - 列出信誉良好的 AI 研究来源，包括学术期刊、行业报告、会议（例如 NeurIPS、ACL）、AI 研究实验室（例如 OpenAI、Google AI）和在线数据库（例如 IEEE Xplore、arXiv）。
 
-3. **Collect Data:**
-   - Search for the latest papers, articles, and reports published in 2023 and early 2024.
-   - Use keywords like "Large Language Models 2024", "AI LLM advancements", "AI ethics 2024", etc.
+3. **收集数据：**
+   - 搜索 2023 年和 2024 年初发表的最新论文、文章和报告。
+   - 使用“大型语言模型 2024”、“AI LLM 进展”、“AI 伦理 2024”等关键词。
 
-4. **Analyze Findings:**
-   - Read and summarize the key points from each source.
-   - Highlight new techniques, models, and applications introduced in the past year.
+4. **分析结果：**
+   - 阅读并总结每个来源的关键点。
+   - 突出显示过去一年中引入的新技术、模型和应用。
 
-5. **Organize Information:**
-   - Categorize the information into relevant topics (e.g., new architectures, ethical implications, real-world applications).
-   - Ensure each bullet point is concise but informative.
+5. **整理信息：**
+   - 将信息分类到相关主题中（例如，新架构、伦理影响、实际应用）。
+   - 确保每个项目符号都简洁但内容丰富。
 
-6. **Create the List:**
-   - Compile the 10 most relevant pieces of information into a bullet point list.
-   - Review the list to ensure clarity and relevance.
+6. **创建列表：**
+   - 将 10 个最相关的片段信息编译成一个项目符号列表。
+   - 查看列表以确保清晰度和相关性。
 
-**Expected Output:**
-A list with 10 bullet points of the most relevant information about AI LLMs.
+**预期输出：**
+包含 10 个项目符号的列表，列出有关 AI LLMs 的最相关信息。
 
 ---
 
-**Task Number 2: Review the context you got and expand each topic into a full section for a report**
+**任务编号 2：查看您获得的上下文并将每个主题扩展为报告的完整部分**
 
-**Agent:** AI LLMs Reporting Analyst
+**代理：** AI LLMs 报告分析师
 
-**Agent Goal:** Create detailed reports based on AI LLMs data analysis and research findings
+**代理目标：** 根据 AI LLMs 数据分析和研究结果创建详细报告
 
-**Task Expected Output:** A fully fledge report with the main topics, each with a full section of information. Formatted as markdown without '```'
+**任务预期输出：** 一份完整的报告，其中包含主要主题，每个主题都有一个完整的信息部分。格式为不带“```”的 Markdown
 
-**Task Tools:** None specified
+**任务工具：** 未指定
 
-**Agent Tools:** None specified
+**代理工具：** 未指定
 
-**Step-by-Step Plan:**
+**分步计划：**
 
-1. **Review the Bullet Points:**
-   - Carefully read through the list of 10 bullet points provided by the AI LLMs Senior Data Researcher.
+1. **查看项目符号：**
+   - 仔细阅读 AI LLMs 高级数据研究员提供的 10 个项目符号列表。
 
-2. **Outline the Report:**
-   - Create an outline with each bullet point as a main section heading.
-   - Plan sub-sections under each main heading to cover different aspects of the topic.
+2. **概述报告：**
+   - 创建一个大纲，将每个项目符号作为主要部分标题。
+   - 在每个主要标题下规划子部分，以涵盖主题的不同方面。
 
-3. **Research Further Details:**
-   - For each bullet point, conduct additional research if necessary to gather more detailed information.
-   - Look for case studies, examples, and statistical data to support each section.
+3. **研究更多细节：**
+   - 对于每个项目符号，如有必要，进行额外的研究以收集更详细的信息。
+   - 寻找案例研究、示例和统计数据来支持每个部分。
 
-4. **Write Detailed Sections:**
-   - Expand each bullet point into a comprehensive section.
-   - Ensure each section includes an introduction, detailed explanation, examples, and a conclusion.
-   - Use markdown formatting for headings, subheadings, lists, and emphasis.
+4. **编写详细部分：**
+   - 将每个项目符号扩展为一个综合部分。
+   - 确保每个部分都包含引言、详细解释、示例和结论。
+   - 使用 Markdown 格式设置标题、子标题、列表和强调。
 
-5. **Review and Edit:**
-   - Proofread the report for clarity, coherence, and correctness.
-   - Make sure the report flows logically from one section to the next.
-   - Format the report according to markdown standards.
+5. **审阅和编辑：**
+   - 校对报告的清晰度、连贯性和正确性。
+   - 确保报告从一个部分逻辑地流向下一个部分。
+   - 根据 Markdown 标准格式化报告。
 
-6. **Finalize the Report:**
-   - Ensure the report is complete with all sections expanded and detailed.
-   - Double-check formatting and make any necessary adjustments.
+6. **最终确定报告：**
+   - 确保报告完整，所有部分都已扩展和详细说明。
+   - 仔细检查格式并进行任何必要的调整。
 
-**Expected Output:**
-A fully-fledged report with the main topics, each with a full section of information. Formatted as markdown without '```'.
+**预期输出：**
+一份完整的报告，其中包含主要主题，每个主题都有一个完整的信息部分。格式为不带“```”的 Markdown。
 
 ---
 ```

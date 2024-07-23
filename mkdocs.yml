@@ -1,4 +1,4 @@
-site_name: aipmAI Docs
+site_name: aipmAI 文档
 site_author: aipmAI, 觅识🌿
 repo_name: aipmAI-docs
 repo_url: https://github.com/aithoughts/aipmAI/
@@ -118,72 +118,73 @@ theme:
     - search.share
 
 nav:
-  - Home: '/'
-  - Core Concepts:
-    - Agents: 'core-concepts/Agents.md'
-    - Tasks: 'core-concepts/Tasks.md'
-    - Tools: 'core-concepts/Tools.md'
-    - Processes: 'core-concepts/Processes.md'
-    - Crews: 'core-concepts/Crews.md'
-    - Collaboration: 'core-concepts/Collaboration.md'
-    - Training: 'core-concepts/Training-Crew.md'
-    - Memory: 'core-concepts/Memory.md'
-    - Planning: 'core-concepts/Planning.md'
-    - Using LangChain Tools: 'core-concepts/Using-LangChain-Tools.md'
-    - Using LlamaIndex Tools: 'core-concepts/Using-LlamaIndex-Tools.md'
-  - How to Guides:
-    - Starting Your crewAI Project: 'how-to/Start-a-New-CrewAI-Project.md'
-    - Installing CrewAI: 'how-to/Installing-CrewAI.md'
-    - Getting Started: 'how-to/Creating-a-Crew-and-kick-it-off.md'
-    - Create Custom Tools: 'how-to/Create-Custom-Tools.md'
-    - Using Sequential Process: 'how-to/Sequential.md'
-    - Using Hierarchical Process: 'how-to/Hierarchical.md'
-    - Create your own Manager Agent: 'how-to/Your-Own-Manager-Agent.md'
-    - Connecting to any LLM: 'how-to/LLM-Connections.md'
-    - Customizing Agents: 'how-to/Customizing-Agents.md'
-    - Coding Agents: 'how-to/Coding-Agents.md'
-    - Forcing Tool Output as Result: 'how-to/Force-Tool-Ouput-as-Result.md'
-    - Human Input on Execution: 'how-to/Human-Input-on-Execution.md'
-    - Kickoff a Crew Asynchronously: 'how-to/Kickoff-async.md'
-    - Kickoff a Crew for a List: 'how-to/Kickoff-for-each.md'
-    - Replay from a specific task from a kickoff: 'how-to/Replay-tasks-from-latest-Crew-Kickoff.md'
-    - Conditional Tasks: 'how-to/Conditional-Tasks.md'
-    - Agent Monitoring with AgentOps: 'how-to/AgentOps-Observability.md'
-    - Agent Monitoring with LangTrace: 'how-to/Langtrace-Observability.md'
-  - Tools Docs:
-    - Google Serper Search: 'tools/SerperDevTool.md'
-    - Browserbase Web Loader: 'tools/BrowserbaseLoadTool.md'
-    - Composio Tools: 'tools/ComposioTool.md'
-    - Code Interpreter: 'tools/CodeInterpreterTool.md'
-    - Scrape Website: 'tools/ScrapeWebsiteTool.md'
-    - Directory Read: 'tools/DirectoryReadTool.md'
-    - Exa Serch Web Loader: 'tools/EXASearchTool.md'
-    - File Read: 'tools/FileReadTool.md'
-    - Selenium Scraper: 'tools/SeleniumScrapingTool.md'
-    - Directory RAG Search: 'tools/DirectorySearchTool.md'
-    - PDF RAG Search: 'tools/PDFSearchTool.md'
-    - TXT RAG Search: 'tools/TXTSearchTool.md'
-    - CSV RAG Search: 'tools/CSVSearchTool.md'
-    - XML RAG Search: 'tools/XMLSearchTool.md'
-    - JSON RAG Search: 'tools/JSONSearchTool.md'
-    - Docx Rag Search: 'tools/DOCXSearchTool.md'
-    - MDX RAG Search: 'tools/MDXSearchTool.md'
-    - PG RAG Search: 'tools/PGSearchTool.md'
-    - Website RAG Search: 'tools/WebsiteSearchTool.md'
-    - Github RAG Search: 'tools/GitHubSearchTool.md'
-    - Code Docs RAG Search: 'tools/CodeDocsSearchTool.md'
-    - Youtube Video RAG Search: 'tools/YoutubeVideoSearchTool.md'
-    - Youtube Channel RAG Search: 'tools/YoutubeChannelSearchTool.md'
-  - Examples:
-    - Trip Planner Crew: https://github.com/aithoughts/aipmAI-examples/tree/main/trip_planner"
-    - Create Instagram Post: https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post"
-    - Stock Analysis: https://github.com/aithoughts/aipmAI-examples/tree/main/stock_analysis"
-    - Game Generator: https://github.com/aithoughts/aipmAI-examples/tree/main/game-builder-crew"
-    - Drafting emails with LangGraph: https://github.com/aithoughts/aipmAI-examples/tree/main/CrewAI-LangGraph"
-    - Landing Page Generator: https://github.com/aithoughts/aipmAI-examples/tree/main/landing_page_generator"
-    - Prepare for meetings: https://github.com/aithoughts/aipmAI-examples/tree/main/prep-for-a-meeting"
-  - Telemetry: 'telemetry/Telemetry.md'
-  - Change Log: 'https://github.com/aithoughts/aipmAI/releases'
+  - 首页: 'index.md'
+  - 核心概念:
+    - 代理: 'core-concepts/Agents.md'
+    - 任务: 'core-concepts/Tasks.md'
+    - 工具: 'core-concepts/Tools.md'
+    - 流程: 'core-concepts/Processes.md'
+    - 团队: 'core-concepts/Crews.md'
+    - 协作: 'core-concepts/Collaboration.md'
+    - 训练: 'core-concepts/Training-Crew.md'
+    - 记忆: 'core-concepts/Memory.md'
+    - 规划: 'core-concepts/Planning.md'
+    - 使用 LangChain 工具: 'core-concepts/Using-LangChain-Tools.md'
+    - 使用 LlamaIndex 工具: 'core-concepts/Using-LlamaIndex-Tools.md'
+  - 操作指南:
+    - 开始您的 crewAI 项目: 'how-to/Start-a-New-CrewAI-Project.md'
+    - 安装 CrewAI: 'how-to/Installing-CrewAI.md'
+    - 快速入门: 'how-to/Creating-a-Crew-and-kick-it-off.md'
+    - 创建自定义工具: 'how-to/Create-Custom-Tools.md'
+    - 使用顺序流程: 'how-to/Sequential.md'
+    - 使用分层流程: 'how-to/Hierarchical.md'
+    - 创建您自己的管理代理: 'how-to/Your-Own-Manager-Agent.md'
+    - 连接到任意大型语言模型: 'how-to/LLM-Connections.md'
+    - 自定义代理: 'how-to/Customizing-Agents.md'
+    - 编写代理代码: 'how-to/Coding-Agents.md'
+    - 强制工具输出作为结果: 'how-to/Force-Tool-Ouput-as-Result.md'
+    - 执行过程中的人工输入: 'how-to/Human-Input-on-Execution.md'
+    - 自定义提示: 'how-to/Customize-Prompts.md'
+    - 异步启动团队: 'how-to/Kickoff-async.md'
+    - 为列表启动团队: 'how-to/Kickoff-for-each.md'
+    - 从启动中的特定任务重放: 'how-to/Replay-tasks-from-latest-Crew-Kickoff.md'
+    - 条件任务: 'how-to/Conditional-Tasks.md'
+    - 使用 AgentOps 进行代理监控: 'how-to/AgentOps-Observability.md'
+    - 使用 LangTrace 进行代理监控: 'how-to/Langtrace-Observability.md'
+  - 工具文档:
+    - Google Serper 搜索: 'tools/SerperDevTool.md'
+    - Browserbase 网页加载器: 'tools/BrowserbaseLoadTool.md'
+    - Composio 工具: 'tools/ComposioTool.md'
+    - 代码解释器: 'tools/CodeInterpreterTool.md'
+    - 网页抓取: 'tools/ScrapeWebsiteTool.md'
+    - 目录读取: 'tools/DirectoryReadTool.md'
+    - Exa 搜索网页加载器: 'tools/EXASearchTool.md'
+    - 文件读取: 'tools/FileReadTool.md'
+    - Selenium 爬虫: 'tools/SeleniumScrapingTool.md'
+    - 目录 RAG 搜索: 'tools/DirectorySearchTool.md'
+    - PDF RAG 搜索: 'tools/PDFSearchTool.md'
+    - TXT RAG 搜索: 'tools/TXTSearchTool.md'
+    - CSV RAG 搜索: 'tools/CSVSearchTool.md'
+    - XML RAG 搜索: 'tools/XMLSearchTool.md'
+    - JSON RAG 搜索: 'tools/JSONSearchTool.md'
+    - Docx RAG 搜索: 'tools/DOCXSearchTool.md'
+    - MDX RAG 搜索: 'tools/MDXSearchTool.md'
+    - PG RAG 搜索: 'tools/PGSearchTool.md'
+    - 网站 RAG 搜索: 'tools/WebsiteSearchTool.md'
+    - Github RAG 搜索: 'tools/GitHubSearchTool.md'
+    - 代码文档 RAG 搜索: 'tools/CodeDocsSearchTool.md'
+    - Youtube 视频 RAG 搜索: 'tools/YoutubeVideoSearchTool.md'
+    - Youtube 频道 RAG 搜索: 'tools/YoutubeChannelSearchTool.md'
+  - aipmAI 示例:
+    - 旅行规划团队: https://github.com/aithoughts/aipmAI-examples/tree/main/trip_planner"
+    - 创建 Instagram 帖子: https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post"
+    - 股票分析: https://github.com/aithoughts/aipmAI-examples/tree/main/stock_analysis"
+    - 游戏生成器: https://github.com/aithoughts/aipmAI-examples/tree/main/game-builder-crew"
+    - 使用 LangGraph 起草电子邮件: https://github.com/aithoughts/aipmAI-examples/tree/main/CrewAI-LangGraph"
+    - 登陆页面生成器: https://github.com/aithoughts/aipmAI-examples/tree/main/landing_page_generator"
+    - 准备会议: https://github.com/aithoughts/aipmAI-examples/tree/main/prep-for-a-meeting"
+  - 数据遥测: 'telemetry/Telemetry.md'
+  - 更新日志: 'https://github.com/aithoughts/aipmAI/releases'
 
 extra_css:
   - stylesheets/output.css

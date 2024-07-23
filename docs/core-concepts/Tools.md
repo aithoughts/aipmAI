@@ -1,37 +1,37 @@
 ---
-title: crewAI Tools
-description: Understanding and leveraging tools within the crewAI framework for agent collaboration and task execution.
+title: crewAI 工具
+description: 了解和利用 crewAI 框架中的工具进行 agent 协作和任务执行。
 ---
 
-## Introduction
-CrewAI tools empower agents with capabilities ranging from web searching and data analysis to collaboration and delegating tasks among coworkers. This documentation outlines how to create, integrate, and leverage these tools within the CrewAI framework, including a new focus on collaboration tools.
+## 简介
+crewAI 工具赋予 agent 各种能力，从网络搜索和数据分析到协作以及在同事之间委派任务。本文档概述了如何在 crewAI 框架内创建、集成和利用这些工具，包括对协作工具的新关注。
 
-## What is a Tool?
-!!! note "Definition"
-    A tool in CrewAI is a skill or function that agents can utilize to perform various actions. This includes tools from the [crewAI Toolkit](https://github.com/aithoughts/aipmAI-tools) and [LangChain Tools](https://python.langchain.com/docs/integrations/tools), enabling everything from simple searches to complex interactions and effective teamwork among agents.
+## 什么是工具？
+!!! note "定义"
+    crewAI 中的工具是 agent 可以利用的技能或功能，用于执行各种操作。这包括来自 [crewAI 工具包](https://github.com/aithoughts/aipmAI-tools) 和 [LangChain 工具](https://python.langchain.com/docs/integrations/tools) 的工具，支持从简单搜索到复杂交互以及 agent 之间的有效团队合作。
 
-## Key Characteristics of Tools
+## 工具的主要特点
 
-- **Utility**: Crafted for tasks such as web searching, data analysis, content generation, and agent collaboration.
-- **Integration**: Boosts agent capabilities by seamlessly integrating tools into their workflow.
-- **Customizability**: Provides the flexibility to develop custom tools or utilize existing ones, catering to the specific needs of agents.
-- **Error Handling**: Incorporates robust error handling mechanisms to ensure smooth operation.
-- **Caching Mechanism**: Features intelligent caching to optimize performance and reduce redundant operations.
+- **实用性**: 为网络搜索、数据分析、内容生成和 agent 协作等任务而设计。
+- **集成**: 通过将工具无缝集成到 agent 的工作流程中来增强其能力。
+- **可定制性**: 提供开发自定义工具或利用现有工具的灵活性，以满足 agent 的特定需求。
+- **错误处理**:  结合了强大的错误处理机制，以确保平稳运行。
+- **缓存机制**:  具有智能缓存功能，可优化性能并减少冗余操作。
 
-## Using crewAI Tools
+## 使用 crewAI 工具
 
-To enhance your agents' capabilities with crewAI tools, begin by installing our extra tools package:
+要使用 crewAI 工具增强您的 agent 的能力，请先安装我们的额外工具包：
 
 ```bash
 pip install 'crewai[tools]'
 ```
 
-Here's an example demonstrating their use:
+以下是一个演示如何使用它们的示例：
 
 ```python
 import os
 from crewai import Agent, Task, Crew
-# Importing crewAI tools
+# 导入 crewAI 工具
 from crewai_tools import (
     DirectoryReadTool,
     FileReadTool,
@@ -39,156 +39,156 @@ from crewai_tools import (
     WebsiteSearchTool
 )
 
-# Set up API keys
-os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API key
-os.environ["OPENAI_API_KEY"] = "Your Key"
+# 设置 API 密钥
+os.environ["SERPER_API_KEY"] = "您的密钥" # serper.dev API 密钥
+os.environ["OPENAI_API_KEY"] = "您的密钥"
 
-# Instantiate tools
+# 实例化工具
 docs_tool = DirectoryReadTool(directory='./blog-posts')
 file_tool = FileReadTool()
 search_tool = SerperDevTool()
 web_rag_tool = WebsiteSearchTool()
 
-# Create agents
+# 创建 agent
 researcher = Agent(
-    role='Market Research Analyst',
-    goal='Provide up-to-date market analysis of the AI industry',
-    backstory='An expert analyst with a keen eye for market trends.',
+    role='市场研究分析师',
+    goal='提供最新的 AI 行业市场分析',
+    backstory='一位对市场趋势有敏锐洞察力的专家分析师。',
     tools=[search_tool, web_rag_tool],
     verbose=True
 )
 
 writer = Agent(
-    role='Content Writer',
-    goal='Craft engaging blog posts about the AI industry',
-    backstory='A skilled writer with a passion for technology.',
+    role='内容撰稿人',
+    goal='撰写有关 AI 行业的引人入胜的博客文章',
+    backstory='一位热爱技术的熟练作家。',
     tools=[docs_tool, file_tool],
     verbose=True
 )
 
-# Define tasks
+# 定义任务
 research = Task(
-    description='Research the latest trends in the AI industry and provide a summary.',
-    expected_output='A summary of the top 3 trending developments in the AI industry with a unique perspective on their significance.',
+    description='研究 AI 行业的最新趋势并提供摘要。',
+    expected_output='对 AI 行业排名前 3 位的趋势发展进行总结，并对其意义提出独特的见解。',
     agent=researcher
 )
 
 write = Task(
-    description='Write an engaging blog post about the AI industry, based on the research analyst’s summary. Draw inspiration from the latest blog posts in the directory.',
-    expected_output='A 4-paragraph blog post formatted in markdown with engaging, informative, and accessible content, avoiding complex jargon.',
+    description='根据研究分析师的摘要，撰写一篇关于 AI 行业的引人入胜的博客文章。从目录中最新博客文章中汲取灵感。',
+    expected_output='一篇 4 段式的博客文章，采用 markdown 格式，内容引人入胜、信息丰富且通俗易懂，避免使用复杂的术语。',
     agent=writer,
-    output_file='blog-posts/new_post.md'  # The final blog post will be saved here
+    output_file='blog-posts/new_post.md'  # 最终的博客文章将保存在此处
 )
 
-# Assemble a crew
+# 组建 crew
 crew = Crew(
     agents=[researcher, writer],
     tasks=[research, write],
     verbose=2
 )
 
-# Execute tasks
+# 执行任务
 crew.kickoff()
 ```
 
-## Available crewAI Tools
+## 可用的 crewAI 工具
 
-- **Error Handling**: All tools are built with error handling capabilities, allowing agents to gracefully manage exceptions and continue their tasks.
-- **Caching Mechanism**: All tools support caching, enabling agents to efficiently reuse previously obtained results, reducing the load on external resources and speeding up the execution time. You can also define finer control over the caching mechanism using the `cache_function` attribute on the tool.
+- **错误处理**: 所有工具都内置了错误处理功能，允许 agent 优雅地管理异常并继续执行任务。
+- **缓存机制**: 所有工具都支持缓存，使 agent 能够有效地重用以前获得的结果，从而减少外部资源的负载并加快执行时间。您还可以使用工具上的 `cache_function` 属性对缓存机制进行更精细的控制。
 
-Here is a list of the available tools and their descriptions:
+以下是可用工具及其描述的列表：
 
-| Tool                        | Description                                                                                   |
+| 工具                        | 描述                                                                                   |
 | :-------------------------- | :-------------------------------------------------------------------------------------------- |
-| **BrowserbaseLoadTool**     | A tool for interacting with and extracting data from web browsers.                            |
-| **CodeDocsSearchTool**      | A RAG tool optimized for searching through code documentation and related technical documents. |
-| **CodeInterpreterTool**     | A tool for interpreting python code.                                                          |
-| **ComposioTool**            | Enables use of Composio tools.                                                                |
-| **CSVSearchTool**           | A RAG tool designed for searching within CSV files, tailored to handle structured data.       |
-| **DirectorySearchTool**     | A RAG tool for searching within directories, useful for navigating through file systems.      |
-| **DOCXSearchTool**          | A RAG tool aimed at searching within DOCX documents, ideal for processing Word files.         |
-| **DirectoryReadTool**       | Facilitates reading and processing of directory structures and their contents.                |
-| **EXASearchTool**           | A tool designed for performing exhaustive searches across various data sources.               |
-| **FileReadTool**            | Enables reading and extracting data from files, supporting various file formats.              |
-| **FirecrawlSearchTool**     | A tool to search webpages using Firecrawl and return the results.                             |
-| **FirecrawlCrawlWebsiteTool** | A tool for crawling webpages using Firecrawl.                                               |
-| **FirecrawlScrapeWebsiteTool** | A tool for scraping webpages url using Firecrawl and returning its contents.               |
-| **GithubSearchTool**        | A RAG tool for searching within GitHub repositories, useful for code and documentation search.|
-| **SerperDevTool**           | A specialized tool for development purposes, with specific functionalities under development. |
-| **TXTSearchTool**           | A RAG tool focused on searching within text (.txt) files, suitable for unstructured data.     |
-| **JSONSearchTool**          | A RAG tool designed for searching within JSON files, catering to structured data handling.     |
-| **LlamaIndexTool**          | Enables the use of LlamaIndex tools.                                                          |
-| **MDXSearchTool**           | A RAG tool tailored for searching within Markdown (MDX) files, useful for documentation.      |
-| **PDFSearchTool**           | A RAG tool aimed at searching within PDF documents, ideal for processing scanned documents.    |
-| **PGSearchTool**            | A RAG tool optimized for searching within PostgreSQL databases, suitable for database queries. |
-| **RagTool**                 | A general-purpose RAG tool capable of handling various data sources and types.                 |
-| **ScrapeElementFromWebsiteTool** | Enables scraping specific elements from websites, useful for targeted data extraction.     |
-| **ScrapeWebsiteTool**       | Facilitates scraping entire websites, ideal for comprehensive data collection.                 |
-| **WebsiteSearchTool**       | A RAG tool for searching website content, optimized for web data extraction.                   |
-| **XMLSearchTool**           | A RAG tool designed for searching within XML files, suitable for structured data formats.      |
-| **YoutubeChannelSearchTool**| A RAG tool for searching within YouTube channels, useful for video content analysis.           |
-| **YoutubeVideoSearchTool**  | A RAG tool aimed at searching within YouTube videos, ideal for video data extraction.          |
+| **BrowserbaseLoadTool**     | 用于与网络浏览器交互和从中提取数据的工具。                            |
+| **CodeDocsSearchTool**      | 针对搜索代码文档和相关技术文档进行了优化的 RAG 工具。 |
+| **CodeInterpreterTool**     | 用于解释 Python 代码的工具。                                                          |
+| **ComposioTool**            | 支持使用 Composio 工具。                                                                |
+| **CSVSearchTool**           | 专为在 CSV 文件中搜索而设计的 RAG 工具，专为处理结构化数据而定制。       |
+| **DirectorySearchTool**     | 用于在目录中搜索的 RAG 工具，可用于浏览文件系统。      |
+| **DOCXSearchTool**          | 旨在在 DOCX 文档中搜索的 RAG 工具，非常适合处理 Word 文件。         |
+| **DirectoryReadTool**       | 促进对目录结构及其内容的读取和处理。                |
+| **EXASearchTool**           | 专为跨各种数据源执行详尽搜索而设计的工具。               |
+| **FileReadTool**            | 支持读取各种文件格式并从中提取数据。              |
+| **FirecrawlSearchTool**     | 使用 Firecrawl 搜索网页并返回结果的工具。                             |
+| **FirecrawlCrawlWebsiteTool** | 使用 Firecrawl 抓取网页的工具。                                               |
+| **FirecrawlScrapeWebsiteTool** | 使用 Firecrawl 抓取网页 url 并返回其内容的工具。               |
+| **GithubSearchTool**        | 用于在 GitHub 存储库中搜索的 RAG 工具，可用于代码和文档搜索。|
+| **SerperDevTool**           | 用于开发目的的专用工具，具有正在开发的特定功能。 |
+| **TXTSearchTool**           | 专注于在文本 (.txt) 文件中搜索的 RAG 工具，适用于非结构化数据。     |
+| **JSONSearchTool**          | 专为在 JSON 文件中搜索而设计的 RAG 工具，适用于结构化数据处理。     |
+| **LlamaIndexTool**          | 支持使用 LlamaIndex 工具。                                                          |
+| **MDXSearchTool**           | 专为在 Markdown (MDX) 文件中搜索而定制的 RAG 工具，适用于文档。      |
+| **PDFSearchTool**           | 旨在在 PDF 文档中搜索的 RAG 工具，非常适合处理扫描文档。    |
+| **PGSearchTool**            | 针对在 PostgreSQL 数据库中搜索进行了优化的 RAG 工具，适用于数据库查询。 |
+| **RagTool**                 | 能够处理各种数据源和类型的通用 RAG 工具。                 |
+| **ScrapeElementFromWebsiteTool** | 支持从网站抓取特定元素，适用于定向数据提取。     |
+| **ScrapeWebsiteTool**       | 促进抓取整个网站，非常适合全面收集数据。                 |
+| **WebsiteSearchTool**       | 用于搜索网站内容的 RAG 工具，针对网络数据提取进行了优化。                   |
+| **XMLSearchTool**           | 专为在 XML 文件中搜索而设计的 RAG 工具，适用于结构化数据格式。      |
+| **YoutubeChannelSearchTool**| 用于在 YouTube 频道中搜索的 RAG 工具，适用于视频内容分析。           |
+| **YoutubeVideoSearchTool**  | 旨在在 YouTube 视频中搜索的 RAG 工具，非常适合视频数据提取。          |
 
-## Creating your own Tools
+## 创建您自己的工具
 
-!!! example "Custom Tool Creation"
-    Developers can craft custom tools tailored for their agent’s needs or utilize pre-built options:
+!!! example "自定义工具创建"
+    开发人员可以根据其 agent 的需求定制工具，也可以利用预先构建的选项：
 
-To create your own crewAI tools you will need to install our extra tools package:
+要创建您自己的 crewAI 工具，您需要安装我们的额外工具包：
 
 ```bash
 pip install 'crewai[tools]'
 ```
 
-Once you do that there are two main ways for one to create a crewAI tool:
-### Subclassing `BaseTool`
+完成此操作后，您可以通过两种主要方式创建 crewAI 工具：
+### 子类化 `BaseTool`
 
 ```python
 from crewai_tools import BaseTool
 
 class MyCustomTool(BaseTool):
-    name: str = "Name of my tool"
-    description: str = "Clear description for what this tool is useful for, your agent will need this information to use it."
+    name: str = "我的工具的名称"
+    description: str = "清楚地描述此工具的用途，您的 agent 将需要此信息才能使用它。"
 
     def _run(self, argument: str) -> str:
-        # Implementation goes here
-        return "Result from custom tool"
+        # 实现代码在此处
+        return "自定义工具的结果"
 ```
 
-### Utilizing the `tool` Decorator
+### 利用 `tool` 装饰器
 
 ```python
 from crewai_tools import tool
-@tool("Name of my tool")
+@tool("我的工具的名称")
 def my_tool(question: str) -> str:
-    """Clear description for what this tool is useful for, your agent will need this information to use it."""
-    # Function logic here
-    return "Result from your custom tool"
+    """清楚地描述此工具的用途，您的 agent 将需要此信息才能使用它。"""
+    # 函数逻辑在此处
+    return "您的自定义工具的结果"
 ```
 
-### Custom Caching Mechanism
-!!! note "Caching"
-    Tools can optionally implement a `cache_function` to fine-tune caching behavior. This function determines when to cache results based on specific conditions, offering granular control over caching logic.
+### 自定义缓存机制
+!!! note "缓存"
+    工具可以选择实现 `cache_function` 以微调缓存行为。此函数根据特定条件确定何时缓存结果，从而提供对缓存逻辑的精细控制。
 
 ```python
 from crewai_tools import tool
 
 @tool
 def multiplication_tool(first_number: int, second_number: int) -> str:
-    """Useful for when you need to multiply two numbers together."""
+    """当您需要将两个数字相乘时很有用。"""
     return first_number * second_number
 
 def cache_func(args, result):
-    # In this case, we only cache the result if it's a multiple of 2
+    # 在这种情况下，我们仅在结果是 2 的倍数时才缓存结果
     cache = result % 2 == 0
     return cache
 
 multiplication_tool.cache_function = cache_func
 
 writer1 = Agent(
-        role="Writer",
-        goal="You write lessons of math for kids.",
-        backstory="You're an expert in writing and you love to teach kids but you know nothing of math.",
+        role="作家",
+        goal="您为孩子们编写数学课本。",
+        backstory="您是写作专家，并且喜欢教孩子们，但您对数学一无所知。",
         tools=[multiplication_tool],
         allow_delegation=False,
     )
@@ -196,5 +196,6 @@ writer1 = Agent(
 ```
 
 
-## Conclusion
-Tools are pivotal in extending the capabilities of CrewAI agents, enabling them to undertake a broad spectrum of tasks and collaborate effectively. When building solutions with CrewAI, leverage both custom and existing tools to empower your agents and enhance the AI ecosystem. Consider utilizing error handling, caching mechanisms, and the flexibility of tool arguments to optimize your agents' performance and capabilities.
+## 结论
+工具对于扩展 crewAI agent 的能力至关重要，使它们能够承担广泛的任务并有效地协作。使用 crewAI 构建解决方案时，请利用自定义工具和现有工具来增强您的 agent 的能力并增强 AI 生态系统。考虑利用错误处理、缓存机制和工具参数的灵活性来优化 agent 的性能和能力。
+

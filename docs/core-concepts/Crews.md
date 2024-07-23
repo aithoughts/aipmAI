@@ -1,47 +1,47 @@
 ---
 title: crewAI Crews
-description: Understanding and utilizing crews in the crewAI framework with comprehensive attributes and functionalities.
+description: 了解和利用 crewAI 框架中的 crew，包括全面的属性和功能。
 ---
 
-## What is a Crew?
+## 什么是 Crew？
 
-A crew in crewAI represents a collaborative group of agents working together to achieve a set of tasks. Each crew defines the strategy for task execution, agent collaboration, and the overall workflow.
+crewAI 中的 crew 表示一组协作的 agent，它们共同努力完成一组任务。每个 crew 都定义了任务执行策略、agent 协作和整体工作流程。
 
-## Crew Attributes
+## Crew 属性
 
-| Attribute                             | Parameters             | Description                                                                                                                                                                                                                                               |
-| :------------------------------------ | :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tasks**                             | `tasks`                | A list of tasks assigned to the crew.                                                                                                                                                                                                                     |
-| **Agents**                            | `agents`               | A list of agents that are part of the crew.                                                                                                                                                                                                               |
-| **Process** _(optional)_              | `process`              | The process flow (e.g., sequential, hierarchical) the crew follows.                                                                                                                                                                                       |
-| **Verbose** _(optional)_              | `verbose`              | The verbosity level for logging during execution.                                                                                                                                                                                                         |
-| **Manager LLM** _(optional)_          | `manager_llm`          | The language model used by the manager agent in a hierarchical process. **Required when using a hierarchical process.**                                                                                                                                   |
-| **Function Calling LLM** _(optional)_ | `function_calling_llm` | If passed, the crew will use this LLM to do function calling for tools for all agents in the crew. Each agent can have its own LLM, which overrides the crew's LLM for function calling.                                                                  |
-| **Config** _(optional)_               | `config`               | Optional configuration settings for the crew, in `Json` or `Dict[str, Any]` format.                                                                                                                                                                       |
-| **Max RPM** _(optional)_              | `max_rpm`              | Maximum requests per minute the crew adheres to during execution.                                                                                                                                                                                         |
-| **Language** _(optional)_             | `language`             | Language used for the crew, defaults to English.                                                                                                                                                                                                          |
-| **Language File** _(optional)_        | `language_file`        | Path to the language file to be used for the crew.                                                                                                                                                                                                        |
-| **Memory** _(optional)_               | `memory`               | Utilized for storing execution memories (short-term, long-term, entity memory).                                                                                                                                                                           |
-| **Cache** _(optional)_                | `cache`                | Specifies whether to use a cache for storing the results of tools' execution.                                                                                                                                                                             |
-| **Embedder** _(optional)_             | `embedder`             | Configuration for the embedder to be used by the crew. Mostly used by memory for now.                                                                                                                                                                     |
-| **Full Output** _(optional)_          | `full_output`          | Whether the crew should return the full output with all tasks outputs or just the final output.                                                                                                                                                           |
-| **Step Callback** _(optional)_        | `step_callback`        | A function that is called after each step of every agent. This can be used to log the agent's actions or to perform other operations; it won't override the agent-specific `step_callback`.                                                               |
-| **Task Callback** _(optional)_        | `task_callback`        | A function that is called after the completion of each task. Useful for monitoring or additional operations post-task execution.                                                                                                                          |
-| **Share Crew** _(optional)_           | `share_crew`           | Whether you want to share the complete crew information and execution with the crewAI team to make the library better, and allow us to train models.                                                                                                      |
-| **Output Log File** _(optional)_      | `output_log_file`      | Whether you want to have a file with the complete crew output and execution. You can set it using True and it will default to the folder you are currently in and it will be called logs.txt or passing a string with the full path and name of the file. |
-| **Manager Agent** _(optional)_        | `manager_agent`        | `manager` sets a custom agent that will be used as a manager.                                                                                                                                                                                             |
-| **Manager Callbacks** _(optional)_    | `manager_callbacks`    | `manager_callbacks` takes a list of callback handlers to be executed by the manager agent when a hierarchical process is used.                                                                                                                            |
-| **Prompt File** _(optional)_          | `prompt_file`          | Path to the prompt JSON file to be used for the crew.                                                                                                                                                                                                     |
-| **Planning** *(optional)*             | `planning`             |  Adds planning ability to the Crew. When activated before each Crew iteration, all Crew data is sent to an AgentPlanner that will plan the tasks and this plan will be added to each task description.
+| 属性     | 参数 | 描述  |
+| :--------------------- | :--------------------- | :--------------------- |
+| **任务**     | `tasks`    | 分配给 crew 的任务列表。    |
+| **Agent**    | `agents`   | 属于 crew 的 agent 列表。 |
+| **流程** _(可选)_  | `process`  | crew 遵循的流程（例如，顺序、分层）。 |
+| **详细** _(可选)_  | `verbose`  | 执行期间记录的详细程度。    |
+| **管理者 LLM** _(可选)_ | `manager_llm` | 分层流程中管理者 agent 使用的语言模型。**使用分层流程时必填。** |
+| **函数调用 LLM** _(可选)_ | `function_calling_llm` | 如果传递，crew 将使用此 LLM 为 crew 中所有 agent 的工具执行函数调用。每个 agent 可以有自己的 LLM，它会覆盖 crew 的 LLM 用于函数调用。 |
+| **配置** _(可选)_   | `config`   | crew 的可选配置设置，采用 `Json` 或 `Dict[str, Any]` 格式。      |
+| **最大 RPM** _(可选)_  | `max_rpm`  | crew 在执行期间遵守的每分钟最大请求数。   |
+| **语言** _(可选)_ | `language` | crew 使用的语言，默认为英语。     |
+| **语言文件** _(可选)_        | `language_file`        | 用于 crew 的语言文件的路径。   |
+| **内存** _(可选)_   | `memory`   | 用于存储执行记忆（短期、长期、实体记忆）。 |
+| **缓存** _(可选)_    | `cache`    | 指定是否使用缓存来存储工具执行的结果。   |
+| **嵌入器** _(可选)_ | `embedder` | crew 使用的嵌入器的配置。目前主要由内存使用。    |
+| **完整输出** _(可选)_ | `full_output` | crew 是否应返回包含所有任务输出的完整输出，还是仅返回最终输出。      |
+| **步骤回调** _(可选)_        | `step_callback`        | 每个 agent 每一步之后调用的函数。这可用于记录 agent 的操作或执行其他操作；它不会覆盖特定于 agent 的 `step_callback`。     |
+| **任务回调** _(可选)_        | `task_callback`        | 每个任务完成后调用的函数。用于在任务执行后进行监控或其他操作。    |
+| **共享 Crew** _(可选)_  | `share_crew`  | 您是否希望与 crewAI 团队共享完整的 crew 信息和执行情况，以使库变得更好，并允许我们训练模型。        |
+| **输出日志文件** _(可选)_      | `output_log_file`      | 您是否希望有一个包含完整 crew 输出和执行情况的文件。您可以使用 True 进行设置，它将默认为您当前所在的文件夹，并将被称为 logs.txt，或者传递一个包含文件完整路径和名称的字符串。 |
+| **管理者 Agent** _(可选)_        | `manager_agent`        | `manager` 设置一个自定义 agent，它将用作管理者。    |
+| **管理者回调** _(可选)_    | `manager_callbacks`    | `manager_callbacks` 接收一个回调处理程序列表，当使用分层流程时，管理者 agent 将执行这些处理程序。  |
+| **提示文件** _(可选)_ | `prompt_file` | 用于 crew 的提示 JSON 文件的路径。     |
+| **计划** *(可选)* | `planning` | 为 Crew 添加计划能力。当在每次 Crew 迭代之前激活时，所有 Crew 数据都会发送到 AgentPlanner，该 AgentPlanner 将计划任务，并且此计划将添加到每个任务描述中。
 
-!!! note "Crew Max RPM"
-The `max_rpm` attribute sets the maximum number of requests per minute the crew can perform to avoid rate limits and will override individual agents' `max_rpm` settings if you set it.
+!!! note "Crew 最大 RPM"
+`max_rpm` 属性设置 crew 每分钟可以执行的最大请求数，以避免速率限制，并且如果您设置了它，它将覆盖各个 agent 的 `max_rpm` 设置。
 
-## Creating a Crew
+## 创建 Crew
 
-When assembling a crew, you combine agents with complementary roles and tools, assign tasks, and select a process that dictates their execution order and interaction.
+组建 crew 时，您需要将具有互补角色和工具的 agent 组合起来，分配任务，并选择一个流程来规定它们的执行顺序和交互方式。
 
-### Example: Assembling a Crew
+### 示例：组建 Crew
 
 ```python
 from crewai import Crew, Agent, Task, Process
@@ -50,44 +50,41 @@ from crewai_tools import tool
 
 @tool('DuckDuckGoSearch')
 def search(search_query: str):
-    """Search the web for information on a given topic"""
+    """在网络上搜索有关给定主题的信息"""
     return DuckDuckGoSearchRun().run(search_query)
 
-# Define agents with specific roles and tools
+# 定义具有特定角色和工具的 agent
 researcher = Agent(
-    role='Senior Research Analyst',
-    goal='Discover innovative AI technologies',
-    backstory="""You're a senior research analyst at a large company.
-        You're responsible for analyzing data and providing insights
-        to the business.
-        You're currently working on a project to analyze the
-        trends and innovations in the space of artificial intelligence.""",
+    role='高级研究分析师',
+    goal='发现创新的 AI 技术',
+    backstory="""您是一家大公司的高级研究分析师。
+        您负责分析数据并为企业提供见解。
+        您目前正在开展一个项目，以分析人工智能领域的趋势和创新。""",
     tools=[search]
 )
 
 writer = Agent(
-    role='Content Writer',
-    goal='Write engaging articles on AI discoveries',
-    backstory="""You're a senior writer at a large company.
-        You're responsible for creating content to the business.
-        You're currently working on a project to write about trends
-        and innovations in the space of AI for your next meeting.""",
+    role='内容撰稿人',
+    goal='撰写有关 AI 发现的引人入胜的文章',
+    backstory="""您是一家大公司的高级作家。
+        您负责为企业创建内容。
+        您目前正在开展一个项目，为您的下次会议撰写有关 AI 领域趋势和创新的文章。""",
     verbose=True
 )
 
-# Create tasks for the agents
+# 为 agent 创建任务
 research_task = Task(
-    description='Identify breakthrough AI technologies',
+    description='识别突破性 AI 技术',
     agent=researcher,
-    expected_output='A bullet list summary of the top 5 most important AI news'
+    expected_output='前 5 名最重要的 AI 新闻的项目符号列表摘要'
 )
 write_article_task = Task(
-    description='Draft an article on the latest AI technologies',
+    description='撰写一篇关于最新 AI 技术的文章',
     agent=writer,
-    expected_output='3 paragraph blog post on the latest AI technologies'
+    expected_output='关于最新 AI 技术的 3 段博客文章'
 )
 
-# Assemble the crew with a sequential process
+# 使用顺序流程组建 crew
 my_crew = Crew(
     agents=[researcher, writer],
     tasks=[research_task, write_article_task],
@@ -97,39 +94,39 @@ my_crew = Crew(
 )
 ```
 
-## Crew Output
+## Crew 输出
 
-!!! note "Understanding Crew Outputs"
-The output of a crew in the crewAI framework is encapsulated within the `CrewOutput` class.
-This class provides a structured way to access results of the crew's execution, including various formats such as raw strings, JSON, and Pydantic models.
-The `CrewOutput` includes the results from the final task output, token usage, and individual task outputs.
+!!! note "了解 Crew 输出"
+crewAI 框架中 crew 的输出封装在 `CrewOutput` 类中。
+此类提供了一种结构化的方法来访问 crew 执行的结果，包括各种格式，如原始字符串、JSON 和 Pydantic 模型。
+`CrewOutput` 包括最终任务输出的结果、token 使用情况和各个任务输出。
 
-### Crew Output Attributes
+### Crew 输出属性
 
-| Attribute        | Parameters     | Type                       | Description                                                                                          |
-| :--------------- | :------------- | :------------------------- | :--------------------------------------------------------------------------------------------------- |
-| **Raw**          | `raw`          | `str`                      | The raw output of the crew. This is the default format for the output.                               |
-| **Pydantic**     | `pydantic`     | `Optional[BaseModel]`      | A Pydantic model object representing the structured output of the crew.                              |
-| **JSON Dict**    | `json_dict`    | `Optional[Dict[str, Any]]` | A dictionary representing the JSON output of the crew.                                               |
-| **Tasks Output** | `tasks_output` | `List[TaskOutput]`         | A list of `TaskOutput` objects, each representing the output of a task in the crew.                  |
-| **Token Usage**  | `token_usage`  | `Dict[str, Any]`           | A summary of token usage, providing insights into the language model's performance during execution. |
+| 属性        | 参数     | 类型  | 描述      |
+| :--------------------- | :--------------------- | :--------------------- | :--------------------- |
+| **原始** | `raw` | `str` | crew 的原始输出。这是输出的默认格式。       |
+| **Pydantic**     | `pydantic`     | `Optional[BaseModel]`      | 表示 crew 结构化输出的 Pydantic 模型对象。      |
+| **JSON 字典**    | `json_dict`    | `Optional[Dict[str, Any]]` | 表示 crew JSON 输出的字典。  |
+| **任务输出** | `tasks_output` | `List[TaskOutput]`         | `TaskOutput` 对象列表，每个对象表示 crew 中一个任务的输出。      |
+| **Token 使用情况**  | `token_usage`  | `Dict[str, Any]`  | token 使用情况摘要，提供有关语言模型在执行期间性能的见解。 |
 
-### Crew Output Methods and Properties
+### Crew 输出方法和属性
 
-| Method/Property | Description                                                                                       |
-| :-------------- | :------------------------------------------------------------------------------------------------ |
-| **json**        | Returns the JSON string representation of the crew output if the output format is JSON.           |
-| **to_dict**     | Converts the JSON and Pydantic outputs to a dictionary.                                           |
-| \***\*str\*\*** | Returns the string representation of the crew output, prioritizing Pydantic, then JSON, then raw. |
+| 方法/属性 | 描述   |
+| :-------------- | :--------------------- |
+| **json**        | 如果输出格式为 JSON，则返回 crew 输出的 JSON 字符串表示形式。  |
+| **to_dict**     | 将 JSON 和 Pydantic 输出转换为字典。       |
+| \***\*str\*\*** | 返回 crew 输出的字符串表示形式，优先级为 Pydantic，然后是 JSON，然后是原始。 |
 
-### Accessing Crew Outputs
+### 访问 Crew 输出
 
-Once a crew has been executed, its output can be accessed through the `output` attribute of the `Crew` object. The `CrewOutput` class provides various ways to interact with and present this output.
+执行 crew 后，可以通过 `Crew` 对象的 `output` 属性访问其输出。`CrewOutput` 类提供了各种方法来与该输出进行交互和呈现。
 
-#### Example
+#### 示例
 
 ```python
-# Example crew execution
+# 示例 crew 执行
 crew = Crew(
     agents=[research_agent, writer_agent],
     tasks=[research_task, write_article_task],
@@ -138,101 +135,101 @@ crew = Crew(
 
 result = crew.kickoff()
 
-# Accessing the crew output
-print(f"Raw Output: {crew_output.raw}")
+# 访问 crew 输出
+print(f"原始输出：{crew_output.raw}")
 if crew_output.json_dict:
-    print(f"JSON Output: {json.dumps(crew_output.json_dict, indent=2)}")
+    print(f"JSON 输出：{json.dumps(crew_output.json_dict, indent=2)}")
 if crew_output.pydantic:
-    print(f"Pydantic Output: {crew_output.pydantic}")
-print(f"Tasks Output: {crew_output.tasks_output}")
-print(f"Token Usage: {crew_output.token_usage}")
+    print(f"Pydantic 输出：{crew_output.pydantic}")
+print(f"任务输出：{crew_output.tasks_output}")
+print(f"Token 使用情况：{crew_output.token_usage}")
 ```
 
-## Memory Utilization
+## 内存利用
 
-Crews can utilize memory (short-term, long-term, and entity memory) to enhance their execution and learning over time. This feature allows crews to store and recall execution memories, aiding in decision-making and task execution strategies.
+Crew 可以利用内存（短期、长期和实体内存）来增强其执行和学习能力。此功能允许 crew 存储和调用执行记忆，帮助制定决策和任务执行策略。
 
-## Cache Utilization
+## 缓存利用
 
-Caches can be employed to store the results of tools' execution, making the process more efficient by reducing the need to re-execute identical tasks.
+缓存可用于存储工具执行的结果，通过减少重新执行相同任务的需求，使流程更高效。
 
-## Crew Usage Metrics
+## Crew 使用指标
 
-After the crew execution, you can access the `usage_metrics` attribute to view the language model (LLM) usage metrics for all tasks executed by the crew. This provides insights into operational efficiency and areas for improvement.
+在 crew 执行之后，您可以访问 `usage_metrics` 属性以查看 crew 执行的所有任务的语言模型 (LLM) 使用指标。这提供了对运营效率和需要改进的领域的洞察。
 
 ```python
-# Access the crew's usage metrics
+# 访问 crew 的使用指标
 crew = Crew(agents=[agent1, agent2], tasks=[task1, task2])
 crew.kickoff()
 print(crew.usage_metrics)
 ```
 
-## Crew Execution Process
+## Crew 执行流程
 
-- **Sequential Process**: Tasks are executed one after another, allowing for a linear flow of work.
-- **Hierarchical Process**: A manager agent coordinates the crew, delegating tasks and validating outcomes before proceeding. **Note**: A `manager_llm` or `manager_agent` is required for this process and it's essential for validating the process flow.
+- **顺序流程**: 任务一个接一个地执行，允许线性工作流程。
+- **分层流程**: 管理者 agent 协调 crew，委派任务并在继续之前验证结果。**注意**: 此流程需要 `manager_llm` 或 `manager_agent`，并且对于验证流程至关重要。
 
-### Kicking Off a Crew
+### 启动 Crew
 
-Once your crew is assembled, initiate the workflow with the `kickoff()` method. This starts the execution process according to the defined process flow.
+组建好 crew 后，使用 `kickoff()` 方法启动工作流程。这将根据定义的流程启动执行过程。
 
 ```python
-# Start the crew's task execution
+# 启动 crew 的任务执行
 result = my_crew.kickoff()
 print(result)
 ```
 
-### Different ways to Kicking Off a Crew
+### 启动 Crew 的不同方式
 
-Once your crew is assembled, initiate the workflow with the appropriate kickoff method. CrewAI provides several methods for better control over the kickoff process: `kickoff()`, `kickoff_for_each()`, `kickoff_async()`, and `kickoff_for_each_async()`.
+组建好 crew 后，使用相应的启动方法启动工作流程。CrewAI 提供了几种方法来更好地控制启动过程：`kickoff()`、`kickoff_for_each()`、`kickoff_async()` 和 `kickoff_for_each_async()`。
 
-`kickoff()`: Starts the execution process according to the defined process flow.
-`kickoff_for_each()`: Executes tasks for each agent individually.
-`kickoff_async()`: Initiates the workflow asynchronously.
-`kickoff_for_each_async()`: Executes tasks for each agent individually in an asynchronous manner.
+`kickoff()`: 根据定义的流程启动执行过程。
+`kickoff_for_each()`: 单独为每个 agent 执行任务。
+`kickoff_async()`: 异步启动工作流程。
+`kickoff_for_each_async()`: 以异步方式单独为每个 agent 执行任务。
 
 ```python
-# Start the crew's task execution
+# 启动 crew 的任务执行
 result = my_crew.kickoff()
 print(result)
 
-# Example of using kickoff_for_each
-inputs_array = [{'topic': 'AI in healthcare'}, {'topic': 'AI in finance'}]
+# 使用 kickoff_for_each 的示例
+inputs_array = [{'topic': '医疗保健中的 AI'}, {'topic': '金融中的 AI'}]
 results = my_crew.kickoff_for_each(inputs=inputs_array)
 for result in results:
     print(result)
 
-# Example of using kickoff_async
-inputs = {'topic': 'AI in healthcare'}
+# 使用 kickoff_async 的示例
+inputs = {'topic': '医疗保健中的 AI'}
 async_result = my_crew.kickoff_async(inputs=inputs)
 print(async_result)
 
-# Example of using kickoff_for_each_async
-inputs_array = [{'topic': 'AI in healthcare'}, {'topic': 'AI in finance'}]
+# 使用 kickoff_for_each_async 的示例
+inputs_array = [{'topic': '医疗保健中的 AI'}, {'topic': '金融中的 AI'}]
 async_results = my_crew.kickoff_for_each_async(inputs=inputs_array)
 for async_result in async_results:
     print(async_result)
 ```
 
-These methods provide flexibility in how you manage and execute tasks within your crew, allowing for both synchronous and asynchronous workflows tailored to your needs
+这些方法为管理和执行 crew 中的任务提供了灵活性，允许根据您的需求定制同步和异步工作流程。
 
 
-### Replaying from specific task:
-You can now replay from a specific task using our cli command replay.
+### 从特定任务重放：
+您现在可以使用我们的 cli 命令 replay 从特定任务重放。
 
-The replay_from_tasks feature in CrewAI allows you to replay from a specific task using the command-line interface (CLI). By running the command `crewai replay -t <task_id>`, you can specify the `task_id` for the replay process.
+CrewAI 中的 replay_from_tasks 功能允许您使用命令行界面 (CLI) 从特定任务重放。通过运行命令 `crewai replay -t <task_id>`，您可以为重放过程指定 `task_id`。
 
-Kickoffs will now save the latest kickoffs returned task outputs locally for you to be able to replay from.
+Kickoff 现在将在本地保存最新 kickoff 返回的任务输出，以便您能够从中重放。
 
 
-### Replaying from specific task Using the CLI
-To use the replay feature, follow these steps:
+### 使用 CLI 从特定任务重放
+要使用重放功能，请按照以下步骤操作：
 
-1. Open your terminal or command prompt.
-2. Navigate to the directory where your CrewAI project is located.
-3. Run the following command:
+1. 打开终端或命令提示符。
+2. 导航到您的 CrewAI 项目所在的目录。
+3. 运行以下命令：
 
-To view latest kickoff task_ids use:
+要查看最新的 kickoff task_id，请使用：
 
 ```shell
 crewai log-tasks-outputs
@@ -243,4 +240,4 @@ crewai log-tasks-outputs
 crewai replay -t <task_id>
 ```
 
-These commands let you replay from your latest kickoff tasks, still retaining context from previously executed tasks.
+这些命令允许您从最新的 kickoff 任务重放，同时保留先前执行任务的上下文。
