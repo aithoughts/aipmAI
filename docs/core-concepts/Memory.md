@@ -1,45 +1,44 @@
 ---
-title: crewAI Memory Systems
-description: Leveraging memory systems in the crewAI framework to enhance agent capabilities.
+title：aipmAI Memory 系统
+description：利用 aipmAI 框架中的Memory 系统来增强代理功能。
 ---
 
-## Introduction to Memory Systems in crewAI
-!!! note "Enhancing Agent Intelligence"
-    The crewAI framework introduces a sophisticated memory system designed to significantly enhance the capabilities of AI agents. This system comprises short-term memory, long-term memory, entity memory, and contextual memory, each serving a unique purpose in aiding agents to remember, reason, and learn from past interactions.
+## aipmAI 中的Memory 系统简介
+!!! note "增强代理智能"
+    aipmAI 框架引入了一个复杂的 Memory 系统，旨在显著增强 AI 代理的功能。该系统包括短期记忆、长期记忆、实体记忆和上下文记忆，它们各自在帮助代理记住、推理和从过去的交互中学习方面发挥着独特的作用。
 
-## Memory System Components
+## Memory 系统组件
 
-| Component            | Description                                                  |
+| 组件            | 描述                                                  |
 | :------------------- | :----------------------------------------------------------- |
-| **Short-Term Memory**| Temporarily stores recent interactions and outcomes, enabling agents to recall and utilize information relevant to their current context during the current executions. |
-| **Long-Term Memory** | Preserves valuable insights and learnings from past executions, allowing agents to build and refine their knowledge over time. So Agents can remember what they did right and wrong across multiple executions |
-| **Entity Memory**    | Captures and organizes information about entities (people, places, concepts) encountered during tasks, facilitating deeper understanding and relationship mapping. |
-| **Contextual Memory**| Maintains the context of interactions by combining `ShortTermMemory`, `LongTermMemory`, and `EntityMemory`, aiding in the coherence and relevance of agent responses over a sequence of tasks or a conversation. |
+| **短期记忆**| 临时存储最近的交互和结果，使代理能够在当前执行期间回忆和利用与其当前上下文相关的信息。 |
+| **长期记忆** | 保存过去执行中宝贵的见解和学习成果，使代理能够随着时间的推移建立和完善其知识。因此，代理可以记住他们在多次执行中做对了什么，做错了什么。 |
+| **实体记忆**    | 捕获和组织在任务期间遇到的实体（人、地点、概念）的信息，促进更深入的理解和关系映射。 |
+| **上下文记忆**| 通过组合“短期记忆”、“长期记忆”和“实体记忆”来维护交互的上下文，帮助代理在一系列任务或对话中保持一致性和相关性。 |
 
-## How Memory Systems Empower Agents
+## Memory 系统如何增强代理
 
-1. **Contextual Awareness**: With short-term and contextual memory, agents gain the ability to maintain context over a conversation or task sequence, leading to more coherent and relevant responses.
+1. **上下文感知**：借助短期记忆和上下文记忆，代理能够在对话或任务序列中保持上下文，从而做出更一致和更相关的响应。
 
-2. **Experience Accumulation**: Long-term memory allows agents to accumulate experiences, learning from past actions to improve future decision-making and problem-solving.
+2. **经验积累**：长期记忆允许代理积累经验，从过去的行动中学习，以改进未来的决策和问题解决。
 
-3. **Entity Understanding**: By maintaining entity memory, agents can recognize and remember key entities, enhancing their ability to process and interact with complex information.
+3. **实体理解**：通过维护实体记忆，代理可以识别和记住关键实体，增强其处理和交互复杂信息的能力。
 
-## Implementing Memory in Your Crew
+## 在您的 Crew 中实现Memory
 
-When configuring a crew, you can enable and customize each memory component to suit the crew's objectives and the nature of tasks it will perform.
-By default, the memory system is disabled, and you can ensure it is active by setting `memory=True` in the crew configuration. The memory will use OpenAI Embeddings by default, but you can change it by setting `embedder` to a different model.
+在配置 crew 时，您可以启用和自定义每个Memory组件，以适应 crew 的目标及其将执行的任务的性质。
+默认情况下，Memory 系统是禁用的，您可以通过在 crew 配置中设置 `memory=True` 来确保它是活动的。默认情况下，Memory将使用 OpenAI Embeddings，但您可以通过将 `embedder` 设置为不同的模型来更改它。
 
-The 'embedder' only applies to **Short-Term Memory** which uses Chroma for RAG using EmbedChain package.  
-The **Long-Term Memory** uses SQLLite3 to store task results.  Currently, there is no way to override these storage implementations.
-The data storage files are saved into a platform specific location found using the appdirs package 
-and the name of the project which can be overridden using the **AIPMAI_STORAGE_DIR** environment variable.
+'embedder' 仅适用于使用 Chroma for RAG 和 EmbedChain 包的 **短期记忆**。
+**长期记忆** 使用 SQLLite3 来存储任务结果。目前，还没有办法覆盖这些存储实现。
+数据存储文件被保存到使用 appdirs 包找到的平台特定位置，项目的名称可以使用 **AIPMAI_STORAGE_DIR** 环境变量覆盖。
 
-### Example: Configuring Memory for a Crew
+### 示例：为 Crew 配置Memory
 
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
-# Assemble your crew with memory capabilities
+# 组装具有Memory功能的 crew
 my_crew = Crew(
     agents=[...],
     tasks=[...],
@@ -49,11 +48,11 @@ my_crew = Crew(
 )
 ```
 
-## Additional Embedding Providers
+## 其他嵌入提供程序
 
-### Using OpenAI embeddings (already default)
+### 使用 OpenAI 嵌入（已经是默认设置）
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
 my_crew = Crew(
 		agents=[...],
@@ -70,9 +69,9 @@ my_crew = Crew(
 )
 ```
 
-### Using Google AI embeddings
+### 使用 Google AI 嵌入
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
 my_crew = Crew(
 		agents=[...],
@@ -91,9 +90,9 @@ my_crew = Crew(
 )
 ```
 
-### Using Azure OpenAI embeddings
+### 使用 Azure OpenAI 嵌入
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
 my_crew = Crew(
 		agents=[...],
@@ -111,9 +110,9 @@ my_crew = Crew(
 )
 ```
 
-### Using GPT4ALL embeddings
+### 使用 GPT4ALL 嵌入
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
 my_crew = Crew(
 		agents=[...],
@@ -127,9 +126,9 @@ my_crew = Crew(
 )
 ```
 
-### Using Vertex AI embeddings
+### 使用 Vertex AI 嵌入
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
 my_crew = Crew(
 		agents=[...],
@@ -146,9 +145,9 @@ my_crew = Crew(
 )
 ```
 
-### Using Cohere embeddings
+### 使用 Cohere 嵌入
 ```python
-from crewai import Crew, Agent, Task, Process
+from crewAI import Crew, Agent, Task, Process
 
 my_crew = Crew(
 		agents=[...],
@@ -166,43 +165,43 @@ my_crew = Crew(
 )
 ```
 
-### Resetting Memory
+### 重置Memory
 ```sh
-crewai reset_memories [OPTIONS]
+aipmAI reset_memories [OPTIONS]
 ```
 
-#### Resetting Memory Options
+#### 重置Memory选项
 - **`-l, --long`**
-  - **Description:** Reset LONG TERM memory.
-  - **Type:** Flag (boolean)
-  - **Default:** False
+  - **描述:** 重置长期记忆。
+  - **类型:** 标志（布尔值）
+  - **默认值:** False
 
 - **`-s, --short`**
-  - **Description:** Reset SHORT TERM memory.
-  - **Type:** Flag (boolean)
-  - **Default:** False
+  - **描述:** 重置短期记忆。
+  - **类型:** 标志（布尔值）
+  - **默认值:** False
 
 - **`-e, --entities`**
-  - **Description:** Reset ENTITIES memory.
-  - **Type:** Flag (boolean)
-  - **Default:** False
+  - **描述:** 重置实体记忆。
+  - **类型:** 标志（布尔值）
+  - **默认值:** False
 
 - **`-k, --kickoff-outputs`**
-  - **Description:** Reset LATEST KICKOFF TASK OUTPUTS.
-  - **Type:** Flag (boolean)
-  - **Default:** False
+  - **描述:** 重置最新的启动任务输出。
+  - **类型:** 标志（布尔值）
+  - **默认值:** False
 
 - **`-a, --all`**
-  - **Description:** Reset ALL memories.
-  - **Type:** Flag (boolean)
-  - **Default:** False
+  - **描述:** 重置所有记忆。
+  - **类型:** 标志（布尔值）
+  - **默认值:** False
 
 
 
-## Benefits of Using crewAI's Memory System
-- **Adaptive Learning:** Crews become more efficient over time, adapting to new information and refining their approach to tasks.
-- **Enhanced Personalization:** Memory enables agents to remember user preferences and historical interactions, leading to personalized experiences.
-- **Improved Problem Solving:** Access to a rich memory store aids agents in making more informed decisions, drawing on past learnings and contextual insights.
+## 使用 aipmAI Memory 系统的优势
+- **自适应学习**：Crew 随着时间的推移变得更加高效，适应新信息并改进其处理任务的方法。
+- **增强个性化**：Memory使代理能够记住用户偏好和历史交互，从而带来个性化的体验。
+- **改进问题解决**：访问丰富的Memory存储可帮助代理做出更明智的决策，利用过去的学习成果和上下文见解。
 
-## Getting Started
-Integrating crewAI's memory system into your projects is straightforward. By leveraging the provided memory components and configurations, you can quickly empower your agents with the ability to remember, reason, and learn from their interactions, unlocking new levels of intelligence and capability.
+## 入门
+将 aipmAI 的Memory 系统集成到您的项目中非常简单。通过利用提供的Memory组件和配置，您可以快速赋予您的代理记忆、推理和从交互中学习的能力，从而解锁新的智能和能力水平。

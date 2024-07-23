@@ -1,0 +1,201 @@
+site_name: aipmAI Docs
+site_author: aipmAI, 觅识🌿
+repo_name: aipmAI-docs
+repo_url: https://github.com/aithoughts/aipmAI/
+site_url: https://aithoughts.github.io/aipmAI
+edit_uri: edit/docs/docs/
+copyright: Copyright &copy; 2024 aipmAI, 觅识🌿
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: aithoughts
+      repo: aipmAI
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+theme:
+  name: material
+  language: zh
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+    admonition:
+      note: octicons/light-bulb-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.prune
+    # - navigation.sections
+    # - navigation.tabs
+    - search.suggest
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.prefetch
+    - navigation.tracking
+    # - navigation.expand
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+    - search.highlight
+    - search.share
+
+nav:
+  - Home: '/'
+  - Core Concepts:
+    - Agents: 'core-concepts/Agents.md'
+    - Tasks: 'core-concepts/Tasks.md'
+    - Tools: 'core-concepts/Tools.md'
+    - Processes: 'core-concepts/Processes.md'
+    - Crews: 'core-concepts/Crews.md'
+    - Collaboration: 'core-concepts/Collaboration.md'
+    - Training: 'core-concepts/Training-Crew.md'
+    - Memory: 'core-concepts/Memory.md'
+    - Planning: 'core-concepts/Planning.md'
+    - Using LangChain Tools: 'core-concepts/Using-LangChain-Tools.md'
+    - Using LlamaIndex Tools: 'core-concepts/Using-LlamaIndex-Tools.md'
+  - How to Guides:
+    - Starting Your crewAI Project: 'how-to/Start-a-New-CrewAI-Project.md'
+    - Installing CrewAI: 'how-to/Installing-CrewAI.md'
+    - Getting Started: 'how-to/Creating-a-Crew-and-kick-it-off.md'
+    - Create Custom Tools: 'how-to/Create-Custom-Tools.md'
+    - Using Sequential Process: 'how-to/Sequential.md'
+    - Using Hierarchical Process: 'how-to/Hierarchical.md'
+    - Create your own Manager Agent: 'how-to/Your-Own-Manager-Agent.md'
+    - Connecting to any LLM: 'how-to/LLM-Connections.md'
+    - Customizing Agents: 'how-to/Customizing-Agents.md'
+    - Coding Agents: 'how-to/Coding-Agents.md'
+    - Forcing Tool Output as Result: 'how-to/Force-Tool-Ouput-as-Result.md'
+    - Human Input on Execution: 'how-to/Human-Input-on-Execution.md'
+    - Kickoff a Crew Asynchronously: 'how-to/Kickoff-async.md'
+    - Kickoff a Crew for a List: 'how-to/Kickoff-for-each.md'
+    - Replay from a specific task from a kickoff: 'how-to/Replay-tasks-from-latest-Crew-Kickoff.md'
+    - Conditional Tasks: 'how-to/Conditional-Tasks.md'
+    - Agent Monitoring with AgentOps: 'how-to/AgentOps-Observability.md'
+    - Agent Monitoring with LangTrace: 'how-to/Langtrace-Observability.md'
+  - Tools Docs:
+    - Google Serper Search: 'tools/SerperDevTool.md'
+    - Browserbase Web Loader: 'tools/BrowserbaseLoadTool.md'
+    - Composio Tools: 'tools/ComposioTool.md'
+    - Code Interpreter: 'tools/CodeInterpreterTool.md'
+    - Scrape Website: 'tools/ScrapeWebsiteTool.md'
+    - Directory Read: 'tools/DirectoryReadTool.md'
+    - Exa Serch Web Loader: 'tools/EXASearchTool.md'
+    - File Read: 'tools/FileReadTool.md'
+    - Selenium Scraper: 'tools/SeleniumScrapingTool.md'
+    - Directory RAG Search: 'tools/DirectorySearchTool.md'
+    - PDF RAG Search: 'tools/PDFSearchTool.md'
+    - TXT RAG Search: 'tools/TXTSearchTool.md'
+    - CSV RAG Search: 'tools/CSVSearchTool.md'
+    - XML RAG Search: 'tools/XMLSearchTool.md'
+    - JSON RAG Search: 'tools/JSONSearchTool.md'
+    - Docx Rag Search: 'tools/DOCXSearchTool.md'
+    - MDX RAG Search: 'tools/MDXSearchTool.md'
+    - PG RAG Search: 'tools/PGSearchTool.md'
+    - Website RAG Search: 'tools/WebsiteSearchTool.md'
+    - Github RAG Search: 'tools/GitHubSearchTool.md'
+    - Code Docs RAG Search: 'tools/CodeDocsSearchTool.md'
+    - Youtube Video RAG Search: 'tools/YoutubeVideoSearchTool.md'
+    - Youtube Channel RAG Search: 'tools/YoutubeChannelSearchTool.md'
+  - Examples:
+    - Trip Planner Crew: https://github.com/aithoughts/aipmAI-examples/tree/main/trip_planner"
+    - Create Instagram Post: https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post"
+    - Stock Analysis: https://github.com/aithoughts/aipmAI-examples/tree/main/stock_analysis"
+    - Game Generator: https://github.com/aithoughts/aipmAI-examples/tree/main/game-builder-crew"
+    - Drafting emails with LangGraph: https://github.com/aithoughts/aipmAI-examples/tree/main/CrewAI-LangGraph"
+    - Landing Page Generator: https://github.com/aithoughts/aipmAI-examples/tree/main/landing_page_generator"
+    - Prepare for meetings: https://github.com/aithoughts/aipmAI-examples/tree/main/prep-for-a-meeting"
+  - Telemetry: 'telemetry/Telemetry.md'
+  - Change Log: 'https://github.com/aithoughts/aipmAI/releases'
+
+extra_css:
+  - stylesheets/output.css
+  - stylesheets/extra.css
+
+extra:
+  analytics:
+    provider: google
+    property: G-C7PBKQ3J9C
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/aipmhub
+    - icon: fontawesome/brands/github
+      link: https://github.com/aithoughts/aipmAI
+
