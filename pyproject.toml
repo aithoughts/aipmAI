@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "aipmai"
-version = "0.41.0"
+version = "0.41.1"
 description = "Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks. (Chinese Version)"
 authors = ["AiPMHub <nextprofessionalpower@gmail.com>"]
 readme = "README.md"
 packages = [{ include = "crewai", from = "src" }]
 
 [tool.poetry.urls]
-Homepage = "https://www.theforage.cn"
+Homepage = "https://aipmai.theforage.cn"
 Documentation = "https://github.com/aithoughts/aipmAI/wiki/Index"
 Repository = "https://github.com/aithoughts/aipmAI"
 

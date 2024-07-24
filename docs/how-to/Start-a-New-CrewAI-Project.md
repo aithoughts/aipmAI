@@ -16,7 +16,7 @@ description: 启动新的 CrewAI 项目的综合指南，包括最新的更新�
 要创建新项目，请运行以下 CLI 命令：
 
 ```shell
-$ crewai create my_project
+$ crewai create <project_name>
 ```
 
 此命令将创建一个具有以下结构的新项目文件夹：
@@ -76,8 +76,77 @@ research_candidates_task:
     职位要求：
     {job_requirements}
   expected_output: >
-    包含 10 个潜在候选人的列表，其中包含他们的联系方式和突出显示其适合性的简要资料。
+    一份包含 10 个潜在候选人的列表，其中包含他们的联系方式和突出显示其适合性的简要资料。
+  agent: researcher # 这需要与 AGENTS.YAML 文件中的代理名称以及 Crew.PY 文件中定义的代理相匹配
+  context: # 这些需要与上面定义的任务名称以及 TASKS.YAML 文件和 Crew.PY 文件中定义的任务相匹配
+    - researcher
 ```
+
+### 引用变量：
+将使用您定义的同名函数。例如，您可以从 task.yaml 文件中引用特定任务的代理。确保您注释的代理和函数名称相同，否则您的任务将无法正确识别引用。
+
+#### 引用示例
+agent.yaml
+```yaml
+email_summarizer:
+    role: >
+      邮件摘要器
+    goal: >
+      将电子邮件汇总成简洁明了的摘要
+    backstory: >
+      您将创建一份包含 5 个要点摘要的报告
+    llm: mixtal_llm
+```
+
+task.yaml
+```yaml
+email_summarizer_task:
+    description: >
+      将电子邮件汇总成 5 个要点
+    expected_output: >
+      包含 5 个要点的电子邮件摘要
+    agent: email_summarizer
+    context:
+      - reporting_task
+      - research_task
+```
+
+使用注释可以正确引用 crew.py 文件中的代理和任务。
+
+### 注释包括：
+* @agent
+* @task
+* @crew
+* @llm
+* @tool
+* @callback
+* @output_json
+* @output_pydantic
+* @cache_handler
+
+
+crew.py
+```py
+...
+    @llm
+    def mixtal_llm(self):
+        return ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
+
+    @agent
+    def email_summarizer(self) -> Agent:
+        return Agent(
+            config=self.agents_config["email_summarizer"],
+        )
+    ## ...定义的其他任务
+    @task
+    def email_summarizer_task(self) -> Task:
+        return Task(
+            config=self.tasks_config["email_summarizer_task"],
+        )
+...
+```
+
+
 
 ## 安装依赖项
 

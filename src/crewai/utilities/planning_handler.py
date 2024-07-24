@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -27,7 +27,7 @@ class CrewPlanner:
         """
         self.tasks = tasks
 
-    def _handle_crew_planning(self):
+    def _handle_crew_planning(self) -> Optional[BaseModel]:
         """
         处理团队规划，为每个任务创建详细的分步计划。
         """
@@ -36,7 +36,7 @@ class CrewPlanner:
 
         planner_task = self._create_planner_task(planning_agent, tasks_summary)  # 创建规划任务
 
-        return planner_task.execute_sync()  # 执行规划任务并返回结果
+        return planner_task.execute_sync().pydantic  # 执行规划任务并返回结果
 
     def _create_planning_agent(self) -> Agent:
         """

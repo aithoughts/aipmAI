@@ -563,9 +563,13 @@ class Crew(BaseModel):
         self._logger.log("info", "正在规划 Crew 执行")
         # 使用 CrewPlanner 生成每个任务的计划
         result = CrewPlanner(self.tasks)._handle_crew_planning()
-        # 将生成的计划添加到对应任务的描述中
-        for task, step_plan in zip(self.tasks, result.list_of_plans_per_task):
-            task.description += step_plan
+        if result is not None and hasattr(result, "list_of_plans_per_task"):
+            for task, step_plan in zip(self.tasks, result.list_of_plans_per_task):
+                task.description += step_plan
+        else:
+            self._logger.log(
+                "info", "Crew 的计划过程出了问题。 "
+            )
 
     def _store_execution_log(
         self,
@@ -998,6 +1002,12 @@ class Crew(BaseModel):
                 total_usage_metrics[key] += token_sum.get(key, 0)
 
         return total_usage_metrics
+
+    def test(
+        self, n_iterations: int, model: str, inputs: Optional[Dict[str, Any]] = None
+    ) -> None:
+        """Test the crew with the given inputs."""
+        pass
 
     def __repr__(self):
         """返回 Crew 对象的字符串表示形式。"""

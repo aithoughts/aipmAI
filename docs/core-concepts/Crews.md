@@ -217,7 +217,7 @@ for async_result in async_results:
 ### 从特定任务重放：
 您现在可以使用我们的 cli 命令 replay 从特定任务重放。
 
-CrewAI 中的 replay_from_tasks 功能允许您使用命令行界面 (CLI) 从特定任务重放。通过运行命令 `crewai replay -t <task_id>`，您可以为重放过程指定 `task_id`。
+CrewAI 中的重放功能允许您使用命令行界面 (CLI) 从特定任务开始重放。通过运行命令 `crewai replay -t <task_id>`，您可以为重放过程指定 `task_id`。 
 
 Kickoff 现在将在本地保存最新 kickoff 返回的任务输出，以便您能够从中重放。
 

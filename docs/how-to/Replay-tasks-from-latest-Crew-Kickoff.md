@@ -36,14 +36,14 @@ crewai replay -t <task_id>
 2. 在 try-except 块中执行 replay 命令以处理潜在的错误。
 
 ```python
-   def replay_from_task():
+   def replay():
     """
     从特定任务开始重放 Crew 执行。
     """
     task_id = '<task_id>'
     inputs = {"topic": "CrewAI Training"} # 这是可选的，您可以传入要重放的输入，否则将使用先前启动的输入
     try:
-        YourCrewName_Crew().crew().replay_from_task(task_id=task_id, inputs=inputs)
+        YourCrewName_Crew().crew().replay(task_id=task_id, inputs=inputs)
 
     except Exception as e:
         raise Exception(f"重放 Crew 时发生错误：{e}")
