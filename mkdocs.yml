@@ -154,7 +154,7 @@ nav:
   - 工具文档:
     - Google Serper 搜索: 'tools/SerperDevTool.md'
     - Browserbase 网页加载器: 'tools/BrowserbaseLoadTool.md'
-    - Composio 工具: 'tools/ComposioTool.md'
+    - Composio 集成工具: 'tools/ComposioTool.md'
     - 代码解释器: 'tools/CodeInterpreterTool.md'
     - 网页抓取: 'tools/ScrapeWebsiteTool.md'
     - 目录读取: 'tools/DirectoryReadTool.md'

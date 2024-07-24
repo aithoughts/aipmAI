@@ -1,36 +1,40 @@
-# EXASearchTool Documentation
+# EXASearchTool 文档
 
-## Description
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [EXASearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/exa_tools)
 
-The EXASearchTool is designed to perform a semantic search for a specified query from a text's content across the internet. It utilizes the [exa.ai](https://exa.ai/) API to fetch and display the most relevant search results based on the query provided by the user.
+## 描述
 
-## Installation
+EXASearchTool 旨在根据用户提供的查询，在互联网上对文本内容执行语义搜索。它利用 [exa.ai](https://exa.ai/) API 获取并显示基于用户提供查询的最相关搜索结果。
 
-To incorporate this tool into your project, follow the installation instructions below:
+## 安装
+
+要将此工具集成到您的项目中，请按照以下安装说明进行操作：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-## Example
+## 示例
 
-The following example demonstrates how to initialize the tool and execute a search with a given query:
+以下示例演示了如何初始化工具并使用给定查询执行搜索：
 
 ```python
 from crewai_tools import EXASearchTool
 
-# Initialize the tool for internet searching capabilities
+# 初始化该工具以实现互联网搜索功能
 tool = EXASearchTool()
 ```
 
-## Steps to Get Started
+## 入门步骤
 
-To effectively use the EXASearchTool, follow these steps:
+要有效地使用 EXASearchTool，请按照以下步骤操作：
 
-1. **Package Installation**: Confirm that the `crewai[tools]` package is installed in your Python environment.
-2. **API Key Acquisition**: Acquire a [exa.ai](https://exa.ai/) API key by registering for a free account at [exa.ai](https://exa.ai/).
-3. **Environment Configuration**: Store your obtained API key in an environment variable named `EXA_API_KEY` to facilitate its use by the tool.
+1. **软件包安装**: 确认您的 Python 环境中已安装 `crewai[tools]` 软件包。
+2. **API 密钥获取**: 通过在 [exa.ai](https://exa.ai/) 上注册免费帐户来获取 [exa.ai](https://exa.ai/) API 密钥。
+3. **环境配置**: 将您获得的 API 密钥存储在名为 `EXA_API_KEY` 的环境变量中，以便该工具使用。
 
-## Conclusion
+## 总结
 
-By integrating the EXASearchTool into Python projects, users gain the ability to conduct real-time, relevant searches across the internet directly from their applications. By adhering to the setup and usage guidelines provided, incorporating this tool into projects is streamlined and straightforward.
+通过将 EXASearchTool 集成到 Python 项目中，用户可以直接从其应用程序执行实时、相关的互联网搜索。通过遵循提供的设置和使用指南，将此工具集成到项目中变得简便易行。

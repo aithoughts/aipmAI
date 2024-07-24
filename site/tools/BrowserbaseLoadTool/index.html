@@ -1269,36 +1269,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      描述
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      安装
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      示例
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Arguments
+      参数
     </span>
   </a>
   
@@ -1324,7 +1324,7 @@
         
   
   <span class="md-ellipsis">
-    Composio 工具
+    Composio 集成工具
   </span>
   
 
@@ -2017,34 +2017,41 @@
   
 
 
-<h1 id="browserbaseloadtool">BrowserbaseLoadTool<a class="headerlink" href="#browserbaseloadtool" title="Permanent link">&para;</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p><a href="https://browserbase.com">Browserbase</a> is a developer platform to reliably run, manage, and monitor headless browsers.</p>
-<p>Power your AI data retrievals with:
- - <a href="https://docs.browserbase.com/under-the-hood">Serverless Infrastructure</a> providing reliable browsers to extract data from complex UIs
- - <a href="https://docs.browserbase.com/features/stealth-mode">Stealth Mode</a> with included fingerprinting tactics and automatic captcha solving
- - <a href="https://docs.browserbase.com/features/sessions">Session Debugger</a> to inspect your Browser Session with networks timeline and logs
- - <a href="https://docs.browserbase.com/guides/session-debug-connection/browser-remote-control">Live Debug</a> to quickly debug your automation</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h1 id="browserbaseloadtool">BrowserbaseLoadTool 文档<a class="headerlink" href="#browserbaseloadtool" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">实验性</p>
+<p>我们仍在努力改进工具，因此未来可能会更改本文档。
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></span> <a href="https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/browserbase_load_tool">BrowserbaseLoadTool 源代码</a></p>
+</div>
+<h2 id="_1">描述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="https://browserbase.com">Browserbase</a> 是一个开发者平台，用于可靠地运行、管理和监控无头浏览器。</p>
+<p>使用以下功能增强您的 AI 数据检索能力：</p>
 <ul>
-<li>Get an API key and Project ID from <a href="https://browserbase.com">browserbase.com</a> and set it in environment variables (<code>BROWSERBASE_API_KEY</code>, <code>BROWSERBASE_PROJECT_ID</code>).</li>
-<li>Install the <a href="http://github.com/browserbase/python-sdk">Browserbase SDK</a> along with <code>crewai[tools]</code> package:</li>
+<li><a href="https://docs.browserbase.com/under-the-hood">无服务器基础设施</a>，提供可靠的浏览器从复杂的 UI 中提取数据</li>
+<li><a href="https://docs.browserbase.com/features/stealth-mode">隐身模式</a>，包含指纹识别策略和自动验证码解决</li>
+<li><a href="https://docs.browserbase.com/features/sessions">会话调试器</a>，使用网络时间线和日志检查您的浏览器会话</li>
+<li><a href="https://docs.browserbase.com/guides/session-debug-connection/browser-remote-control">实时调试</a>，快速调试您的自动化</li>
+</ul>
+<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>从 <a href="https://browserbase.com">browserbase.com</a> 获取 API 密钥和项目 ID，并将其设置在环境变量中（<code>BROWSERBASE_API_KEY</code>、<code>BROWSERBASE_PROJECT_ID</code>）。</li>
+<li>安装 <a href="http://github.com/browserbase/python-sdk">Browserbase SDK</a> 以及 <code>crewai[tools]</code> 包：</li>
 </ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install browserbase &#39;crewai[tools]&#39;
 </span></code></pre></div>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<p>Utilize the BrowserbaseLoadTool as follows to allow your agent to load websites:</p>
+<h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>如下所示使用 BrowserbaseLoadTool，以允许您的代理加载网站：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">crewai_tools</span> <span class="kn">import</span> <span class="n">BrowserbaseLoadTool</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">tool</span> <span class="o">=</span> <span class="n">BrowserbaseLoadTool</span><span class="p">()</span>
 </span></code></pre></div>
-<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
+<h2 id="_4">参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>api_key</code> Optional. Browserbase API key. Default is <code>BROWSERBASE_API_KEY</code> env variable.</li>
-<li><code>project_id</code> Optional. Browserbase Project ID. Default is <code>BROWSERBASE_PROJECT_ID</code> env variable.</li>
-<li><code>text_content</code> Retrieve only text content. Default is <code>False</code>.</li>
-<li><code>session_id</code> Optional. Provide an existing Session ID.</li>
-<li><code>proxy</code> Optional. Enable/Disable Proxies."</li>
+<li><code>api_key</code> 可选。Browserbase API 密钥。默认为 <code>BROWSERBASE_API_KEY</code> 环境变量。</li>
+<li><code>project_id</code> 可选。Browserbase 项目 ID。默认为 <code>BROWSERBASE_PROJECT_ID</code> 环境变量。</li>
+<li><code>text_content</code> 仅检索文本内容。默认为 <code>False</code>。</li>
+<li><code>session_id</code> 可选。提供现有的会话 ID。</li>
+<li><code>proxy</code> 可选。启用/禁用代理。</li>
 </ul>
 
 
@@ -2102,13 +2109,13 @@
         
         
           
-          <a href="../ComposioTool/" class="md-footer__link md-footer__link--next" aria-label="下一页: Composio 工具">
+          <a href="../ComposioTool/" class="md-footer__link md-footer__link--next" aria-label="下一页: Composio 集成工具">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Composio 工具
+                Composio 集成工具
               </div>
             </div>
             <div class="md-footer__button md-icon">

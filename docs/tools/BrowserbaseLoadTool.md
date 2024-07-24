@@ -1,27 +1,32 @@
-# BrowserbaseLoadTool
+# BrowserbaseLoadTool 文档
 
-## Description
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [BrowserbaseLoadTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/browserbase_load_tool)
 
-[Browserbase](https://browserbase.com) is a developer platform to reliably run, manage, and monitor headless browsers.
+## 描述
 
- Power your AI data retrievals with:
- - [Serverless Infrastructure](https://docs.browserbase.com/under-the-hood) providing reliable browsers to extract data from complex UIs
- - [Stealth Mode](https://docs.browserbase.com/features/stealth-mode) with included fingerprinting tactics and automatic captcha solving
- - [Session Debugger](https://docs.browserbase.com/features/sessions) to inspect your Browser Session with networks timeline and logs
- - [Live Debug](https://docs.browserbase.com/guides/session-debug-connection/browser-remote-control) to quickly debug your automation
+[Browserbase](https://browserbase.com) 是一个开发者平台，用于可靠地运行、管理和监控无头浏览器。
 
-## Installation
+使用以下功能增强您的 AI 数据检索能力：
 
-- Get an API key and Project ID from [browserbase.com](https://browserbase.com) and set it in environment variables (`BROWSERBASE_API_KEY`, `BROWSERBASE_PROJECT_ID`).
-- Install the [Browserbase SDK](http://github.com/browserbase/python-sdk) along with `crewai[tools]` package:
+ - [无服务器基础设施](https://docs.browserbase.com/under-the-hood)，提供可靠的浏览器从复杂的 UI 中提取数据
+ - [隐身模式](https://docs.browserbase.com/features/stealth-mode)，包含指纹识别策略和自动验证码解决
+ - [会话调试器](https://docs.browserbase.com/features/sessions)，使用网络时间线和日志检查您的浏览器会话
+ - [实时调试](https://docs.browserbase.com/guides/session-debug-connection/browser-remote-control)，快速调试您的自动化
+
+## 安装
+
+- 从 [browserbase.com](https://browserbase.com) 获取 API 密钥和项目 ID，并将其设置在环境变量中（`BROWSERBASE_API_KEY`、`BROWSERBASE_PROJECT_ID`）。
+- 安装 [Browserbase SDK](http://github.com/browserbase/python-sdk) 以及 `crewai[tools]` 包：
 
 ```
 pip install browserbase 'crewai[tools]'
 ```
 
-## Example
+## 示例
 
-Utilize the BrowserbaseLoadTool as follows to allow your agent to load websites:
+如下所示使用 BrowserbaseLoadTool，以允许您的代理加载网站：
 
 ```python
 from crewai_tools import BrowserbaseLoadTool
@@ -29,10 +34,10 @@ from crewai_tools import BrowserbaseLoadTool
 tool = BrowserbaseLoadTool()
 ```
 
-## Arguments
+## 参数
 
-- `api_key` Optional. Browserbase API key. Default is `BROWSERBASE_API_KEY` env variable.
-- `project_id` Optional. Browserbase Project ID. Default is `BROWSERBASE_PROJECT_ID` env variable.
-- `text_content` Retrieve only text content. Default is `False`.
-- `session_id` Optional. Provide an existing Session ID.
-- `proxy` Optional. Enable/Disable Proxies."
+- `api_key` 可选。Browserbase API 密钥。默认为 `BROWSERBASE_API_KEY` 环境变量。
+- `project_id` 可选。Browserbase 项目 ID。默认为 `BROWSERBASE_PROJECT_ID` 环境变量。
+- `text_content` 仅检索文本内容。默认为 `False`。
+- `session_id` 可选。提供现有的会话 ID。
+- `proxy` 可选。启用/禁用代理。
