@@ -1167,6 +1167,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1249,6 +1253,27 @@
   
   <span class="md-ellipsis">
     Composio 集成工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiOnTool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MultiOn 浏览器代理工具
   </span>
   
 
@@ -1395,36 +1420,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      描述
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      安装
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-example" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Usage Example
+      使用示例
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Arguments
+      参数
     </span>
   </a>
   
@@ -1451,6 +1476,27 @@
   
   <span class="md-ellipsis">
     Selenium 爬虫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpiderTool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网站 爬虫
   </span>
   
 
@@ -2017,32 +2063,33 @@
   
 
 
-<h1 id="filereadtool">FileReadTool<a class="headerlink" href="#filereadtool" title="Permanent link">&para;</a></h1>
+<h1 id="filereadtool">FileReadTool 文档<a class="headerlink" href="#filereadtool" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
-<p class="admonition-title">Experimental</p>
-<p>We are still working on improving tools, so there might be unexpected behavior or changes in the future.</p>
+<p class="admonition-title">实验性</p>
+<p>我们仍在努力改进工具，因此未来可能会更改本文档。
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></span> <a href="https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/file_read_tool">FileReadTool 源代码</a></p>
 </div>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>The FileReadTool conceptually represents a suite of functionalities within the crewai_tools package aimed at facilitating file reading and content retrieval. This suite includes tools for processing batch text files, reading runtime configuration files, and importing data for analytics. It supports a variety of text-based file formats such as <code>.txt</code>, <code>.csv</code>, <code>.json</code>, and more. Depending on the file type, the suite offers specialized functionality, such as converting JSON content into a Python dictionary for ease of use.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>To utilize the functionalities previously attributed to the FileReadTool, install the crewai_tools package:</p>
+<h2 id="_1">描述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>FileReadTool 概念上代表了 crewai_tools 包中的一套功能，旨在促进文件读取和内容检索。该套件包括用于处理批处理文本文件、读取运行时配置文件和导入数据以进行分析的工具。它支持各种基于文本的文件格式，例如 <code>.txt</code>、<code>.csv</code>、<code>.json</code> 等。根据文件类型，该套件提供专门的功能，例如将 JSON 内容转换为 Python 字典以便于使用。</p>
+<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>要使用以前归属于 FileReadTool 的功能，请安装 crewai_tools 包：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;crewai[tools]&#39;</span>
 </span></code></pre></div>
-<h2 id="usage-example">Usage Example<a class="headerlink" href="#usage-example" title="Permanent link">&para;</a></h2>
-<p>To get started with the FileReadTool:</p>
+<h2 id="_3">使用示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>FileReadTool 入门：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">crewai_tools</span> <span class="kn">import</span> <span class="n">FileReadTool</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Initialize the tool to read any files the agents knows or lean the path for</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 初始化工具以读取代理知道或学习路径的任何文件</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">file_read_tool</span> <span class="o">=</span> <span class="n">FileReadTool</span><span class="p">()</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># OR</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># 或</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Initialize the tool with a specific file path, so the agent can only read the content of the specified file</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># 使用特定的文件路径初始化工具，以便代理只能读取指定文件的内容</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">file_read_tool</span> <span class="o">=</span> <span class="n">FileReadTool</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;path/to/your/file.txt&#39;</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
+<h2 id="_4">参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>file_path</code>: The path to the file you want to read. It accepts both absolute and relative paths. Ensure the file exists and you have the necessary permissions to access it.</li>
+<li><code>file_path</code>：要读取的文件的路径。它接受绝对路径和相对路径。确保文件存在并且您具有访问该文件的必要权限。</li>
 </ul>
 
 

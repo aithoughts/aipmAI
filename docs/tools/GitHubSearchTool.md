@@ -1,52 +1,53 @@
-# GithubSearchTool
+# GithubSearchTool 文档
 
-!!! note "Experimental"
-    We are still working on improving tools, so there might be unexpected behavior or changes in the future.
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [GithubSearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/github_search_tool)
 
-## Description
-The GithubSearchTool is a Retrieval-Augmented Generation (RAG) tool specifically designed for conducting semantic searches within GitHub repositories. Utilizing advanced semantic search capabilities, it sifts through code, pull requests, issues, and repositories, making it an essential tool for developers, researchers, or anyone in need of precise information from GitHub.
+## 描述
+GithubSearchTool 是一款专门设计用于在 GitHub 存储库中执行语义搜索的检索增强生成 (RAG) 工具。它利用先进的语义搜索功能，筛选代码、拉取请求、问题和存储库，使其成为开发人员、研究人员或任何需要从 GitHub 获取精确信息的人员必不可少的工具。
 
-## Installation
-To use the GithubSearchTool, first ensure the crewai_tools package is installed in your Python environment:
+## 安装
+要使用 GithubSearchTool，首先请确保在您的 Python 环境中安装了 crewai_tools 包：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-This command installs the necessary package to run the GithubSearchTool along with any other tools included in the crewai_tools package.
+此命令将安装运行 GithubSearchTool 所需的包以及 crewai_tools 包中包含的任何其他工具。
 
-## Example
-Here’s how you can use the GithubSearchTool to perform semantic searches within a GitHub repository:
+## 示例
+以下是如何使用 GithubSearchTool 在 GitHub 存储库中执行语义搜索：
 ```python
 from crewai_tools import GithubSearchTool
 
-# Initialize the tool for semantic searches within a specific GitHub repository
+# 初始化工具以在特定的 GitHub 存储库中进行语义搜索
 tool = GithubSearchTool(
 	github_repo='https://github.com/example/repo',
-	content_types=['code', 'issue'] # Options: code, repo, pr, issue
+	content_types=['code', 'issue'] # 选项：code、repo、pr、issue
 )
 
-# OR
+# 或
 
-# Initialize the tool for semantic searches within a specific GitHub repository, so the agent can search any repository if it learns about during its execution
+# 初始化工具以在特定的 GitHub 存储库中进行语义搜索，以便代理可以在执行期间了解任何存储库并进行搜索
 tool = GithubSearchTool(
-	content_types=['code', 'issue'] # Options: code, repo, pr, issue
+	content_types=['code', 'issue'] # 选项：code、repo、pr、issue
 )
 ```
 
-## Arguments
-- `github_repo` : The URL of the GitHub repository where the search will be conducted. This is a mandatory field and specifies the target repository for your search.
-- `content_types` : Specifies the types of content to include in your search. You must provide a list of content types from the following options: `code` for searching within the code, `repo` for searching within the repository's general information, `pr` for searching within pull requests, and `issue` for searching within issues. This field is mandatory and allows tailoring the search to specific content types within the GitHub repository.
+## 参数
+- `github_repo` ：将在其中进行搜索的 GitHub 存储库的 URL。这是一个必填字段，用于指定搜索的目标存储库。
+- `content_types` ：指定要在搜索中包含的内容类型。您必须从以下选项中提供一个内容类型列表：`code` 用于在代码中搜索，`repo` 用于在存储库的一般信息中搜索，`pr` 用于在拉取请求中搜索，以及 `issue` 用于在问题中搜索。此字段是必填字段，允许将搜索范围缩小到 GitHub 存储库中的特定内容类型。
 
-## Custom model and embeddings
+## 自定义模型和嵌入
 
-By default, the tool uses OpenAI for both embeddings and summarization. To customize the model, you can use a config dictionary as follows:
+默认情况下，该工具使用 OpenAI 进行嵌入和摘要。要自定义模型，可以使用如下配置字典：
 
 ```python
 tool = GithubSearchTool(
     config=dict(
         llm=dict(
-            provider="ollama", # or google, openai, anthropic, llama2, ...
+            provider="ollama", # 或 google、openai、anthropic、llama2 等
             config=dict(
                 model="llama2",
                 # temperature=0.5,
@@ -55,7 +56,7 @@ tool = GithubSearchTool(
             ),
         ),
         embedder=dict(
-            provider="google", # or openai, ollama, ...
+            provider="google", # 或 openai、ollama 等
             config=dict(
                 model="models/embedding-001",
                 task_type="retrieval_document",

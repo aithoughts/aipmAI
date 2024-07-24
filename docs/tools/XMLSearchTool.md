@@ -1,45 +1,46 @@
-# XMLSearchTool
+# XMLSearchTool 文档
 
-!!! note "Experimental"
-    We are still working on improving tools, so there might be unexpected behavior or changes in the future.
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [XMLSearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/xml_search_tool)
 
-## Description
-The XMLSearchTool is a cutting-edge RAG tool engineered for conducting semantic searches within XML files. Ideal for users needing to parse and extract information from XML content efficiently, this tool supports inputting a search query and an optional XML file path. By specifying an XML path, users can target their search more precisely to the content of that file, thereby obtaining more relevant search outcomes.
+## 描述
+XMLSearchTool 是一款用于在 XML 文件中执行语义搜索的尖端 RAG 工具。该工具非常适合需要高效地解析和提取 XML 内容信息的的用户，它支持输入搜索查询和可选的 XML 文件路径。通过指定 XML 路径，用户可以更精确地将其搜索目标定位到该文件的内容，从而获得更相关的搜索结果。
 
-## Installation
-To start using the XMLSearchTool, you must first install the crewai_tools package. This can be easily done with the following command:
+## 安装
+要开始使用 XMLSearchTool，您必须先安装 crewai_tools 包。可以使用以下命令轻松完成：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-## Example
-Here are two examples demonstrating how to use the XMLSearchTool. The first example shows searching within a specific XML file, while the second example illustrates initiating a search without predefining an XML path, providing flexibility in search scope.
+## 示例
+以下是两个演示如何使用 XMLSearchTool 的示例。第一个示例展示了在特定 XML 文件中进行搜索，而第二个示例说明了如何在未预先定义 XML 路径的情况下启动搜索，从而在搜索范围方面提供了灵活性。
 
 ```python
 from crewai_tools import XMLSearchTool
 
-# Allow agents to search within any XML file's content as it learns about their paths during execution
+# 允许代理在执行期间了解到任何 XML 文件的路径后，在其内容中进行搜索
 tool = XMLSearchTool()
 
-# OR
+# 或
 
-# Initialize the tool with a specific XML file path for exclusive search within that document
+# 使用特定的 XML 文件路径初始化工具，以便仅在该文档中进行搜索
 tool = XMLSearchTool(xml='path/to/your/xmlfile.xml')
 ```
 
-## Arguments
-- `xml`: This is the path to the XML file you wish to search. It is an optional parameter during the tool's initialization but must be provided either at initialization or as part of the `run` method's arguments to execute a search.
+## 参数
+- `xml`：这是您要搜索的 XML 文件的路径。它是工具初始化期间的可选参数，但必须在初始化时或作为 `run` 方法参数的一部分提供，才能执行搜索。
 
-## Custom model and embeddings
+## 自定义模型和嵌入
 
-By default, the tool uses OpenAI for both embeddings and summarization. To customize the model, you can use a config dictionary as follows:
+默认情况下，该工具使用 OpenAI 进行嵌入和摘要。要自定义模型，可以使用如下配置字典：
 
 ```python
 tool = XMLSearchTool(
     config=dict(
         llm=dict(
-            provider="ollama", # or google, openai, anthropic, llama2, ...
+            provider="ollama", # 或 google、openai、anthropic、llama2 等
             config=dict(
                 model="llama2",
                 # temperature=0.5,
@@ -48,7 +49,7 @@ tool = XMLSearchTool(
             ),
         ),
         embedder=dict(
-            provider="google", # or openai, ollama, ...
+            provider="google", # 或 openai、ollama 等
             config=dict(
                 model="models/embedding-001",
                 task_type="retrieval_document",

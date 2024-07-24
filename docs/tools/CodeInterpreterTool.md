@@ -4,7 +4,6 @@
     我们仍在努力改进工具，因此未来可能会更改本文档。
     :octicons-mark-github-16: [CodeInterpreterTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/code_interpreter_tool)
 
-
 ## 描述
 此工具用于使代理能够运行由代理本身生成的代码（Python3）。代码在沙盒环境中执行，因此运行任何代码都是安全的。
 

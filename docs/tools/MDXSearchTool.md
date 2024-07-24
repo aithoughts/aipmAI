@@ -1,59 +1,60 @@
-# MDXSearchTool
+# MDXSearchTool 文档
 
-!!! note "Experimental"
-    The MDXSearchTool is in continuous development. Features may be added or removed, and functionality could change unpredictably as we refine the tool.
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [MDXSearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/mdx_search_tool)
 
-## Description
-The MDX Search Tool is a component of the `crewai_tools` package aimed at facilitating advanced markdown language extraction. It enables users to effectively search and extract relevant information from MD files using query-based searches. This tool is invaluable for data analysis, information management, and research tasks, streamlining the process of finding specific information within large document collections.
+## 描述
+MDX 搜索工具是 `crewai_tools` 包中的一个组件，旨在促进高级 Markdown 语言提取。它使用户能够使用基于查询的搜索有效地从 MD 文件中搜索和提取相关信息。此工具对于数据分析、信息管理和研究任务非常宝贵，简化了在大型文档集合中查找特定信息的过程。
 
-## Installation
-Before using the MDX Search Tool, ensure the `crewai_tools` package is installed. If it is not, you can install it with the following command:
+## 安装
+在使用 MDX 搜索工具之前，请确保已安装 `crewai_tools` 包。如果未安装，可以使用以下命令安装：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-## Usage Example
-To use the MDX Search Tool, you must first set up the necessary environment variables. Then, integrate the tool into your crewAI project to begin your market research. Below is a basic example of how to do this:
+## 使用示例
+要使用 MDX 搜索工具，您必须首先设置必要的环境变量。然后，将该工具集成到您的 crewAI 项目中，以开始您的市场调查。以下是有关如何执行此操作的基本示例：
 
 ```python
 from crewai_tools import MDXSearchTool
 
-# Initialize the tool to search any MDX content it learns about during execution
+# 初始化工具以搜索执行期间了解的任何 MDX 内容
 tool = MDXSearchTool()
 
-# OR
+# 或
 
-# Initialize the tool with a specific MDX file path for an exclusive search within that document
+# 使用特定的 MDX 文件路径初始化工具，以便在该文档中进行独占搜索
 tool = MDXSearchTool(mdx='path/to/your/document.mdx')
 ```
 
-## Parameters
-- mdx: **Optional**. Specifies the MDX file path for the search. It can be provided during initialization.
+## 参数
+- mdx：**可选**。指定要搜索的 MDX 文件的路径。可以在初始化期间提供。
 
-## Customization of Model and Embeddings
+## 模型和嵌入的自定义
 
-The tool defaults to using OpenAI for embeddings and summarization. For customization, utilize a configuration dictionary as shown below:
+该工具默认使用 OpenAI 进行嵌入和摘要。要进行自定义，请使用如下所示的配置字典：
 
 ```python
 tool = MDXSearchTool(
     config=dict(
         llm=dict(
-            provider="ollama", # Options include google, openai, anthropic, llama2, etc.
+            provider="ollama", # 选项包括 google、openai、anthropic、llama2 等。
             config=dict(
                 model="llama2",
-                # Optional parameters can be included here.
+                # 可选参数可以包含在此处。
                 # temperature=0.5,
                 # top_p=1,
                 # stream=true,
             ),
         ),
         embedder=dict(
-            provider="google", # or openai, ollama, ...
+            provider="google", # 或 openai、ollama 等
             config=dict(
                 model="models/embedding-001",
                 task_type="retrieval_document",
-                # Optional title for the embeddings can be added here.
+                # 可在此处添加嵌入的可选标题。
                 # title="Embeddings",
             ),
         ),

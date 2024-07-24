@@ -226,6 +226,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://aipmai.theforage.cn/tools/MultiOnTool/</loc>
+         <lastmod>2024-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://aipmai.theforage.cn/tools/PDFSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
@@ -247,6 +252,11 @@
     </url>
     <url>
          <loc>https://aipmai.theforage.cn/tools/SerperDevTool/</loc>
+         <lastmod>2024-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://aipmai.theforage.cn/tools/SpiderTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>

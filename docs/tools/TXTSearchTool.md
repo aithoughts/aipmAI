@@ -1,47 +1,48 @@
-# TXTSearchTool
+# TXTSearchTool 文档
 
-!!! note "Experimental"
-    We are still working on improving tools, so there might be unexpected behavior or changes in the future.
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [TXTSearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/txt_search_tool)
 
-## Description
-This tool is used to perform a RAG (Retrieval-Augmented Generation) search within the content of a text file. It allows for semantic searching of a query within a specified text file's content, making it an invaluable resource for quickly extracting information or finding specific sections of text based on the query provided.
+## 描述
+此工具用于在文本文件的内容中执行 RAG（检索增强生成）搜索。它允许在指定的文本文件内容中对查询进行语义搜索，使其成为根据提供的查询快速提取信息或查找特定文本段落的宝贵资源。
 
-## Installation
-To use the TXTSearchTool, you first need to install the crewai_tools package. This can be done using pip, a package manager for Python. Open your terminal or command prompt and enter the following command:
+## 安装
+要使用 TXTSearchTool，您首先需要安装 crewai_tools 包。这可以使用 pip（Python 的包管理器）来完成。打开您的终端或命令提示符并输入以下命令：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-This command will download and install the TXTSearchTool along with any necessary dependencies.
+此命令将下载并安装 TXTSearchTool 以及任何必要的依赖项。
 
-## Example
-The following example demonstrates how to use the TXTSearchTool to search within a text file. This example shows both the initialization of the tool with a specific text file and the subsequent search within that file's content.
+## 示例
+以下示例演示了如何使用 TXTSearchTool 在文本文件中进行搜索。此示例显示了使用特定文本文件初始化工具以及随后在该文件内容中进行搜索。
 
 ```python
 from crewai_tools import TXTSearchTool
 
-# Initialize the tool to search within any text file's content the agent learns about during its execution
+# 初始化工具以在代理执行期间了解的任何文本文件内容中进行搜索
 tool = TXTSearchTool()
 
-# OR
+# 或
 
-# Initialize the tool with a specific text file, so the agent can search within the given text file's content
+# 使用特定的文本文件初始化工具，以便代理可以在给定的文本文件内容中进行搜索
 tool = TXTSearchTool(txt='path/to/text/file.txt')
 ```
 
-## Arguments
-- `txt` (str): **Optional**. The path to the text file you want to search. This argument is only required if the tool was not initialized with a specific text file; otherwise, the search will be conducted within the initially provided text file.
+## 参数
+- `txt` (str): **可选**。要搜索的文本文件的路径。仅当未初始化带有特定文本文件的工具时才需要此参数；否则，将在最初提供的文本文件中执行搜索。
 
-## Custom model and embeddings
+## 自定义模型和嵌入
 
-By default, the tool uses OpenAI for both embeddings and summarization. To customize the model, you can use a config dictionary as follows:
+默认情况下，该工具使用 OpenAI 进行嵌入和摘要。要自定义模型，可以使用如下配置字典：
 
 ```python
 tool = TXTSearchTool(
     config=dict(
         llm=dict(
-            provider="ollama", # or google, openai, anthropic, llama2, ...
+            provider="ollama", # 或 google、openai、anthropic、llama2 等
             config=dict(
                 model="llama2",
                 # temperature=0.5,
@@ -50,7 +51,7 @@ tool = TXTSearchTool(
             ),
         ),
         embedder=dict(
-            provider="google", # or openai, ollama, ...
+            provider="google", # 或 openai、ollama 等
             config=dict(
                 model="models/embedding-001",
                 task_type="retrieval_document",

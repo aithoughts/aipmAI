@@ -4,7 +4,6 @@
     我们仍在努力改进工具，因此未来可能会更改本文档。
     :octicons-mark-github-16: [ComposioTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/composio_tool)
 
-
 ## 描述
 
 此工具是 [composio](https://composio.dev) 工具集的封装，使您的代理可以访问 composio SDK 中的各种工具。

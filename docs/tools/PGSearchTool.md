@@ -1,45 +1,46 @@
-# PGSearchTool
+# PGSearchTool 文档
 
-!!! note "Under Development"
-    The PGSearchTool is currently under development. This document outlines the intended functionality and interface. As development progresses, please be aware that some features may not be available or could change.
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [PGSearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/pg_search_tool)
 
-## Description
-The PGSearchTool is envisioned as a powerful tool for facilitating semantic searches within PostgreSQL database tables. By leveraging advanced Retrieve and Generate (RAG) technology, it aims to provide an efficient means for querying database table content, specifically tailored for PostgreSQL databases. The tool's goal is to simplify the process of finding relevant data through semantic search queries, offering a valuable resource for users needing to conduct advanced queries on extensive datasets within a PostgreSQL environment.
+## 描述
+PGSearchTool 被设想为一种强大的工具，用于促进 PostgreSQL 数据库表中的语义搜索。通过利用先进的检索和生成 (RAG) 技术，它旨在提供一种高效的查询数据库表内容的方式，专门针对 PostgreSQL 数据库量身定制。该工具的目标是通过语义搜索查询简化查找相关数据的过程，为需要在 PostgreSQL 环境中的大型数据集上执行高级查询的用户提供宝贵的资源。
 
-## Installation
-The `crewai_tools` package, which will include the PGSearchTool upon its release, can be installed using the following command:
+## 安装
+包含 PGSearchTool（发布后）的 `crewai_tools` 包可以使用以下命令安装：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-(Note: The PGSearchTool is not yet available in the current version of the `crewai_tools` package. This installation command will be updated once the tool is released.)
+（注意：PGSearchTool 在当前版本的 `crewai_tools` 包中尚不可用。该工具发布后，此安装命令将更新。）
 
-## Example Usage
-Below is a proposed example showcasing how to use the PGSearchTool for conducting a semantic search on a table within a PostgreSQL database:
+## 示例用法
+以下是一个建议示例，展示了如何使用 PGSearchTool 对 PostgreSQL 数据库中的表执行语义搜索：
 
 ```python
 from crewai_tools import PGSearchTool
 
-# Initialize the tool with the database URI and the target table name
+# 使用数据库 URI 和目标表名初始化工具
 tool = PGSearchTool(db_uri='postgresql://user:password@localhost:5432/mydatabase', table_name='employees')
 ```
 
-## Arguments
-The PGSearchTool is designed to require the following arguments for its operation:
+## 参数
+PGSearchTool 需要以下参数才能运行：
 
-- `db_uri`: A string representing the URI of the PostgreSQL database to be queried. This argument will be mandatory and must include the necessary authentication details and the location of the database.
-- `table_name`: A string specifying the name of the table within the database on which the semantic search will be performed. This argument will also be mandatory.
+- `db_uri`：表示要查询的 PostgreSQL 数据库的 URI 的字符串。此参数将是必需的，并且必须包含必要的身份验证详细信息和数据库的位置。
+- `table_name`：指定将在其上执行语义搜索的数据库中表的名称的字符串。此参数也是必需的。
 
-## Custom Model and Embeddings
+## 自定义模型和嵌入
 
-The tool intends to use OpenAI for both embeddings and summarization by default. Users will have the option to customize the model using a config dictionary as follows:
+默认情况下，该工具打算使用 OpenAI 进行嵌入和摘要。用户可以选择使用如下配置字典自定义模型：
 
 ```python
 tool = PGSearchTool(
     config=dict(
         llm=dict(
-            provider="ollama", # or google, openai, anthropic, llama2, ...
+            provider="ollama", # 或 google、openai、anthropic、llama2 等
             config=dict(
                 model="llama2",
                 # temperature=0.5,
@@ -48,7 +49,7 @@ tool = PGSearchTool(
             ),
         ),
         embedder=dict(
-            provider="google", # or openai, ollama, ...
+            provider="google", # 或 openai、ollama 等
             config=dict(
                 model="models/embedding-001",
                 task_type="retrieval_document",

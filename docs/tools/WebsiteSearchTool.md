@@ -1,45 +1,46 @@
-# WebsiteSearchTool
+# WebsiteSearchTool 文档
 
-!!! note "Experimental Status"
-    The WebsiteSearchTool is currently in an experimental phase. We are actively working on incorporating this tool into our suite of offerings and will update the documentation accordingly.
+!!! note "实验性"
+    我们仍在努力改进工具，因此未来可能会更改本文档。
+    :octicons-mark-github-16: [WebsiteSearchTool 源代码](https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/website_search_tool)
 
-## Description
-The WebsiteSearchTool is designed as a concept for conducting semantic searches within the content of websites. It aims to leverage advanced machine learning models like Retrieval-Augmented Generation (RAG) to navigate and extract information from specified URLs efficiently. This tool intends to offer flexibility, allowing users to perform searches across any website or focus on specific websites of interest. Please note, the current implementation details of the WebsiteSearchTool are under development, and its functionalities as described may not yet be accessible.
+## 描述
+WebsiteSearchTool 旨在作为一种在网站内容中进行语义搜索的概念工具。它旨在利用检索增强生成 (RAG) 等先进的机器学习模型，以高效地导航和提取指定 URL 中的信息。此工具旨在提供灵活性，允许用户在任何网站上执行搜索或专注于感兴趣的特定网站。请注意，WebsiteSearchTool 的当前实现细节仍在开发中，其所述功能可能尚不可用。
 
-## Installation
-To prepare your environment for when the WebsiteSearchTool becomes available, you can install the foundational package with:
+## 安装
+为了在 WebsiteSearchTool 可用时准备好您的环境，您可以使用以下命令安装基础包：
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-This command installs the necessary dependencies to ensure that once the tool is fully integrated, users can start using it immediately.
+此命令将安装必要的依赖项，以确保在工具完全集成后，用户可以立即开始使用它。
 
-## Example Usage
-Below are examples of how the WebsiteSearchTool could be utilized in different scenarios. Please note, these examples are illustrative and represent planned functionality:
+## 示例用法
+以下是 WebsiteSearchTool 在不同场景中如何使用的示例。请注意，这些示例仅供说明，代表计划的功能：
 
 ```python
 from crewai_tools import WebsiteSearchTool
 
-# Example of initiating tool that agents can use to search across any discovered websites
+# 启动代理可以用来搜索任何发现的网站的工具示例
 tool = WebsiteSearchTool()
 
-# Example of limiting the search to the content of a specific website, so now agents can only search within that website
+# 将搜索范围限制在特定网站内容的示例，因此现在代理只能在该网站内进行搜索
 tool = WebsiteSearchTool(website='https://example.com')
 ```
 
-## Arguments
-- `website`: An optional argument intended to specify the website URL for focused searches. This argument is designed to enhance the tool's flexibility by allowing targeted searches when necessary.
+## 参数
+- `website`：一个可选参数，用于指定用于 focused searches 的网站 URL。此参数旨在通过在必要时允许 targeted searches 来增强工具的灵活性。
 
-## Customization Options
-By default, the tool uses OpenAI for both embeddings and summarization. To customize the model, you can use a config dictionary as follows:
+## 自定义选项
+默认情况下，该工具使用 OpenAI 进行嵌入和摘要。要自定义模型，可以使用如下配置字典：
 
 
 ```python
 tool = WebsiteSearchTool(
     config=dict(
         llm=dict(
-            provider="ollama", # or google, openai, anthropic, llama2, ...
+            provider="ollama", # 或 google、openai、anthropic、llama2 等
             config=dict(
                 model="llama2",
                 # temperature=0.5,
@@ -48,7 +49,7 @@ tool = WebsiteSearchTool(
             ),
         ),
         embedder=dict(
-            provider="google", # or openai, ollama, ...
+            provider="google", # 或 openai、ollama 等
             config=dict(
                 model="models/embedding-001",
                 task_type="retrieval_document",

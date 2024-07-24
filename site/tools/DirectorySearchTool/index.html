@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://aipmai.theforage.cn/tools/DirectorySearchTool/">
       
       
-        <link rel="prev" href="../SeleniumScrapingTool/">
+        <link rel="prev" href="../SpiderTool/">
       
       
         <link rel="next" href="../PDFSearchTool/">
@@ -1167,6 +1167,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1249,6 +1253,27 @@
   
   <span class="md-ellipsis">
     Composio 集成工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MultiOnTool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MultiOn 浏览器代理工具
   </span>
   
 
@@ -1388,6 +1413,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../SpiderTool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网站 爬虫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1437,45 +1483,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      描述
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      安装
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#initialization-and-usage" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialization and Usage
+      初始化和使用
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#arguments" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Arguments
+      参数
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-model-and-embeddings" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom Model and Embeddings
+      自定义模型和嵌入
     </span>
   </a>
   
@@ -2026,44 +2072,45 @@
   
 
 
-<h1 id="directorysearchtool">DirectorySearchTool<a class="headerlink" href="#directorysearchtool" title="Permanent link">&para;</a></h1>
+<h1 id="directorysearchtool">DirectorySearchTool 文档<a class="headerlink" href="#directorysearchtool" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
-<p class="admonition-title">Experimental</p>
-<p>The DirectorySearchTool is under continuous development. Features and functionalities might evolve, and unexpected behavior may occur as we refine the tool.</p>
+<p class="admonition-title">实验性</p>
+<p>我们仍在努力改进工具，因此未来可能会更改本文档。
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></span> <a href="https://github.com/aithoughts/aipmAI-tools/tree/zh/src/crewai_tools/tools/directory_search_tool">DirectorySearchTool 源代码</a></p>
 </div>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>The DirectorySearchTool enables semantic search within the content of specified directories, leveraging the Retrieval-Augmented Generation (RAG) methodology for efficient navigation through files. Designed for flexibility, it allows users to dynamically specify search directories at runtime or set a fixed directory during initial setup.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>To use the DirectorySearchTool, begin by installing the crewai_tools package. Execute the following command in your terminal:</p>
+<h2 id="_1">描述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>DirectorySearchTool 支持在指定目录的内容中进行语义搜索，利用检索增强生成 (RAG) 方法有效地导航文件。它专为灵活性而设计，允许用户在运行时动态指定搜索目录或在初始设置期间设置固定目录。</p>
+<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>要使用 DirectorySearchTool，首先安装 crewai_tools 包。在您的终端中执行以下命令：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;crewai[tools]&#39;</span>
 </span></code></pre></div>
-<h2 id="initialization-and-usage">Initialization and Usage<a class="headerlink" href="#initialization-and-usage" title="Permanent link">&para;</a></h2>
-<p>Import the DirectorySearchTool from the <code>crewai_tools</code> package to start. You can initialize the tool without specifying a directory, enabling the setting of the search directory at runtime. Alternatively, the tool can be initialized with a predefined directory.</p>
+<h2 id="_3">初始化和使用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>从 <code>crewai_tools</code> 包导入 DirectorySearchTool 以开始使用。您可以初始化该工具而不指定目录，从而能够在运行时设置搜索目录。或者，可以使用预定义目录初始化该工具。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">crewai_tools</span> <span class="kn">import</span> <span class="n">DirectorySearchTool</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># For dynamic directory specification at runtime</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 用于在运行时动态指定目录</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">tool</span> <span class="o">=</span> <span class="n">DirectorySearchTool</span><span class="p">()</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># For fixed directory searches</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># 用于固定目录搜索</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">tool</span> <span class="o">=</span> <span class="n">DirectorySearchTool</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s1">&#39;/path/to/directory&#39;</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
+<h2 id="_4">参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>directory</code>: A string argument that specifies the search directory. This is optional during initialization but required for searches if not set initially.</li>
+<li><code>directory</code>：指定搜索目录的字符串参数。这在初始化期间是可选的，但如果最初未设置，则搜索时需要。</li>
 </ul>
-<h2 id="custom-model-and-embeddings">Custom Model and Embeddings<a class="headerlink" href="#custom-model-and-embeddings" title="Permanent link">&para;</a></h2>
-<p>The DirectorySearchTool uses OpenAI for embeddings and summarization by default. Customization options for these settings include changing the model provider and configuration, enhancing flexibility for advanced users.</p>
+<h2 id="_5">自定义模型和嵌入<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>默认情况下，DirectorySearchTool 使用 OpenAI 进行嵌入和摘要。这些设置的自定义选项包括更改模型提供者和配置，从而增强了高级用户的灵活性。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">tool</span> <span class="o">=</span> <span class="n">DirectorySearchTool</span><span class="p">(</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">config</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="n">llm</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;ollama&quot;</span><span class="p">,</span> <span class="c1"># Options include ollama, google, anthropic, llama2, and more</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;ollama&quot;</span><span class="p">,</span> <span class="c1"># 选项包括 ollama、google、anthropic、llama2 等</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>            <span class="n">config</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                <span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama2&quot;</span><span class="p">,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                <span class="c1"># Additional configurations here</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                <span class="c1"># 其他配置在此处</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            <span class="p">),</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="p">),</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="n">embedder</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;google&quot;</span><span class="p">,</span> <span class="c1"># or openai, ollama, ...</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;google&quot;</span><span class="p">,</span> <span class="c1"># 或 openai、ollama 等</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            <span class="n">config</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                <span class="n">model</span><span class="o">=</span><span class="s2">&quot;models/embedding-001&quot;</span><span class="p">,</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                <span class="n">task_type</span><span class="o">=</span><span class="s2">&quot;retrieval_document&quot;</span><span class="p">,</span>
@@ -2112,7 +2159,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../SeleniumScrapingTool/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Selenium 爬虫">
+          <a href="../SpiderTool/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 网站 爬虫">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2122,7 +2169,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Selenium 爬虫
+                网站 爬虫
               </div>
             </div>
           </a>
