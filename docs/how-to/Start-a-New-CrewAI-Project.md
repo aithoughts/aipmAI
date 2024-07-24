@@ -9,7 +9,7 @@ description: 启动新的 CrewAI 项目的综合指南，包括最新的更新�
 
 ## 先决条件
 
-我们假设您已经安装了 CrewAI。如果没有，请参阅 [安装指南](https://aithoughts.github.io/aipmAI/how-to/Installing-CrewAI/) 来安装 CrewAI 及其依赖项。
+我们假设您已经安装了 CrewAI。如果没有，请参阅 [安装指南](https://aipmai.theforage.cn/how-to/Installing-CrewAI/) 来安装 CrewAI 及其依赖项。
 
 ## 创建新项目
 

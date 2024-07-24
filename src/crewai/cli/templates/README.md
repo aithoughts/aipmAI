@@ -49,7 +49,7 @@ The {{name}} Crew is composed of multiple AI agents, each with unique roles, goa
 ## Support
 
 For support, questions, or feedback regarding the {{crew_name}} Crew or crewAI.
-- Visit our [documentation](https://aithoughts.github.io/aipmAI)
+- Visit our [documentation](https://aipmai.theforage.cn/)
 - Reach out to us through our [GitHub repository](https://github.com/aithoughts/aipmAI)
 - [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
 - [Chat with our docs](https://chatg.pt/DWjSBZn)

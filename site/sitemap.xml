@@ -1,277 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/</loc>
+         <loc>https://aipmai.theforage.cn/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Agents/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Agents/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Collaboration/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Collaboration/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Crews/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Crews/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Memory/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Memory/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Planning/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Planning/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Processes/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Processes/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Tasks/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Tasks/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Tools/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Tools/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Training-Crew/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Training-Crew/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Using-LangChain-Tools/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Using-LangChain-Tools/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/core-concepts/Using-LlamaIndex-Tools/</loc>
+         <loc>https://aipmai.theforage.cn/core-concepts/Using-LlamaIndex-Tools/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/AgentOps-Observability/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/AgentOps-Observability/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Coding-Agents/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Coding-Agents/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Conditional-Tasks/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Conditional-Tasks/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Create-Custom-Tools/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Create-Custom-Tools/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Creating-a-Crew-and-kick-it-off/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Creating-a-Crew-and-kick-it-off/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Customize-Prompts/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Customize-Prompts/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Customizing-Agents/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Customizing-Agents/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Force-Tool-Ouput-as-Result/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Force-Tool-Ouput-as-Result/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Hierarchical/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Hierarchical/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Human-Input-on-Execution/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Human-Input-on-Execution/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Installing-CrewAI/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Installing-CrewAI/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Kickoff-async/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Kickoff-async/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Kickoff-for-each/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Kickoff-for-each/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/LLM-Connections/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/LLM-Connections/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Langtrace-Observability/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Langtrace-Observability/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Replay-tasks-from-latest-Crew-Kickoff/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Replay-tasks-from-latest-Crew-Kickoff/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Sequential/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Sequential/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Start-a-New-CrewAI-Project/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Start-a-New-CrewAI-Project/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/how-to/Your-Own-Manager-Agent/</loc>
+         <loc>https://aipmai.theforage.cn/how-to/Your-Own-Manager-Agent/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/telemetry/Telemetry/</loc>
+         <loc>https://aipmai.theforage.cn/telemetry/Telemetry/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/BrowserbaseLoadTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/BrowserbaseLoadTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/CSVSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/CSVSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/CodeDocsSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/CodeDocsSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/CodeInterpreterTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/CodeInterpreterTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/ComposioTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/ComposioTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/DOCXSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/DOCXSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/DirectoryReadTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/DirectoryReadTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/DirectorySearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/DirectorySearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/EXASearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/EXASearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/FileReadTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/FileReadTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/GitHubSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/GitHubSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/JSONSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/JSONSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/MDXSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/MDXSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/PDFSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/PDFSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/PGSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/PGSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/ScrapeWebsiteTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/ScrapeWebsiteTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/SeleniumScrapingTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/SeleniumScrapingTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/SerperDevTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/SerperDevTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/TXTSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/TXTSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/WebsiteSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/WebsiteSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/XMLSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/XMLSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/YoutubeChannelSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/YoutubeChannelSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aithoughts.github.io/aipmAI/tools/YoutubeVideoSearchTool/</loc>
+         <loc>https://aipmai.theforage.cn/tools/YoutubeVideoSearchTool/</loc>
          <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>

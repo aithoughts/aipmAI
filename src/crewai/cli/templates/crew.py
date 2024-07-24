@@ -51,5 +51,5 @@ class {{crew_name}}Crew():
 			tasks=self.tasks, # Automatically created by the @task decorator
 			process=Process.sequential,
 			verbose=2,
-			# process=Process.hierarchical, # In case you wanna use that instead https://aithoughts.github.io/aipmAI/how-to/Hierarchical/
+			# process=Process.hierarchical, # In case you wanna use that instead https://aipmai.theforage.cn/how-to/Hierarchical/
 		)
