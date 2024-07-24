@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Learn how to add planning to your crewAI Crew and improve their performance.">
+        <meta name="description" content="了解如何将规划添加到您的 crewAI Crew 中并提高其性能。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>crewAI Planning - aipmAI 文档</title>
+        <title>crewAI 规划 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              crewAI Planning
+              crewAI 规划
             
           </span>
         </div>
@@ -612,28 +612,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      简介
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
+    <nav class="md-nav" aria-label="简介">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-the-planning-feature" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the Planning Feature
+      使用规划功能
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      示例
     </span>
   </a>
   
@@ -1082,7 +1082,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1793,7 +1793,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1803,7 +1803,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1968,26 +1968,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2034,13 +2014,13 @@
 
   <h1>规划</h1>
 
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>The planning feature in CrewAI allows you to add planning capability to your crew. When enabled, before each Crew iteration, all Crew information is sent to an AgentPlanner that will plan the tasks step by step, and this plan will be added to each task description.</p>
-<h3 id="using-the-planning-feature">Using the Planning Feature<a class="headerlink" href="#using-the-planning-feature" title="Permanent link">&para;</a></h3>
-<p>Getting started with the planning feature is very easy, the only step required is to add <code>planning=True</code> to your Crew:</p>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>CrewAI 中的规划功能允许您为您的 crew 添加规划能力。启用后，在每次 Crew 迭代之前，所有 Crew 信息都会发送到 AgentPlanner，它将逐步规划任务，并且该计划将添加到每个任务描述中。</p>
+<h3 id="_2">使用规划功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>开始使用规划功能非常容易，唯一需要做的就是在您的 Crew 中添加 <code>planning=True</code>：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Crew</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Task</span><span class="p">,</span> <span class="n">Process</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Assemble your crew with planning capabilities</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 组装您的 crew 并启用规划功能</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">my_crew</span> <span class="o">=</span> <span class="n">Crew</span><span class="p">(</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">agents</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">,</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">tasks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">,</span>
@@ -2048,94 +2028,94 @@
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">planning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>From this point on, your crew will have planning enabled, and the tasks will be planned before each iteration.</p>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<p>When running the base case example, you will see something like the following output, which represents the output of the AgentPlanner responsible for creating the step-by-step logic to add to the Agents tasks.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">[</span><span class="m">2024</span>-07-15<span class="w"> </span><span class="m">16</span>:49:11<span class="o">][</span>INFO<span class="o">]</span>:<span class="w"> </span>Planning<span class="w"> </span>the<span class="w"> </span>crew<span class="w"> </span>execution
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>**Step-by-Step<span class="w"> </span>Plan<span class="w"> </span><span class="k">for</span><span class="w"> </span>Task<span class="w"> </span>Execution**
+<p>从这一点开始，您的 crew 将启用规划，并且将在每次迭代之前规划任务。</p>
+<h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>运行基本案例示例时，您将看到类似于以下内容的输出，它表示负责创建要添加到代理任务的逐步逻辑的 AgentPlanner 的输出。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">[</span><span class="m">2024</span>-07-15<span class="w"> </span><span class="m">16</span>:49:11<span class="o">][</span>INFO<span class="o">]</span>:<span class="w"> </span>正在规划<span class="w"> </span>crew<span class="w"> </span>执行
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>**任务执行的分步计划**
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>**Task<span class="w"> </span>Number<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Conduct<span class="w"> </span>a<span class="w"> </span>thorough<span class="w"> </span>research<span class="w"> </span>about<span class="w"> </span>AI<span class="w"> </span>LLMs**
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>**任务编号<span class="w"> </span><span class="m">1</span>：对<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>进行全面研究**
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>**Agent:**<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>Senior<span class="w"> </span>Data<span class="w"> </span>Researcher
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>**代理：**<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>高级数据研究员
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>**Agent<span class="w"> </span>Goal:**<span class="w"> </span>Uncover<span class="w"> </span>cutting-edge<span class="w"> </span>developments<span class="w"> </span><span class="k">in</span><span class="w"> </span>AI<span class="w"> </span>LLMs
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>**代理目标：**<span class="w"> </span>发现<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>的最新发展
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>**Task<span class="w"> </span>Expected<span class="w"> </span>Output:**<span class="w"> </span>A<span class="w"> </span>list<span class="w"> </span>with<span class="w"> </span><span class="m">10</span><span class="w"> </span>bullet<span class="w"> </span>points<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>most<span class="w"> </span>relevant<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>AI<span class="w"> </span>LLMs
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>**任务预期输出：**<span class="w"> </span>包含<span class="w"> </span><span class="m">10</span><span class="w"> </span>个项目符号的列表，列出有关<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>的最相关信息
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>**Task<span class="w"> </span>Tools:**<span class="w"> </span>None<span class="w"> </span>specified
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>**任务工具：**<span class="w"> </span>未指定
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>**Agent<span class="w"> </span>Tools:**<span class="w"> </span>None<span class="w"> </span>specified
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>**代理工具：**<span class="w"> </span>未指定
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>**Step-by-Step<span class="w"> </span>Plan:**
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>**分步计划：**
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="m">1</span>.<span class="w"> </span>**Define<span class="w"> </span>Research<span class="w"> </span>Scope:**
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">   </span>-<span class="w"> </span>Determine<span class="w"> </span>the<span class="w"> </span>specific<span class="w"> </span>areas<span class="w"> </span>of<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>to<span class="w"> </span>focus<span class="w"> </span>on,<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span>advancements<span class="w"> </span><span class="k">in</span><span class="w"> </span>architecture,<span class="w"> </span>use<span class="w"> </span>cases,<span class="w"> </span>ethical<span class="w"> </span>considerations,<span class="w"> </span>and<span class="w"> </span>performance<span class="w"> </span>metrics.
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="m">1</span>.<span class="w"> </span>**定义研究范围：**
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">   </span>-<span class="w"> </span>确定<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>要关注的具体领域，例如架构、用例、伦理考量和性能指标方面的进步。
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="m">2</span>.<span class="w"> </span>**Identify<span class="w"> </span>Reliable<span class="w"> </span>Sources:**
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">   </span>-<span class="w"> </span>List<span class="w"> </span>reputable<span class="w"> </span>sources<span class="w"> </span><span class="k">for</span><span class="w"> </span>AI<span class="w"> </span>research,<span class="w"> </span>including<span class="w"> </span>academic<span class="w"> </span>journals,<span class="w"> </span>industry<span class="w"> </span>reports,<span class="w"> </span>conferences<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>NeurIPS,<span class="w"> </span>ACL<span class="o">)</span>,<span class="w"> </span>AI<span class="w"> </span>research<span class="w"> </span>labs<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>OpenAI,<span class="w"> </span>Google<span class="w"> </span>AI<span class="o">)</span>,<span class="w"> </span>and<span class="w"> </span>online<span class="w"> </span>databases<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>IEEE<span class="w"> </span>Xplore,<span class="w"> </span>arXiv<span class="o">)</span>.
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="m">2</span>.<span class="w"> </span>**确定可靠来源：**
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">   </span>-<span class="w"> </span>列出信誉良好的<span class="w"> </span>AI<span class="w"> </span>研究来源，包括学术期刊、行业报告、会议（例如<span class="w"> </span>NeurIPS、ACL）、AI<span class="w"> </span>研究实验室（例如<span class="w"> </span>OpenAI、Google<span class="w"> </span>AI）和在线数据库（例如<span class="w"> </span>IEEE<span class="w"> </span>Xplore、arXiv）。
 </span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="m">3</span>.<span class="w"> </span>**Collect<span class="w"> </span>Data:**
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">   </span>-<span class="w"> </span>Search<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>papers,<span class="w"> </span>articles,<span class="w"> </span>and<span class="w"> </span>reports<span class="w"> </span>published<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>and<span class="w"> </span>early<span class="w"> </span><span class="m">2024</span>.
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">   </span>-<span class="w"> </span>Use<span class="w"> </span>keywords<span class="w"> </span>like<span class="w"> </span><span class="s2">&quot;Large Language Models 2024&quot;</span>,<span class="w"> </span><span class="s2">&quot;AI LLM advancements&quot;</span>,<span class="w"> </span><span class="s2">&quot;AI ethics 2024&quot;</span>,<span class="w"> </span>etc.
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="m">3</span>.<span class="w"> </span>**收集数据：**
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">   </span>-<span class="w"> </span>搜索<span class="w"> </span><span class="m">2023</span><span class="w"> </span>年和<span class="w"> </span><span class="m">2024</span><span class="w"> </span>年初发表的最新论文、文章和报告。
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">   </span>-<span class="w"> </span>使用“大型语言模型<span class="w"> </span><span class="m">2024</span>”、“AI<span class="w"> </span>LLM<span class="w"> </span>进展”、“AI<span class="w"> </span>伦理<span class="w"> </span><span class="m">2024</span>”等关键词。
 </span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="m">4</span>.<span class="w"> </span>**Analyze<span class="w"> </span>Findings:**
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">   </span>-<span class="w"> </span>Read<span class="w"> </span>and<span class="w"> </span>summarize<span class="w"> </span>the<span class="w"> </span>key<span class="w"> </span>points<span class="w"> </span>from<span class="w"> </span>each<span class="w"> </span>source.
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">   </span>-<span class="w"> </span>Highlight<span class="w"> </span>new<span class="w"> </span>techniques,<span class="w"> </span>models,<span class="w"> </span>and<span class="w"> </span>applications<span class="w"> </span>introduced<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>past<span class="w"> </span>year.
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="m">4</span>.<span class="w"> </span>**分析结果：**
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">   </span>-<span class="w"> </span>阅读并总结每个来源的关键点。
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">   </span>-<span class="w"> </span>突出显示过去一年中引入的新技术、模型和应用。
 </span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="m">5</span>.<span class="w"> </span>**Organize<span class="w"> </span>Information:**
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">   </span>-<span class="w"> </span>Categorize<span class="w"> </span>the<span class="w"> </span>information<span class="w"> </span>into<span class="w"> </span>relevant<span class="w"> </span>topics<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>new<span class="w"> </span>architectures,<span class="w"> </span>ethical<span class="w"> </span>implications,<span class="w"> </span>real-world<span class="w"> </span>applications<span class="o">)</span>.
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">   </span>-<span class="w"> </span>Ensure<span class="w"> </span>each<span class="w"> </span>bullet<span class="w"> </span>point<span class="w"> </span>is<span class="w"> </span>concise<span class="w"> </span>but<span class="w"> </span>informative.
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="m">5</span>.<span class="w"> </span>**整理信息：**
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">   </span>-<span class="w"> </span>将信息分类到相关主题中（例如，新架构、伦理影响、实际应用）。
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">   </span>-<span class="w"> </span>确保每个项目符号都简洁但内容丰富。
 </span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="m">6</span>.<span class="w"> </span>**Create<span class="w"> </span>the<span class="w"> </span>List:**
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">   </span>-<span class="w"> </span>Compile<span class="w"> </span>the<span class="w"> </span><span class="m">10</span><span class="w"> </span>most<span class="w"> </span>relevant<span class="w"> </span>pieces<span class="w"> </span>of<span class="w"> </span>information<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>bullet<span class="w"> </span>point<span class="w"> </span>list.
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">   </span>-<span class="w"> </span>Review<span class="w"> </span>the<span class="w"> </span>list<span class="w"> </span>to<span class="w"> </span>ensure<span class="w"> </span>clarity<span class="w"> </span>and<span class="w"> </span>relevance.
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="m">6</span>.<span class="w"> </span>**创建列表：**
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">   </span>-<span class="w"> </span>将<span class="w"> </span><span class="m">10</span><span class="w"> </span>个最相关的片段信息编译成一个项目符号列表。
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">   </span>-<span class="w"> </span>查看列表以确保清晰度和相关性。
 </span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>**Expected<span class="w"> </span>Output:**
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>A<span class="w"> </span>list<span class="w"> </span>with<span class="w"> </span><span class="m">10</span><span class="w"> </span>bullet<span class="w"> </span>points<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>most<span class="w"> </span>relevant<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>AI<span class="w"> </span>LLMs.
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>**预期输出：**
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>包含<span class="w"> </span><span class="m">10</span><span class="w"> </span>个项目符号的列表，列出有关<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>的最相关信息。
 </span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
 </span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>---
 </span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>**Task<span class="w"> </span>Number<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Review<span class="w"> </span>the<span class="w"> </span>context<span class="w"> </span>you<span class="w"> </span>got<span class="w"> </span>and<span class="w"> </span>expand<span class="w"> </span>each<span class="w"> </span>topic<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>full<span class="w"> </span>section<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>report**
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>**任务编号<span class="w"> </span><span class="m">2</span>：查看您获得的上下文并将每个主题扩展为报告的完整部分**
 </span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>
-</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>**Agent:**<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>Reporting<span class="w"> </span>Analyst
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>**代理：**<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>报告分析师
 </span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>
-</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>**Agent<span class="w"> </span>Goal:**<span class="w"> </span>Create<span class="w"> </span>detailed<span class="w"> </span>reports<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>data<span class="w"> </span>analysis<span class="w"> </span>and<span class="w"> </span>research<span class="w"> </span>findings
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>**代理目标：**<span class="w"> </span>根据<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>数据分析和研究结果创建详细报告
 </span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>
-</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>**Task<span class="w"> </span>Expected<span class="w"> </span>Output:**<span class="w"> </span>A<span class="w"> </span>fully<span class="w"> </span>fledge<span class="w"> </span>report<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>topics,<span class="w"> </span>each<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>full<span class="w"> </span>section<span class="w"> </span>of<span class="w"> </span>information.<span class="w"> </span>Formatted<span class="w"> </span>as<span class="w"> </span>markdown<span class="w"> </span>without<span class="w"> </span><span class="s1">&#39;```&#39;</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>**任务预期输出：**<span class="w"> </span>一份完整的报告，其中包含主要主题，每个主题都有一个完整的信息部分。格式为不带“<span class="sb">```</span>”的<span class="w"> </span>Markdown
 </span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>
-</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>**Task<span class="w"> </span>Tools:**<span class="w"> </span>None<span class="w"> </span>specified
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>**任务工具：**<span class="w"> </span>未指定
 </span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>
-</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>**Agent<span class="w"> </span>Tools:**<span class="w"> </span>None<span class="w"> </span>specified
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>**代理工具：**<span class="w"> </span>未指定
 </span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>
-</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>**Step-by-Step<span class="w"> </span>Plan:**
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>**分步计划：**
 </span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>
-</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="m">1</span>.<span class="w"> </span>**Review<span class="w"> </span>the<span class="w"> </span>Bullet<span class="w"> </span>Points:**
-</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">   </span>-<span class="w"> </span>Carefully<span class="w"> </span><span class="nb">read</span><span class="w"> </span>through<span class="w"> </span>the<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span><span class="m">10</span><span class="w"> </span>bullet<span class="w"> </span>points<span class="w"> </span>provided<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>Senior<span class="w"> </span>Data<span class="w"> </span>Researcher.
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="m">1</span>.<span class="w"> </span>**查看项目符号：**
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">   </span>-<span class="w"> </span>仔细阅读<span class="w"> </span>AI<span class="w"> </span>LLMs<span class="w"> </span>高级数据研究员提供的<span class="w"> </span><span class="m">10</span><span class="w"> </span>个项目符号列表。
 </span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>
-</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="m">2</span>.<span class="w"> </span>**Outline<span class="w"> </span>the<span class="w"> </span>Report:**
-</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">   </span>-<span class="w"> </span>Create<span class="w"> </span>an<span class="w"> </span>outline<span class="w"> </span>with<span class="w"> </span>each<span class="w"> </span>bullet<span class="w"> </span>point<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>main<span class="w"> </span>section<span class="w"> </span>heading.
-</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">   </span>-<span class="w"> </span>Plan<span class="w"> </span>sub-sections<span class="w"> </span>under<span class="w"> </span>each<span class="w"> </span>main<span class="w"> </span>heading<span class="w"> </span>to<span class="w"> </span>cover<span class="w"> </span>different<span class="w"> </span>aspects<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>topic.
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="m">2</span>.<span class="w"> </span>**概述报告：**
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">   </span>-<span class="w"> </span>创建一个大纲，将每个项目符号作为主要部分标题。
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">   </span>-<span class="w"> </span>在每个主要标题下规划子部分，以涵盖主题的不同方面。
 </span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>
-</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="m">3</span>.<span class="w"> </span>**Research<span class="w"> </span>Further<span class="w"> </span>Details:**
-</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">   </span>-<span class="w"> </span>For<span class="w"> </span>each<span class="w"> </span>bullet<span class="w"> </span>point,<span class="w"> </span>conduct<span class="w"> </span>additional<span class="w"> </span>research<span class="w"> </span><span class="k">if</span><span class="w"> </span>necessary<span class="w"> </span>to<span class="w"> </span>gather<span class="w"> </span>more<span class="w"> </span>detailed<span class="w"> </span>information.
-</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">   </span>-<span class="w"> </span>Look<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>studies,<span class="w"> </span>examples,<span class="w"> </span>and<span class="w"> </span>statistical<span class="w"> </span>data<span class="w"> </span>to<span class="w"> </span>support<span class="w"> </span>each<span class="w"> </span>section.
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="m">3</span>.<span class="w"> </span>**研究更多细节：**
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">   </span>-<span class="w"> </span>对于每个项目符号，如有必要，进行额外的研究以收集更详细的信息。
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">   </span>-<span class="w"> </span>寻找案例研究、示例和统计数据来支持每个部分。
 </span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>
-</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="m">4</span>.<span class="w"> </span>**Write<span class="w"> </span>Detailed<span class="w"> </span>Sections:**
-</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">   </span>-<span class="w"> </span>Expand<span class="w"> </span>each<span class="w"> </span>bullet<span class="w"> </span>point<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>comprehensive<span class="w"> </span>section.
-</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">   </span>-<span class="w"> </span>Ensure<span class="w"> </span>each<span class="w"> </span>section<span class="w"> </span>includes<span class="w"> </span>an<span class="w"> </span>introduction,<span class="w"> </span>detailed<span class="w"> </span>explanation,<span class="w"> </span>examples,<span class="w"> </span>and<span class="w"> </span>a<span class="w"> </span>conclusion.
-</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">   </span>-<span class="w"> </span>Use<span class="w"> </span>markdown<span class="w"> </span>formatting<span class="w"> </span><span class="k">for</span><span class="w"> </span>headings,<span class="w"> </span>subheadings,<span class="w"> </span>lists,<span class="w"> </span>and<span class="w"> </span>emphasis.
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="m">4</span>.<span class="w"> </span>**编写详细部分：**
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">   </span>-<span class="w"> </span>将每个项目符号扩展为一个综合部分。
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">   </span>-<span class="w"> </span>确保每个部分都包含引言、详细解释、示例和结论。
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">   </span>-<span class="w"> </span>使用<span class="w"> </span>Markdown<span class="w"> </span>格式设置标题、子标题、列表和强调。
 </span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>
-</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="m">5</span>.<span class="w"> </span>**Review<span class="w"> </span>and<span class="w"> </span>Edit:**
-</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">   </span>-<span class="w"> </span>Proofread<span class="w"> </span>the<span class="w"> </span>report<span class="w"> </span><span class="k">for</span><span class="w"> </span>clarity,<span class="w"> </span>coherence,<span class="w"> </span>and<span class="w"> </span>correctness.
-</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">   </span>-<span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>the<span class="w"> </span>report<span class="w"> </span>flows<span class="w"> </span>logically<span class="w"> </span>from<span class="w"> </span>one<span class="w"> </span>section<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>next.
-</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">   </span>-<span class="w"> </span>Format<span class="w"> </span>the<span class="w"> </span>report<span class="w"> </span>according<span class="w"> </span>to<span class="w"> </span>markdown<span class="w"> </span>standards.
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="m">5</span>.<span class="w"> </span>**审阅和编辑：**
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">   </span>-<span class="w"> </span>校对报告的清晰度、连贯性和正确性。
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">   </span>-<span class="w"> </span>确保报告从一个部分逻辑地流向下一个部分。
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">   </span>-<span class="w"> </span>根据<span class="w"> </span>Markdown<span class="w"> </span>标准格式化报告。
 </span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>
-</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="m">6</span>.<span class="w"> </span>**Finalize<span class="w"> </span>the<span class="w"> </span>Report:**
-</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">   </span>-<span class="w"> </span>Ensure<span class="w"> </span>the<span class="w"> </span>report<span class="w"> </span>is<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>with<span class="w"> </span>all<span class="w"> </span>sections<span class="w"> </span>expanded<span class="w"> </span>and<span class="w"> </span>detailed.
-</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">   </span>-<span class="w"> </span>Double-check<span class="w"> </span>formatting<span class="w"> </span>and<span class="w"> </span>make<span class="w"> </span>any<span class="w"> </span>necessary<span class="w"> </span>adjustments.
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="m">6</span>.<span class="w"> </span>**最终确定报告：**
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">   </span>-<span class="w"> </span>确保报告完整，所有部分都已扩展和详细说明。
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">   </span>-<span class="w"> </span>仔细检查格式并进行任何必要的调整。
 </span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>
-</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>**Expected<span class="w"> </span>Output:**
-</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>A<span class="w"> </span>fully-fledged<span class="w"> </span>report<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>main<span class="w"> </span>topics,<span class="w"> </span>each<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>full<span class="w"> </span>section<span class="w"> </span>of<span class="w"> </span>information.<span class="w"> </span>Formatted<span class="w"> </span>as<span class="w"> </span>markdown<span class="w"> </span>without<span class="w"> </span><span class="s1">&#39;```&#39;</span>.
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>**预期输出：**
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>一份完整的报告，其中包含主要主题，每个主题都有一个完整的信息部分。格式为不带“<span class="sb">```</span>”的<span class="w"> </span>Markdown。
 </span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>
 </span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>---
 </span></code></pre></div>

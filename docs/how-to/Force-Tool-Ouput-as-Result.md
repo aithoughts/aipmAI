@@ -1,31 +1,31 @@
 ---
-title: Forcing Tool Output as Result
-description: Learn how to force tool output as the result in of an Agent's task in crewAI.
+title: 强制工具输出作为结果
+description: 了解如何在 crewAI 中强制将工具输出作为代理任务的结果。
 ---
 
-## Introduction
-In CrewAI, you can force the output of a tool as the result of an agent's task. This feature is useful when you want to ensure that the tool output is captured and returned as the task result, and avoid the agent modifying the output during the task execution.
+## 简介
+在 CrewAI 中，您可以强制将工具输出作为代理任务的结果。当您希望确保捕获工具输出并将其作为任务结果返回，并避免代理在任务执行期间修改输出时，此功能非常有用。
 
-## Forcing Tool Output as Result
-To force the tool output as the result of an agent's task, you can set the `force_tool_output` parameter to `True` when creating the task. This parameter ensures that the tool output is captured and returned as the task result, without any modifications by the agent.
+## 强制工具输出作为结果
+要强制将工具输出作为代理任务的结果，您可以在创建任务时将 `result_as_answer` 参数设置为 `True`。此参数可确保捕获工具输出并将其作为任务结果返回，而无需代理进行任何修改。
 
-Here's an example of how to force the tool output as the result of an agent's task:
+以下是如何强制将工具输出作为代理任务的结果的示例：
 
 ```python
 # ...
-# Define a custom tool that returns the result as the answer
-coding_agent =Agent(
-        role="Data Scientist",
-        goal="Product amazing resports on AI",
-        backstory="You work with data and AI",
+# 定义一个自定义工具，将结果作为答案返回
+coding_agent = Agent(
+        role="数据科学家",
+        goal="生成关于 AI 的精彩报告",
+        backstory="您使用数据和 AI",
         tools=[MyCustomTool(result_as_answer=True)],
     )
 # ...
 ```
 
-### Workflow in Action
+### 工作流程实际应用
 
-1. **Task Execution**: The agent executes the task using the tool provided.
-2. **Tool Output**: The tool generates the output, which is captured as the task result.
-3. **Agent Interaction**: The agent my reflect and take learnings from the tool but the output is not modified.
-4. **Result Return**: The tool output is returned as the task result without any modifications.
+1. **任务执行**：代理使用提供的工具执行任务。
+2. **工具输出**：工具生成输出，该输出被捕获为任务结果。
+3. **代理交互**：代理可以从工具中反思和学习，但不会修改输出。
+4. **结果返回**：工具输出作为任务结果返回，没有任何修改。

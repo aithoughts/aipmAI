@@ -1,67 +1,67 @@
 ---
-title: Connect CrewAI to LLMs
-description: Comprehensive guide on integrating CrewAI with various Large Language Models (LLMs), including detailed class attributes, methods, and configuration options.
+title: 将 CrewAI 连接到 LLM
+description: 有关将 CrewAI 与各种大型语言模型 (LLM) 集成的综合指南，包括详细的类属性、方法和配置选项。
 ---
 
-## Connect CrewAI to LLMs
+## 将 CrewAI 连接到 LLM
 
-!!! note "Default LLM"
-    By default, CrewAI uses OpenAI's GPT-4 model (specifically, the model specified by the OPENAI_MODEL_NAME environment variable, defaulting to "gpt-4o") for language processing. You can configure your agents to use a different model or API as described in this guide.
+!!! note "默认 LLM"
+    默认情况下，CrewAI 使用 OpenAI 的 GPT-4 模型（具体来说，是由 OPENAI_MODEL_NAME 环境变量指定的模型，默认为“gpt-4o”）进行语言处理。您可以按照本指南中的说明配置您的代理以使用不同的模型或 API。
 
-CrewAI offers flexibility in connecting to various LLMs, including local models via [Ollama](https://ollama.ai) and different APIs like Azure. It's compatible with all [LangChain LLM](https://python.langchain.com/docs/integrations/llms/) components, enabling diverse integrations for tailored AI solutions.
+CrewAI 提供了连接到各种 LLM 的灵活性，包括通过 [Ollama](https://ollama.ai) 连接到本地模型以及连接到 Azure 等不同的 API。它与所有 [LangChain LLM](https://python.langchain.com/docs/integrations/llms/) 组件兼容，支持各种集成以实现定制的 AI 解决方案。
 
-## CrewAI Agent Overview
+## CrewAI 代理概述
 
-The `Agent` class is the cornerstone for implementing AI solutions in CrewAI. Here's a comprehensive overview of the Agent class attributes and methods:
+`Agent` 类是在 CrewAI 中实现 AI 解决方案的基石。以下是 Agent 类属性和方法的全面概述：
 
-- **Attributes**:
-    - `role`: Defines the agent's role within the solution.
-    - `goal`: Specifies the agent's objective.
-    - `backstory`: Provides a background story to the agent.
-    - `cache` *Optional*: Determines whether the agent should use a cache for tool usage. Default is `True`.
-    - `max_rpm` *Optional*: Maximum number of requests per minute the agent's execution should respect. Optional.
-    - `verbose` *Optional*: Enables detailed logging of the agent's execution. Default is `False`.
-    - `allow_delegation` *Optional*: Allows the agent to delegate tasks to other agents, default is `True`.
-    - `tools`: Specifies the tools available to the agent for task execution. Optional.
-    - `max_iter` *Optional*: Maximum number of iterations for an agent to execute a task, default is 25.
-    - `max_execution_time` *Optional*: Maximum execution time for an agent to execute a task. Optional.
-    - `step_callback` *Optional*: Provides a callback function to be executed after each step. Optional.
-    - `llm` *Optional*: Indicates the Large Language Model the agent uses. By default, it uses the GPT-4 model defined in the environment variable "OPENAI_MODEL_NAME".
-    - `function_calling_llm` *Optional* :  Will turn the ReAct CrewAI agent into a function-calling agent.
-    - `callbacks` *Optional*: A list of callback functions from the LangChain library that are triggered during the agent's execution process.
-    - `system_template` *Optional*: Optional string to define the system format for the agent.
-    - `prompt_template` *Optional*: Optional string to define the prompt format for the agent.
-    - `response_template` *Optional*: Optional string to define the response format for the agent.
+- **属性**：
+    - `role`：定义代理在解决方案中的角色。
+    - `goal`：指定代理的目标。
+    - `backstory`：提供代理的背景故事。
+    - `cache` *可选*：确定代理是否应使用缓存来存储工具使用情况。默认为 `True`。
+    - `max_rpm` *可选*：代理执行应遵循的每分钟最大请求数。可选。
+    - `verbose` *可选*：启用代理执行的详细日志记录。默认为 `False`。
+    - `allow_delegation` *可选*：允许代理将任务委派给其他代理，默认为 `True`。
+    - `tools`：指定代理可用于执行任务的工具。可选。
+    - `max_iter` *可选*：代理执行任务的最大迭代次数，默认为 25。
+    - `max_execution_time` *可选*：代理执行任务的最长时间。可选。
+    - `step_callback` *可选*：提供在每个步骤后执行的回调函数。可选。
+    - `llm` *可选*：指示代理使用的大型语言模型。默认情况下，它使用环境变量“OPENAI_MODEL_NAME”中定义的 GPT-4 模型。
+    - `function_calling_llm` *可选*：将把 ReAct CrewAI 代理变成函数调用代理。
+    - `callbacks` *可选*：LangChain 库中的一系列回调函数，在代理的执行过程中触发。
+    - `system_template` *可选*：用于定义代理系统格式的可选字符串。
+    - `prompt_template` *可选*：用于定义代理提示格式的可选字符串。
+    - `response_template` *可选*：用于定义代理响应格式的可选字符串。
 
 ```python
-# Required
+# 必填
 os.environ["OPENAI_MODEL_NAME"]="gpt-4-0125-preview"
 
-# Agent will automatically use the model defined in the environment variable
+# 代理将自动使用环境变量中定义的模型
 example_agent = Agent(
-  role='Local Expert',
-  goal='Provide insights about the city',
-  backstory="A knowledgeable local guide.",
+  role='当地专家',
+  goal='提供有关城市的见解',
+  backstory="知识渊博的当地导游。",
   verbose=True
 )
 ```
 
-## Ollama Integration
-Ollama is preferred for local LLM integration, offering customization and privacy benefits. To integrate Ollama with CrewAI, set the appropriate environment variables as shown below.
+## Ollama 集成
+Ollama 是本地 LLM 集成的首选，它提供了自定义和隐私优势。要将 Ollama 与 CrewAI 集成，请设置适当的环境变量，如下所示。
 
-### Setting Up Ollama
-- **Environment Variables Configuration**: To integrate Ollama, set the following environment variables:
+### 设置 Ollama
+- **环境变量配置**：要集成 Ollama，请设置以下环境变量：
 ```sh
 OPENAI_API_BASE='http://localhost:11434'
-OPENAI_MODEL_NAME='llama2'  # Adjust based on available model
+OPENAI_MODEL_NAME='llama2'  # 根据可用模型进行调整
 OPENAI_API_KEY=''
 ```
 
-## Ollama Integration (ex. for using Llama 2 locally)
-1. [Download Ollama](https://ollama.com/download).   
-2. After setting up the Ollama, Pull the Llama2 by typing following lines into the terminal ```ollama pull llama2```.   
-3. Enjoy your free Llama2 model that powered up by excellent agents from crewai.   
-```
+## Ollama 集成（例如，在本地使用 Llama 2）
+1. [下载 Ollama](https://ollama.com/download)。
+2. 设置好 Ollama 后，在终端中输入以下行来拉取 Llama2 ```ollama pull llama2```。
+3. 享受由 crewai 的优秀代理提供支持的免费 Llama2 模型。
+```python
 from crewai import Agent, Task, Crew
 from langchain.llms import Ollama
 import os
@@ -71,16 +71,16 @@ llm = Ollama(
     model = "llama2",
     base_url = "http://localhost:11434")
 
-general_agent = Agent(role = "Math Professor",
-                      goal = """Provide the solution to the students that are asking mathematical questions and give them the answer.""",
-                      backstory = """You are an excellent math professor that likes to solve math questions in a way that everyone can understand your solution""",
+general_agent = Agent(role = "数学教授",
+                      goal = """为提出数学问题的学生提供解决方案并给出答案。""",
+                      backstory = """您是一位优秀的数学教授，喜欢以每个人都能理解您的解决方案的方式解决数学问题""",
                       allow_delegation = False,
                       verbose = True,
                       llm = llm)
 
-task = Task(description="""what is 3 + 5""",
+task = Task(description="""3 + 5 等于多少""",
              agent = general_agent,
-             expected_output="A numerical answer.")
+             expected_output="一个数字答案。")
 
 crew = Crew(
             agents=[general_agent],
@@ -93,43 +93,43 @@ result = crew.kickoff()
 print(result)
 ```
 
-## HuggingFace Integration
-There are a couple of different ways you can use HuggingFace to host your LLM.
+## HuggingFace 集成
+您可以通过几种不同的方式使用 HuggingFace 来托管您的 LLM。
 
-### Your own HuggingFace endpoint
+### 您自己的 HuggingFace 端点
 ```python
 from langchain_community.llms import HuggingFaceEndpoint
 
 llm = HuggingFaceEndpoint(
-    endpoint_url="<YOUR_ENDPOINT_URL_HERE>",
-    huggingfacehub_api_token="<HF_TOKEN_HERE>",
+    endpoint_url="<您的端点 URL>",
+    huggingfacehub_api_token="<HF 令牌>",
     task="text-generation",
     max_new_tokens=512
 )
 
 agent = Agent(
-    role="HuggingFace Agent",
-    goal="Generate text using HuggingFace",
-    backstory="A diligent explorer of GitHub docs.",
+    role="HuggingFace 代理",
+    goal="使用 HuggingFace 生成文本",
+    backstory="GitHub 文档的勤奋探索者。",
     llm=llm
 )
 ```
 
-### From HuggingFaceHub endpoint
+### 来自 HuggingFaceHub 端点
 ```python
 from langchain_community.llms import HuggingFaceHub
 
 llm = HuggingFaceHub(
     repo_id="HuggingFaceH4/zephyr-7b-beta",
-    huggingfacehub_api_token="<HF_TOKEN_HERE>",
+    huggingfacehub_api_token="<HF 令牌>",
     task="text-generation",
 )
 ```
 
-## OpenAI Compatible API Endpoints
-Switch between APIs and models seamlessly using environment variables, supporting platforms like FastChat, LM Studio, Groq, and Mistral AI.
+## 与 OpenAI 兼容的 API 端点
+使用环境变量在 API 和模型之间无缝切换，支持 FastChat、LM Studio、Groq 和 Mistral AI 等平台。
 
-### Configuration Examples
+### 配置示例
 #### FastChat
 ```sh
 OPENAI_API_BASE="http://localhost:8001/v1"
@@ -138,7 +138,7 @@ OPENAI_API_KEY=NA
 ```
 
 #### LM Studio
-Launch [LM Studio](https://lmstudio.ai) and go to the Server tab. Then select a model from the dropdown menu and wait for it to load. Once it's loaded, click the green Start Server button and use the URL, port, and API key that's shown (you can modify them). Below is an example of the default settings as of LM Studio 0.2.19:
+启动 [LM Studio](https://lmstudio.ai) 并转到“服务器”选项卡。然后从下拉菜单中选择一个模型并等待它加载。加载完成后，单击绿色的“启动服务器”按钮，然后使用显示的 URL、端口和 API 密钥（您可以修改它们）。以下是截至 LM Studio 0.2.19 的默认设置示例：
 ```sh
 OPENAI_API_BASE="http://localhost:1234/v1"
 OPENAI_API_KEY="lm-studio"
@@ -161,12 +161,12 @@ OPENAI_MODEL_NAME="mistral-small"
 ### Solar
 ```python
 from langchain_community.chat_models.solar import SolarChat
-# Initialize language model
+# 初始化语言模型
 os.environ["SOLAR_API_KEY"] = "your-solar-api-key"
 llm = SolarChat(max_tokens=1024)
 
-# Free developer API key available here: https://console.upstage.ai/services/solar
-# Langchain Example: https://github.com/langchain-ai/langchain/pull/18556
+# 免费开发者 API 密钥可在此处获取：https://console.upstage.ai/services/solar
+# Langchain 示例：https://github.com/langchain-ai/langchain/pull/18556
 ```
 
 ### text-gen-web-ui
@@ -179,16 +179,16 @@ OPENAI_API_KEY=NA
 ### Cohere
 ```python
 from langchain_cohere import ChatCohere
-# Initialize language model
+# 初始化语言模型
 os.environ["COHERE_API_KEY"] = "your-cohere-api-key"
 llm = ChatCohere()
 
-# Free developer API key available here: https://cohere.com/
-# Langchain Documentation: https://python.langchain.com/docs/integrations/chat/cohere
+# 免费开发者 API 密钥可在此处获取：https://cohere.com/
+# Langchain 文档：https://python.langchain.com/docs/integrations/chat/cohere
 ```
 
-### Azure Open AI Configuration
-For Azure OpenAI API integration, set the following environment variables:
+### Azure Open AI 配置
+对于 Azure OpenAI API 集成，请设置以下环境变量：
 ```sh
 AZURE_OPENAI_VERSION="2022-12-01"
 AZURE_OPENAI_DEPLOYMENT=""
@@ -196,7 +196,7 @@ AZURE_OPENAI_ENDPOINT=""
 AZURE_OPENAI_KEY=""
 ```
 
-### Example Agent with Azure LLM
+### 使用 Azure LLM 的示例代理
 ```python
 from dotenv import load_dotenv
 from crewai import Agent
@@ -210,12 +210,12 @@ azure_llm = AzureChatOpenAI(
 )
 
 azure_agent = Agent(
-  role='Example Agent',
-  goal='Demonstrate custom LLM configuration',
-  backstory='A diligent explorer of GitHub docs.',
+  role='示例代理',
+  goal='演示自定义 LLM 配置',
+  backstory='GitHub 文档的勤奋探索者。',
   llm=azure_llm
 )
 ```
 
-## Conclusion
-Integrating CrewAI with different LLMs expands the framework's versatility, allowing for customized, efficient AI solutions across various domains and platforms.
+## 结论
+将 CrewAI 与不同的 LLM 集成扩展了该框架的多功能性，允许跨各种域和平台实现定制的、高效的 AI 解决方案。

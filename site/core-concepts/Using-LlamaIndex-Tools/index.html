@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Learn how to integrate LlamaIndex tools with CrewAI agents to enhance search-based queries and more.">
+        <meta name="description" content="了解如何将 LlamaIndex 工具与 CrewAI 代理集成，以增强基于搜索的查询等功能。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Using LlamaIndex Tools - aipmAI 文档</title>
+        <title>使用 LlamaIndex 工具 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-llamaindex-tools" class="md-skip">
+        <a href="#llamaindex" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using LlamaIndex Tools
+              使用 LlamaIndex 工具
             
           </span>
         </div>
@@ -654,18 +654,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-llamaindex-tools" class="md-nav__link">
+  <a href="#llamaindex" class="md-nav__link">
     <span class="md-ellipsis">
-      Using LlamaIndex Tools
+      使用 LlamaIndex 工具
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps-to-get-started" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Steps to Get Started
+      入门步骤
     </span>
   </a>
   
@@ -1067,7 +1067,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1778,7 +1778,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1788,7 +1788,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1953,26 +1953,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2019,55 +1999,55 @@
 
   <h1>使用 LlamaIndex 工具</h1>
 
-<h2 id="using-llamaindex-tools">Using LlamaIndex Tools<a class="headerlink" href="#using-llamaindex-tools" title="Permanent link">&para;</a></h2>
+<h2 id="llamaindex">使用 LlamaIndex 工具<a class="headerlink" href="#llamaindex" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
-<p class="admonition-title">LlamaIndex Integration</p>
-<p>CrewAI seamlessly integrates with LlamaIndex’s comprehensive toolkit for RAG (Retrieval-Augmented Generation) and agentic pipelines, enabling advanced search-based queries and more. Here are the available built-in tools offered by LlamaIndex.</p>
+<p class="admonition-title">LlamaIndex 集成</p>
+<p>CrewAI 与 LlamaIndex 用于 RAG（检索增强生成）和代理管道的综合工具包无缝集成，支持高级基于搜索的查询等功能。以下是 LlamaIndex 提供的可用内置工具。</p>
 </div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Agent</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">crewai_tools</span> <span class="kn">import</span> <span class="n">LlamaIndexTool</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example 1: Initialize from FunctionTool</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 示例 1：从 FunctionTool 初始化</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">llama_index.core.tools</span> <span class="kn">import</span> <span class="n">FunctionTool</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">your_python_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">...</span><span class="p">:</span> <span class="o">...</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">og_tool</span> <span class="o">=</span> <span class="n">FunctionTool</span><span class="o">.</span><span class="n">from_defaults</span><span class="p">(</span><span class="n">your_python_function</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&lt;name&gt;&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&lt;description&gt;&#39;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">og_tool</span> <span class="o">=</span> <span class="n">FunctionTool</span><span class="o">.</span><span class="n">from_defaults</span><span class="p">(</span><span class="n">your_python_function</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&lt;名称&gt;&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&lt;描述&gt;&#39;</span><span class="p">)</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">tool</span> <span class="o">=</span> <span class="n">LlamaIndexTool</span><span class="o">.</span><span class="n">from_tool</span><span class="p">(</span><span class="n">og_tool</span><span class="p">)</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Example 2: Initialize from LlamaHub Tools</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 示例 2：从 LlamaHub 工具初始化</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kn">from</span> <span class="nn">llama_index.tools.wolfram_alpha</span> <span class="kn">import</span> <span class="n">WolframAlphaToolSpec</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">wolfram_spec</span> <span class="o">=</span> <span class="n">WolframAlphaToolSpec</span><span class="p">(</span><span class="n">app_id</span><span class="o">=</span><span class="s2">&quot;&lt;app_id&gt;&quot;</span><span class="p">)</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">wolfram_tools</span> <span class="o">=</span> <span class="n">wolfram_spec</span><span class="o">.</span><span class="n">to_tool_list</span><span class="p">()</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">LlamaIndexTool</span><span class="o">.</span><span class="n">from_tool</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">wolfram_tools</span><span class="p">]</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Example 3: Initialize Tool from a LlamaIndex Query Engine</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># 示例 3：从 LlamaIndex 查询引擎初始化工具</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">query_engine</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">as_query_engine</span><span class="p">()</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">query_tool</span> <span class="o">=</span> <span class="n">LlamaIndexTool</span><span class="o">.</span><span class="n">from_query_engine</span><span class="p">(</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">query_engine</span><span class="p">,</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Uber 2019 10K Query Tool&quot;</span><span class="p">,</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Use this tool to lookup the 2019 Uber 10K Annual Report&quot;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Uber 2019 年 10K 查询工具&quot;</span><span class="p">,</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;使用此工具查找 2019 年 Uber 10K 年度报告&quot;</span>
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">)</span>
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># Create and assign the tools to an agent</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># 创建工具并将其分配给代理</span>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  <span class="n">role</span><span class="o">=</span><span class="s1">&#39;Research Analyst&#39;</span><span class="p">,</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>  <span class="n">goal</span><span class="o">=</span><span class="s1">&#39;Provide up-to-date market analysis&#39;</span><span class="p">,</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  <span class="n">backstory</span><span class="o">=</span><span class="s1">&#39;An expert analyst with a keen eye for market trends.&#39;</span><span class="p">,</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  <span class="n">role</span><span class="o">=</span><span class="s1">&#39;研究分析师&#39;</span><span class="p">,</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>  <span class="n">goal</span><span class="o">=</span><span class="s1">&#39;提供最新的市场分析&#39;</span><span class="p">,</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  <span class="n">backstory</span><span class="o">=</span><span class="s1">&#39;一位对市场趋势有敏锐眼光的专家分析师。&#39;</span><span class="p">,</span>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">tool</span><span class="p">,</span> <span class="o">*</span><span class="n">tools</span><span class="p">,</span> <span class="n">query_tool</span><span class="p">]</span>
 </span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="p">)</span>
 </span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1"># rest of the code ...</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1"># 代码的其余部分...</span>
 </span></code></pre></div>
-<h2 id="steps-to-get-started">Steps to Get Started<a class="headerlink" href="#steps-to-get-started" title="Permanent link">&para;</a></h2>
-<p>To effectively use the LlamaIndexTool, follow these steps:</p>
+<h2 id="_1">入门步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>要有效使用 LlamaIndexTool，请按照以下步骤操作：</p>
 <ol>
 <li>
-<p><strong>Package Installation</strong>: Confirm that the <code>crewai[tools]</code> package is installed in your Python environment.</p>
+<p><strong>软件包安装</strong>: 确认您的 Python 环境中已安装 <code>crewai[tools]</code> 软件包。</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;crewai[tools]&#39;</span>
 </span></code></pre></div>
 </li>
 <li>
-<p><strong>Install and Use LlamaIndex</strong>: Follow LlamaIndex documentation <a href="https://docs.llamaindex.ai/">LlamaIndex Documentation</a> to set up a RAG/agent pipeline.</p>
+<p><strong>安装和使用 LlamaIndex</strong>: 按照 LlamaIndex 文档 <a href="https://docs.llamaindex.ai/">LlamaIndex 文档</a> 设置 RAG/代理管道。</p>
 </li>
 </ol>
 

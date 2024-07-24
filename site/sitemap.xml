@@ -2,277 +2,277 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://aithoughts.github.io/aipmAI/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Agents/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Collaboration/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Crews/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Memory/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Planning/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Processes/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Tasks/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Tools/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Training-Crew/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Using-LangChain-Tools/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/core-concepts/Using-LlamaIndex-Tools/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/AgentOps-Observability/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Coding-Agents/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Conditional-Tasks/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Create-Custom-Tools/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Creating-a-Crew-and-kick-it-off/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Customize-Prompts/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Customizing-Agents/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Force-Tool-Ouput-as-Result/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Hierarchical/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Human-Input-on-Execution/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Installing-CrewAI/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Kickoff-async/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Kickoff-for-each/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/LLM-Connections/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Langtrace-Observability/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Replay-tasks-from-latest-Crew-Kickoff/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Sequential/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Start-a-New-CrewAI-Project/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/how-to/Your-Own-Manager-Agent/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/telemetry/Telemetry/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/BrowserbaseLoadTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/CSVSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/CodeDocsSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/CodeInterpreterTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/ComposioTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/DOCXSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/DirectoryReadTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/DirectorySearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/EXASearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/FileReadTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/GitHubSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/JSONSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/MDXSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/PDFSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/PGSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/ScrapeWebsiteTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/SeleniumScrapingTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/SerperDevTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/TXTSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/WebsiteSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/XMLSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/YoutubeChannelSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://aithoughts.github.io/aipmAI/tools/YoutubeVideoSearchTool/</loc>
-         <lastmod>2024-07-23</lastmod>
+         <lastmod>2024-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

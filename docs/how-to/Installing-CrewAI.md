@@ -1,21 +1,21 @@
 ---
-title: Installing crewAI
-description: A comprehensive guide to installing crewAI and its dependencies, including the latest updates and installation methods.
+title: 安装 crewAI
+description: 安装 crewAI 及其依赖项的综合指南，包括最新的更新和安装方法。
 ---
 
-# Installing crewAI
+# 安装 crewAI
 
-Welcome to crewAI! This guide will walk you through the installation process for crewAI and its dependencies. crewAI is a flexible and powerful AI framework that enables you to create and manage AI agents, tools, and tasks efficiently. Let's get started!
+欢迎使用 crewAI！本指南将指导您完成 crewAI 及其依赖项的安装过程。crewAI 是一个灵活且强大的 AI 框架，使您能够高效地创建和管理 AI 代理、工具和任务。让我们开始吧！
 
-## Installation
+## 安装
 
-To install crewAI, you need to have Python >=3.10 and <=3.13 installed on your system:
+要安装 crewAI，您需要在系统上安装 Python >=3.10 且 <=3.13：
 
 ```shell
-# Install the main crewAI package
+# 安装主要的 crewAI 包
 pip install crewai
 
-# Install the main crewAI package and the tools package
-# that includes a series of helpful tools for your agents
+# 安装主要的 crewAI 包和工具包
+# 其中包括一系列对您的代理有用的工具
 pip install 'crewai[tools]'
 ```

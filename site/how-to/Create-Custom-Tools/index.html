@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Comprehensive guide on crafting, using, and managing custom tools within the crewAI framework, including new functionalities and error handling.">
+        <meta name="description" content="关于在 crewAI 框架内创建、使用和管理自定义工具的综合指南，包括新功能和错误处理。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Creating and Utilizing Tools in crewAI - aipmAI 文档</title>
+        <title>在 crewAI 中创建和使用工具 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-and-utilizing-tools-in-crewai" class="md-skip">
+        <a href="#crewai" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating and Utilizing Tools in crewAI
+              在 crewAI 中创建和使用工具
             
           </span>
         </div>
@@ -820,46 +820,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-and-utilizing-tools-in-crewai" class="md-nav__link">
+  <a href="#crewai" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating and Utilizing Tools in crewAI
+      在 crewAI 中创建和使用工具
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating and Utilizing Tools in crewAI">
+    <nav class="md-nav" aria-label="在 crewAI 中创建和使用工具">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      先决条件
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#subclassing-basetool" class="md-nav__link">
+  <a href="#basetool" class="md-nav__link">
     <span class="md-ellipsis">
-      Subclassing BaseTool
+      子类化 BaseTool
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-the-tool-decorator" class="md-nav__link">
+  <a href="#tool" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the tool Decorator
+      使用 tool 装饰器
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#defining-a-cache-function-for-the-tool" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Defining a Cache Function for the Tool
+      为工具定义缓存函数
     </span>
   </a>
   
@@ -1100,7 +1100,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1811,7 +1811,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1821,7 +1821,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1986,26 +1986,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2052,48 +2032,48 @@
 
   <h1>创建自定义工具</h1>
 
-<h2 id="creating-and-utilizing-tools-in-crewai">Creating and Utilizing Tools in crewAI<a class="headerlink" href="#creating-and-utilizing-tools-in-crewai" title="Permanent link">&para;</a></h2>
-<p>This guide provides detailed instructions on creating custom tools for the crewAI framework and how to efficiently manage and utilize these tools, incorporating the latest functionalities such as tool delegation, error handling, and dynamic tool calling. It also highlights the importance of collaboration tools, enabling agents to perform a wide range of actions.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<p>Before creating your own tools, ensure you have the crewAI extra tools package installed:</p>
+<h2 id="crewai">在 crewAI 中创建和使用工具<a class="headerlink" href="#crewai" title="Permanent link">&para;</a></h2>
+<p>本指南提供了有关为 crewAI 框架创建自定义工具以及如何有效管理和利用这些工具的详细说明，其中包含了工具委托、错误处理和动态工具调用等最新功能。它还强调了协作工具的重要性，使代理能够执行各种操作。</p>
+<h3 id="_1">先决条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>在创建您自己的工具之前，请确保您已安装 crewAI 额外工具包：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;crewai[tools]&#39;</span>
 </span></code></pre></div>
-<h3 id="subclassing-basetool">Subclassing <code>BaseTool</code><a class="headerlink" href="#subclassing-basetool" title="Permanent link">&para;</a></h3>
-<p>To create a personalized tool, inherit from <code>BaseTool</code> and define the necessary attributes and the <code>_run</code> method.</p>
+<h3 id="basetool">子类化 <code>BaseTool</code><a class="headerlink" href="#basetool" title="Permanent link">&para;</a></h3>
+<p>要创建个性化工具，请继承 <code>BaseTool</code> 并定义必要的属性和 <code>_run</code> 方法。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">crewai_tools</span> <span class="kn">import</span> <span class="n">BaseTool</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span> <span class="nc">MyCustomTool</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Name of my tool&quot;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;What this tool does. It&#39;s vital for effective utilization.&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;我的工具的名称&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;此工具的作用。这对于有效利用至关重要。&quot;</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argument</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="c1"># Your tool&#39;s logic here</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">return</span> <span class="s2">&quot;Tool&#39;s result&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="c1"># 您的工具逻辑</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">return</span> <span class="s2">&quot;工具的结果&quot;</span>
 </span></code></pre></div>
-<h3 id="using-the-tool-decorator">Using the <code>tool</code> Decorator<a class="headerlink" href="#using-the-tool-decorator" title="Permanent link">&para;</a></h3>
-<p>Alternatively, use the <code>tool</code> decorator for a direct approach to create tools. This requires specifying attributes and the tool's logic within a function.</p>
+<h3 id="tool">使用 <code>tool</code> 装饰器<a class="headerlink" href="#tool" title="Permanent link">&para;</a></h3>
+<p>或者，使用 <code>tool</code> 装饰器直接创建工具。这需要在函数中指定属性和工具的逻辑。</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">crewai_tools</span> <span class="kn">import</span> <span class="n">tool</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@tool</span><span class="p">(</span><span class="s2">&quot;Tool Name&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@tool</span><span class="p">(</span><span class="s2">&quot;工具名称&quot;</span><span class="p">)</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">def</span> <span class="nf">my_simple_tool</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Tool description for clarity.&quot;&quot;&quot;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="c1"># Tool logic here</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">return</span> <span class="s2">&quot;Tool output&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;工具描述，以提高清晰度。&quot;&quot;&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="c1"># 工具逻辑</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">return</span> <span class="s2">&quot;工具输出&quot;</span>
 </span></code></pre></div>
-<h3 id="defining-a-cache-function-for-the-tool">Defining a Cache Function for the Tool<a class="headerlink" href="#defining-a-cache-function-for-the-tool" title="Permanent link">&para;</a></h3>
-<p>To optimize tool performance with caching, define custom caching strategies using the <code>cache_function</code> attribute.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@tool</span><span class="p">(</span><span class="s2">&quot;Tool with Caching&quot;</span><span class="p">)</span>
+<h3 id="_2">为工具定义缓存函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>要使用缓存优化工具性能，请使用 <code>cache_function</code> 属性定义自定义缓存策略。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@tool</span><span class="p">(</span><span class="s2">&quot;带缓存的工具&quot;</span><span class="p">)</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span> <span class="nf">cached_tool</span><span class="p">(</span><span class="n">argument</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Tool functionality description.&quot;&quot;&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">return</span> <span class="s2">&quot;Cacheable result&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;工具功能描述。&quot;&quot;&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">return</span> <span class="s2">&quot;可缓存的结果&quot;</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">def</span> <span class="nf">my_cache_strategy</span><span class="p">(</span><span class="n">arguments</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># Define custom caching logic</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># 定义自定义缓存逻辑</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">some_condition</span> <span class="k">else</span> <span class="kc">False</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">cached_tool</span><span class="o">.</span><span class="n">cache_function</span> <span class="o">=</span> <span class="n">my_cache_strategy</span>
 </span></code></pre></div>
-<p>By adhering to these guidelines and incorporating new functionalities and collaboration tools into your tool creation and management processes, you can leverage the full capabilities of the crewAI framework, enhancing both the development experience and the efficiency of your AI agents.</p>
+<p>通过遵循这些准则并将新功能和协作工具纳入您的工具创建和管理流程中，您可以充分利用 crewAI 框架的功能，从而增强开发体验和 AI 代理的效率。</p>
 
 
 

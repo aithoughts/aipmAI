@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Comprehensive guide on integrating CrewAI with various Large Language Models (LLMs), including detailed class attributes, methods, and configuration options.">
+        <meta name="description" content="有关将 CrewAI 与各种大型语言模型 (LLM) 集成的综合指南，包括详细的类属性、方法和配置选项。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Connect CrewAI to LLMs - aipmAI 文档</title>
+        <title>将 CrewAI 连接到 LLM - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#connect-crewai-to-llms" class="md-skip">
+        <a href="#crewai-llm" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Connect CrewAI to LLMs
+              将 CrewAI 连接到 LLM
             
           </span>
         </div>
@@ -904,37 +904,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connect-crewai-to-llms" class="md-nav__link">
+  <a href="#crewai-llm" class="md-nav__link">
     <span class="md-ellipsis">
-      Connect CrewAI to LLMs
+      将 CrewAI 连接到 LLM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crewai-agent-overview" class="md-nav__link">
+  <a href="#crewai" class="md-nav__link">
     <span class="md-ellipsis">
-      CrewAI Agent Overview
+      CrewAI 代理概述
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ollama-integration" class="md-nav__link">
+  <a href="#ollama" class="md-nav__link">
     <span class="md-ellipsis">
-      Ollama Integration
+      Ollama 集成
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ollama Integration">
+    <nav class="md-nav" aria-label="Ollama 集成">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-ollama" class="md-nav__link">
+  <a href="#ollama_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up Ollama
+      设置 Ollama
     </span>
   </a>
   
@@ -946,37 +946,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ollama-integration-ex-for-using-llama-2-locally" class="md-nav__link">
+  <a href="#ollama-llama-2" class="md-nav__link">
     <span class="md-ellipsis">
-      Ollama Integration (ex. for using Llama 2 locally)
+      Ollama 集成（例如，在本地使用 Llama 2）
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#huggingface-integration" class="md-nav__link">
+  <a href="#huggingface" class="md-nav__link">
     <span class="md-ellipsis">
-      HuggingFace Integration
+      HuggingFace 集成
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HuggingFace Integration">
+    <nav class="md-nav" aria-label="HuggingFace 集成">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#your-own-huggingface-endpoint" class="md-nav__link">
+  <a href="#huggingface_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Your own HuggingFace endpoint
+      您自己的 HuggingFace 端点
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#from-huggingfacehub-endpoint" class="md-nav__link">
+  <a href="#huggingfacehub" class="md-nav__link">
     <span class="md-ellipsis">
-      From HuggingFaceHub endpoint
+      来自 HuggingFaceHub 端点
     </span>
   </a>
   
@@ -988,23 +988,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openai-compatible-api-endpoints" class="md-nav__link">
+  <a href="#openai-api" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenAI Compatible API Endpoints
+      与 OpenAI 兼容的 API 端点
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OpenAI Compatible API Endpoints">
+    <nav class="md-nav" aria-label="与 OpenAI 兼容的 API 端点">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration-examples" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Examples
+      配置示例
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration Examples">
+    <nav class="md-nav" aria-label="配置示例">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1076,18 +1076,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#azure-open-ai-configuration" class="md-nav__link">
+  <a href="#azure-open-ai" class="md-nav__link">
     <span class="md-ellipsis">
-      Azure Open AI Configuration
+      Azure Open AI 配置
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-agent-with-azure-llm" class="md-nav__link">
+  <a href="#azure-llm" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Agent with Azure LLM
+      使用 Azure LLM 的示例代理
     </span>
   </a>
   
@@ -1099,9 +1099,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      结论
     </span>
   </a>
   
@@ -1253,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1964,7 +1964,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1974,7 +1974,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2139,26 +2139,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2205,131 +2185,131 @@
 
   <h1>连接到任意大型语言模型</h1>
 
-<h2 id="connect-crewai-to-llms">Connect CrewAI to LLMs<a class="headerlink" href="#connect-crewai-to-llms" title="Permanent link">&para;</a></h2>
+<h2 id="crewai-llm">将 CrewAI 连接到 LLM<a class="headerlink" href="#crewai-llm" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Default LLM</p>
-<p>By default, CrewAI uses OpenAI's GPT-4 model (specifically, the model specified by the OPENAI_MODEL_NAME environment variable, defaulting to "gpt-4o") for language processing. You can configure your agents to use a different model or API as described in this guide.</p>
+<p class="admonition-title">默认 LLM</p>
+<p>默认情况下，CrewAI 使用 OpenAI 的 GPT-4 模型（具体来说，是由 OPENAI_MODEL_NAME 环境变量指定的模型，默认为“gpt-4o”）进行语言处理。您可以按照本指南中的说明配置您的代理以使用不同的模型或 API。</p>
 </div>
-<p>CrewAI offers flexibility in connecting to various LLMs, including local models via <a href="https://ollama.ai">Ollama</a> and different APIs like Azure. It's compatible with all <a href="https://python.langchain.com/docs/integrations/llms/">LangChain LLM</a> components, enabling diverse integrations for tailored AI solutions.</p>
-<h2 id="crewai-agent-overview">CrewAI Agent Overview<a class="headerlink" href="#crewai-agent-overview" title="Permanent link">&para;</a></h2>
-<p>The <code>Agent</code> class is the cornerstone for implementing AI solutions in CrewAI. Here's a comprehensive overview of the Agent class attributes and methods:</p>
+<p>CrewAI 提供了连接到各种 LLM 的灵活性，包括通过 <a href="https://ollama.ai">Ollama</a> 连接到本地模型以及连接到 Azure 等不同的 API。它与所有 <a href="https://python.langchain.com/docs/integrations/llms/">LangChain LLM</a> 组件兼容，支持各种集成以实现定制的 AI 解决方案。</p>
+<h2 id="crewai">CrewAI 代理概述<a class="headerlink" href="#crewai" title="Permanent link">&para;</a></h2>
+<p><code>Agent</code> 类是在 CrewAI 中实现 AI 解决方案的基石。以下是 Agent 类属性和方法的全面概述：</p>
 <ul>
-<li><strong>Attributes</strong>:<ul>
-<li><code>role</code>: Defines the agent's role within the solution.</li>
-<li><code>goal</code>: Specifies the agent's objective.</li>
-<li><code>backstory</code>: Provides a background story to the agent.</li>
-<li><code>cache</code> <em>Optional</em>: Determines whether the agent should use a cache for tool usage. Default is <code>True</code>.</li>
-<li><code>max_rpm</code> <em>Optional</em>: Maximum number of requests per minute the agent's execution should respect. Optional.</li>
-<li><code>verbose</code> <em>Optional</em>: Enables detailed logging of the agent's execution. Default is <code>False</code>.</li>
-<li><code>allow_delegation</code> <em>Optional</em>: Allows the agent to delegate tasks to other agents, default is <code>True</code>.</li>
-<li><code>tools</code>: Specifies the tools available to the agent for task execution. Optional.</li>
-<li><code>max_iter</code> <em>Optional</em>: Maximum number of iterations for an agent to execute a task, default is 25.</li>
-<li><code>max_execution_time</code> <em>Optional</em>: Maximum execution time for an agent to execute a task. Optional.</li>
-<li><code>step_callback</code> <em>Optional</em>: Provides a callback function to be executed after each step. Optional.</li>
-<li><code>llm</code> <em>Optional</em>: Indicates the Large Language Model the agent uses. By default, it uses the GPT-4 model defined in the environment variable "OPENAI_MODEL_NAME".</li>
-<li><code>function_calling_llm</code> <em>Optional</em> :  Will turn the ReAct CrewAI agent into a function-calling agent.</li>
-<li><code>callbacks</code> <em>Optional</em>: A list of callback functions from the LangChain library that are triggered during the agent's execution process.</li>
-<li><code>system_template</code> <em>Optional</em>: Optional string to define the system format for the agent.</li>
-<li><code>prompt_template</code> <em>Optional</em>: Optional string to define the prompt format for the agent.</li>
-<li><code>response_template</code> <em>Optional</em>: Optional string to define the response format for the agent.</li>
+<li><strong>属性</strong>：<ul>
+<li><code>role</code>：定义代理在解决方案中的角色。</li>
+<li><code>goal</code>：指定代理的目标。</li>
+<li><code>backstory</code>：提供代理的背景故事。</li>
+<li><code>cache</code> <em>可选</em>：确定代理是否应使用缓存来存储工具使用情况。默认为 <code>True</code>。</li>
+<li><code>max_rpm</code> <em>可选</em>：代理执行应遵循的每分钟最大请求数。可选。</li>
+<li><code>verbose</code> <em>可选</em>：启用代理执行的详细日志记录。默认为 <code>False</code>。</li>
+<li><code>allow_delegation</code> <em>可选</em>：允许代理将任务委派给其他代理，默认为 <code>True</code>。</li>
+<li><code>tools</code>：指定代理可用于执行任务的工具。可选。</li>
+<li><code>max_iter</code> <em>可选</em>：代理执行任务的最大迭代次数，默认为 25。</li>
+<li><code>max_execution_time</code> <em>可选</em>：代理执行任务的最长时间。可选。</li>
+<li><code>step_callback</code> <em>可选</em>：提供在每个步骤后执行的回调函数。可选。</li>
+<li><code>llm</code> <em>可选</em>：指示代理使用的大型语言模型。默认情况下，它使用环境变量“OPENAI_MODEL_NAME”中定义的 GPT-4 模型。</li>
+<li><code>function_calling_llm</code> <em>可选</em>：将把 ReAct CrewAI 代理变成函数调用代理。</li>
+<li><code>callbacks</code> <em>可选</em>：LangChain 库中的一系列回调函数，在代理的执行过程中触发。</li>
+<li><code>system_template</code> <em>可选</em>：用于定义代理系统格式的可选字符串。</li>
+<li><code>prompt_template</code> <em>可选</em>：用于定义代理提示格式的可选字符串。</li>
+<li><code>response_template</code> <em>可选</em>：用于定义代理响应格式的可选字符串。</li>
 </ul>
 </li>
 </ul>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Required</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 必填</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_MODEL_NAME&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;gpt-4-0125-preview&quot;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Agent will automatically use the model defined in the environment variable</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 代理将自动使用环境变量中定义的模型</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">example_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="n">role</span><span class="o">=</span><span class="s1">&#39;Local Expert&#39;</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="n">goal</span><span class="o">=</span><span class="s1">&#39;Provide insights about the city&#39;</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;A knowledgeable local guide.&quot;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="n">role</span><span class="o">=</span><span class="s1">&#39;当地专家&#39;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="n">goal</span><span class="o">=</span><span class="s1">&#39;提供有关城市的见解&#39;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;知识渊博的当地导游。&quot;</span><span class="p">,</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="ollama-integration">Ollama Integration<a class="headerlink" href="#ollama-integration" title="Permanent link">&para;</a></h2>
-<p>Ollama is preferred for local LLM integration, offering customization and privacy benefits. To integrate Ollama with CrewAI, set the appropriate environment variables as shown below.</p>
-<h3 id="setting-up-ollama">Setting Up Ollama<a class="headerlink" href="#setting-up-ollama" title="Permanent link">&para;</a></h3>
+<h2 id="ollama">Ollama 集成<a class="headerlink" href="#ollama" title="Permanent link">&para;</a></h2>
+<p>Ollama 是本地 LLM 集成的首选，它提供了自定义和隐私优势。要将 Ollama 与 CrewAI 集成，请设置适当的环境变量，如下所示。</p>
+<h3 id="ollama_1">设置 Ollama<a class="headerlink" href="#ollama_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Environment Variables Configuration</strong>: To integrate Ollama, set the following environment variables:
+<li><strong>环境变量配置</strong>：要集成 Ollama，请设置以下环境变量：
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">OPENAI_API_BASE</span><span class="o">=</span><span class="s1">&#39;http://localhost:11434&#39;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">OPENAI_MODEL_NAME</span><span class="o">=</span><span class="s1">&#39;llama2&#39;</span><span class="w">  </span><span class="c1"># Adjust based on available model</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">OPENAI_MODEL_NAME</span><span class="o">=</span><span class="s1">&#39;llama2&#39;</span><span class="w">  </span><span class="c1"># 根据可用模型进行调整</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 </span></code></pre></div></li>
 </ul>
-<h2 id="ollama-integration-ex-for-using-llama-2-locally">Ollama Integration (ex. for using Llama 2 locally)<a class="headerlink" href="#ollama-integration-ex-for-using-llama-2-locally" title="Permanent link">&para;</a></h2>
+<h2 id="ollama-llama-2">Ollama 集成（例如，在本地使用 Llama 2）<a class="headerlink" href="#ollama-llama-2" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="https://ollama.com/download">Download Ollama</a>.   </li>
-<li>After setting up the Ollama, Pull the Llama2 by typing following lines into the terminal <code>ollama pull llama2</code>.   </li>
-<li>Enjoy your free Llama2 model that powered up by excellent agents from crewai. <br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>from crewai import Agent, Task, Crew
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>from langchain.llms import Ollama
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>import os
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>os.environ[&quot;OPENAI_API_KEY&quot;] = &quot;NA&quot;
+<li><a href="https://ollama.com/download">下载 Ollama</a>。</li>
+<li>设置好 Ollama 后，在终端中输入以下行来拉取 Llama2 <code>ollama pull llama2</code>。</li>
+<li>享受由 crewai 的优秀代理提供支持的免费 Llama2 模型。
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Task</span><span class="p">,</span> <span class="n">Crew</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">Ollama</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>llm = Ollama(
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    model = &quot;llama2&quot;,
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    base_url = &quot;http://localhost:11434&quot;)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">Ollama</span><span class="p">(</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;llama2&quot;</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:11434&quot;</span><span class="p">)</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>general_agent = Agent(role = &quot;Math Professor&quot;,
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                      goal = &quot;&quot;&quot;Provide the solution to the students that are asking mathematical questions and give them the answer.&quot;&quot;&quot;,
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                      backstory = &quot;&quot;&quot;You are an excellent math professor that likes to solve math questions in a way that everyone can understand your solution&quot;&quot;&quot;,
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                      allow_delegation = False,
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                      verbose = True,
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>                      llm = llm)
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">general_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;数学教授&quot;</span><span class="p">,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                      <span class="n">goal</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;为提出数学问题的学生提供解决方案并给出答案。&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                      <span class="n">backstory</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;您是一位优秀的数学教授，喜欢以每个人都能理解您的解决方案的方式解决数学问题&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                      <span class="n">allow_delegation</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                      <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>                      <span class="n">llm</span> <span class="o">=</span> <span class="n">llm</span><span class="p">)</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>task = Task(description=&quot;&quot;&quot;what is 3 + 5&quot;&quot;&quot;,
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>             agent = general_agent,
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>             expected_output=&quot;A numerical answer.&quot;)
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;3 + 5 等于多少&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>             <span class="n">agent</span> <span class="o">=</span> <span class="n">general_agent</span><span class="p">,</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>             <span class="n">expected_output</span><span class="o">=</span><span class="s2">&quot;一个数字答案。&quot;</span><span class="p">)</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>crew = Crew(
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>            agents=[general_agent],
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>            tasks=[task],
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>            verbose=2
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        )
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="n">crew</span> <span class="o">=</span> <span class="n">Crew</span><span class="p">(</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>            <span class="n">agents</span><span class="o">=</span><span class="p">[</span><span class="n">general_agent</span><span class="p">],</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>            <span class="n">tasks</span><span class="o">=</span><span class="p">[</span><span class="n">task</span><span class="p">],</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>            <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="p">)</span>
 </span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>result = crew.kickoff()
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">kickoff</span><span class="p">()</span>
 </span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>print(result)
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </span></code></pre></div></li>
 </ol>
-<h2 id="huggingface-integration">HuggingFace Integration<a class="headerlink" href="#huggingface-integration" title="Permanent link">&para;</a></h2>
-<p>There are a couple of different ways you can use HuggingFace to host your LLM.</p>
-<h3 id="your-own-huggingface-endpoint">Your own HuggingFace endpoint<a class="headerlink" href="#your-own-huggingface-endpoint" title="Permanent link">&para;</a></h3>
+<h2 id="huggingface">HuggingFace 集成<a class="headerlink" href="#huggingface" title="Permanent link">&para;</a></h2>
+<p>您可以通过几种不同的方式使用 HuggingFace 来托管您的 LLM。</p>
+<h3 id="huggingface_1">您自己的 HuggingFace 端点<a class="headerlink" href="#huggingface_1" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">langchain_community.llms</span> <span class="kn">import</span> <span class="n">HuggingFaceEndpoint</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">HuggingFaceEndpoint</span><span class="p">(</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">endpoint_url</span><span class="o">=</span><span class="s2">&quot;&lt;YOUR_ENDPOINT_URL_HERE&gt;&quot;</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">huggingfacehub_api_token</span><span class="o">=</span><span class="s2">&quot;&lt;HF_TOKEN_HERE&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">endpoint_url</span><span class="o">=</span><span class="s2">&quot;&lt;您的端点 URL&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">huggingfacehub_api_token</span><span class="o">=</span><span class="s2">&quot;&lt;HF 令牌&gt;&quot;</span><span class="p">,</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">task</span><span class="o">=</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">512</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">)</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;HuggingFace Agent&quot;</span><span class="p">,</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;Generate text using HuggingFace&quot;</span><span class="p">,</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;A diligent explorer of GitHub docs.&quot;</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;HuggingFace 代理&quot;</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;使用 HuggingFace 生成文本&quot;</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;GitHub 文档的勤奋探索者。&quot;</span><span class="p">,</span>
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span>
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="from-huggingfacehub-endpoint">From HuggingFaceHub endpoint<a class="headerlink" href="#from-huggingfacehub-endpoint" title="Permanent link">&para;</a></h3>
+<h3 id="huggingfacehub">来自 HuggingFaceHub 端点<a class="headerlink" href="#huggingfacehub" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">langchain_community.llms</span> <span class="kn">import</span> <span class="n">HuggingFaceHub</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">HuggingFaceHub</span><span class="p">(</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">repo_id</span><span class="o">=</span><span class="s2">&quot;HuggingFaceH4/zephyr-7b-beta&quot;</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">huggingfacehub_api_token</span><span class="o">=</span><span class="s2">&quot;&lt;HF_TOKEN_HERE&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">huggingfacehub_api_token</span><span class="o">=</span><span class="s2">&quot;&lt;HF 令牌&gt;&quot;</span><span class="p">,</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">task</span><span class="o">=</span><span class="s2">&quot;text-generation&quot;</span><span class="p">,</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="openai-compatible-api-endpoints">OpenAI Compatible API Endpoints<a class="headerlink" href="#openai-compatible-api-endpoints" title="Permanent link">&para;</a></h2>
-<p>Switch between APIs and models seamlessly using environment variables, supporting platforms like FastChat, LM Studio, Groq, and Mistral AI.</p>
-<h3 id="configuration-examples">Configuration Examples<a class="headerlink" href="#configuration-examples" title="Permanent link">&para;</a></h3>
+<h2 id="openai-api">与 OpenAI 兼容的 API 端点<a class="headerlink" href="#openai-api" title="Permanent link">&para;</a></h2>
+<p>使用环境变量在 API 和模型之间无缝切换，支持 FastChat、LM Studio、Groq 和 Mistral AI 等平台。</p>
+<h3 id="_1">配置示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <h4 id="fastchat">FastChat<a class="headerlink" href="#fastchat" title="Permanent link">&para;</a></h4>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">OPENAI_API_BASE</span><span class="o">=</span><span class="s2">&quot;http://localhost:8001/v1&quot;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">OPENAI_MODEL_NAME</span><span class="o">=</span><span class="s1">&#39;oh-2.5m7b-q51&#39;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>NA
 </span></code></pre></div>
 <h4 id="lm-studio">LM Studio<a class="headerlink" href="#lm-studio" title="Permanent link">&para;</a></h4>
-<p>Launch <a href="https://lmstudio.ai">LM Studio</a> and go to the Server tab. Then select a model from the dropdown menu and wait for it to load. Once it's loaded, click the green Start Server button and use the URL, port, and API key that's shown (you can modify them). Below is an example of the default settings as of LM Studio 0.2.19:
+<p>启动 <a href="https://lmstudio.ai">LM Studio</a> 并转到“服务器”选项卡。然后从下拉菜单中选择一个模型并等待它加载。加载完成后，单击绿色的“启动服务器”按钮，然后使用显示的 URL、端口和 API 密钥（您可以修改它们）。以下是截至 LM Studio 0.2.19 的默认设置示例：
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">OPENAI_API_BASE</span><span class="o">=</span><span class="s2">&quot;http://localhost:1234/v1&quot;</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s2">&quot;lm-studio&quot;</span>
 </span></code></pre></div></p>
@@ -2345,12 +2325,12 @@
 </span></code></pre></div>
 <h3 id="solar">Solar<a class="headerlink" href="#solar" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">langchain_community.chat_models.solar</span> <span class="kn">import</span> <span class="n">SolarChat</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># Initialize language model</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># 初始化语言模型</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;SOLAR_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-solar-api-key&quot;</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">SolarChat</span><span class="p">(</span><span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># Free developer API key available here: https://console.upstage.ai/services/solar</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Langchain Example: https://github.com/langchain-ai/langchain/pull/18556</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># 免费开发者 API 密钥可在此处获取：https://console.upstage.ai/services/solar</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Langchain 示例：https://github.com/langchain-ai/langchain/pull/18556</span>
 </span></code></pre></div>
 <h3 id="text-gen-web-ui">text-gen-web-ui<a class="headerlink" href="#text-gen-web-ui" title="Permanent link">&para;</a></h3>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">OPENAI_API_BASE</span><span class="o">=</span>http://localhost:5000/v1
@@ -2359,21 +2339,21 @@
 </span></code></pre></div>
 <h3 id="cohere">Cohere<a class="headerlink" href="#cohere" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">langchain_cohere</span> <span class="kn">import</span> <span class="n">ChatCohere</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Initialize language model</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># 初始化语言模型</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;COHERE_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-cohere-api-key&quot;</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">ChatCohere</span><span class="p">()</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># Free developer API key available here: https://cohere.com/</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Langchain Documentation: https://python.langchain.com/docs/integrations/chat/cohere</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># 免费开发者 API 密钥可在此处获取：https://cohere.com/</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Langchain 文档：https://python.langchain.com/docs/integrations/chat/cohere</span>
 </span></code></pre></div>
-<h3 id="azure-open-ai-configuration">Azure Open AI Configuration<a class="headerlink" href="#azure-open-ai-configuration" title="Permanent link">&para;</a></h3>
-<p>For Azure OpenAI API integration, set the following environment variables:
+<h3 id="azure-open-ai">Azure Open AI 配置<a class="headerlink" href="#azure-open-ai" title="Permanent link">&para;</a></h3>
+<p>对于 Azure OpenAI API 集成，请设置以下环境变量：
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">AZURE_OPENAI_VERSION</span><span class="o">=</span><span class="s2">&quot;2022-12-01&quot;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">AZURE_OPENAI_DEPLOYMENT</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">AZURE_OPENAI_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nv">AZURE_OPENAI_KEY</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 </span></code></pre></div></p>
-<h3 id="example-agent-with-azure-llm">Example Agent with Azure LLM<a class="headerlink" href="#example-agent-with-azure-llm" title="Permanent link">&para;</a></h3>
+<h3 id="azure-llm">使用 Azure LLM 的示例代理<a class="headerlink" href="#azure-llm" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Agent</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">AzureChatOpenAI</span>
@@ -2386,14 +2366,14 @@
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">)</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="n">azure_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>  <span class="n">role</span><span class="o">=</span><span class="s1">&#39;Example Agent&#39;</span><span class="p">,</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  <span class="n">goal</span><span class="o">=</span><span class="s1">&#39;Demonstrate custom LLM configuration&#39;</span><span class="p">,</span>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>  <span class="n">backstory</span><span class="o">=</span><span class="s1">&#39;A diligent explorer of GitHub docs.&#39;</span><span class="p">,</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>  <span class="n">role</span><span class="o">=</span><span class="s1">&#39;示例代理&#39;</span><span class="p">,</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  <span class="n">goal</span><span class="o">=</span><span class="s1">&#39;演示自定义 LLM 配置&#39;</span><span class="p">,</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>  <span class="n">backstory</span><span class="o">=</span><span class="s1">&#39;GitHub 文档的勤奋探索者。&#39;</span><span class="p">,</span>
 </span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>  <span class="n">llm</span><span class="o">=</span><span class="n">azure_llm</span>
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Integrating CrewAI with different LLMs expands the framework's versatility, allowing for customized, efficient AI solutions across various domains and platforms.</p>
+<h2 id="_2">结论<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>将 CrewAI 与不同的 LLM 集成扩展了该框架的多功能性，允许跨各种域和平台实现定制的、高效的 AI 解决方案。</p>
 
 
 

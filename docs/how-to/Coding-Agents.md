@@ -1,76 +1,76 @@
 ---
-title: Coding Agents
-description: Learn how to enable your crewAI Agents to write and execute code, and explore advanced features for enhanced functionality.
+title: 编码代理
+description: 了解如何使您的 crewAI 代理能够编写和执行代码，并探索增强功能的高级功能。
 ---
 
-## Introduction
+## 简介
 
-crewAI Agents now have the powerful ability to write and execute code, significantly enhancing their problem-solving capabilities. This feature is particularly useful for tasks that require computational or programmatic solutions.
+crewAI 代理现在拥有强大的编写和执行代码的能力，从而显著增强了其解决问题的能力。此功能对于需要计算或编程解决方案的任务特别有用。
 
-## Enabling Code Execution
+## 启用代码执行
 
-To enable code execution for an agent, set the `allow_code_execution` parameter to `True` when creating the agent. Here's an example:
+要为代理启用代码执行，请在创建代理时将 `allow_code_execution` 参数设置为 `True`。以下是一个示例：
 
 ```python
 from crewai import Agent
 
 coding_agent = Agent(
-    role="Senior Python Developer",
-    goal="Craft well-designed and thought-out code",
-    backstory="You are a senior Python developer with extensive experience in software architecture and best practices.",
+    role="高级 Python 开发人员",
+    goal="编写设计良好且经过深思熟虑的代码",
+    backstory="你是一位高级 Python 开发人员，在软件架构和最佳实践方面拥有丰富的经验。",
     allow_code_execution=True
 )
 ```
 
-## Important Considerations
+## 重要注意事项
 
-1. **Model Selection**: It is strongly recommended to use more capable models like Claude 3.5 Sonnet and GPT-4 when enabling code execution. These models have a better understanding of programming concepts and are more likely to generate correct and efficient code.
+1. **模型选择**：强烈建议在启用代码执行时使用功能更强大的模型，例如 Claude 3.5 Sonnet 和 GPT-4。这些模型对编程概念有更好的理解，并且更有可能生成正确且高效的代码。
 
-2. **Error Handling**: The code execution feature includes error handling. If executed code raises an exception, the agent will receive the error message and can attempt to correct the code or provide alternative solutions.
+2. **错误处理**：代码执行功能包括错误处理。如果执行的代码引发异常，代理将收到错误消息，并且可以尝试更正代码或提供替代解决方案。
 
-3. **Dependencies**: To use the code execution feature, you need to install the `crewai_tools` package. If not installed, the agent will log an info message: "Coding tools not available. Install crewai_tools."
+3. **依赖项**：要使用代码执行功能，您需要安装 `crewai_tools` 包。如果未安装，代理将记录一条信息消息：“编码工具不可用。请安装 crewai_tools。”
 
-## Code Execution Process
+## 代码执行过程
 
-When an agent with code execution enabled encounters a task requiring programming:
+当启用了代码执行的代理遇到需要编程的任务时：
 
-1. The agent analyzes the task and determines that code execution is necessary.
-2. It formulates the Python code needed to solve the problem.
-3. The code is sent to the internal code execution tool (`CodeInterpreterTool`).
-4. The tool executes the code in a controlled environment and returns the result.
-5. The agent interprets the result and incorporates it into its response or uses it for further problem-solving.
+1. 代理分析任务并确定需要执行代码。
+2. 它编写解决问题所需的 Python 代码。
+3. 代码被发送到内部代码执行工具（`CodeInterpreterTool`）。
+4. 该工具在受控环境中执行代码并返回结果。
+5. 代理解释结果并将其合并到其响应中，或将其用于进一步解决问题。
 
-## Example Usage
+## 用法示例
 
-Here's a detailed example of creating an agent with code execution capabilities and using it in a task:
+以下是一个创建具有代码执行功能的代理并在任务中使用它的详细示例：
 
 ```python
 from crewai import Agent, Task, Crew
 
-# Create an agent with code execution enabled
+# 创建启用了代码执行的代理
 coding_agent = Agent(
-    role="Python Data Analyst",
-    goal="Analyze data and provide insights using Python",
-    backstory="You are an experienced data analyst with strong Python skills.",
+    role="Python 数据分析师",
+    goal="使用 Python 分析数据并提供见解",
+    backstory="你是一位经验丰富的数据分析师，拥有强大的 Python 技能。",
     allow_code_execution=True
 )
 
-# Create a task that requires code execution
+# 创建需要执行代码的任务
 data_analysis_task = Task(
-    description="Analyze the given dataset and calculate the average age of participants.",
+    description="分析给定的数据集并计算参与者的平均年龄。",
     agent=coding_agent
 )
 
-# Create a crew and add the task
+# 创建一个团队并添加任务
 analysis_crew = Crew(
     agents=[coding_agent],
     tasks=[data_analysis_task]
 )
 
-# Execute the crew
+# 执行团队
 result = analysis_crew.kickoff()
 
 print(result)
 ```
 
-In this example, the `coding_agent` can write and execute Python code to perform data analysis tasks.
+在此示例中，`coding_agent` 可以编写和执行 Python 代码来执行数据分析任务。

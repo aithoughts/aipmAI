@@ -115,7 +115,7 @@
             </li>
             <li>
                 <a href="./how-to/Kickoff-for-each">
-                    为列表启动团队
+                    列表启动团队
                 </a>
             </li>
             <li>

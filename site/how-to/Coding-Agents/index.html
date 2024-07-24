@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Learn how to enable your crewAI Agents to write and execute code, and explore advanced features for enhanced functionality.">
+        <meta name="description" content="了解如何使您的 crewAI 代理能够编写和执行代码，并探索增强功能的高级功能。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Coding Agents - aipmAI 文档</title>
+        <title>编码代理 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Coding Agents
+              编码代理
             
           </span>
         </div>
@@ -946,45 +946,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      简介
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-code-execution" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Enabling Code Execution
+      启用代码执行
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-considerations" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Important Considerations
+      重要注意事项
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-execution-process" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Code Execution Process
+      代码执行过程
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-usage" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Usage
+      用法示例
     </span>
   </a>
   
@@ -1094,7 +1094,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1805,7 +1805,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1815,7 +1815,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1980,26 +1980,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2046,70 +2026,70 @@
 
   <h1>编写代理代码</h1>
 
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>crewAI Agents now have the powerful ability to write and execute code, significantly enhancing their problem-solving capabilities. This feature is particularly useful for tasks that require computational or programmatic solutions.</p>
-<h2 id="enabling-code-execution">Enabling Code Execution<a class="headerlink" href="#enabling-code-execution" title="Permanent link">&para;</a></h2>
-<p>To enable code execution for an agent, set the <code>allow_code_execution</code> parameter to <code>True</code> when creating the agent. Here's an example:</p>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>crewAI 代理现在拥有强大的编写和执行代码的能力，从而显著增强了其解决问题的能力。此功能对于需要计算或编程解决方案的任务特别有用。</p>
+<h2 id="_2">启用代码执行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>要为代理启用代码执行，请在创建代理时将 <code>allow_code_execution</code> 参数设置为 <code>True</code>。以下是一个示例：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Agent</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">coding_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Senior Python Developer&quot;</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;Craft well-designed and thought-out code&quot;</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;You are a senior Python developer with extensive experience in software architecture and best practices.&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;高级 Python 开发人员&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;编写设计良好且经过深思熟虑的代码&quot;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;你是一位高级 Python 开发人员，在软件架构和最佳实践方面拥有丰富的经验。&quot;</span><span class="p">,</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">allow_code_execution</span><span class="o">=</span><span class="kc">True</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="important-considerations">Important Considerations<a class="headerlink" href="#important-considerations" title="Permanent link">&para;</a></h2>
+<h2 id="_3">重要注意事项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p><strong>Model Selection</strong>: It is strongly recommended to use more capable models like Claude 3.5 Sonnet and GPT-4 when enabling code execution. These models have a better understanding of programming concepts and are more likely to generate correct and efficient code.</p>
+<p><strong>模型选择</strong>：强烈建议在启用代码执行时使用功能更强大的模型，例如 Claude 3.5 Sonnet 和 GPT-4。这些模型对编程概念有更好的理解，并且更有可能生成正确且高效的代码。</p>
 </li>
 <li>
-<p><strong>Error Handling</strong>: The code execution feature includes error handling. If executed code raises an exception, the agent will receive the error message and can attempt to correct the code or provide alternative solutions.</p>
+<p><strong>错误处理</strong>：代码执行功能包括错误处理。如果执行的代码引发异常，代理将收到错误消息，并且可以尝试更正代码或提供替代解决方案。</p>
 </li>
 <li>
-<p><strong>Dependencies</strong>: To use the code execution feature, you need to install the <code>crewai_tools</code> package. If not installed, the agent will log an info message: "Coding tools not available. Install crewai_tools."</p>
+<p><strong>依赖项</strong>：要使用代码执行功能，您需要安装 <code>crewai_tools</code> 包。如果未安装，代理将记录一条信息消息：“编码工具不可用。请安装 crewai_tools。”</p>
 </li>
 </ol>
-<h2 id="code-execution-process">Code Execution Process<a class="headerlink" href="#code-execution-process" title="Permanent link">&para;</a></h2>
-<p>When an agent with code execution enabled encounters a task requiring programming:</p>
+<h2 id="_4">代码执行过程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>当启用了代码执行的代理遇到需要编程的任务时：</p>
 <ol>
-<li>The agent analyzes the task and determines that code execution is necessary.</li>
-<li>It formulates the Python code needed to solve the problem.</li>
-<li>The code is sent to the internal code execution tool (<code>CodeInterpreterTool</code>).</li>
-<li>The tool executes the code in a controlled environment and returns the result.</li>
-<li>The agent interprets the result and incorporates it into its response or uses it for further problem-solving.</li>
+<li>代理分析任务并确定需要执行代码。</li>
+<li>它编写解决问题所需的 Python 代码。</li>
+<li>代码被发送到内部代码执行工具（<code>CodeInterpreterTool</code>）。</li>
+<li>该工具在受控环境中执行代码并返回结果。</li>
+<li>代理解释结果并将其合并到其响应中，或将其用于进一步解决问题。</li>
 </ol>
-<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">&para;</a></h2>
-<p>Here's a detailed example of creating an agent with code execution capabilities and using it in a task:</p>
+<h2 id="_5">用法示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>以下是一个创建具有代码执行功能的代理并在任务中使用它的详细示例：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Task</span><span class="p">,</span> <span class="n">Crew</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Create an agent with code execution enabled</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 创建启用了代码执行的代理</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">coding_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Python Data Analyst&quot;</span><span class="p">,</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;Analyze data and provide insights using Python&quot;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;You are an experienced data analyst with strong Python skills.&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Python 数据分析师&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;使用 Python 分析数据并提供见解&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;你是一位经验丰富的数据分析师，拥有强大的 Python 技能。&quot;</span><span class="p">,</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">allow_code_execution</span><span class="o">=</span><span class="kc">True</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">)</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Create a task that requires code execution</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># 创建需要执行代码的任务</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">data_analysis_task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Analyze the given dataset and calculate the average age of participants.&quot;</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;分析给定的数据集并计算参与者的平均年龄。&quot;</span><span class="p">,</span>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">agent</span><span class="o">=</span><span class="n">coding_agent</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">)</span>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># Create a crew and add the task</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># 创建一个团队并添加任务</span>
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">analysis_crew</span> <span class="o">=</span> <span class="n">Crew</span><span class="p">(</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">agents</span><span class="o">=</span><span class="p">[</span><span class="n">coding_agent</span><span class="p">],</span>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">tasks</span><span class="o">=</span><span class="p">[</span><span class="n">data_analysis_task</span><span class="p">]</span>
 </span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">)</span>
 </span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c1"># Execute the crew</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c1"># 执行团队</span>
 </span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="n">result</span> <span class="o">=</span> <span class="n">analysis_crew</span><span class="o">.</span><span class="n">kickoff</span><span class="p">()</span>
 </span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
 </span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </span></code></pre></div>
-<p>In this example, the <code>coding_agent</code> can write and execute Python code to perform data analysis tasks.</p>
+<p>在此示例中，<code>coding_agent</code> 可以编写和执行 Python 代码来执行数据分析任务。</p>
 
 
 

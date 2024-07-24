@@ -1103,7 +1103,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1814,7 +1814,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1824,7 +1824,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1978,26 +1978,6 @@
           </ul>
         </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2200,16 +2180,10 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">role</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{topic}</span><span class="s2"> 专家&quot;</span><span class="p">,</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;找出 </span><span class="si">{goal}</span><span class="s2">&quot;</span><span class="p">,</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;我是 </span><span class="si">{role}</span><span class="s2"> 大师&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">system_template</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s2">{{ .System }}&lt;|eot_id|&gt;&quot;&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">prompt_template</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s2">{{ .Prompt }}&lt;|eot_id|&gt;&quot;&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">response_template</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="s2">{{ .Response }}&lt;|eot_id|&gt;&quot;&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">system_template</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&lt;|start_header_id|&gt;system&lt;|end_header_id|&gt;{{ .System }}&lt;|eot_id|&gt;&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">prompt_template</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;{{ .Prompt }}&lt;|eot_id|&gt;&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">response_template</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;{{ .Response }}&lt;|eot_id|&gt;&quot;&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="_5">引入您的第三方代理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <div class="admonition note">

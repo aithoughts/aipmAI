@@ -146,7 +146,7 @@ nav:
     - 执行过程中的人工输入: 'how-to/Human-Input-on-Execution.md'
     - 自定义提示: 'how-to/Customize-Prompts.md'
     - 异步启动团队: 'how-to/Kickoff-async.md'
-    - 为列表启动团队: 'how-to/Kickoff-for-each.md'
+    - 列表启动团队: 'how-to/Kickoff-for-each.md'
     - 从启动中的特定任务重放: 'how-to/Replay-tasks-from-latest-Crew-Kickoff.md'
     - 条件任务: 'how-to/Conditional-Tasks.md'
     - 使用 AgentOps 进行代理监控: 'how-to/AgentOps-Observability.md'
@@ -183,7 +183,7 @@ nav:
     - 使用 LangGraph 起草电子邮件: https://github.com/aithoughts/aipmAI-examples/tree/main/CrewAI-LangGraph"
     - 登陆页面生成器: https://github.com/aithoughts/aipmAI-examples/tree/main/landing_page_generator"
     - 准备会议: https://github.com/aithoughts/aipmAI-examples/tree/main/prep-for-a-meeting"
-  - 数据遥测: 'telemetry/Telemetry.md'
+  # - 数据遥测: 'telemetry/Telemetry.md'
   - 更新日志: 'https://github.com/aithoughts/aipmAI/releases'
 
 extra_css:

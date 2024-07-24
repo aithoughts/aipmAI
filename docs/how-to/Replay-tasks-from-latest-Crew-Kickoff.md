@@ -1,49 +1,50 @@
 ---
-title: Replay Tasks from Latest Crew Kickoff
-description: Replay tasks from the latest crew.kickoff(...)
+title: 从最近一次 Crew 启动中重放任务
+description: 从最近一次 crew.kickoff(...) 中重放任务
 ---
 
-## Introduction
-CrewAI provides the ability to replay from a task specified from the latest crew kickoff. This feature is particularly useful when you've finished a kickoff and may want to retry certain tasks or don't need to refetch data over and your agents already have the context saved from the kickoff execution so you just need to replay the tasks you want to.
+## 简介
+CrewAI 提供了从最近一次 Crew 启动中指定的任务开始重放的功能。当您完成一次启动后，可能希望重试某些任务，或者不需要重新获取数据，并且您的代理已经从启动执行中保存了上下文，您只需要重放所需的任务时，此功能特别有用。
 
-## Note:
-You must run `crew.kickoff()` before you can replay a task. Currently, only the latest kickoff is supported, so if you use `kickoff_for_each`, it will only allow you to replay from the most recent crew run.
+## 注意
+您必须先运行 `crew.kickoff()`，然后才能重放任务。目前，仅支持最近一次启动，因此如果您使用 `kickoff_for_each`，它将只允许您从最近一次 Crew 运行中重放。
 
-Here's an example of how to replay from a task:
+以下是重放任务的示例：
 
-### Replaying from specific task Using the CLI
-To use the replay feature, follow these steps:
+### 使用 CLI 从特定任务开始重放
+要使用重放功能，请执行以下步骤：
 
-1. Open your terminal or command prompt.
-2. Navigate to the directory where your CrewAI project is located.
-3. Run the following command:
+1. 打开您的终端或命令提示符。
+2. 导航到您的 CrewAI 项目所在的目录。
+3. 运行以下命令：
 
-To view latest kickoff task_ids use:
+要查看最近一次启动的 task_id，请使用：
 ```shell
 crewai log-tasks-outputs
 ```
 
-Once you have your task_id to replay from use:
+获得要重放的 task_id 后，请使用：
 ```shell
 crewai replay -t <task_id>
 ```
 
 
-### Replaying from a task Programmatically
-To replay from a task programmatically, use the following steps:
+### 以编程方式从任务开始重放
+要以编程方式从任务开始重放，请使用以下步骤：
 
-1. Specify the task_id and input parameters for the replay process.
-2. Execute the replay command within a try-except block to handle potential errors.
+1. 为重放过程指定 task_id 和输入参数。
+2. 在 try-except 块中执行 replay 命令以处理潜在的错误。
 
 ```python
    def replay_from_task():
     """
-    Replay the crew execution from a specific task.
+    从特定任务开始重放 Crew 执行。
     """
     task_id = '<task_id>'
-    inputs = {"topic": "CrewAI Training"} # this is optional, you can pass in the inputs you want to replay otherwise uses the previous kickoffs inputs
+    inputs = {"topic": "CrewAI Training"} # 这是可选的，您可以传入要重放的输入，否则将使用先前启动的输入
     try:
         YourCrewName_Crew().crew().replay_from_task(task_id=task_id, inputs=inputs)
 
     except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
+        raise Exception(f"重放 Crew 时发生错误：{e}")
+```

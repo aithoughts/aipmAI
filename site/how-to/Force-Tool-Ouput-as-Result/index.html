@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Learn how to force tool output as the result in of an Agent's task in crewAI.">
+        <meta name="description" content="了解如何在 crewAI 中强制将工具输出作为代理任务的结果。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Forcing Tool Output as Result - aipmAI 文档</title>
+        <title>强制工具输出作为结果 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Forcing Tool Output as Result
+              强制工具输出作为结果
             
           </span>
         </div>
@@ -967,28 +967,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      简介
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#forcing-tool-output-as-result" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Forcing Tool Output as Result
+      强制工具输出作为结果
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Forcing Tool Output as Result">
+    <nav class="md-nav" aria-label="强制工具输出作为结果">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#workflow-in-action" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow in Action
+      工作流程实际应用
     </span>
   </a>
   
@@ -1082,7 +1082,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1793,7 +1793,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1803,7 +1803,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1968,26 +1968,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2034,27 +2014,27 @@
 
   <h1>强制工具输出作为结果</h1>
 
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>In CrewAI, you can force the output of a tool as the result of an agent's task. This feature is useful when you want to ensure that the tool output is captured and returned as the task result, and avoid the agent modifying the output during the task execution.</p>
-<h2 id="forcing-tool-output-as-result">Forcing Tool Output as Result<a class="headerlink" href="#forcing-tool-output-as-result" title="Permanent link">&para;</a></h2>
-<p>To force the tool output as the result of an agent's task, you can set the <code>force_tool_output</code> parameter to <code>True</code> when creating the task. This parameter ensures that the tool output is captured and returned as the task result, without any modifications by the agent.</p>
-<p>Here's an example of how to force the tool output as the result of an agent's task:</p>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在 CrewAI 中，您可以强制将工具输出作为代理任务的结果。当您希望确保捕获工具输出并将其作为任务结果返回，并避免代理在任务执行期间修改输出时，此功能非常有用。</p>
+<h2 id="_2">强制工具输出作为结果<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>要强制将工具输出作为代理任务的结果，您可以在创建任务时将 <code>result_as_answer</code> 参数设置为 <code>True</code>。此参数可确保捕获工具输出并将其作为任务结果返回，而无需代理进行任何修改。</p>
+<p>以下是如何强制将工具输出作为代理任务的结果的示例：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ...</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Define a custom tool that returns the result as the answer</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">coding_agent</span> <span class="o">=</span><span class="n">Agent</span><span class="p">(</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">role</span><span class="o">=</span><span class="s2">&quot;Data Scientist&quot;</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;Product amazing resports on AI&quot;</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;You work with data and AI&quot;</span><span class="p">,</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 定义一个自定义工具，将结果作为答案返回</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">coding_agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">role</span><span class="o">=</span><span class="s2">&quot;数据科学家&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;生成关于 AI 的精彩报告&quot;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;您使用数据和 AI&quot;</span><span class="p">,</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">MyCustomTool</span><span class="p">(</span><span class="n">result_as_answer</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">)</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># ...</span>
 </span></code></pre></div>
-<h3 id="workflow-in-action">Workflow in Action<a class="headerlink" href="#workflow-in-action" title="Permanent link">&para;</a></h3>
+<h3 id="_3">工作流程实际应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Task Execution</strong>: The agent executes the task using the tool provided.</li>
-<li><strong>Tool Output</strong>: The tool generates the output, which is captured as the task result.</li>
-<li><strong>Agent Interaction</strong>: The agent my reflect and take learnings from the tool but the output is not modified.</li>
-<li><strong>Result Return</strong>: The tool output is returned as the task result without any modifications.</li>
+<li><strong>任务执行</strong>：代理使用提供的工具执行任务。</li>
+<li><strong>工具输出</strong>：工具生成输出，该输出被捕获为任务结果。</li>
+<li><strong>代理交互</strong>：代理可以从工具中反思和学习，但不会修改输出。</li>
+<li><strong>结果返回</strong>：工具输出作为任务结果返回，没有任何修改。</li>
 </ol>
 
 

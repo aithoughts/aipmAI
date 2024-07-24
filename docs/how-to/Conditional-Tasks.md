@@ -1,11 +1,11 @@
 ---
-title: Conditional Tasks
-description: Learn how to use conditional tasks in a crewAI kickoff
+title: 条件任务
+description: 了解如何在 crewAI 启动中使用条件任务
 ---
 
-## Introduction
+## 简介
 
-Conditional Tasks in crewAI allow for dynamic workflow adaptation based on the outcomes of previous tasks. This powerful feature enables crews to make decisions and execute tasks selectively, enhancing the flexibility and efficiency of your AI-driven processes.
+crewAI 中的条件任务允许根据先前任务的结果动态调整工作流程。此强大功能使团队能够有选择地做出决策和执行任务，从而提高 AI 驱动流程的灵活性和效率。
 
 ```python
 from typing import List
@@ -18,31 +18,31 @@ from crewai.task import Task
 from crewai_tools import SerperDevTool
 
 
-# Define a condition function for the conditional task
-# if false task will be skipped, true, then execute task
+# 为条件任务定义条件函数
+# 如果为 false，则跳过任务，如果为 true，则执行任务
 def is_data_missing(output: TaskOutput) -> bool:
-    return len(output.pydantic.events) < 10: # this will skip this task
+    return len(output.pydantic.events) < 10: # 这将跳过此任务
 
-# Define the agents
+# 定义代理
 data_fetcher_agent = Agent(
-    role="Data Fetcher",
-    goal="Fetch data online using Serper tool",
-    backstory="Backstory 1",
+    role="数据获取器",
+    goal="使用 Serper 工具在线获取数据",
+    backstory="背景故事 1",
     verbose=True,
     tools=[SerperDevTool()],
 )
 
 data_processor_agent = Agent(
-    role="Data Processor",
-    goal="Process fetched data",
-    backstory="Backstory 2",
+    role="数据处理器",
+    goal="处理获取的数据",
+    backstory="背景故事 2",
     verbose=True,
 )
 
 summary_generator_agent = Agent(
-    role="Summary Generator",
-    goal="Generate summary from fetched data",
-    backstory="Backstory 3",
+    role="摘要生成器",
+    goal="从获取的数据生成摘要",
+    backstory="背景故事 3",
     verbose=True,
 )
 
@@ -52,30 +52,30 @@ class EventOutput(BaseModel):
 
 
 task1 = Task(
-    description="Fetch data about events in San Francisco using Serper tool",
-    expected_output="List of 10 things to do in SF this week",
+    description="使用 Serper 工具获取有关旧金山事件的数据",
+    expected_output="本周在旧金山要做的 10 件事的列表",
     agent=data_fetcher_agent,
     output_pydantic=EventOutput,
 )
 
 conditional_task = ConditionalTask(
     description="""
-        Check if data is missing. If we have less than 10 events,
-        fetch more events using Serper tool so that
-        we have a total of 10 events in SF this week..
+        检查数据是否缺失。如果我们的活动少于 10 个，
+        则使用 Serper 工具获取更多活动，以便
+        我们本周在旧金山总共有 10 个活动。
         """,
-    expected_output="List of 10 Things to do in SF this week ",
+    expected_output="本周在旧金山要做的 10 件事的列表",
     condition=is_data_missing,
     agent=data_processor_agent,
 )
 
 task3 = Task(
-    description="Generate summary of events in San Francisco from fetched data",
+    description="从获取的数据中生成旧金山事件的摘要",
     expected_output="summary_generated",
     agent=summary_generator_agent,
 )
 
-# Create a crew with the tasks
+# 使用任务创建一个团队
 crew = Crew(
     agents=[data_fetcher_agent, data_processor_agent, summary_generator_agent],
     tasks=[task1, conditional_task, task3],
@@ -83,5 +83,5 @@ crew = Crew(
 )
 
 result = crew.kickoff()
-print("results", result)
+print("结果", result)
 ```

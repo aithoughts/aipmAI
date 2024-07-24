@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How to monitor cost, latency, and performance of CrewAI Agents using Langtrace, an external observability tool.">
+        <meta name="description" content="如何使用外部可观察性工具 Langtrace 监控 CrewAI 代理的成本、延迟和性能。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>CrewAI Agent Monitoring with Langtrace - aipmAI 文档</title>
+        <title>使用 Langtrace 进行 CrewAI 代理监控 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#langtrace-overview" class="md-skip">
+        <a href="#langtrace" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CrewAI Agent Monitoring with Langtrace
+              使用 Langtrace 进行 CrewAI 代理监控
             
           </span>
         </div>
@@ -1013,7 +1013,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1139,28 +1139,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-instructions" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Setup Instructions
+      设置说明
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-langtrace-with-crewai" class="md-nav__link">
+  <a href="#crewai-langtrace" class="md-nav__link">
     <span class="md-ellipsis">
-      Using Langtrace with CrewAI
+      在 CrewAI 中使用 Langtrace
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Using Langtrace with CrewAI">
+    <nav class="md-nav" aria-label="在 CrewAI 中使用 Langtrace">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#features-and-their-application-to-crewai" class="md-nav__link">
+  <a href="#crewai" class="md-nav__link">
     <span class="md-ellipsis">
-      Features and Their Application to CrewAI
+      特性和它们在 CrewAI 中的应用
     </span>
   </a>
   
@@ -1172,9 +1172,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-new-crewai-features" class="md-nav__link">
+  <a href="#crewai_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring New CrewAI Features
+      监控新的 CrewAI 功能
     </span>
   </a>
   
@@ -1806,7 +1806,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1816,7 +1816,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1981,26 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2045,97 +2025,97 @@
   
 
 
-<h1 id="langtrace-overview">Langtrace Overview<a class="headerlink" href="#langtrace-overview" title="Permanent link">&para;</a></h1>
-<p>Langtrace is an open-source, external tool that helps you set up observability and evaluations for Large Language Models (LLMs), LLM frameworks, and Vector Databases. While not built directly into CrewAI, Langtrace can be used alongside CrewAI to gain deep visibility into the cost, latency, and performance of your CrewAI Agents. This integration allows you to log hyperparameters, monitor performance regressions, and establish a process for continuous improvement of your Agents.</p>
-<h2 id="setup-instructions">Setup Instructions<a class="headerlink" href="#setup-instructions" title="Permanent link">&para;</a></h2>
+<h1 id="langtrace">Langtrace 概述<a class="headerlink" href="#langtrace" title="Permanent link">&para;</a></h1>
+<p>Langtrace 是一款开源的外部工具，可帮助您为大型语言模型 (LLM)、LLM 框架和向量数据库设置可观察性和评估。虽然 Langtrace 不是直接内置于 CrewAI 中，但可以与 CrewAI 一起使用，以深入了解 CrewAI 代理的成本、延迟和性能。这种集成允许您记录超参数、监控性能下降，并建立持续改进代理的流程。</p>
+<h2 id="_1">设置说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Sign up for <a href="https://langtrace.ai/">Langtrace</a> by visiting <a href="https://langtrace.ai/signup">https://langtrace.ai/signup</a>.</li>
-<li>Create a project and generate an API key.</li>
-<li>Install Langtrace in your CrewAI project using the following commands:</li>
+<li>访问 <a href="https://langtrace.ai/signup">https://langtrace.ai/signup</a> 注册 <a href="https://langtrace.ai/">Langtrace</a>。</li>
+<li>创建一个项目并生成一个 API 密钥。</li>
+<li>使用以下命令在您的 CrewAI 项目中安装 Langtrace：</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install the SDK</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 安装 SDK</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>langtrace-python-sdk
 </span></code></pre></div>
-<h2 id="using-langtrace-with-crewai">Using Langtrace with CrewAI<a class="headerlink" href="#using-langtrace-with-crewai" title="Permanent link">&para;</a></h2>
-<p>To integrate Langtrace with your CrewAI project, follow these steps:</p>
+<h2 id="crewai-langtrace">在 CrewAI 中使用 Langtrace<a class="headerlink" href="#crewai-langtrace" title="Permanent link">&para;</a></h2>
+<p>要将 Langtrace 与您的 CrewAI 项目集成，请按照以下步骤操作：</p>
 <ol>
-<li>Import and initialize Langtrace at the beginning of your script, before any CrewAI imports:</li>
+<li>在脚本开头、任何 CrewAI 导入之前导入并初始化 Langtrace：</li>
 </ol>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">langtrace_python_sdk</span> <span class="kn">import</span> <span class="n">langtrace</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">langtrace</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;&lt;LANGTRACE_API_KEY&gt;&#39;</span><span class="p">)</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Now import CrewAI modules</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 现在导入 CrewAI 模块</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Task</span><span class="p">,</span> <span class="n">Crew</span>
 </span></code></pre></div>
 <ol>
 <li>
-<p>Create your CrewAI agents and tasks as usual.</p>
+<p>照常创建您的 CrewAI 代理和任务。</p>
 </li>
 <li>
-<p>Use Langtrace's tracking functions to monitor your CrewAI operations. For example:</p>
+<p>使用 Langtrace 的跟踪功能来监控您的 CrewAI 操作。例如：</p>
 </li>
 </ol>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">with</span> <span class="n">langtrace</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;CrewAI Task Execution&quot;</span><span class="p">):</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">with</span> <span class="n">langtrace</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;CrewAI 任务执行&quot;</span><span class="p">):</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">crew</span><span class="o">.</span><span class="n">kickoff</span><span class="p">()</span>
 </span></code></pre></div>
-<h3 id="features-and-their-application-to-crewai">Features and Their Application to CrewAI<a class="headerlink" href="#features-and-their-application-to-crewai" title="Permanent link">&para;</a></h3>
+<h3 id="crewai">特性和它们在 CrewAI 中的应用<a class="headerlink" href="#crewai" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>LLM Token and Cost Tracking</strong></li>
-<li>Monitor the token usage and associated costs for each CrewAI agent interaction.</li>
+<li><strong>LLM 令牌和成本跟踪</strong></li>
+<li>监控每个 CrewAI 代理交互的令牌使用情况和相关成本。</li>
 <li>
-<p>Example:
-     <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">with</span> <span class="n">langtrace</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;Agent Interaction&quot;</span><span class="p">):</span>
+<p>例如：
+     <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">with</span> <span class="n">langtrace</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;代理交互&quot;</span><span class="p">):</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">agent_response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Trace Graph for Execution Steps</strong></p>
+<p><strong>执行步骤的跟踪图</strong></p>
 </li>
-<li>Visualize the execution flow of your CrewAI tasks, including latency and logs.</li>
+<li>可视化您的 CrewAI 任务的执行流程，包括延迟和日志。</li>
 <li>
-<p>Useful for identifying bottlenecks in your agent workflows.</p>
+<p>对于识别代理工作流程中的瓶颈很有用。</p>
 </li>
 <li>
-<p><strong>Dataset Curation with Manual Annotation</strong></p>
+<p><strong>使用手动注释进行数据集整理</strong></p>
 </li>
-<li>Create datasets from your CrewAI task outputs for future training or evaluation.</li>
+<li>从您的 CrewAI 任务输出创建数据集，用于未来的训练或评估。</li>
 <li>
-<p>Example:
+<p>例如：
      <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">langtrace</span><span class="o">.</span><span class="n">log_dataset_item</span><span class="p">(</span><span class="n">task_input</span><span class="p">,</span> <span class="n">agent_output</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;task_type&quot;</span><span class="p">:</span> <span class="s2">&quot;research&quot;</span><span class="p">})</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Prompt Versioning and Management</strong></p>
+<p><strong>提示版本控制和管理</strong></p>
 </li>
-<li>Keep track of different versions of prompts used in your CrewAI agents.</li>
+<li>跟踪 CrewAI 代理中使用的不同版本的提示。</li>
 <li>
-<p>Useful for A/B testing and optimizing agent performance.</p>
-</li>
-<li>
-<p><strong>Prompt Playground with Model Comparisons</strong></p>
+<p>对于 A/B 测试和优化代理性能很有用。</p>
 </li>
 <li>
-<p>Test and compare different prompts and models for your CrewAI agents before deployment.</p>
+<p><strong>带模型比较的提示游乐场</strong></p>
 </li>
 <li>
-<p><strong>Testing and Evaluations</strong></p>
+<p>在部署之前测试和比较 CrewAI 代理的不同提示和模型。</p>
 </li>
-<li>Set up automated tests for your CrewAI agents and tasks.</li>
-<li>Example:
+<li>
+<p><strong>测试和评估</strong></p>
+</li>
+<li>为您的 CrewAI 代理和任务设置自动化测试。</li>
+<li>例如：
      <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">langtrace</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">agent_output</span><span class="p">,</span> <span class="n">expected_output</span><span class="p">,</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">)</span>
 </span></code></pre></div></li>
 </ol>
-<h2 id="monitoring-new-crewai-features">Monitoring New CrewAI Features<a class="headerlink" href="#monitoring-new-crewai-features" title="Permanent link">&para;</a></h2>
-<p>CrewAI has introduced several new features that can be monitored using Langtrace:</p>
+<h2 id="crewai_1">监控新的 CrewAI 功能<a class="headerlink" href="#crewai_1" title="Permanent link">&para;</a></h2>
+<p>CrewAI 引入了一些可以使用 Langtrace 监控的新功能：</p>
 <ol>
 <li>
-<p><strong>Code Execution</strong>: Monitor the performance and output of code executed by agents.
-   <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">with</span> <span class="n">langtrace</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;Agent Code Execution&quot;</span><span class="p">):</span>
+<p><strong>代码执行</strong>：监控代理执行的代码的性能和输出。
+   <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">with</span> <span class="n">langtrace</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">&quot;代理代码执行&quot;</span><span class="p">):</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">code_output</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">execute_code</span><span class="p">(</span><span class="n">code_snippet</span><span class="p">)</span>
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Third-party Agent Integration</strong>: Track interactions with LlamaIndex, LangChain, and Autogen agents.</p>
+<p><strong>第三方代理集成</strong>：跟踪与 LlamaIndex、LangChain 和 Autogen 代理的交互。</p>
 </li>
 </ol>
 

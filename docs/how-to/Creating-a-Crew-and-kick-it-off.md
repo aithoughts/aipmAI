@@ -1,21 +1,21 @@
 ---
-title: Assembling and Activating Your CrewAI Team
-description: A comprehensive guide to creating a dynamic CrewAI team for your projects, with updated functionalities including verbose mode, memory capabilities, asynchronous execution, output customization, language model configuration, code execution, integration with third-party agents, and improved task management.
+title: 组建和激活您的 CrewAI 团队
+description: 为您的项目创建动态 CrewAI 团队的综合指南，更新的功能包括详细模式、记忆能力、异步执行、输出定制、语言模型配置、代码执行、与第三方代理集成以及改进的任务管理。
 ---
 
-## Introduction
-Embark on your CrewAI journey by setting up your environment and initiating your AI crew with the latest features. This guide ensures a smooth start, incorporating all recent updates for an enhanced experience, including code execution capabilities, integration with third-party agents, and advanced task management.
+## 简介
+通过设置您的环境并使用最新功能启动您的 AI 团队，开始您的 CrewAI 之旅。本指南确保顺利开始，并结合所有最新更新以获得增强的体验，包括代码执行功能、与第三方代理集成以及高级任务管理。
 
-## Step 0: Installation
-Install CrewAI and any necessary packages for your project. CrewAI is compatible with Python >=3.10,<=3.13.
+## 第 0 步：安装
+安装 CrewAI 和您的项目所需的任何软件包。CrewAI 与 Python >=3.10,<=3.13 兼容。
 
 ```shell
 pip install crewai
 pip install 'crewai[tools]'
 ```
 
-## Step 1: Assemble Your Agents
-Define your agents with distinct roles, backstories, and enhanced capabilities. The Agent class now supports a wide range of attributes for fine-tuned control over agent behavior and interactions, including code execution and integration with third-party agents.
+## 第 1 步：组建您的代理
+使用不同的角色、背景故事和增强功能定义您的代理。Agent 类现在支持广泛的属性，用于微调对代理行为和交互的控制，包括代码执行和与第三方代理集成。
 
 ```python
 import os
@@ -32,53 +32,53 @@ search_tool = SerperDevTool()
 browser_tool = BrowserbaseLoadTool()
 exa_search_tool = EXASearchTool()
 
-# Creating a senior researcher agent with advanced configurations
+# 创建具有高级配置的高级研究员代理
 researcher = Agent(
-    role='Senior Researcher',
-    goal='Uncover groundbreaking technologies in {topic}',
-    backstory=("Driven by curiosity, you're at the forefront of innovation, "
-               "eager to explore and share knowledge that could change the world."),
+    role='高级研究员',
+    goal='发现 {topic} 中的突破性技术',
+    backstory=("在好奇心的驱使下，您处于创新的最前沿， "
+               "渴望探索和分享可以改变世界的知识。"),
     memory=True,
     verbose=True,
     allow_delegation=False,
     tools=[search_tool, browser_tool],
-    allow_code_execution=False,  # New attribute for enabling code execution
-    max_iter=15,  # Maximum number of iterations for task execution
-    max_rpm=100,  # Maximum requests per minute
-    max_execution_time=3600,  # Maximum execution time in seconds
-    system_template="Your custom system template here",  # Custom system template
-    prompt_template="Your custom prompt template here",  # Custom prompt template
-    response_template="Your custom response template here",  # Custom response template
+    allow_code_execution=False,  # 用于启用代码执行的新属性
+    max_iter=15,  # 任务执行的最大迭代次数
+    max_rpm=100,  # 每分钟最大请求数
+    max_execution_time=3600,  # 最大执行时间（以秒为单位）
+    system_template="您的自定义系统模板",  # 自定义系统模板
+    prompt_template="您的自定义提示模板",  # 自定义提示模板
+    response_template="您的自定义响应模板",  # 自定义响应模板
 )
 
-# Creating a writer agent with custom tools and specific configurations
+# 创建具有自定义工具和特定配置的作者代理
 writer = Agent(
-    role='Writer',
-    goal='Narrate compelling tech stories about {topic}',
-    backstory=("With a flair for simplifying complex topics, you craft engaging "
-               "narratives that captivate and educate, bringing new discoveries to light."),
+    role='作者',
+    goal='讲述关于 {topic} 的引人入胜的技术故事',
+    backstory=("凭借简化复杂主题的才能，您精心制作引人入胜的 "
+               "叙述，以吸引和教育，将新发现公之于众。"),
     verbose=True,
     allow_delegation=False,
     memory=True,
     tools=[exa_search_tool],
-    function_calling_llm=OpenAI(model_name="gpt-3.5-turbo"),  # Separate LLM for function calling
+    function_calling_llm=OpenAI(model_name="gpt-3.5-turbo"),  # 用于函数调用的单独 LLM
 )
 
-# Setting a specific manager agent
+# 设置特定的经理代理
 manager = Agent(
-  role='Manager',
-  goal='Ensure the smooth operation and coordination of the team',
+  role='经理',
+  goal='确保团队的顺利运作和协调',
   verbose=True,
   backstory=(
-    "As a seasoned project manager, you excel in organizing "
-    "tasks, managing timelines, and ensuring the team stays on track."
+    "作为一名经验丰富的项目经理，您擅长组织 "
+    "任务、管理时间线并确保团队按计划进行。"
   ),
-  allow_code_execution=True,  # Enable code execution for the manager
+  allow_code_execution=True,  # 为经理启用代码执行
 )
 ```
 
-### New Agent Attributes and Features
+### 新的代理属性和功能
 
-1. `allow_code_execution`: Enable or disable code execution capabilities for the agent (default is False).
-2. `max_execution_time`: Set a maximum execution time (in seconds) for the agent to complete a task.
-3. `function_calling_llm`: Specify a separate language model for function calling.
+1. `allow_code_execution`：启用或禁用代理的代码执行功能（默认为 False）。
+2. `max_execution_time`：设置代理完成任务的最大执行时间（以秒为单位）。
+3. `function_calling_llm`：指定用于函数调用的单独语言模型。

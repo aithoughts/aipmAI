@@ -1,88 +1,88 @@
 ---
-title: Customizing Agents in CrewAI
-description: A comprehensive guide to tailoring agents for specific roles, tasks, and advanced customizations within the CrewAI framework.
+title: 在 CrewAI 中自定义代理
+description: 有关为 CrewAI 框架内的特定角色、任务和高级自定义定制代理的综合指南。
 ---
 
-## Customizable Attributes
-Crafting an efficient CrewAI team hinges on the ability to dynamically tailor your AI agents to meet the unique requirements of any project. This section covers the foundational attributes you can customize.
+## 可自定义属性
+打造高效的 CrewAI 团队的关键在于能够动态定制您的 AI 代理，以满足任何项目的独特需求。本节介绍您可以自定义的基本属性。
 
-### Key Attributes for Customization
-- **Role**: Specifies the agent's job within the crew, such as 'Analyst' or 'Customer Service Rep'.
-- **Goal**: Defines what the agent aims to achieve, in alignment with its role and the overarching objectives of the crew.
-- **Backstory**: Provides depth to the agent's persona, enriching its motivations and engagements within the crew.
-- **Tools** *(Optional)*: Represents the capabilities or methods the agent uses to perform tasks, from simple functions to intricate integrations.
-- **Cache** *(Optional)*: Determines whether the agent should use a cache for tool usage.
-- **Max RPM**: Sets the maximum number of requests per minute (`max_rpm`). This attribute is optional and can be set to `None` for no limit, allowing for unlimited queries to external services if needed.
-- **Verbose** *(Optional)*: Enables detailed logging of an agent's actions, useful for debugging and optimization. Specifically, it provides insights into agent execution processes, aiding in the optimization of performance.
-- **Allow Delegation** *(Optional)*: `allow_delegation` controls whether the agent is allowed to delegate tasks to other agents.
-- **Max Iter** *(Optional)*: The `max_iter` attribute allows users to define the maximum number of iterations an agent can perform for a single task, preventing infinite loops or excessively long executions. The default value is set to 25, providing a balance between thoroughness and efficiency. Once the agent approaches this number, it will try its best to give a good answer.
-- **Max Execution Time** *(Optional)*: `max_execution_time` Sets the maximum execution time for an agent to complete a task.
-- **System Template** *(Optional)*: `system_template` defines the system format for the agent.
-- **Prompt Template** *(Optional)*: `prompt_template` defines the prompt format for the agent.
-- **Response Template** *(Optional)*: `response_template` defines the response format for the agent.
+### 用于自定义的关键属性
+- **角色**：`role` 指定代理在团队中的工作，例如“分析师”或“客户服务代表”。
+- **目标**：`goal` 定义代理的目标，与其角色和团队的总体目标保持一致。
+- **背景故事**：`backstory` 为代理的角色提供深度，丰富其在团队中的动机和参与度。
+- **工具** *(可选)*：`tools` 表示代理执行任务所使用的能力或方法，从简单的函数到复杂的集成。
+- **缓存** *(可选)*：`memory` 确定代理是否应使用缓存来存储工具使用情况。
+- **最大 RPM**：设置每分钟最大请求数 (`max_rpm`)。此属性是可选的，可以设置为 `None` 表示没有限制，如果需要，可以对外部服务进行无限次查询。
+- **详细** *(可选)*：`verbose` 启用代理操作的详细日志记录，这对调试和优化很有用。具体来说，它提供了对代理执行过程的洞察力，有助于优化性能。
+- **允许委派** *(可选)*：`allow_delegation` 控制是否允许代理将任务委派给其他代理。
+- **最大迭代次数** *(可选)*：`max_iter` 属性允许用户定义代理为单个任务执行的最大迭代次数，防止无限循环或过长的执行时间。默认值设置为 25，在彻底性和效率之间取得平衡。一旦代理接近此数字，它将尽力给出好的答案。
+- **最大执行时间** *(可选)*：`max_execution_time` 设置代理完成任务的最长时间。
+- **系统模板** *(可选)*：`system_template` 定义代理的系统格式。
+- **提示模板** *(可选)*：`prompt_template` 定义代理的提示格式。
+- **响应模板** *(可选)*：`response_template` 定义代理的响应格式。
 
-## Advanced Customization Options
-Beyond the basic attributes, CrewAI allows for deeper customization to enhance an agent's behavior and capabilities significantly.
+## 高级自定义选项
+除了基本属性之外，CrewAI 还允许进行更深层次的自定义，以显着增强代理的行为和能力。
 
-### Language Model Customization
-Agents can be customized with specific language models (`llm`) and function-calling language models (`function_calling_llm`), offering advanced control over their processing and decision-making abilities. It's important to note that setting the `function_calling_llm` allows for overriding the default crew function-calling language model, providing a greater degree of customization.
+### 语言模型自定义
+可以使用特定的语言模型 (`llm`) 和函数调用语言模型 (`function_calling_llm`) 自定义代理，从而对代理的处理和决策能力进行高级控制。需要注意的是，设置 `function_calling_llm` 允许覆盖默认的团队函数调用语言模型，从而提供更大程度的自定义。
 
-## Performance and Debugging Settings
-Adjusting an agent's performance and monitoring its operations are crucial for efficient task execution.
+## 性能和调试设置
+调整代理的性能并监控其操作对于高效执行任务至关重要。
 
-### Verbose Mode and RPM Limit
-- **Verbose Mode**: Enables detailed logging of an agent's actions, useful for debugging and optimization. Specifically, it provides insights into agent execution processes, aiding in the optimization of performance.
-- **RPM Limit**: Sets the maximum number of requests per minute (`max_rpm`). This attribute is optional and can be set to `None` for no limit, allowing for unlimited queries to external services if needed.
+### 详细模式和 RPM 限制
+- **详细模式**：`verbose` 启用代理操作的详细日志记录，这对调试和优化很有用。具体来说，它提供了对代理执行过程的洞察力，有助于优化性能。
+- **RPM 限制**：设置每分钟最大请求数 (`max_rpm`)。此属性是可选的，可以设置为 `None` 表示没有限制，如果需要，可以对外部服务进行无限次查询。
 
-### Maximum Iterations for Task Execution
-The `max_iter` attribute allows users to define the maximum number of iterations an agent can perform for a single task, preventing infinite loops or excessively long executions. The default value is set to 25, providing a balance between thoroughness and efficiency. Once the agent approaches this number, it will try its best to give a good answer.
+### 任务执行的最大迭代次数
+`max_iter` 属性允许用户定义代理为单个任务执行的最大迭代次数，防止无限循环或过长的执行时间。默认值设置为 25，在彻底性和效率之间取得平衡。一旦代理接近此数字，它将尽力给出好的答案。
 
-## Customizing Agents and Tools
-Agents are customized by defining their attributes and tools during initialization. Tools are critical for an agent's functionality, enabling them to perform specialized tasks. The `tools` attribute should be an array of tools the agent can utilize, and it's initialized as an empty list by default. Tools can be added or modified post-agent initialization to adapt to new requirements.
+## 自定义代理和工具
+通过在初始化期间定义代理的属性和工具来自定义代理。工具对于代理的功能至关重要，使代理能够执行专门的任务。`tools` 属性应该是代理可以使用的工具数组，默认情况下它被初始化为空列表。可以在代理初始化后添加或修改工具，以适应新的需求。
 
 ```shell
 pip install 'crewai[tools]'
 ```
 
-### Example: Assigning Tools to an Agent
+### 示例：为代理分配工具
 ```python
 import os
 from crewai import Agent
 from crewai_tools import SerperDevTool
 
-# Set API keys for tool initialization
-os.environ["OPENAI_API_KEY"] = "Your Key"
-os.environ["SERPER_API_KEY"] = "Your Key"
+# 设置工具初始化的 API 密钥
+os.environ["OPENAI_API_KEY"] = "您的密钥"
+os.environ["SERPER_API_KEY"] = "您的密钥"
 
-# Initialize a search tool
+# 初始化搜索工具
 search_tool = SerperDevTool()
 
-# Initialize the agent with advanced options
+# 使用高级选项初始化代理
 agent = Agent(
-  role='Research Analyst',
-  goal='Provide up-to-date market analysis',
-  backstory='An expert analyst with a keen eye for market trends.',
+  role='研究分析师',
+  goal='提供最新的市场分析',
+  backstory='一位对市场趋势有敏锐眼光的专家分析师。',
   tools=[search_tool],
-  memory=True, # Enable memory
+  memory=True, # 启用内存
   verbose=True,
-  max_rpm=None, # No limit on requests per minute
-  max_iter=25, # Default value for maximum iterations
+  max_rpm=None, # 每分钟请求数没有限制
+  max_iter=25, # 最大迭代次数的默认值
   allow_delegation=False
 )
 ```
 
-## Delegation and Autonomy
-Controlling an agent's ability to delegate tasks or ask questions is vital for tailoring its autonomy and collaborative dynamics within the CrewAI framework. By default, the `allow_delegation` attribute is set to `True`, enabling agents to seek assistance or delegate tasks as needed. This default behavior promotes collaborative problem-solving and efficiency within the CrewAI ecosystem. If needed, delegation can be disabled to suit specific operational requirements.
+## 委派和自主权
+控制代理委派任务或提出问题的能力对于定制其自主权和在 CrewAI 框架内的协作动态至关重要。默认情况下，`allow_delegation` 属性设置为 `True`，使代理能够根据需要寻求帮助或委派任务。这种默认行为促进了 CrewAI 生态系统内的协作解决问题和效率。如果需要，可以禁用委派以满足特定的操作要求。
 
-### Example: Disabling Delegation for an Agent
+### 示例：禁用代理的委派
 ```python
 agent = Agent(
-  role='Content Writer',
-  goal='Write engaging content on market trends',
-  backstory='A seasoned writer with expertise in market analysis.',
-  allow_delegation=False # Disabling delegation
+  role='内容作者',
+  goal='撰写关于市场趋势的引人入胜的内容',
+  backstory='一位在市场分析方面具有专业知识的经验丰富的作家。',
+  allow_delegation=False # 禁用委派
 )
 ```
 
-## Conclusion
-Customizing agents in CrewAI by setting their roles, goals, backstories, and tools, alongside advanced options like language model customization, memory, performance settings, and delegation preferences, equips a nuanced and capable AI team ready for complex challenges.
+## 结论
+通过设置角色、目标、背景故事和工具，以及语言模型自定义、内存、性能设置和委派偏好等高级选项，在 CrewAI 中自定义代理，可以打造出一支细致入微且能力强大的 AI 团队，随时准备迎接复杂挑战。

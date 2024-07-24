@@ -64,7 +64,7 @@ from crewai_tools import SerperDevTool
 os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
 os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API 密钥
 
-# 您可以选择通过 Ollama 使用本地模型。有关更多信息，请参阅 https://docs.crewai.com/how-to/LLM-Connections/。
+# 您可以选择通过 Ollama 使用本地模型。有关更多信息，请参阅 https://aithoughts.github.io/aipmAI/how-to/LLM-Connections/。
 
 # os.environ["OPENAI_API_BASE"] = 'http://localhost:11434/v1'
 # os.environ["OPENAI_MODEL_NAME"] ='openhermes'  # 根据可用模型进行调整
@@ -72,7 +72,7 @@ os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API 密钥
 
 # 您可以传递一个可选的 llm 属性，指定您想使用的模型。
 # 它可以是通过 Ollama / LM Studio 的本地模型，也可以是远程模型
-# 模型，如 OpenAI、Mistral、Antrophic 或其他（https://docs.crewai.com/how-to/LLM-Connections/）
+# 模型，如 OpenAI、Mistral、Antrophic 或其他（https://aithoughts.github.io/aipmAI/how-to/LLM-Connections/）
 #
 # import os
 # os.environ['OPENAI_MODEL_NAME'] = 'gpt-3.5-turbo'
@@ -137,7 +137,7 @@ print("######################")
 print(result)
 ```
 
-除了顺序流程之外，您还可以使用分层流程，该流程会自动为定义的团队分配一名经理，以通过委派和验证结果来正确协调任务的计划和执行。[在此处了解更多关于流程的信息](https://docs.crewai.com/core-concepts/Processes/)。
+除了顺序流程之外，您还可以使用分层流程，该流程会自动为定义的团队分配一名经理，以通过委派和验证结果来正确协调任务的计划和执行。[在此处了解更多关于流程的信息](https://aithoughts.github.io/aipmAI/core-concepts/Processes/)。
 
 ## 主要功能
 
@@ -147,7 +147,7 @@ print(result)
 - **流程驱动**: 目前仅支持“顺序”任务执行和“分层”流程，但正在开发更复杂的流程，如协商一致和自主流程。
 - **将输出保存为文件**: 将单个任务的输出保存为文件，以便您以后使用。
 - **将输出解析为 Pydantic 或 Json**: 如果您希望将单个任务的输出解析为 Pydantic 模型或 Json，可以这样做。
-- **与开源模型配合使用**: 使用 Open AI 或开源模型运行您的团队，请参阅 [将 crewAI 连接到 LLM](https://docs.crewai.com/how-to/LLM-Connections/) 页面，了解有关配置您的代理与模型（甚至是本地运行的模型）连接的详细信息！
+- **与开源模型配合使用**: 使用 Open AI 或开源模型运行您的团队，请参阅 [将 crewAI 连接到 LLM](https://aithoughts.github.io/aipmAI/how-to/LLM-Connections/) 页面，了解有关配置您的代理与模型（甚至是本地运行的模型）连接的详细信息！
 
 ![CrewAI 思维导图](./docs/crewAI-mindmap.png "CrewAI 思维导图")
 
@@ -156,7 +156,7 @@ print(result)
 您可以在 [crewAI-examples 仓库](https://github.com/aithoughts/aipmai-examples?tab=readme-ov-file) 中测试 AI 团队在现实生活中的不同示例：
 
 - [登录页面生成器](https://github.com/aithoughts/aipmai-examples/tree/main/landing_page_generator)
-- [在执行过程中获得人工输入](https://docs.crewai.com/how-to/Human-Input-on-Execution)
+- [在执行过程中获得人工输入](https://aithoughts.github.io/aipmAI/how-to/Human-Input-on-Execution)
 - [旅行计划](https://github.com/aithoughts/aipmai-examples/tree/main/trip_planner)
 - [股票分析](https://github.com/aithoughts/aipmai-examples/tree/main/stock_analysis)
 
@@ -186,7 +186,7 @@ print(result)
 
 crewAI 支持通过各种连接选项使用各种 LLM。默认情况下，您的代理在查询模型时将使用 OpenAI API。但是，还有其他几种方法可以让您的代理连接到模型。例如，您可以将代理配置为通过 Ollama 工具使用本地模型。
 
-有关配置代理与模型连接的详细信息，请参阅 [将 crewAI 连接到 LLM](https://docs.crewai.com/how-to/LLM-Connections/) 页面。
+有关配置代理与模型连接的详细信息，请参阅 [将 crewAI 连接到 LLM](https://aithoughts.github.io/aipmAI/how-to/LLM-Connections/) 页面。
 
 ## CrewAI 的比较
 

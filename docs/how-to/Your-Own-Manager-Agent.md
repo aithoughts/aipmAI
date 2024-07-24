@@ -1,55 +1,55 @@
 ---
-title: Setting a Specific Agent as Manager in CrewAI
-description: Learn how to set a custom agent as the manager in CrewAI, providing more control over task management and coordination.
+title: 在 CrewAI 中设置特定代理作为经理
+description: 了解如何在 CrewAI 中设置自定义代理作为经理，从而更好地控制任务管理和协调。
 
 ---
 
-# Setting a Specific Agent as Manager in CrewAI
+# 在 CrewAI 中设置特定代理作为经理
 
-CrewAI allows users to set a specific agent as the manager of the crew, providing more control over the management and coordination of tasks. This feature enables the customization of the managerial role to better fit your project's requirements.
+CrewAI 允许用户设置特定代理作为团队的经理，从而更好地控制任务的管理和协调。此功能可以自定义管理角色，以更好地满足您的项目需求。
 
-## Using the `manager_agent` Attribute
+## 使用 `manager_agent` 属性
 
-### Custom Manager Agent
+### 自定义经理代理
 
-The `manager_agent` attribute allows you to define a custom agent to manage the crew. This agent will oversee the entire process, ensuring that tasks are completed efficiently and to the highest standard.
+`manager_agent` 属性允许您定义一个自定义代理来管理团队。该代理将监督整个过程，确保高效、高质量地完成任务。
 
-### Example
+### 示例
 
 ```python
 import os
 from crewai import Agent, Task, Crew, Process
 
-# Define your agents
+# 定义您的代理
 researcher = Agent(
-    role="Researcher",
-    goal="Conduct thorough research and analysis on AI and AI agents",
-    backstory="You're an expert researcher, specialized in technology, software engineering, AI, and startups. You work as a freelancer and are currently researching for a new client.",
+    role="研究员",
+    goal="对 AI 和 AI 代理进行深入研究和分析",
+    backstory="您是一位专家研究员，专门研究技术、软件工程、AI 和初创公司。您是一名自由职业者，目前正在为一位新客户进行研究。",
     allow_delegation=False,
 )
 
 writer = Agent(
-    role="Senior Writer",
-    goal="Create compelling content about AI and AI agents",
-    backstory="You're a senior writer, specialized in technology, software engineering, AI, and startups. You work as a freelancer and are currently writing content for a new client.",
+    role="高级作家",
+    goal="创建关于 AI 和 AI 代理的引人入胜的内容",
+    backstory="您是一位高级作家，专门研究技术、软件工程、AI 和初创公司。您是一名自由职业者，目前正在为一位新客户撰写内容。",
     allow_delegation=False,
 )
 
-# Define your task
+# 定义您的任务
 task = Task(
-    description="Generate a list of 5 interesting ideas for an article, then write one captivating paragraph for each idea that showcases the potential of a full article on this topic. Return the list of ideas with their paragraphs and your notes.",
-    expected_output="5 bullet points, each with a paragraph and accompanying notes.",
+    description="生成 5 个有趣的文章创意，然后为每个创意写一段引人入胜的段落，以展示该主题的完整文章的潜力。返回包含段落和注释的创意列表。",
+    expected_output="5 个项目符号，每个项目符号都包含一个段落和相应的注释。",
 )
 
-# Define the manager agent
+# 定义经理代理
 manager = Agent(
-    role="Project Manager",
-    goal="Efficiently manage the crew and ensure high-quality task completion",
-    backstory="You're an experienced project manager, skilled in overseeing complex projects and guiding teams to success. Your role is to coordinate the efforts of the crew members, ensuring that each task is completed on time and to the highest standard.",
+    role="项目经理",
+    goal="高效管理团队并确保高质量地完成任务",
+    backstory="您是一位经验丰富的项目经理，擅长监督复杂项目并引导团队取得成功。您的职责是协调团队成员的工作，确保每项任务都按时完成并达到最高标准。",
     allow_delegation=True,
 )
 
-# Instantiate your crew with a custom manager
+# 使用自定义经理实例化您的团队
 crew = Crew(
     agents=[researcher, writer],
     tasks=[task],
@@ -57,19 +57,19 @@ crew = Crew(
     process=Process.hierarchical,
 )
 
-# Start the crew's work
+# 开始团队的工作
 result = crew.kickoff()
 ```
 
-## Benefits of a Custom Manager Agent
+## 自定义经理代理的优势
 
-- **Enhanced Control**: Tailor the management approach to fit the specific needs of your project.
-- **Improved Coordination**: Ensure efficient task coordination and management by an experienced agent.
-- **Customizable Management**: Define managerial roles and responsibilities that align with your project's goals.
+- **增强的控制力**：根据项目的特定需求定制管理方法。
+- **改进的协调性**：确保由经验丰富的代理进行高效的任务协调和管理。
+- **可定制的管理**：定义与项目目标一致的管理角色和职责。
 
-## Setting a Manager LLM
+## 设置经理 LLM
 
-If you're using the hierarchical process and don't want to set a custom manager agent, you can specify the language model for the manager:
+如果您正在使用分层流程并且不想设置自定义经理代理，则可以为经理指定语言模型：
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -84,4 +84,4 @@ crew = Crew(
 )
 ```
 
-Note: Either `manager_agent` or `manager_llm` must be set when using the hierarchical process.
+注意：使用分层流程时，必须设置 `manager_agent` 或 `manager_llm`。

@@ -1,25 +1,25 @@
 ---
-title: Starting a New CrewAI Project
-description: A comprehensive guide to starting a new CrewAI project, including the latest updates and project setup methods.
+title: 启动新的 CrewAI 项目
+description: 启动新的 CrewAI 项目的综合指南，包括最新的更新和项目设置方法。
 ---
 
-# Starting Your CrewAI Project
+# 启动您的 CrewAI 项目
 
-Welcome to the ultimate guide for starting a new CrewAI project. This document will walk you through the steps to create, customize, and run your CrewAI project, ensuring you have everything you need to get started.
+欢迎阅读启动新 CrewAI 项目的终极指南。本文档将指导您完成创建、自定义和运行 CrewAI 项目的步骤，确保您拥有入门所需的一切。
 
-## Prerequisites
+## 先决条件
 
-We assume you have already installed CrewAI. If not, please refer to the [installation guide](https://docs.crewai.com/how-to/Installing-CrewAI/) to install CrewAI and its dependencies.
+我们假设您已经安装了 CrewAI。如果没有，请参阅 [安装指南](https://aithoughts.github.io/aipmAI/how-to/Installing-CrewAI/) 来安装 CrewAI 及其依赖项。
 
-## Creating a New Project
+## 创建新项目
 
-To create a new project, run the following CLI command:
+要创建新项目，请运行以下 CLI 命令：
 
 ```shell
 $ crewai create my_project
 ```
 
-This command will create a new project folder with the following structure:
+此命令将创建一个具有以下结构的新项目文件夹：
 
 ```shell
 my_project/
@@ -39,31 +39,29 @@ my_project/
             └── tasks.yaml
 ```
 
-You can now start developing your project by editing the files in the `src/my_project` folder. The `main.py` file is the entry point of your project, and the `crew.py` file is where you define your agents and tasks.
+您现在可以通过编辑 `src/my_project` 文件夹中的文件来开始开发您的项目。`main.py` 文件是您项目的入口点，`crew.py` 文件是您定义代理和任务的地方。
 
-## Customizing Your Project
+## 自定义您的项目
 
-To customize your project, you can:
-- Modify `src/my_project/config/agents.yaml` to define your agents.
-- Modify `src/my_project/config/tasks.yaml` to define your tasks.
-- Modify `src/my_project/crew.py` to add your own logic, tools, and specific arguments.
-- Modify `src/my_project/main.py` to add custom inputs for your agents and tasks.
-- Add your environment variables into the `.env` file.
+要自定义您的项目，您可以：
+- 修改 `src/my_project/config/agents.yaml` 来定义您的代理。
+- 修改 `src/my_project/config/tasks.yaml` 来定义您的任务。
+- 修改 `src/my_project/crew.py` 以添加您自己的逻辑、工具和特定参数。
+- 修改 `src/my_project/main.py` 以添加代理和任务的自定义输入。
+- 将您的环境变量添加到 `.env` 文件中。
 
-### Example: Defining Agents and Tasks
+### 示例：定义代理和任务
 
 #### agents.yaml
 
 ```yaml
 researcher:
   role: >
-    Job Candidate Researcher
+    求职者研究员
   goal: >
-    Find potential candidates for the job
+    寻找该职位的潜在候选人
   backstory: >
-    You are adept at finding the right candidates by exploring various online
-    resources. Your skill in identifying suitable candidates ensures the best
-    match for job positions.
+    您擅长通过探索各种在线资源来寻找合适的候选人。您识别合适候选人的技能可确保与职位最匹配。
 ```
 
 #### tasks.yaml
@@ -71,19 +69,19 @@ researcher:
 ```yaml
 research_candidates_task:
   description: >
-    Conduct thorough research to find potential candidates for the specified job.
-    Utilize various online resources and databases to gather a comprehensive list of potential candidates.
-    Ensure that the candidates meet the job requirements provided.
+    进行彻底的研究以找到指定职位的潜在候选人。
+    利用各种在线资源和数据库来收集潜在候选人的完整列表。
+    确保候选人符合提供的职位要求。
 
-    Job Requirements:
+    职位要求：
     {job_requirements}
   expected_output: >
-    A list of 10 potential candidates with their contact information and brief profiles highlighting their suitability.
+    包含 10 个潜在候选人的列表，其中包含他们的联系方式和突出显示其适合性的简要资料。
 ```
 
-## Installing Dependencies
+## 安装依赖项
 
-To install the dependencies for your project, you can use Poetry. First, navigate to your project directory:
+要安装项目的依赖项，您可以使用 Poetry。首先，导航到您的项目目录：
 
 ```shell
 $ cd my_project
@@ -91,24 +89,22 @@ $ poetry lock
 $ poetry install
 ```
 
-This will install the dependencies specified in the `pyproject.toml` file.
+这将安装 `pyproject.toml` 文件中指定的依赖项。
 
-## Interpolating Variables
+## 插值变量
 
-Any variable interpolated in your `agents.yaml` and `tasks.yaml` files like `{variable}` will be replaced by the value of the variable in the `main.py` file.
+在您的 `agents.yaml` 和 `tasks.yaml` 文件中插入的任何变量（如 `{variable}`）都将替换为 `main.py` 文件中该变量的值。
 
 #### agents.yaml
 
 ```yaml
 research_task:
   description: >
-    Conduct a thorough research about the customer and competitors in the context
-    of {customer_domain}.
-    Make sure you find any interesting and relevant information given the
-    current year is 2024.
+    在 {customer_domain} 的背景下，对客户和竞争对手进行彻底的研究。
+    确保您找到任何有趣且相关的信息，因为当前年份是 2024 年。
   expected_output: >
-    A complete report on the customer and their customers and competitors,
-    including their demographics, preferences, market positioning and audience engagement.
+    关于客户及其客户和竞争对手的完整报告，
+    包括他们的人口统计、偏好、市场定位和受众参与度。
 ```
 
 #### main.py
@@ -122,16 +118,16 @@ def run():
     MyProjectCrew(inputs).crew().kickoff(inputs=inputs)
 ```
 
-## Running Your Project
+## 运行您的项目
 
-To run your project, use the following command:
+要运行您的项目，请使用以下命令：
 
 ```shell
 $ poetry run my_project
 ```
 
-This will initialize your crew of AI agents and begin task execution as defined in your configuration in the `main.py` file.
+这将初始化您的 AI 代理团队，并开始执行 `main.py` 文件中配置中定义的任务。
 
-## Deploying Your Project
+## 部署您的项目
 
-The easiest way to deploy your crew is through [CrewAI+](https://www.crewai.com/crewaiplus), where you can deploy your crew in a few clicks.
+部署您的团队的最简单方法是通过 [CrewAI+](https://www.crewai.com/crewaiplus)，您只需点击几下即可部署您的团队。

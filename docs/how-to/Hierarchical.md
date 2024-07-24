@@ -1,68 +1,68 @@
 ---
-title: Implementing the Hierarchical Process in CrewAI
-description: A comprehensive guide to understanding and applying the hierarchical process within your CrewAI projects, updated to reflect the latest coding practices and functionalities.
+title: 在 CrewAI 中实现分层流程
+description: 全面了解和应用 CrewAI 项目中的分层流程的指南，已更新以反映最新的编码实践和功能。
 ---
 
-## Introduction
-The hierarchical process in CrewAI introduces a structured approach to task management, simulating traditional organizational hierarchies for efficient task delegation and execution. This systematic workflow enhances project outcomes by ensuring tasks are handled with optimal efficiency and accuracy.
+## 简介
+CrewAI 中的分层流程引入了一种结构化的任务管理方法，模拟了传统组织层级结构，以实现高效的任务委派和执行。这种系统化的工作流程通过确保以最佳效率和准确性处理任务来增强项目成果。
 
-!!! note "Complexity and Efficiency"
-    The hierarchical process is designed to leverage advanced models like GPT-4, optimizing token usage while handling complex tasks with greater efficiency.
+!!! note "复杂性和效率"
+    分层流程旨在利用 GPT-4 等高级模型，在处理复杂任务时优化令牌使用，同时提高效率。
 
-## Hierarchical Process Overview
-By default, tasks in CrewAI are managed through a sequential process. However, adopting a hierarchical approach allows for a clear hierarchy in task management, where a 'manager' agent coordinates the workflow, delegates tasks, and validates outcomes for streamlined and effective execution. This manager agent can now be either automatically created by CrewAI or explicitly set by the user.
+## 分层流程概述
+默认情况下，CrewAI 中的任务是通过顺序流程管理的。但是，采用分层方法可以在任务管理中实现清晰的层级结构，其中“经理”代理协调工作流程、委派任务并验证结果，以实现简化和有效的执行。该经理代理现在可以由 CrewAI 自动创建，也可以由用户明确设置。
 
-### Key Features
-- **Task Delegation**: A manager agent allocates tasks among crew members based on their roles and capabilities.
-- **Result Validation**: The manager evaluates outcomes to ensure they meet the required standards.
-- **Efficient Workflow**: Emulates corporate structures, providing an organized approach to task management.
+### 主要特点
+- **任务委派**：经理代理根据团队成员的角色和能力分配任务。
+- **结果验证**：经理评估结果以确保其符合要求的标准。
+- **高效的工作流程**：模拟企业结构，提供有条理的任务管理方法。
 
-## Implementing the Hierarchical Process
-To utilize the hierarchical process, it's essential to explicitly set the process attribute to `Process.hierarchical`, as the default behavior is `Process.sequential`. Define a crew with a designated manager and establish a clear chain of command.
+## 实施分层流程
+要利用分层流程，必须将流程属性明确设置为 `Process.hierarchical`，因为默认行为是 `Process.sequential`。定义一个具有指定经理的团队，并建立清晰的指挥链。
 
-!!! note "Tools and Agent Assignment"
-    Assign tools at the agent level to facilitate task delegation and execution by the designated agents under the manager's guidance. Tools can also be specified at the task level for precise control over tool availability during task execution.
+!!! note "工具和代理分配"
+    在代理级别分配工具，以方便在经理的指导下由指定的代理执行任务委派和执行。还可以在任务级别指定工具，以便在任务执行期间精确控制工具的可用性。
 
-!!! note "Manager LLM Requirement"
-    Configuring the `manager_llm` parameter is crucial for the hierarchical process. The system requires a manager LLM to be set up for proper function, ensuring tailored decision-making.
+!!! note "经理 LLM 要求"
+    配置 `manager_llm` 参数对于分层流程至关重要。系统需要设置经理 LLM 才能正常运行，确保量身定制的决策。
 
 ```python
 from langchain_openai import ChatOpenAI
 from crewai import Crew, Process, Agent
 
-# Agents are defined with attributes for backstory, cache, and verbose mode
+# 使用背景故事、缓存和详细模式的属性定义代理
 researcher = Agent(
-    role='Researcher',
-    goal='Conduct in-depth analysis',
-    backstory='Experienced data analyst with a knack for uncovering hidden trends.',
+    role='研究员',
+    goal='进行深入分析',
+    backstory='经验丰富的数据分析师，善于发现隐藏趋势。',
     cache=True,
     verbose=False,
-    # tools=[]  # This can be optionally specified; defaults to an empty list
+    # tools=[]  # 可以选择指定；默认为空列表
 )
 writer = Agent(
-    role='Writer',
-    goal='Create engaging content',
-    backstory='Creative writer passionate about storytelling in technical domains.',
+    role='作家',
+    goal='创建引人入胜的内容',
+    backstory='富有创造力的作家，热衷于在技术领域讲故事。',
     cache=True,
     verbose=False,
-    # tools=[]  # Optionally specify tools; defaults to an empty list
+    # tools=[]  # 可选择指定工具；默认为空列表
 )
 
-# Establishing the crew with a hierarchical process and additional configurations
+# 建立具有分层流程和附加配置的团队
 project_crew = Crew(
-    tasks=[...],  # Tasks to be delegated and executed under the manager's supervision
+    tasks=[...],  # 在经理的监督下委派和执行的任务
     agents=[researcher, writer],
-    manager_llm=ChatOpenAI(temperature=0, model="gpt-4"),  # Mandatory if manager_agent is not set
-    process=Process.hierarchical,  # Specifies the hierarchical management approach
-    memory=True,  # Enable memory usage for enhanced task execution
-    manager_agent=None,  # Optional: explicitly set a specific agent as manager instead of the manager_llm
+    manager_llm=ChatOpenAI(temperature=0, model="gpt-4"),  # 如果未设置 manager_agent，则为必填项
+    process=Process.hierarchical,  # 指定分层管理方法
+    memory=True,  # 启用内存使用以增强任务执行
+    manager_agent=None,  # 可选：明确设置特定代理作为经理，而不是 manager_llm
 )
 ```
 
-### Workflow in Action
-1. **Task Assignment**: The manager assigns tasks strategically, considering each agent's capabilities and available tools.
-2. **Execution and Review**: Agents complete their tasks with the option for asynchronous execution and callback functions for streamlined workflows.
-3. **Sequential Task Progression**: Despite being a hierarchical process, tasks follow a logical order for smooth progression, facilitated by the manager's oversight.
+### 工作流程实际应用
+1. **任务分配**：经理从战略上分配任务，同时考虑每个代理的能力和可用工具。
+2. **执行和审查**：代理完成其任务，可以选择异步执行和回调函数以简化工作流程。
+3. **顺序任务进展**：尽管是一个分层流程，但任务遵循逻辑顺序以顺利进行，并由经理进行监督。
 
-## Conclusion
-Adopting the hierarchical process in CrewAI, with the correct configurations and understanding of the system's capabilities, facilitates an organized and efficient approach to project management. Utilize the advanced features and customizations to tailor the workflow to your specific needs, ensuring optimal task execution and project success.
+## 结论
+在 CrewAI 中采用分层流程，并进行正确的配置和理解系统的能力，可以促进有条理和高效的项目管理方法。利用高级功能和自定义项根据您的特定需求定制工作流程，确保最佳的任务执行和项目成功。

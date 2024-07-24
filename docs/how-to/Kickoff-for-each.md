@@ -1,34 +1,34 @@
 ---
-title: Kickoff For Each
-description: Kickoff a Crew for a List
+title: 为每个项目启动
+description: 为列表中的每个项目启动 Crew
 ---
 
-## Introduction
-CrewAI provides the ability to kickoff a crew for each item in a list, allowing you to execute the crew for each item in the list. This feature is particularly useful when you need to perform the same set of tasks for multiple items.
+## 简介
+CrewAI 提供了为列表中的每个项目启动 Crew 的能力，允许您为列表中的每个项目执行 Crew。当您需要对多个项目执行相同的任务集时，此功能特别有用。
 
-## Kicking Off a Crew for Each Item
-To kickoff a crew for each item in a list, use the `kickoff_for_each()` method. This method executes the crew for each item in the list, allowing you to process multiple items efficiently.
+## 为每个项目启动 Crew
+要为列表中的每个项目启动 Crew，请使用 `kickoff_for_each()` 方法。此方法将为列表中的每个项目执行 Crew，从而允许您高效地处理多个项目。
 
-Here's an example of how to kickoff a crew for each item in a list:
+以下是如何为列表中的每个项目启动 Crew 的示例：
 
 ```python
 from crewai import Crew, Agent, Task
 
-# Create an agent with code execution enabled
+# 创建启用了代码执行的代理
 coding_agent = Agent(
-    role="Python Data Analyst",
-    goal="Analyze data and provide insights using Python",
-    backstory="You are an experienced data analyst with strong Python skills.",
+    role="Python 数据分析师",
+    goal="使用 Python 分析数据并提供见解",
+    backstory="你是一位经验丰富的数据分析师，拥有强大的 Python 技能。",
     allow_code_execution=True
 )
 
-# Create a task that requires code execution
+# 创建需要执行代码的任务
 data_analysis_task = Task(
-    description="Analyze the given dataset and calculate the average age of participants. Ages: {ages}",
+    description="分析给定的数据集并计算参与者的平均年龄。年龄：{ages}",
     agent=coding_agent
 )
 
-# Create a crew and add the task
+# 创建一个团队并添加任务
 analysis_crew = Crew(
     agents=[coding_agent],
     tasks=[data_analysis_task]
@@ -40,6 +40,6 @@ datasets = [
   { "ages": [30, 35, 40, 45, 50] }
 ]
 
-# Execute the crew
+# 执行团队
 result = analysis_crew.kickoff_for_each(inputs=datasets)
 ```

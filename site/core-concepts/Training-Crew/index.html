@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Learn how to train your crewAI agents by giving them feedback early on and get consistent results.">
+        <meta name="description" content="了解如何通过尽早提供反馈来训练您的 crewAI 代理，并获得一致的结果。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>crewAI Train - aipmAI 文档</title>
+        <title>crewAI 训练 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              crewAI Train
+              crewAI 训练
             
           </span>
         </div>
@@ -570,37 +570,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      简介
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
+    <nav class="md-nav" aria-label="简介">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#training-your-crew-using-the-cli" class="md-nav__link">
+  <a href="#cli-crew" class="md-nav__link">
     <span class="md-ellipsis">
-      Training Your Crew Using the CLI
+      使用 CLI 训练您的 Crew
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#training-your-crew-programmatically" class="md-nav__link">
+  <a href="#crew" class="md-nav__link">
     <span class="md-ellipsis">
-      Training Your Crew Programmatically
+      以编程方式训练您的 Crew
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#key-points-to-note" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Points to Note:
+      需要注意的关键点：
     </span>
   </a>
   
@@ -1091,7 +1091,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1802,7 +1802,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1812,7 +1812,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1977,26 +1977,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2043,24 +2023,24 @@
 
   <h1>训练</h1>
 
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>The training feature in CrewAI allows you to train your AI agents using the command-line interface (CLI). By running the command <code>crewai train -n &lt;n_iterations&gt;</code>, you can specify the number of iterations for the training process.</p>
-<p>During training, CrewAI utilizes techniques to optimize the performance of your agents along with human feedback. This helps the agents improve their understanding, decision-making, and problem-solving abilities.</p>
-<h3 id="training-your-crew-using-the-cli">Training Your Crew Using the CLI<a class="headerlink" href="#training-your-crew-using-the-cli" title="Permanent link">&para;</a></h3>
-<p>To use the training feature, follow these steps:</p>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>CrewAI 中的训练功能允许您使用命令行界面 (CLI) 训练您的 AI 代理。通过运行命令 <code>crewai train -n &lt;n_iterations&gt;</code>，您可以指定训练过程的迭代次数。</p>
+<p>在训练期间，CrewAI 利用各种技术来优化您的代理的性能以及人类反馈。这有助于代理提高他们的理解力、决策能力和解决问题的能力。</p>
+<h3 id="cli-crew">使用 CLI 训练您的 Crew<a class="headerlink" href="#cli-crew" title="Permanent link">&para;</a></h3>
+<p>要使用训练功能，请按照以下步骤操作：</p>
 <ol>
-<li>Open your terminal or command prompt.</li>
-<li>Navigate to the directory where your CrewAI project is located.</li>
-<li>Run the following command:</li>
+<li>打开您的终端或命令提示符。</li>
+<li>导航到您的 CrewAI 项目所在的目录。</li>
+<li>运行以下命令：</li>
 </ol>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>crewai<span class="w"> </span>train<span class="w"> </span>-n<span class="w"> </span>&lt;n_iterations&gt;
 </span></code></pre></div>
-<h3 id="training-your-crew-programmatically">Training Your Crew Programmatically<a class="headerlink" href="#training-your-crew-programmatically" title="Permanent link">&para;</a></h3>
-<p>To train your crew programmatically, use the following steps:</p>
+<h3 id="crew">以编程方式训练您的 Crew<a class="headerlink" href="#crew" title="Permanent link">&para;</a></h3>
+<p>要以编程方式训练您的 crew，请使用以下步骤：</p>
 <ol>
-<li>Define the number of iterations for training.</li>
-<li>Specify the input parameters for the training process.</li>
-<li>Execute the training command within a try-except block to handle potential errors.</li>
+<li>定义训练的迭代次数。</li>
+<li>指定训练过程的输入参数。</li>
+<li>在 try-except 块中执行训练命令以处理潜在的错误。</li>
 </ol>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    <span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">2</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;CrewAI Training&quot;</span><span class="p">}</span>
@@ -2072,17 +2052,17 @@
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while training the crew: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Replace <code>&lt;n_iterations&gt;</code> with the desired number of training iterations. This determines how many times the agents will go through the training process.</p>
+<p class="admonition-title">将 <code>&lt;n_iterations&gt;</code> 替换为所需的训练迭代次数。这决定了代理将经历多少次训练过程。</p>
 </div>
-<h3 id="key-points-to-note">Key Points to Note:<a class="headerlink" href="#key-points-to-note" title="Permanent link">&para;</a></h3>
+<h3 id="_2">需要注意的关键点：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Positive Integer Requirement:</strong> Ensure that the number of iterations (<code>n_iterations</code>) is a positive integer. The code will raise a <code>ValueError</code> if this condition is not met.</li>
-<li><strong>Error Handling:</strong> The code handles subprocess errors and unexpected exceptions, providing error messages to the user.</li>
+<li><strong>正整数要求：</strong> 确保迭代次数 (<code>n_iterations</code>) 是一个正整数。如果不满足此条件，代码将引发 <code>ValueError</code>。</li>
+<li><strong>错误处理：</strong> 代码处理子进程错误和意外异常，向用户提供错误消息。</li>
 </ul>
-<p>It is important to note that the training process may take some time, depending on the complexity of your agents and will also require your feedback on each iteration.</p>
-<p>Once the training is complete, your agents will be equipped with enhanced capabilities and knowledge, ready to tackle complex tasks and provide more consistent and valuable insights.</p>
-<p>Remember to regularly update and retrain your agents to ensure they stay up-to-date with the latest information and advancements in the field.</p>
-<p>Happy training with CrewAI!</p>
+<p>需要注意的是，训练过程可能需要一些时间，具体取决于您的代理的复杂性，并且还需要您在每次迭代中提供反馈。</p>
+<p>训练完成后，您的代理将具备增强的能力和知识，准备好应对复杂的任务并提供更加一致和有价值的见解。</p>
+<p>请记住定期更新和重新训练您的代理，以确保它们与该领域的最新信息和进步保持同步。</p>
+<p>祝您在 CrewAI 中训练愉快！</p>
 
 
 

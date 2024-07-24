@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Replay tasks from the latest crew.kickoff(...)">
+        <meta name="description" content="从最近一次 crew.kickoff(...) 中重放任务">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Replay Tasks from Latest Crew Kickoff - aipmAI 文档</title>
+        <title>从最近一次 Crew 启动中重放任务 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Replay Tasks from Latest Crew Kickoff
+              从最近一次 Crew 启动中重放任务
             
           </span>
         </div>
@@ -1013,7 +1013,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1072,37 +1072,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      简介
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Note:
+      注意
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Note:">
+    <nav class="md-nav" aria-label="注意">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#replaying-from-specific-task-using-the-cli" class="md-nav__link">
+  <a href="#cli" class="md-nav__link">
     <span class="md-ellipsis">
-      Replaying from specific task Using the CLI
+      使用 CLI 从特定任务开始重放
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#replaying-from-a-task-programmatically" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Replaying from a task Programmatically
+      以编程方式从任务开始重放
     </span>
   </a>
   
@@ -1802,7 +1802,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1812,7 +1812,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1977,26 +1977,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2043,42 +2023,42 @@
 
   <h1>从启动中的特定任务重放</h1>
 
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>CrewAI provides the ability to replay from a task specified from the latest crew kickoff. This feature is particularly useful when you've finished a kickoff and may want to retry certain tasks or don't need to refetch data over and your agents already have the context saved from the kickoff execution so you just need to replay the tasks you want to.</p>
-<h2 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
-<p>You must run <code>crew.kickoff()</code> before you can replay a task. Currently, only the latest kickoff is supported, so if you use <code>kickoff_for_each</code>, it will only allow you to replay from the most recent crew run.</p>
-<p>Here's an example of how to replay from a task:</p>
-<h3 id="replaying-from-specific-task-using-the-cli">Replaying from specific task Using the CLI<a class="headerlink" href="#replaying-from-specific-task-using-the-cli" title="Permanent link">&para;</a></h3>
-<p>To use the replay feature, follow these steps:</p>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>CrewAI 提供了从最近一次 Crew 启动中指定的任务开始重放的功能。当您完成一次启动后，可能希望重试某些任务，或者不需要重新获取数据，并且您的代理已经从启动执行中保存了上下文，您只需要重放所需的任务时，此功能特别有用。</p>
+<h2 id="_2">注意<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>您必须先运行 <code>crew.kickoff()</code>，然后才能重放任务。目前，仅支持最近一次启动，因此如果您使用 <code>kickoff_for_each</code>，它将只允许您从最近一次 Crew 运行中重放。</p>
+<p>以下是重放任务的示例：</p>
+<h3 id="cli">使用 CLI 从特定任务开始重放<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
+<p>要使用重放功能，请执行以下步骤：</p>
 <ol>
-<li>Open your terminal or command prompt.</li>
-<li>Navigate to the directory where your CrewAI project is located.</li>
-<li>Run the following command:</li>
+<li>打开您的终端或命令提示符。</li>
+<li>导航到您的 CrewAI 项目所在的目录。</li>
+<li>运行以下命令：</li>
 </ol>
-<p>To view latest kickoff task_ids use:
+<p>要查看最近一次启动的 task_id，请使用：
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>crewai<span class="w"> </span>log-tasks-outputs
 </span></code></pre></div></p>
-<p>Once you have your task_id to replay from use:
+<p>获得要重放的 task_id 后，请使用：
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>crewai<span class="w"> </span>replay<span class="w"> </span>-t<span class="w"> </span>&lt;task_id&gt;
 </span></code></pre></div></p>
-<h3 id="replaying-from-a-task-programmatically">Replaying from a task Programmatically<a class="headerlink" href="#replaying-from-a-task-programmatically" title="Permanent link">&para;</a></h3>
-<p>To replay from a task programmatically, use the following steps:</p>
+<h3 id="_3">以编程方式从任务开始重放<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>要以编程方式从任务开始重放，请使用以下步骤：</p>
 <ol>
-<li>Specify the task_id and input parameters for the replay process.</li>
-<li>Execute the replay command within a try-except block to handle potential errors.</li>
+<li>为重放过程指定 task_id 和输入参数。</li>
+<li>在 try-except 块中执行 replay 命令以处理潜在的错误。</li>
 </ol>
-<p>```python
-   def replay_from_task():
-    """
-    Replay the crew execution from a specific task.
-    """
-    task_id = '<task_id>'
-    inputs = {"topic": "CrewAI Training"} # this is optional, you can pass in the inputs you want to replay otherwise uses the previous kickoffs inputs
-    try:
-        YourCrewName_Crew().crew().replay_from_task(task_id=task_id, inputs=inputs)</p>
-<div class="language-text highlight"><pre><span></span><code>except Exception as e:
-    raise Exception(f&quot;An error occurred while replaying the crew: {e}&quot;)
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>   <span class="k">def</span> <span class="nf">replay_from_task</span><span class="p">():</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">    从特定任务开始重放 Crew 执行。</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">task_id</span> <span class="o">=</span> <span class="s1">&#39;&lt;task_id&gt;&#39;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;CrewAI Training&quot;</span><span class="p">}</span> <span class="c1"># 这是可选的，您可以传入要重放的输入，否则将使用先前启动的输入</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">YourCrewName_Crew</span><span class="p">()</span><span class="o">.</span><span class="n">crew</span><span class="p">()</span><span class="o">.</span><span class="n">replay_from_task</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="n">task_id</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;重放 Crew 时发生错误：</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 
 
 
@@ -2121,7 +2101,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../Kickoff-for-each/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 为列表启动团队">
+          <a href="../Kickoff-for-each/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 列表启动团队">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2131,7 +2111,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                为列表启动团队
+                列表启动团队
               </div>
             </div>
           </a>

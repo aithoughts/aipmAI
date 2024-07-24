@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Understanding and logging your agent performance with AgentOps.">
+        <meta name="description" content="使用 AgentOps 了解和记录您的代理性能。">
       
       
         <meta name="author" content="aipmAI, 觅识🌿">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Agent Monitoring with AgentOps - aipmAI 文档</title>
+        <title>使用 AgentOps 进行代理监控 - aipmAI 文档</title>
       
     
     
@@ -133,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#intro" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Agent Monitoring with AgentOps
+              使用 AgentOps 进行代理监控
             
           </span>
         </div>
@@ -1013,7 +1013,7 @@
         
   
   <span class="md-ellipsis">
-    为列表启动团队
+    列表启动团队
   </span>
   
 
@@ -1128,55 +1128,55 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      概述
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+      特性
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-agentops" class="md-nav__link">
+  <a href="#agentops_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Using AgentOps
+      使用 AgentOps
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#crew-agentops-examples" class="md-nav__link">
+  <a href="#crew-agentops" class="md-nav__link">
     <span class="md-ellipsis">
-      Crew + AgentOps Examples
+      Crew + AgentOps 示例
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#further-information" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Further Information
+      更多信息
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Further Information">
+    <nav class="md-nav" aria-label="更多信息">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#extra-links" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Extra links
+      其他链接
     </span>
   </a>
   
@@ -1839,7 +1839,7 @@
             
   
   <span class="md-ellipsis">
-    示例
+    aipmAI 示例
   </span>
   
 
@@ -1849,7 +1849,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            示例
+            aipmAI 示例
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2014,26 +2014,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../telemetry/Telemetry/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    数据遥测
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="https://github.com/aithoughts/aipmAI/releases" class="md-nav__link">
         
   
@@ -2078,74 +2058,74 @@
   
 
 
-<h1 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h1>
-<p>Observability is a key aspect of developing and deploying conversational AI agents. It allows developers to understand how their agents are performing, how their agents are interacting with users, and how their agents use external tools and APIs. AgentOps is a product independent of CrewAI that provides a comprehensive observability solution for agents.</p>
+<h1 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>可观察性是开发和部署对话式 AI 代理的一个关键方面。它允许开发人员了解其代理的执行情况、代理与用户的交互方式以及代理如何使用外部工具和 API。AgentOps 是一款独立于 CrewAI 的产品，为代理提供了全面的可观察性解决方案。</p>
 <h2 id="agentops">AgentOps<a class="headerlink" href="#agentops" title="Permanent link">&para;</a></h2>
-<p><a href="https://agentops.ai/?=crew">AgentOps</a> provides session replays, metrics, and monitoring for agents.</p>
-<p>At a high level, AgentOps gives you the ability to monitor cost, token usage, latency, agent failures, session-wide statistics, and more. For more info, check out the <a href="https://github.com/AgentOps-AI/agentops">AgentOps Repo</a>.</p>
-<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
-<p>AgentOps provides monitoring for agents in development and production. It provides a dashboard for tracking agent performance, session replays, and custom reporting.</p>
-<p>Additionally, AgentOps provides session drilldowns for viewing Crew agent interactions, LLM calls, and tool usage in real-time. This feature is useful for debugging and understanding how agents interact with users as well as other agents.</p>
-<p><img alt="Overview of a select series of agent session runs" src="../../assets/agentops-overview.png" />
-<img alt="Overview of session drilldowns for examining agent runs" src="../../assets/agentops-session.png" />
-<img alt="Viewing a step-by-step agent replay execution graph" src="../../assets/agentops-replay.png" /></p>
-<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<p><a href="https://agentops.ai/?=aipm">AgentOps</a> 为代理提供会话回放、指标和监控。</p>
+<p>在较高的层次上，AgentOps 使您能够监控成本、令牌使用情况、延迟、代理故障、会话范围的统计数据等。有关更多信息，请查看 <a href="https://github.com/AgentOps-AI/agentops">AgentOps 仓库</a>。</p>
+<h3 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>AgentOps 提供对开发和生产环境中代理的监控。它提供了一个用于跟踪代理性能、会话回放和自定义报告的仪表板。</p>
+<p>此外，AgentOps 还提供会话钻取功能，用于实时查看 Crew 代理交互、LLM 调用和工具使用情况。此功能对于调试和了解代理如何与用户以及其他代理交互非常有用。</p>
+<p><img alt="一系列选定代理会话运行的概述" src="../../assets/agentops-overview.png" />
+<img alt="用于检查代理运行的会话钻取的概述" src="../../assets/agentops-session.png" />
+<img alt="查看逐步代理回放执行图" src="../../assets/agentops-replay.png" /></p>
+<h3 id="_3">特性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>LLM Cost Management and Tracking</strong>: Track spend with foundation model providers.</li>
-<li><strong>Replay Analytics</strong>: Watch step-by-step agent execution graphs.</li>
-<li><strong>Recursive Thought Detection</strong>: Identify when agents fall into infinite loops.</li>
-<li><strong>Custom Reporting</strong>: Create custom analytics on agent performance.</li>
-<li><strong>Analytics Dashboard</strong>: Monitor high-level statistics about agents in development and production.</li>
-<li><strong>Public Model Testing</strong>: Test your agents against benchmarks and leaderboards.</li>
-<li><strong>Custom Tests</strong>: Run your agents against domain-specific tests.</li>
-<li><strong>Time Travel Debugging</strong>: Restart your sessions from checkpoints.</li>
-<li><strong>Compliance and Security</strong>: Create audit logs and detect potential threats such as profanity and PII leaks.</li>
-<li><strong>Prompt Injection Detection</strong>: Identify potential code injection and secret leaks.</li>
+<li><strong>LLM 成本管理和跟踪</strong>：跟踪与基础模型提供商的支出。</li>
+<li><strong>回放分析</strong>：观看逐步代理执行图。</li>
+<li><strong>递归思维检测</strong>：识别代理何时陷入无限循环。</li>
+<li><strong>自定义报告</strong>：创建有关代理性能的自定义分析。</li>
+<li><strong>分析仪表板</strong>：监控有关开发和生产环境中代理的高级统计信息。</li>
+<li><strong>公共模型测试</strong>：根据基准和排行榜测试您的代理。</li>
+<li><strong>自定义测试</strong>：针对特定领域的测试运行您的代理。</li>
+<li><strong>时间旅行调试</strong>：从检查点重新启动您的会话。</li>
+<li><strong>合规性和安全性</strong>：创建审计日志并检测潜在威胁，例如亵渎和 PII 泄露。</li>
+<li><strong>提示注入检测</strong>：识别潜在的代码注入和秘密泄露。</li>
 </ul>
-<h3 id="using-agentops">Using AgentOps<a class="headerlink" href="#using-agentops" title="Permanent link">&para;</a></h3>
+<h3 id="agentops_1">使用 AgentOps<a class="headerlink" href="#agentops_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Create an API Key:</strong>
-   Create a user API key here: <a href="https://app.agentops.ai/account">Create API Key</a></p>
+<p><strong>创建 API 密钥：</strong>
+   在此处创建用户 API 密钥：<a href="https://app.agentops.ai/account">创建 API 密钥</a></p>
 </li>
 <li>
-<p><strong>Configure Your Environment:</strong>
-   Add your API key to your environment variables</p>
+<p><strong>配置您的环境：</strong>
+   将您的 API 密钥添加到您的环境变量中</p>
 </li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">AGENTOPS_API_KEY</span><span class="o">=</span>&lt;YOUR_AGENTOPS_API_KEY&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">AGENTOPS_API_KEY</span><span class="o">=</span>&lt;您的<span class="w"> </span>AGENTOPS<span class="w"> </span>API<span class="w"> </span>密钥&gt;
 </span></code></pre></div>
 <ol>
-<li><strong>Install AgentOps:</strong>
-   Install AgentOps with:
+<li><strong>安装 AgentOps：</strong>
+   使用以下命令安装 AgentOps：
    <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>crewai<span class="o">[</span>agentops<span class="o">]</span>
 </span></code></pre></div>
-   or
+   或
    <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>agentops
 </span></code></pre></div></li>
 </ol>
-<p>Before using <code>Crew</code> in your script, include these lines:</p>
+<p>在您的脚本中使用 <code>Crew</code> 之前，请包含以下行：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">agentops</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">agentops</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 </span></code></pre></div>
-<p>This will initiate an AgentOps session as well as automatically track Crew agents. For further info on how to outfit more complex agentic systems, check out the <a href="https://docs.agentops.ai">AgentOps documentation</a> or join the <a href="https://discord.gg/j4f3KbeH">Discord</a>.</p>
-<h3 id="crew-agentops-examples">Crew + AgentOps Examples<a class="headerlink" href="#crew-agentops-examples" title="Permanent link">&para;</a></h3>
+<p>这将启动 AgentOps 会话并自动跟踪 Crew 代理。有关如何配置更复杂的代理系统的更多信息，请查看 <a href="https://docs.agentops.ai">AgentOps 文档</a> 或加入 <a href="https://discord.gg/j4f3KbeH">Discord</a>。</p>
+<h3 id="crew-agentops">Crew + AgentOps 示例<a class="headerlink" href="#crew-agentops" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://github.com/aithoughts/aipmAI-examples/tree/main/job-posting">Job Posting</a></li>
-<li><a href="https://github.com/aithoughts/aipmAI-examples/tree/main/markdown_validator">Markdown Validator</a></li>
-<li><a href="https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post">Instagram Post</a></li>
+<li><a href="https://github.com/aithoughts/aipmAI-examples/tree/main/job-posting">职位发布</a></li>
+<li><a href="https://github.com/aithoughts/aipmAI-examples/tree/main/markdown_validator">Markdown 验证器</a></li>
+<li><a href="https://github.com/aithoughts/aipmAI-examples/tree/main/instagram_post">Instagram 帖子</a></li>
 </ul>
-<h3 id="further-information">Further Information<a class="headerlink" href="#further-information" title="Permanent link">&para;</a></h3>
-<p>To get started, create an <a href="https://agentops.ai/?=crew">AgentOps account</a>.</p>
-<p>For feature requests or bug reports, please reach out to the AgentOps team on the <a href="https://github.com/AgentOps-AI/agentops">AgentOps Repo</a>.</p>
-<h4 id="extra-links">Extra links<a class="headerlink" href="#extra-links" title="Permanent link">&para;</a></h4>
+<h3 id="_4">更多信息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>要开始使用，请创建一个 <a href="https://agentops.ai/?=aipm">AgentOps 帐户</a>。</p>
+<p>有关功能请求或错误报告，请在 <a href="https://github.com/AgentOps-AI/agentops">AgentOps 仓库</a> 上联系 AgentOps 团队。</p>
+<h4 id="_5">其他链接<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p><a href="https://twitter.com/agentopsai/">🐦 Twitter</a>
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 <a href="https://discord.gg/JHPt4C7r">📢 Discord</a>
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://app.agentops.ai/?=crew">🖇️ AgentOps Dashboard</a>
+<a href="https://app.agentops.ai/?=aipm">🖇️ AgentOps 仪表板</a>
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://docs.agentops.ai/introduction">📙 Documentation</a></p>
+<a href="https://docs.agentops.ai/introduction">📙 文档</a></p>
 
 
 
