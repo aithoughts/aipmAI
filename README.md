@@ -8,7 +8,7 @@
 
 <h3>
 
-[主页](https://www.theforage.cn/) | [aipmAI - crewAI 中文解决方案](https://aipm-docs.theforage.cn/) | [与文档聊天](https://chatg.pt/DWjSBZn) | [示例](https://github.com/aithoughts/aipmAI-examples) | [Discord](https://discord.com/invite/X4JWnZnxPb)
+[主页](https://www.theforage.cn/) | [aipmAI - crewAI 中文解决方案](https://aithoughts.github.io/aipmAI) | [与文档聊天](https://chatg.pt/DWjSBZn) | [示例](https://github.com/aithoughts/aipmAI-examples) | [Discord](https://discord.com/invite/X4JWnZnxPb)
 
 </h3>
 
